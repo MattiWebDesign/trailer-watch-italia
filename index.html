@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trailer Watch Italia</title>
+<style>
+:root{--bg:#0d1117;--card:#161b22;--text:#e6edf3;--muted:#8b949e;--accent:#58a6ff;--border:#30363d;}
+@media (prefers-color-scheme: light){:root{--bg:#f6f8fa;--card:#ffffff;--text:#1f2328;--muted:#57606a;--accent:#0969da;--border:#d0d7de;}}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+.wrap{max-width:920px;margin:0 auto;padding:32px 20px 80px;}
+header{margin-bottom:28px;}
+h1{font-size:1.6rem;margin:0 0 6px;}
+.sub{color:var(--muted);font-size:0.9rem;}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;}
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;display:flex;flex-direction:column;text-decoration:none;color:inherit;transition:transform .15s ease,border-color .15s ease;}
+.card:hover{transform:translateY(-2px);border-color:var(--accent);}
+.thumb{width:100%;aspect-ratio:16/9;object-fit:cover;background:var(--border);display:block;}
+.card-body{padding:12px 14px 14px;}
+.badge{display:inline-block;font-size:0.72rem;font-weight:600;color:var(--accent);background:rgba(88,166,255,0.12);padding:2px 8px;border-radius:999px;margin-bottom:8px;}
+.card-title{font-size:0.95rem;line-height:1.35;margin:0 0 6px;}
+.card-date{color:var(--muted);font-size:0.78rem;}
+.empty{color:var(--muted);padding:40px 0;text-align:center;}
+footer{margin-top:40px;color:var(--muted);font-size:0.78rem;text-align:center;}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<h1>Trailer Watch Italia</h1>
+<div class="sub" id="updated">Caricamento...</div>
+</header>
+<div id="content"><div class="empty">Caricamento trailer...</div></div>
+<footer>Aggiornato automaticamente ogni giorno &middot; Netflix, HBO Max, Prime Video, Paramount+, Disney+, Warner Bros. Italia</footer>
+</div>
+<script>
+function escapeHtml(s){return (s||"").replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c];});}
+function fmtDate(iso){try{var d=new Date(iso);return d.toLocaleDateString("it-IT",{day:"numeric",month:"long",year:"numeric"});}catch(e){return "";}}
+fetch("./data.json?_=" + Date.now()).then(function(r){return r.json();}).then(function(data){
+var updatedEl = document.getElementById("updated");
+var contentEl = document.getElementById("content");
+if(data.updated_at){updatedEl.textContent = "Ultimo controllo: " + fmtDate(data.updated_at);}else{updatedEl.textContent = "Ancora nessun controllo eseguito.";}
+var trailers = data.trailers || [];
+if(trailers.length === 0){contentEl.innerHTML = "<div class=\"empty\">Nessun trailer trovato per ora. Torna a controllare pi\u00f9 tardi.</div>";return;}
+var html = "<div class=\"grid\">";
+trailers.forEach(function(t){
+html += "<a class=\"card\" href=\"" + t.url + "\" target=\"_blank\" rel=\"noopener\">";
+html += "<img class=\"thumb\" loading=\"lazy\" src=\"https://img.youtube.com/vi/" + t.id + "/hqdefault.jpg\" alt=\"\">";
+html += "<div class=\"card-body\">";
+html += "<span class=\"badge\">" + escapeHtml(t.channel) + "</span>";
+html += "<p class=\"card-title\">" + escapeHtml(t.title) + "</p>";
+html += "<div class=\"card-date\">" + fmtDate(t.published) + "</div>";
+html += "</div></a>";
+});
+html += "</div>";
+contentEl.innerHTML = html;
+}).catch(function(err){
+document.getElementById("updated").textContent = "Errore nel caricamento dei dati.";
+document.getElementById("content").innerHTML = "<div class=\"empty\">Impossibile caricare data.json</div>";
+});
+</script>
+</body>
+</html>
