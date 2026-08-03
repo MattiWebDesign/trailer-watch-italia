@@ -1,0 +1,6 @@
+# file temporaneo prodotto da scripts/check_trailers.py per le notifiche
+new_trailers.json
+
+__pycache__/
+*.pyc
+.DS_Store

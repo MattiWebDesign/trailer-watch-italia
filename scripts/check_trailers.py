@@ -1,6 +1,12 @@
 #!/usr/bin/env python3
-"""Cerca nuovi trailer sui canali YouTube ufficiali via RSS e aggiorna data.json."""
+"""Cerca nuovi trailer sui canali YouTube ufficiali via RSS e aggiorna data.json.
+
+Oltre a data.json/seen_ids.json scrive new_trailers.json (file temporaneo, non
+versionato) con i soli trailer trovati in questa esecuzione: lo usa
+scripts/notify_telegram.py per mandare le notifiche.
+"""
 import json
+import os
 import re
 import sys
 import urllib.request
@@ -11,6 +17,7 @@ from xml.etree import ElementTree
 ROOT = Path(__file__).resolve().parent.parent
 DATA_FILE = ROOT / "data.json"
 SEEN_FILE = ROOT / "seen_ids.json"
+NEW_FILE = ROOT / "new_trailers.json"
 
 MAX_TRAILERS = 60
 KEYWORD_RE = re.compile(r"trailer|teaser", re.IGNORECASE)
@@ -122,7 +129,18 @@ def main():
     DATA_FILE.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     SEEN_FILE.write_text(json.dumps(sorted(seen_ids), ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
+    # elenco dei soli nuovi trailer, dal più recente: input per le notifiche
+    notify_list = sorted(new_trailers, key=lambda t: t.get("published", ""), reverse=True)
+    NEW_FILE.write_text(json.dumps(notify_list, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
     print(f"Totale nuovi trailer trovati: {len(new_trailers)}")
+
+    # espone il conteggio agli step successivi del workflow GitHub Actions
+    github_output = os.environ.get("GITHUB_OUTPUT")
+    if github_output:
+        with open(github_output, "a", encoding="utf-8") as fh:
+            fh.write(f"new_count={len(new_trailers)}\n")
+
     if had_error and not new_trailers:
         # nessun risultato ma almeno un canale ha fallito: segnalarlo nei log
         # senza far fallire la run (gli altri canali potrebbero aver funzionato)
