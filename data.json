@@ -1,4 +1,19 @@
 {
-  "updated_at": null,
-  "trailers": []
+  "updated_at": "2026-08-03T15:06:56.793932+00:00",
+  "trailers": [
+    {
+      "id": "onRtszr5VOo",
+      "title": "Lioness S3  | Final Trailer ITA - Paramount+",
+      "channel": "Paramount+",
+      "published": "2026-08-01T14:04:23+00:00",
+      "url": "https://www.youtube.com/watch?v=onRtszr5VOo"
+    },
+    {
+      "id": "ziykUq2ZYSU",
+      "title": "MobLand 2 - Teaser",
+      "channel": "Paramount+",
+      "published": "2026-07-31T17:17:40+00:00",
+      "url": "https://www.youtube.com/watch?v=ziykUq2ZYSU"
+    }
+  ]
 }
