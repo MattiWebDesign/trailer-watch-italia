@@ -25,6 +25,7 @@ jobs:
           python-version: "3.12"
 
       - name: Run trailer check
+        id: check
         run: python scripts/check_trailers.py
 
       - name: Commit and push if changed
@@ -38,3 +39,13 @@ jobs:
             git commit -m "Aggiorna trailer $(date -u +'%Y-%m-%d %H:%M UTC')"
             git push
           fi
+
+      # Il commit avviene prima della notifica: se Telegram è mal configurato
+      # i dati del sito vengono comunque aggiornati.
+      - name: Notify Telegram
+        if: steps.check.outputs.new_count != '0'
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          TELEGRAM_SILENT: ${{ vars.TELEGRAM_SILENT }}
+        run: python scripts/notify_telegram.py

@@ -2,64 +2,860 @@
 <html lang="it">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
 <title>Trailer Watch Italia</title>
+<meta name="description" content="I nuovi trailer e teaser italiani di Netflix, Prime Video, Disney+, Paramount+, Warner Bros. e HBO Max. Aggiornati automaticamente ogni giorno.">
+<meta name="theme-color" content="#0a0710">
+<meta name="color-scheme" content="dark">
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Trailer Watch Italia">
+<meta property="og:locale" content="it_IT">
+<meta property="og:title" content="Trailer Watch Italia">
+<meta property="og:description" content="I nuovi trailer e teaser italiani di Netflix, Prime Video, Disney+, Paramount+, Warner Bros. e HBO Max. Aggiornati automaticamente ogni giorno.">
+<meta property="og:url" content="https://mattiwebdesign.github.io/trailer-watch-italia/">
+<meta property="og:image" content="https://mattiwebdesign.github.io/trailer-watch-italia/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Trailer Watch Italia">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Trailer Watch Italia">
+<meta name="twitter:description" content="I nuovi trailer e teaser italiani delle principali piattaforme streaming, aggiornati ogni giorno.">
+<meta name="twitter:image" content="https://mattiwebdesign.github.io/trailer-watch-italia/assets/og-image.png">
+
 <style>
-:root{--bg:#0d1117;--card:#161b22;--text:#e6edf3;--muted:#8b949e;--accent:#58a6ff;--border:#30363d;}
-@media (prefers-color-scheme: light){:root{--bg:#f6f8fa;--card:#ffffff;--text:#1f2328;--muted:#57606a;--accent:#0969da;--border:#d0d7de;}}
-*{box-sizing:border-box;}
-body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
-.wrap{max-width:920px;margin:0 auto;padding:32px 20px 80px;}
-header{margin-bottom:28px;}
-h1{font-size:1.6rem;margin:0 0 6px;}
-.sub{color:var(--muted);font-size:0.9rem;}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;}
-.card{background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;display:flex;flex-direction:column;text-decoration:none;color:inherit;transition:transform .15s ease,border-color .15s ease;}
-.card:hover{transform:translateY(-2px);border-color:var(--accent);}
-.thumb{width:100%;aspect-ratio:16/9;object-fit:cover;background:var(--border);display:block;}
-.card-body{padding:12px 14px 14px;}
-.badge{display:inline-block;font-size:0.72rem;font-weight:600;color:var(--accent);background:rgba(88,166,255,0.12);padding:2px 8px;border-radius:999px;margin-bottom:8px;}
-.card-title{font-size:0.95rem;line-height:1.35;margin:0 0 6px;}
-.card-date{color:var(--muted);font-size:0.78rem;}
-.empty{color:var(--muted);padding:40px 0;text-align:center;}
-footer{margin-top:40px;color:var(--muted);font-size:0.78rem;text-align:center;}
+/* ============================================================
+   Design system
+   ============================================================ */
+:root{
+  /* superfici */
+  --bg:#0a0710;
+  --bg-elev:#120d1c;
+  --surface:rgba(255,255,255,0.035);
+  --surface-hi:rgba(255,255,255,0.07);
+  --border:rgba(255,255,255,0.09);
+  --border-hi:rgba(255,255,255,0.18);
+
+  /* testo */
+  --text:#f3eef8;
+  --muted:#a99dba;
+  --faint:#7a6f8c;
+
+  /* palette brand */
+  --orange:#ff7a18;
+  --amber:#ffa62b;
+  --fuchsia:#ff2d78;
+  --violet:#8b3dff;
+  --grad:linear-gradient(115deg,var(--orange) 0%,var(--fuchsia) 48%,var(--violet) 100%);
+  --grad-soft:linear-gradient(115deg,rgba(255,122,24,.18) 0%,rgba(255,45,120,.18) 48%,rgba(139,61,255,.18) 100%);
+
+  /* misure */
+  --r-sm:10px; --r-md:14px; --r-lg:20px; --r-xl:28px; --r-pill:999px;
+  --shadow:0 18px 50px -18px rgba(0,0,0,.85);
+  --glow:0 0 0 1px rgba(255,255,255,.06), 0 20px 60px -22px rgba(255,45,120,.55);
+  --ease:cubic-bezier(.22,.8,.28,1);
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  margin:0;
+  min-height:100vh;
+  background:var(--bg);
+  color:var(--text);
+  font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size:16px;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+/* aloni ambientali di sfondo */
+body::before{
+  content:"";
+  position:fixed; inset:-20% -10% auto -10%;
+  height:120vh; z-index:0; pointer-events:none;
+  background:
+    radial-gradient(48vw 40vw at 12% 0%, rgba(255,122,24,.20), transparent 62%),
+    radial-gradient(52vw 44vw at 88% 8%, rgba(139,61,255,.24), transparent 64%),
+    radial-gradient(46vw 38vw at 50% 42%, rgba(255,45,120,.16), transparent 66%);
+  filter:blur(6px);
+}
+body::after{
+  content:"";
+  position:fixed; inset:0; z-index:0; pointer-events:none;
+  background:radial-gradient(120vw 90vh at 50% -10%, transparent 40%, rgba(10,7,16,.75) 100%);
+}
+
+.wrap{position:relative; z-index:1; max-width:1240px; margin:0 auto; padding:0 20px 96px;}
+
+/* ============================================================
+   Header
+   ============================================================ */
+.topbar{
+  position:sticky; top:0; z-index:40;
+  padding:14px 20px;
+  background:rgba(10,7,16,.72);
+  backdrop-filter:blur(18px) saturate(140%);
+  -webkit-backdrop-filter:blur(18px) saturate(140%);
+  border-bottom:1px solid transparent;
+  transition:border-color .25s var(--ease), background .25s var(--ease);
+}
+.topbar.is-stuck{border-bottom-color:var(--border); background:rgba(10,7,16,.88);}
+.topbar-inner{max-width:1200px; margin:0 auto; display:flex; align-items:center; gap:14px; min-width:0;}
+.brand{display:flex; align-items:center; gap:11px; min-width:0;}
+.brand-mark{
+  width:36px; height:36px; flex:none; border-radius:11px;
+  background:var(--grad);
+  display:grid; place-items:center;
+  box-shadow:0 8px 24px -8px rgba(255,45,120,.7);
+}
+.brand-mark svg{width:16px; height:16px; display:block;}
+.brand-name{font-weight:700; font-size:1.02rem; letter-spacing:-.01em; white-space:nowrap;}
+.brand-name span{
+  background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.topbar-spacer{flex:1;}
+.pulse{
+  display:inline-flex; align-items:center; gap:7px;
+  font-size:.74rem; color:var(--muted); white-space:nowrap;
+  padding:6px 12px; border:1px solid var(--border); border-radius:var(--r-pill);
+  background:var(--surface);
+}
+.pulse-dot{
+  width:7px; height:7px; border-radius:50%; background:#39d98a; flex:none;
+  box-shadow:0 0 0 0 rgba(57,217,138,.6); animation:pulse 2.4s infinite;
+}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(57,217,138,.55);}
+  70%{box-shadow:0 0 0 7px rgba(57,217,138,0);}
+  100%{box-shadow:0 0 0 0 rgba(57,217,138,0);}
+}
+
+/* Hero */
+.hero{padding:52px 0 30px; max-width:760px;}
+.eyebrow{
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:.73rem; font-weight:600; letter-spacing:.09em; text-transform:uppercase;
+  color:#ffb98a; padding:6px 13px; border-radius:var(--r-pill);
+  background:var(--grad-soft); border:1px solid rgba(255,122,24,.25);
+  margin-bottom:18px;
+}
+h1{
+  font-size:clamp(2.1rem,5.6vw,3.5rem); line-height:1.04; letter-spacing:-.035em;
+  margin:0 0 16px; font-weight:800;
+}
+h1 .g{background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent;}
+.lede{color:var(--muted); font-size:clamp(.95rem,2.2vw,1.08rem); margin:0; max-width:56ch;}
+
+/* Statistiche */
+.stats{display:flex; flex-wrap:wrap; gap:10px; margin-top:26px;}
+.stat{
+  flex:1 1 150px; min-width:0;
+  padding:14px 16px; border-radius:var(--r-md);
+  background:var(--surface); border:1px solid var(--border);
+  position:relative; overflow:hidden;
+}
+.stat::before{
+  content:""; position:absolute; inset:0 auto 0 0; width:3px; background:var(--grad); opacity:.9;
+}
+.stat-k{font-size:.7rem; text-transform:uppercase; letter-spacing:.08em; color:var(--faint); margin-bottom:5px;}
+.stat-v{font-size:1.18rem; font-weight:700; letter-spacing:-.02em; font-variant-numeric:tabular-nums;}
+.stat-v small{font-size:.8rem; font-weight:500; color:var(--muted);}
+
+/* ============================================================
+   Controlli
+   ============================================================ */
+.controls{display:flex; gap:10px; align-items:center; margin:34px 0 16px; flex-wrap:wrap;}
+.search{position:relative; flex:1 1 280px; min-width:0;}
+.search svg{
+  position:absolute; left:15px; top:50%; transform:translateY(-50%);
+  width:17px; height:17px; color:var(--faint); pointer-events:none;
+}
+.search input{
+  width:100%; padding:13px 44px 13px 44px;
+  background:var(--surface); color:var(--text);
+  border:1px solid var(--border); border-radius:var(--r-pill);
+  font-size:.95rem; font-family:inherit; outline:none;
+  transition:border-color .2s var(--ease), background .2s var(--ease), box-shadow .2s var(--ease);
+}
+.search input::placeholder{color:var(--faint);}
+.search input:focus{
+  border-color:rgba(255,45,120,.55); background:var(--surface-hi);
+  box-shadow:0 0 0 4px rgba(255,45,120,.13);
+}
+.search kbd{
+  position:absolute; right:14px; top:50%; transform:translateY(-50%);
+  font:inherit; font-size:.7rem; color:var(--faint);
+  border:1px solid var(--border); border-radius:6px; padding:2px 7px; background:rgba(0,0,0,.25);
+  pointer-events:none;
+}
+.search-clear{
+  position:absolute; right:8px; top:50%; transform:translateY(-50%);
+  display:none; width:28px; height:28px; border-radius:50%;
+  background:var(--surface-hi); border:1px solid var(--border); color:var(--muted);
+  cursor:pointer; line-height:1; font-size:1rem; padding:0;
+}
+.search.has-value kbd{display:none;}
+.search.has-value .search-clear{display:grid; place-items:center;}
+.search-clear:hover{color:var(--text); border-color:var(--border-hi);}
+
+.viewtoggle{display:flex; gap:4px; padding:4px; border:1px solid var(--border); border-radius:var(--r-pill); background:var(--surface);}
+.viewtoggle button{
+  width:36px; height:32px; display:grid; place-items:center;
+  background:transparent; border:0; border-radius:var(--r-pill); color:var(--faint);
+  cursor:pointer; transition:color .2s var(--ease), background .2s var(--ease);
+}
+.viewtoggle button svg{width:16px; height:16px;}
+.viewtoggle button:hover{color:var(--text);}
+.viewtoggle button[aria-pressed="true"]{background:var(--grad); color:#fff; box-shadow:0 6px 18px -8px rgba(255,45,120,.8);}
+
+/* Filtri piattaforma */
+.filters{
+  display:flex; gap:8px; overflow-x:auto; padding:2px 0 10px;
+  scrollbar-width:none; -ms-overflow-style:none;
+}
+.filters::-webkit-scrollbar{display:none;}
+.chip{
+  flex:none; display:inline-flex; align-items:center; gap:8px;
+  padding:8px 15px; border-radius:var(--r-pill); cursor:pointer;
+  background:var(--surface); border:1px solid var(--border); color:var(--muted);
+  font-size:.84rem; font-weight:500; font-family:inherit; white-space:nowrap;
+  transition:color .2s var(--ease), border-color .2s var(--ease), background .2s var(--ease), transform .15s var(--ease);
+}
+.chip:hover{color:var(--text); border-color:var(--border-hi); transform:translateY(-1px);}
+.chip[aria-pressed="true"]{color:#fff; border-color:transparent; background:var(--grad); box-shadow:0 8px 22px -10px rgba(255,45,120,.9);}
+.chip-dot{width:8px; height:8px; border-radius:50%; background:var(--c,var(--violet)); flex:none;}
+.chip[aria-pressed="true"] .chip-dot{background:rgba(255,255,255,.9);}
+.chip-n{
+  font-size:.72rem; font-variant-numeric:tabular-nums; color:var(--faint);
+  background:rgba(0,0,0,.3); padding:1px 7px; border-radius:var(--r-pill);
+}
+.chip[aria-pressed="true"] .chip-n{color:#fff; background:rgba(0,0,0,.22);}
+
+.resultbar{
+  display:flex; align-items:center; justify-content:space-between; gap:12px;
+  margin:6px 0 18px; font-size:.82rem; color:var(--faint); flex-wrap:wrap;
+}
+.linkbtn{
+  background:none; border:0; color:var(--fuchsia); font:inherit; font-size:.82rem;
+  cursor:pointer; padding:0; text-decoration:underline; text-underline-offset:3px;
+}
+.linkbtn:hover{color:var(--orange);}
+
+/* ============================================================
+   Griglia / card
+   ============================================================ */
+.grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(268px,1fr)); gap:20px;}
+
+.card{
+  position:relative; display:flex; flex-direction:column;
+  background:var(--bg-elev); border:1px solid var(--border); border-radius:var(--r-lg);
+  overflow:hidden; text-decoration:none; color:inherit; cursor:pointer;
+  transition:transform .32s var(--ease), border-color .32s var(--ease), box-shadow .32s var(--ease);
+  animation:rise .5s var(--ease) both; animation-delay:calc(var(--i,0) * 45ms);
+}
+@keyframes rise{from{opacity:0; transform:translateY(16px) scale(.985);} to{opacity:1; transform:none;}}
+.card:hover,.card:focus-visible{
+  transform:translateY(-5px); border-color:var(--border-hi); box-shadow:var(--glow); outline:none;
+}
+.card::after{
+  content:""; position:absolute; inset:0; border-radius:var(--r-lg); pointer-events:none;
+  padding:1px; background:var(--grad); opacity:0;
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor; mask-composite:exclude;
+  transition:opacity .32s var(--ease);
+}
+.card:hover::after,.card:focus-visible::after{opacity:.9;}
+
+/* il fondo resta gradevole anche se la miniatura YouTube non carica */
+.thumb{
+  position:relative; aspect-ratio:16/9; overflow:hidden;
+  background:linear-gradient(135deg,#1d1428 0%,#241633 50%,#1a1526 100%);
+}
+.thumb img{width:100%; height:100%; object-fit:cover; display:block; transition:transform .5s var(--ease), filter .32s var(--ease);}
+.card:hover .thumb img{transform:scale(1.06); filter:brightness(.72);}
+.thumb::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(to top,rgba(10,7,16,.85) 0%,rgba(10,7,16,.12) 45%,transparent 70%);
+}
+.play{
+  position:absolute; inset:0; margin:auto; width:54px; height:54px; z-index:2;
+  border-radius:50%; display:grid; place-items:center;
+  background:var(--grad); color:#fff;
+  opacity:0; transform:scale(.72); transition:opacity .3s var(--ease), transform .3s var(--ease);
+  box-shadow:0 12px 34px -10px rgba(255,45,120,.9);
+}
+.play svg{width:20px; height:20px; margin-left:3px;}
+.card:hover .play,.card:focus-visible .play{opacity:1; transform:scale(1);}
+.thumb-badge{
+  position:absolute; left:12px; top:12px; z-index:2;
+  display:inline-flex; align-items:center; gap:7px;
+  padding:5px 11px; border-radius:var(--r-pill);
+  background:rgba(10,7,16,.72); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.12);
+  font-size:.72rem; font-weight:600; letter-spacing:.01em;
+}
+.thumb-badge .chip-dot{width:7px; height:7px;}
+.thumb-new{
+  position:absolute; right:12px; top:12px; z-index:2;
+  padding:5px 10px; border-radius:var(--r-pill); background:var(--grad); color:#fff;
+  font-size:.66rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase;
+  box-shadow:0 8px 20px -8px rgba(255,45,120,.9);
+}
+
+.card-body{padding:14px 16px 16px; display:flex; flex-direction:column; gap:8px; flex:1;}
+.card-title{
+  margin:0; font-size:.96rem; font-weight:600; line-height:1.38; letter-spacing:-.01em;
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
+}
+.card-meta{
+  margin-top:auto; display:flex; align-items:center; gap:8px;
+  font-size:.76rem; color:var(--faint);
+}
+.card-meta .sep{width:3px; height:3px; border-radius:50%; background:currentColor; opacity:.6;}
+
+/* Vista lista */
+.grid.is-list{grid-template-columns:1fr; gap:12px;}
+.grid.is-list .card{flex-direction:row; align-items:stretch; border-radius:var(--r-md);}
+.grid.is-list .card::after{border-radius:var(--r-md);}
+.grid.is-list .thumb{width:200px; flex:none; aspect-ratio:16/9;}
+.grid.is-list .play{width:40px; height:40px;}
+.grid.is-list .play svg{width:15px; height:15px;}
+.grid.is-list .thumb-badge,.grid.is-list .thumb-new{display:none;}
+.grid.is-list .card-body{justify-content:center; padding:12px 18px;}
+.grid.is-list .card-title{-webkit-line-clamp:2; font-size:1rem;}
+.grid.is-list .card-meta{margin-top:0;}
+.list-only{display:none;}
+.grid.is-list .list-only{display:inline-flex; align-items:center; gap:7px;}
+@media (max-width:560px){
+  .grid.is-list .thumb{width:132px;}
+  .grid.is-list .card-body{padding:10px 14px;}
+  .grid.is-list .card-title{font-size:.88rem;}
+}
+
+/* ============================================================
+   Skeleton / stati
+   ============================================================ */
+.sk{background:var(--bg-elev); border:1px solid var(--border); border-radius:var(--r-lg); overflow:hidden;}
+.sk-thumb{aspect-ratio:16/9;}
+.sk-body{padding:14px 16px 18px; display:flex; flex-direction:column; gap:10px;}
+.sk-line{height:11px; border-radius:6px;}
+.sk-line.w70{width:70%;} .sk-line.w40{width:40%;} .sk-line.w90{width:90%;}
+.sk-thumb,.sk-line{
+  background:linear-gradient(90deg,rgba(255,255,255,.045) 25%,rgba(255,255,255,.11) 37%,rgba(255,255,255,.045) 63%);
+  background-size:400% 100%; animation:shimmer 1.5s ease-in-out infinite;
+}
+@keyframes shimmer{0%{background-position:100% 0;} 100%{background-position:-100% 0;}}
+
+.state{
+  text-align:center; padding:70px 24px; border:1px dashed var(--border);
+  border-radius:var(--r-xl); background:var(--surface);
+}
+.state-icon{
+  width:58px; height:58px; margin:0 auto 18px; border-radius:18px;
+  display:grid; place-items:center; background:var(--grad-soft); border:1px solid rgba(255,122,24,.22);
+  font-size:1.5rem;
+}
+.state h3{margin:0 0 8px; font-size:1.05rem; font-weight:650;}
+.state p{margin:0 auto; color:var(--muted); font-size:.9rem; max-width:44ch;}
+.state .linkbtn{margin-top:16px;}
+
+/* ============================================================
+   Modal player
+   ============================================================ */
+.modal{
+  position:fixed; inset:0; z-index:100; display:none;
+  align-items:center; justify-content:center; padding:20px;
+}
+.modal.is-open{display:flex;}
+.modal-backdrop{
+  position:absolute; inset:0; background:rgba(6,4,10,.82);
+  backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+  animation:fade .25s var(--ease);
+}
+@keyframes fade{from{opacity:0;} to{opacity:1;}}
+.modal-panel{
+  position:relative; width:min(960px,100%); max-height:calc(100vh - 40px); overflow:auto;
+  background:var(--bg-elev); border:1px solid var(--border-hi); border-radius:var(--r-xl);
+  box-shadow:var(--shadow); animation:pop .3s var(--ease);
+}
+@keyframes pop{from{opacity:0; transform:translateY(18px) scale(.97);} to{opacity:1; transform:none;}}
+.modal-close{
+  position:absolute; right:12px; top:12px; z-index:3;
+  width:38px; height:38px; border-radius:50%; display:grid; place-items:center;
+  background:rgba(10,7,16,.75); border:1px solid var(--border-hi); color:var(--text);
+  cursor:pointer; backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+  transition:background .2s var(--ease), transform .2s var(--ease);
+}
+.modal-close:hover{background:var(--fuchsia); border-color:transparent; transform:rotate(90deg);}
+.modal-close svg{width:16px; height:16px;}
+.modal-video{aspect-ratio:16/9; background:#000; border-radius:var(--r-xl) var(--r-xl) 0 0; overflow:hidden;}
+.modal-video iframe{width:100%; height:100%; border:0; display:block;}
+.modal-body{padding:20px 24px 24px;}
+.modal-body h2{margin:0 0 10px; font-size:1.22rem; font-weight:700; letter-spacing:-.02em; line-height:1.3;}
+.modal-meta{display:flex; align-items:center; gap:10px; flex-wrap:wrap; color:var(--faint); font-size:.84rem; margin-bottom:18px;}
+.modal-badge{
+  display:inline-flex; align-items:center; gap:7px; padding:5px 12px;
+  border-radius:var(--r-pill); background:var(--surface); border:1px solid var(--border);
+  color:var(--text); font-size:.78rem; font-weight:600;
+}
+.btn{
+  display:inline-flex; align-items:center; gap:9px; padding:11px 20px;
+  border-radius:var(--r-pill); border:1px solid transparent; background:var(--grad); color:#fff;
+  font:inherit; font-size:.88rem; font-weight:600; text-decoration:none; cursor:pointer;
+  box-shadow:0 12px 30px -12px rgba(255,45,120,.9);
+  transition:transform .2s var(--ease), box-shadow .2s var(--ease);
+}
+.btn:hover{transform:translateY(-2px); box-shadow:0 16px 36px -12px rgba(255,45,120,1);}
+.btn svg{width:15px; height:15px;}
+body.no-scroll{overflow:hidden;}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+footer{
+  margin-top:64px; padding-top:26px; border-top:1px solid var(--border);
+  color:var(--faint); font-size:.8rem; display:flex; gap:12px;
+  justify-content:space-between; align-items:center; flex-wrap:wrap;
+}
+footer a{color:var(--muted); text-decoration:none;}
+footer a:hover{color:var(--fuchsia);}
+
+/* ============================================================
+   Accessibilità
+   ============================================================ */
+:focus-visible{outline:2px solid var(--fuchsia); outline-offset:3px;}
+.sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important;}
+  .card:hover{transform:none;}
+}
+@media (max-width:640px){
+  .hero{padding:36px 0 22px;}
+  .stats{gap:8px;}
+  .stat{flex:1 1 calc(50% - 4px); padding:12px 13px;}
+  .search kbd{display:none;}
+}
 </style>
 </head>
 <body>
-<div class="wrap">
-<header>
-<h1>Trailer Watch Italia</h1>
-<div class="sub" id="updated">Caricamento...</div>
-</header>
-<div id="content"><div class="empty">Caricamento trailer...</div></div>
-<footer>Aggiornato automaticamente ogni giorno &middot; Netflix, HBO Max, Prime Video, Paramount+, Disney+, Warner Bros. Italia</footer>
+
+<div class="topbar" id="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5.14v13.72a1 1 0 0 0 1.54.84l10.5-6.86a1 1 0 0 0 0-1.68L9.54 4.3A1 1 0 0 0 8 5.14Z"/></svg>
+      </div>
+      <div class="brand-name">Trailer&nbsp;Watch&nbsp;<span>Italia</span></div>
+    </div>
+    <div class="topbar-spacer"></div>
+    <div class="pulse"><span class="pulse-dot"></span><span id="pulse-text">In ascolto</span></div>
+  </div>
 </div>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow">Aggiornato automaticamente</div>
+    <h1>Ogni nuovo <span class="g">trailer italiano</span>, appena esce.</h1>
+    <p class="lede">Controlliamo ogni giorno i canali ufficiali di Netflix, Prime&nbsp;Video, Disney+, Paramount+, Warner&nbsp;Bros. e HBO&nbsp;Max e raccogliamo qui trailer e teaser in italiano.</p>
+
+    <div class="stats" id="stats">
+      <div class="stat"><div class="stat-k">Trailer raccolti</div><div class="stat-v" id="stat-total">—</div></div>
+      <div class="stat"><div class="stat-k">Piattaforme</div><div class="stat-v" id="stat-channels">—</div></div>
+      <div class="stat"><div class="stat-k">Ultimo controllo</div><div class="stat-v" id="stat-updated">—</div></div>
+      <div class="stat"><div class="stat-k">Prossimo controllo</div><div class="stat-v" id="stat-next">—</div></div>
+    </div>
+  </header>
+
+  <div class="controls">
+    <div class="search" id="search-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <label class="sr-only" for="search">Cerca un trailer</label>
+      <input id="search" type="search" placeholder="Cerca un titolo, una serie, un film..." autocomplete="off" spellcheck="false">
+      <kbd>/</kbd>
+      <button class="search-clear" id="search-clear" type="button" aria-label="Cancella ricerca">&times;</button>
+    </div>
+    <div class="viewtoggle" role="group" aria-label="Modalità di visualizzazione">
+      <button type="button" id="view-grid" aria-pressed="true" aria-label="Vista griglia" title="Vista griglia">
+        <svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/><rect x="13" y="13" width="8" height="8" rx="2"/></svg>
+      </button>
+      <button type="button" id="view-list" aria-pressed="false" aria-label="Vista elenco" title="Vista elenco">
+        <svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="4" width="18" height="4" rx="2"/><rect x="3" y="10" width="18" height="4" rx="2"/><rect x="3" y="16" width="18" height="4" rx="2"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="filters" id="filters" role="group" aria-label="Filtra per piattaforma"></div>
+
+  <div class="resultbar">
+    <span id="resultcount" aria-live="polite"></span>
+    <button class="linkbtn" id="reset" type="button" hidden>Azzera filtri</button>
+  </div>
+
+  <main id="content"></main>
+
+  <footer>
+    <span>Aggiornato ogni giorno alle 06:00&nbsp;UTC &middot; dati dai feed pubblici YouTube</span>
+    <a href="https://github.com/MattiWebDesign/trailer-watch-italia" target="_blank" rel="noopener">Codice sorgente</a>
+  </footer>
+</div>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-panel">
+    <button class="modal-close" id="modal-close" type="button" aria-label="Chiudi">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <div class="modal-video" id="modal-video"></div>
+    <div class="modal-body">
+      <h2 id="modal-title"></h2>
+      <div class="modal-meta" id="modal-meta"></div>
+      <a class="btn" id="modal-link" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v13.72a1 1 0 0 0 1.54.84l10.5-6.86a1 1 0 0 0 0-1.68L9.54 4.3A1 1 0 0 0 8 5.14Z"/></svg>
+        Guarda su YouTube
+      </a>
+    </div>
+  </div>
+</div>
+
 <script>
-function escapeHtml(s){return (s||"").replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c];});}
-function fmtDate(iso){try{var d=new Date(iso);return d.toLocaleDateString("it-IT",{day:"numeric",month:"long",year:"numeric"});}catch(e){return "";}}
-fetch("./data.json?_=" + Date.now()).then(function(r){return r.json();}).then(function(data){
-var updatedEl = document.getElementById("updated");
-var contentEl = document.getElementById("content");
-if(data.updated_at){updatedEl.textContent = "Ultimo controllo: " + fmtDate(data.updated_at);}else{updatedEl.textContent = "Ancora nessun controllo eseguito.";}
-var trailers = data.trailers || [];
-if(trailers.length === 0){contentEl.innerHTML = "<div class=\"empty\">Nessun trailer trovato per ora. Torna a controllare pi\u00f9 tardi.</div>";return;}
-var html = "<div class=\"grid\">";
-trailers.forEach(function(t){
-html += "<a class=\"card\" href=\"" + t.url + "\" target=\"_blank\" rel=\"noopener\">";
-html += "<img class=\"thumb\" loading=\"lazy\" src=\"https://img.youtube.com/vi/" + t.id + "/hqdefault.jpg\" alt=\"\">";
-html += "<div class=\"card-body\">";
-html += "<span class=\"badge\">" + escapeHtml(t.channel) + "</span>";
-html += "<p class=\"card-title\">" + escapeHtml(t.title) + "</p>";
-html += "<div class=\"card-date\">" + fmtDate(t.published) + "</div>";
-html += "</div></a>";
-});
-html += "</div>";
-contentEl.innerHTML = html;
-}).catch(function(err){
-document.getElementById("updated").textContent = "Errore nel caricamento dei dati.";
-document.getElementById("content").innerHTML = "<div class=\"empty\">Impossibile caricare data.json</div>";
-});
+(function(){
+  "use strict";
+
+  /* ---------- Configurazione ---------- */
+  var CHANNEL_COLORS = {
+    "Netflix":"#ff4757",
+    "Prime Video":"#ffa62b",
+    "Disney+":"#6c8bff",
+    "Paramount+":"#ff2d78",
+    "Warner Bros.":"#ff7a18",
+    "HBO Max":"#a855f7"
+  };
+  var DEFAULT_COLOR = "#8b3dff";
+  var NEW_WINDOW_H = 72;        // ore entro cui un trailer è marcato "nuovo"
+  var CRON_UTC_HOUR = 6;        // orario del workflow GitHub Actions
+
+  /* ---------- Stato ---------- */
+  var state = { all:[], q:"", channel:"", view:"grid" };
+  var lastFocused = null;
+
+  /* ---------- Utility ---------- */
+  var $ = function(id){ return document.getElementById(id); };
+
+  function escapeHtml(s){
+    return String(s == null ? "" : s).replace(/[&<>"']/g, function(c){
+      return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c];
+    });
+  }
+  function colorFor(channel){ return CHANNEL_COLORS[channel] || DEFAULT_COLOR; }
+  function slug(s){
+    return String(s||"").toLowerCase().replace(/\+/g,"-plus").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+  }
+  function normalize(s){
+    return String(s||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+  }
+  function parseDate(iso){
+    var d = new Date(iso);
+    return isNaN(d.getTime()) ? null : d;
+  }
+  function fmtDate(iso){
+    var d = parseDate(iso);
+    if(!d) return "";
+    return d.toLocaleDateString("it-IT",{day:"numeric",month:"long",year:"numeric"});
+  }
+  function relTime(iso){
+    var d = parseDate(iso);
+    if(!d) return "";
+    var diff = Math.round((d.getTime() - Date.now())/1000);
+    var abs = Math.abs(diff);
+    var units = [["year",31536000],["month",2592000],["day",86400],["hour",3600],["minute",60]];
+    for(var i=0;i<units.length;i++){
+      if(abs >= units[i][1]){
+        var v = Math.round(diff/units[i][1]);
+        return new Intl.RelativeTimeFormat("it",{numeric:"auto"}).format(v, units[i][0]);
+      }
+    }
+    return "poco fa";
+  }
+  function isNew(iso){
+    var d = parseDate(iso);
+    return d ? (Date.now() - d.getTime()) < NEW_WINDOW_H*3600*1000 : false;
+  }
+  function nextRunDate(){
+    var now = new Date();
+    var next = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), CRON_UTC_HOUR, 0, 0));
+    if(next.getTime() <= now.getTime()) next.setUTCDate(next.getUTCDate()+1);
+    return next;
+  }
+  function countdown(target){
+    var s = Math.max(0, Math.floor((target.getTime() - Date.now())/1000));
+    var h = Math.floor(s/3600), m = Math.floor((s%3600)/60), sec = s%60;
+    var p = function(n){ return n < 10 ? "0"+n : ""+n; };
+    return p(h)+":"+p(m)+":"+p(sec);
+  }
+
+  /* ---------- URL <-> stato ---------- */
+  function readUrl(){
+    var p = new URLSearchParams(location.search);
+    state.q = p.get("q") || "";
+    state.channel = p.get("canale") || "";
+    state.view = p.get("vista") === "lista" ? "list" : "grid";
+  }
+  function writeUrl(){
+    var p = new URLSearchParams();
+    if(state.q) p.set("q", state.q);
+    if(state.channel) p.set("canale", state.channel);
+    if(state.view === "list") p.set("vista","lista");
+    var qs = p.toString();
+    history.replaceState(null, "", qs ? "?"+qs : location.pathname);
+  }
+
+  /* ---------- Rendering ---------- */
+  function skeleton(n){
+    var out = '<div class="grid">';
+    for(var i=0;i<n;i++){
+      out += '<div class="sk"><div class="sk-thumb"></div><div class="sk-body">'+
+             '<div class="sk-line w40"></div><div class="sk-line w90"></div><div class="sk-line w70"></div>'+
+             '</div></div>';
+    }
+    return out + '</div>';
+  }
+
+  function channelsOf(list){
+    var map = {};
+    list.forEach(function(t){
+      var c = t.channel || "Altro";
+      map[c] = (map[c]||0) + 1;
+    });
+    return Object.keys(map).sort().map(function(name){ return {name:name, count:map[name]}; });
+  }
+
+  function renderFilters(){
+    var chans = channelsOf(state.all);
+    var html = '<button class="chip" type="button" data-channel="" aria-pressed="'+(state.channel===""?"true":"false")+'">'+
+               'Tutte<span class="chip-n">'+state.all.length+'</span></button>';
+    chans.forEach(function(c){
+      var active = slug(state.channel) === slug(c.name);
+      html += '<button class="chip" type="button" data-channel="'+escapeHtml(slug(c.name))+'" aria-pressed="'+(active?"true":"false")+'" style="--c:'+colorFor(c.name)+'">'+
+              '<span class="chip-dot"></span>'+escapeHtml(c.name)+
+              '<span class="chip-n">'+c.count+'</span></button>';
+    });
+    $("filters").innerHTML = html;
+  }
+
+  function filtered(){
+    var q = normalize(state.q).trim();
+    var ch = slug(state.channel);
+    return state.all.filter(function(t){
+      if(ch && slug(t.channel) !== ch) return false;
+      if(q && normalize(t.title).indexOf(q) === -1 && normalize(t.channel).indexOf(q) === -1) return false;
+      return true;
+    });
+  }
+
+  function cardHtml(t, i){
+    var color = colorFor(t.channel);
+    var rel = relTime(t.published);
+    var abs = fmtDate(t.published);
+    return '<a class="card" href="'+escapeHtml(t.url)+'" target="_blank" rel="noopener" data-id="'+escapeHtml(t.id)+'" style="--i:'+Math.min(i,14)+'">'+
+      '<div class="thumb">'+
+        '<img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/'+escapeHtml(t.id)+'/hqdefault.jpg" alt="">'+
+        '<span class="thumb-badge" style="--c:'+color+'"><span class="chip-dot"></span>'+escapeHtml(t.channel)+'</span>'+
+        (isNew(t.published) ? '<span class="thumb-new">Nuovo</span>' : '')+
+        '<span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v13.72a1 1 0 0 0 1.54.84l10.5-6.86a1 1 0 0 0 0-1.68L9.54 4.3A1 1 0 0 0 8 5.14Z"/></svg></span>'+
+      '</div>'+
+      '<div class="card-body">'+
+        '<p class="card-title">'+escapeHtml(t.title)+'</p>'+
+        '<div class="card-meta">'+
+          '<span class="list-only" style="color:'+color+'"><span class="chip-dot" style="--c:'+color+'"></span>'+escapeHtml(t.channel)+'</span>'+
+          '<span class="sep list-only"></span>'+
+          '<span>'+escapeHtml(abs)+'</span><span class="sep"></span><span>'+escapeHtml(rel)+'</span>'+
+        '</div>'+
+      '</div>'+
+    '</a>';
+  }
+
+  function render(){
+    var list = filtered();
+    var content = $("content");
+
+    $("resultcount").textContent = list.length === 0 ? "" :
+      (list.length + (list.length === 1 ? " trailer" : " trailer") +
+       (state.channel || state.q ? " trovati su " + state.all.length : ""));
+    $("reset").hidden = !(state.channel || state.q);
+
+    if(state.all.length === 0){
+      content.innerHTML = '<div class="state"><div class="state-icon">🎬</div>'+
+        '<h3>Ancora nessun trailer</h3><p>Il primo controllo automatico non ha ancora trovato nulla. Torna a dare un\'occhiata tra qualche ora.</p></div>';
+      return;
+    }
+    if(list.length === 0){
+      content.innerHTML = '<div class="state"><div class="state-icon">🔍</div>'+
+        '<h3>Nessun risultato</h3><p>Nessun trailer corrisponde ai filtri attivi. Prova con un altro termine o rimuovi i filtri.</p>'+
+        '<button class="linkbtn" type="button" data-reset>Azzera filtri</button></div>';
+      return;
+    }
+    content.innerHTML = '<div class="grid'+(state.view === "list" ? " is-list" : "")+'">'+
+      list.map(cardHtml).join("") + '</div>';
+  }
+
+  function renderStats(data){
+    $("stat-total").textContent = state.all.length;
+    $("stat-channels").textContent = channelsOf(state.all).length;
+    if(data.updated_at){
+      var d = parseDate(data.updated_at);
+      $("stat-updated").innerHTML = escapeHtml(relTime(data.updated_at)) +
+        (d ? ' <small>' + escapeHtml(d.toLocaleTimeString("it-IT",{hour:"2-digit",minute:"2-digit"})) + '</small>' : "");
+      $("pulse-text").textContent = "Aggiornato " + relTime(data.updated_at);
+    }else{
+      $("stat-updated").textContent = "mai";
+      $("pulse-text").textContent = "In attesa del primo controllo";
+    }
+    tickCountdown();
+  }
+
+  var countdownTarget = nextRunDate();
+  function tickCountdown(){
+    if(Date.now() >= countdownTarget.getTime()) countdownTarget = nextRunDate();
+    var el = $("stat-next");
+    if(el) el.innerHTML = '<span style="font-variant-numeric:tabular-nums">'+countdown(countdownTarget)+'</span> <small>06:00 UTC</small>';
+  }
+
+  /* ---------- Modal ---------- */
+  function openModal(t){
+    lastFocused = document.activeElement;
+    var color = colorFor(t.channel);
+    $("modal-video").innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/'+encodeURIComponent(t.id)+
+      '?autoplay=1&rel=0&modestbranding=1" title="'+escapeHtml(t.title)+
+      '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+    $("modal-title").textContent = t.title;
+    $("modal-meta").innerHTML = '<span class="modal-badge" style="--c:'+color+'"><span class="chip-dot"></span>'+escapeHtml(t.channel)+'</span>'+
+      '<span>'+escapeHtml(fmtDate(t.published))+'</span><span class="sep"></span><span>'+escapeHtml(relTime(t.published))+'</span>';
+    $("modal-link").href = t.url;
+    var m = $("modal");
+    m.hidden = false;
+    m.classList.add("is-open");
+    document.body.classList.add("no-scroll");
+    $("modal-close").focus();
+  }
+  function closeModal(){
+    var m = $("modal");
+    if(!m.classList.contains("is-open")) return;
+    m.classList.remove("is-open");
+    m.hidden = true;
+    $("modal-video").innerHTML = "";   // ferma la riproduzione
+    document.body.classList.remove("no-scroll");
+    if(lastFocused && lastFocused.focus) lastFocused.focus();
+  }
+
+  /* ---------- Eventi ---------- */
+  var debounceTimer;
+  function onSearch(v){
+    state.q = v;
+    $("search-wrap").classList.toggle("has-value", !!v);
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(function(){ writeUrl(); render(); }, 140);
+  }
+
+  function setView(view){
+    state.view = view;
+    $("view-grid").setAttribute("aria-pressed", view === "grid" ? "true" : "false");
+    $("view-list").setAttribute("aria-pressed", view === "list" ? "true" : "false");
+    writeUrl(); render();
+  }
+
+  function resetFilters(){
+    state.q = ""; state.channel = "";
+    $("search").value = "";
+    $("search-wrap").classList.remove("has-value");
+    writeUrl(); renderFilters(); render();
+  }
+
+  function bind(){
+    $("search").addEventListener("input", function(e){ onSearch(e.target.value); });
+    $("search-clear").addEventListener("click", function(){ $("search").value=""; onSearch(""); $("search").focus(); });
+
+    $("view-grid").addEventListener("click", function(){ setView("grid"); });
+    $("view-list").addEventListener("click", function(){ setView("list"); });
+
+    $("filters").addEventListener("click", function(e){
+      var chip = e.target.closest(".chip");
+      if(!chip) return;
+      var c = chip.getAttribute("data-channel") || "";
+      state.channel = (slug(state.channel) === c && c !== "") ? "" : c;
+      writeUrl(); renderFilters(); render();
+    });
+
+    $("reset").addEventListener("click", resetFilters);
+    $("content").addEventListener("click", function(e){
+      if(e.target.closest("[data-reset]")){ resetFilters(); return; }
+      var card = e.target.closest(".card");
+      if(!card) return;
+      if(e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return; // apri in nuova scheda
+      e.preventDefault();
+      var id = card.getAttribute("data-id");
+      var t = state.all.filter(function(x){ return x.id === id; })[0];
+      if(t) openModal(t);
+    });
+
+    $("modal").addEventListener("click", function(e){ if(e.target.hasAttribute("data-close")) closeModal(); });
+    $("modal-close").addEventListener("click", closeModal);
+
+    document.addEventListener("keydown", function(e){
+      if(e.key === "Escape"){ closeModal(); return; }
+      if(e.key === "/" && document.activeElement !== $("search")){
+        e.preventDefault(); $("search").focus(); $("search").select();
+      }
+      if(e.key === "Tab" && $("modal").classList.contains("is-open")){
+        var f = $("modal").querySelectorAll("button, a[href], iframe");
+        if(!f.length) return;
+        var first = f[0], last = f[f.length-1];
+        if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+        else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+      }
+    });
+
+    var topbar = $("topbar");
+    window.addEventListener("scroll", function(){
+      topbar.classList.toggle("is-stuck", window.scrollY > 8);
+    }, {passive:true});
+
+    setInterval(tickCountdown, 1000);
+  }
+
+  /* ---------- Avvio ---------- */
+  readUrl();
+  $("search").value = state.q;
+  $("search-wrap").classList.toggle("has-value", !!state.q);
+  $("view-grid").setAttribute("aria-pressed", state.view === "grid" ? "true" : "false");
+  $("view-list").setAttribute("aria-pressed", state.view === "list" ? "true" : "false");
+  $("content").innerHTML = skeleton(8);
+  bind();
+
+  fetch("./data.json?_=" + Date.now())
+    .then(function(r){
+      if(!r.ok) throw new Error("HTTP " + r.status);
+      return r.json();
+    })
+    .then(function(data){
+      state.all = (data.trailers || []).filter(function(t){ return t && t.id; });
+      renderStats(data);
+      renderFilters();
+      render();
+    })
+    .catch(function(){
+      $("pulse-text").textContent = "Dati non disponibili";
+      $("content").innerHTML = '<div class="state"><div class="state-icon">⚠️</div>'+
+        '<h3>Impossibile caricare i trailer</h3><p>Non siamo riusciti a leggere <code>data.json</code>. Ricarica la pagina tra qualche istante.</p>'+
+        '</div>';
+    });
+})();
 </script>
 </body>
 </html>
