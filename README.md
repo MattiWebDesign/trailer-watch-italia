@@ -73,7 +73,14 @@ senza fallire.
 5. Facoltativo, nella scheda **Variables**: `TELEGRAM_SILENT` = `1` per inviare i
    messaggi senza suono di notifica.
 
-Per provare subito: **Actions → Check trailers → Run workflow**.
+### Notifica di prova
+
+Per verificare la configurazione: **Actions → Check trailers → Run workflow**, spunta
+**"Invia una notifica di prova su Telegram"** e avvia. Riceverai due messaggi: la
+conferma del collegamento e un esempio con il formato reale di una notifica.
+
+Se qualcosa non va, il log dello step lo dice in chiaro (token non valido, chat non
+trovata, bot senza permesso di scrivere).
 
 ## Sviluppo locale
 

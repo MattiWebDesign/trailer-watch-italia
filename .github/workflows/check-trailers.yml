@@ -3,7 +3,12 @@ name: Check trailers
 on:
   schedule:
     - cron: "0 6 * * *"
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      test_telegram:
+        description: "Invia una notifica di prova su Telegram"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -17,12 +22,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
+
+      - name: Telegram test notification
+        if: ${{ inputs.test_telegram }}
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          TELEGRAM_SILENT: ${{ vars.TELEGRAM_SILENT }}
+        run: python scripts/notify_telegram.py --test
 
       - name: Run trailer check
         id: check

@@ -1,13 +1,18 @@
 #!/usr/bin/env python3
 """Invia su Telegram i nuovi trailer trovati da check_trailers.py.
 
+Uso:
+  python scripts/notify_telegram.py            invia i trailer di new_trailers.json
+  python scripts/notify_telegram.py --test     invia una notifica di prova
+
 Variabili d'ambiente (impostate come GitHub Secrets nel workflow):
   TELEGRAM_BOT_TOKEN   token del bot ottenuto da @BotFather            (obbligatorio)
   TELEGRAM_CHAT_ID     id del canale/gruppo/chat di destinazione       (obbligatorio)
   TELEGRAM_SILENT      "1" per inviare senza suono di notifica         (opzionale)
 
 Se i due valori obbligatori mancano lo script esce senza errore: in questo modo
-un fork o una run senza secret configurati non fallisce.
+un fork o una run senza secret configurati non fallisce. In modalità --test,
+invece, la configurazione mancante è un errore: il test è stato chiesto apposta.
 """
 import json
 import os
@@ -21,8 +26,10 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 NEW_FILE = ROOT / "new_trailers.json"
+DATA_FILE = ROOT / "data.json"
 
 API = "https://api.telegram.org/bot{token}/sendMessage"
+API_ME = "https://api.telegram.org/bot{token}/getMe"
 MAX_MESSAGES = 8          # oltre questa soglia manda un riepilogo unico
 DELAY_SECONDS = 1.2       # margine sui limiti di frequenza di Telegram
 
@@ -86,14 +93,82 @@ def describe_error(exc):
     return str(exc)
 
 
+def trailer_message(t):
+    """Il messaggio esattamente com'è quando esce un trailer nuovo."""
+    return (
+        f"🎬 <b>{esc(t.get('title'))}</b>\n"
+        f"📺 {esc(t.get('channel'))}"
+        + (f" · {esc(fmt_date(t.get('published')))}" if t.get("published") else "")
+        + f"\n\n{esc(t.get('url'))}"
+    )
+
+
+def run_test(token, chat_id, silent):
+    """Notifica di prova: conferma che token, chat id e permessi sono corretti."""
+    try:
+        req = urllib.request.Request(API_ME.format(token=token))
+        with urllib.request.urlopen(req, timeout=20) as resp:
+            me = json.loads(resp.read().decode("utf-8", errors="replace"))
+        username = me.get("result", {}).get("username", "?")
+        print(f"[OK] Bot autenticato: @{username}")
+    except Exception as exc:
+        print(f"[ERRORE] autenticazione del bot fallita: {describe_error(exc)}", file=sys.stderr)
+        return 1
+
+    testo = (
+        "🧪 <b>Notifica di prova</b>\n"
+        "Trailer Watch Italia è collegato correttamente a questa chat.\n\n"
+        "Da qui in poi riceverai un messaggio a ogni nuovo trailer trovato."
+    )
+    try:
+        send(token, chat_id, testo, silent=silent, preview=False)
+        print(f"[OK] Messaggio di prova inviato alla chat {chat_id}.")
+    except Exception as exc:
+        print(f"[ERRORE] invio del messaggio di prova fallito: {describe_error(exc)}", file=sys.stderr)
+        return 1
+
+    # secondo messaggio: un esempio reale, così si vede il formato definitivo
+    try:
+        data = json.loads(DATA_FILE.read_text(encoding="utf-8"))
+        esempio = (data.get("trailers") or [])[0]
+    except (json.JSONDecodeError, OSError, IndexError):
+        esempio = None
+
+    if esempio:
+        time.sleep(DELAY_SECONDS)
+        try:
+            send(token, chat_id, trailer_message(esempio), silent=silent)
+            print("[OK] Inviato anche un esempio di notifica con un trailer reale.")
+        except Exception as exc:
+            print(f"[ERRORE] invio dell'esempio fallito: {describe_error(exc)}", file=sys.stderr)
+            return 1
+
+    return 0
+
+
 def main():
     token = os.environ.get("TELEGRAM_BOT_TOKEN", "").strip()
     chat_id = os.environ.get("TELEGRAM_CHAT_ID", "").strip()
     silent = os.environ.get("TELEGRAM_SILENT", "").strip() == "1"
+    test_mode = "--test" in sys.argv[1:]
 
     if not token or not chat_id:
+        if test_mode:
+            # il test è stato richiesto esplicitamente: la configurazione mancante è un errore
+            mancanti = [
+                n for n, v in (("TELEGRAM_BOT_TOKEN", token), ("TELEGRAM_CHAT_ID", chat_id)) if not v
+            ]
+            accordo = "non configurati" if len(mancanti) > 1 else "non configurato"
+            print(
+                f"[ERRORE] {' e '.join(mancanti)} {accordo}: impossibile inviare il test.",
+                file=sys.stderr,
+            )
+            return 1
         print("[SKIP] TELEGRAM_BOT_TOKEN o TELEGRAM_CHAT_ID non configurati: notifiche disattivate.")
         return 0
+
+    if test_mode:
+        return run_test(token, chat_id, silent)
 
     if not NEW_FILE.exists():
         print("[SKIP] new_trailers.json non trovato: nessuna notifica da inviare.")
@@ -129,14 +204,8 @@ def main():
             failures += 1
     else:
         for i, t in enumerate(trailers):
-            testo = (
-                f"🎬 <b>{esc(t.get('title'))}</b>\n"
-                f"📺 {esc(t.get('channel'))}"
-                + (f" · {esc(fmt_date(t.get('published')))}" if t.get("published") else "")
-                + f"\n\n{esc(t.get('url'))}"
-            )
             try:
-                send(token, chat_id, testo, silent=silent)
+                send(token, chat_id, trailer_message(t), silent=silent)
                 print(f"[OK] Notificato: {t.get('title')}")
             except Exception as exc:
                 print(f"[ERRORE] invio fallito per {t.get('id')}: {describe_error(exc)}", file=sys.stderr)
