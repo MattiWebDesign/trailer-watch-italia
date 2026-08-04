@@ -49,8 +49,9 @@ solo alle notifiche: è in `.gitignore` e non viene versionato.
 | Netflix `@NetflixItalia` | Warner Bros. `@WarnerBrosItalia` |
 | Prime Video `@PrimeVideoIT` | Sony Pictures `@SonyPicturesIT` |
 | Disney+ `@DisneyPlusIT` | Paramount Pictures `@ParamountPicturesItalia` |
-| Paramount+ `@ParamountPlusIT` | Marvel `@MarvelItaly` |
-| HBO Max `@hbomaxit` | FilmIsNow `@FilmIsNowItalia` |
+| Paramount+ `@ParamountPlusIT` | Universal Pictures `@UniversalpicturesIt` |
+| HBO Max `@hbomaxit` | Marvel `@MarvelItaly` |
+| | FilmIsNow `@FilmIsNowItalia` |
 
 `FilmIsNow` è un aggregatore, non un canale ufficiale: pubblica parecchi video al
 giorno, quindi peserà sui risultati più degli altri. Per toglierlo basta rimuovere la
