@@ -42,6 +42,20 @@ solo alle notifiche: è in `.gitignore` e non viene versionato.
 - Etichetta "Nuovo" sui trailer usciti nelle ultime 72 ore
 - Scorciatoie da tastiera: `/` per cercare, `Esc` per chiudere il player
 
+## Canali monitorati
+
+| Piattaforme streaming | Case di distribuzione |
+|---|---|
+| Netflix `@NetflixItalia` | Warner Bros. `@WarnerBrosItalia` |
+| Prime Video `@PrimeVideoIT` | Sony Pictures `@SonyPicturesIT` |
+| Disney+ `@DisneyPlusIT` | Paramount Pictures `@ParamountPicturesItalia` |
+| Paramount+ `@ParamountPlusIT` | Marvel `@MarvelItaly` |
+| HBO Max `@hbomaxit` | FilmIsNow `@FilmIsNowItalia` |
+
+`FilmIsNow` è un aggregatore, non un canale ufficiale: pubblica parecchi video al
+giorno, quindi peserà sui risultati più degli altri. Per toglierlo basta rimuovere la
+sua riga da `CHANNELS`.
+
 ## Aggiungere una piattaforma
 
 In `scripts/check_trailers.py`, aggiungi una voce alla lista `CHANNELS` con il nome da

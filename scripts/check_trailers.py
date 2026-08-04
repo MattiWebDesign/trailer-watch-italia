@@ -25,12 +25,19 @@ KEYWORD_RE = re.compile(r"trailer|teaser", re.IGNORECASE)
 # Handle YouTube di ciascun canale. Se un canale smette di funzionare
 # (log "impossibile risolvere channel_id"), verificare/correggere l'handle qui.
 CHANNELS = [
+    # piattaforme streaming
     {"name": "Netflix", "handle": "NetflixItalia"},
     {"name": "Prime Video", "handle": "PrimeVideoIT"},
     {"name": "Disney+", "handle": "DisneyPlusIT"},
     {"name": "Paramount+", "handle": "ParamountPlusIT"},
-    {"name": "Warner Bros.", "handle": "WarnerBrosItalia"},
     {"name": "HBO Max", "handle": "hbomaxit"},
+    # distribuzione cinematografica
+    {"name": "Warner Bros.", "handle": "WarnerBrosItalia"},
+    {"name": "Sony Pictures", "handle": "SonyPicturesIT"},
+    {"name": "Paramount Pictures", "handle": "ParamountPicturesItalia"},
+    {"name": "Marvel", "handle": "MarvelItaly"},
+    # aggregatore: pubblica molti trailer al giorno
+    {"name": "FilmIsNow", "handle": "FilmIsNowItalia"},
 ]
 
 HEADERS = {
