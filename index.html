@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
 <title>Trailer Watch Italia</title>
-<meta name="description" content="I nuovi trailer e teaser italiani di Netflix, Prime Video, Disney+, Paramount+, Warner Bros. e HBO Max. Aggiornati automaticamente ogni giorno.">
+<meta name="description" content="I nuovi trailer e teaser italiani dalle piattaforme streaming e dalle case di distribuzione: Netflix, Prime Video, Disney+, Paramount+, HBO Max, Warner Bros., Sony Pictures, Marvel e altri. Aggiornati automaticamente ogni giorno.">
 <meta name="theme-color" content="#0a0710">
 <meta name="color-scheme" content="dark">
 
@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Trailer Watch Italia">
 <meta property="og:locale" content="it_IT">
 <meta property="og:title" content="Trailer Watch Italia">
-<meta property="og:description" content="I nuovi trailer e teaser italiani di Netflix, Prime Video, Disney+, Paramount+, Warner Bros. e HBO Max. Aggiornati automaticamente ogni giorno.">
+<meta property="og:description" content="I nuovi trailer e teaser italiani dalle piattaforme streaming e dalle case di distribuzione: Netflix, Prime Video, Disney+, Paramount+, HBO Max, Warner Bros., Sony Pictures, Marvel e altri. Aggiornati automaticamente ogni giorno.">
 <meta property="og:url" content="https://mattiwebdesign.github.io/trailer-watch-italia/">
 <meta property="og:image" content="https://mattiwebdesign.github.io/trailer-watch-italia/assets/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -24,7 +24,7 @@
 <meta property="og:image:alt" content="Trailer Watch Italia">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Trailer Watch Italia">
-<meta name="twitter:description" content="I nuovi trailer e teaser italiani delle principali piattaforme streaming, aggiornati ogni giorno.">
+<meta name="twitter:description" content="I nuovi trailer e teaser italiani dalle principali piattaforme streaming e case di distribuzione, aggiornati ogni giorno.">
 <meta name="twitter:image" content="https://mattiwebdesign.github.io/trailer-watch-italia/assets/og-image.png">
 
 <style>
@@ -207,12 +207,15 @@ h1 .g{background:var(--grad); -webkit-background-clip:text; background-clip:text
 .viewtoggle button:hover{color:var(--text);}
 .viewtoggle button[aria-pressed="true"]{background:var(--grad); color:#fff; box-shadow:0 6px 18px -8px rgba(255,45,120,.8);}
 
-/* Filtri piattaforma */
-.filters{
-  display:flex; gap:8px; overflow-x:auto; padding:2px 0 10px;
-  scrollbar-width:none; -ms-overflow-style:none;
+/* Filtri piattaforma: a capo su schermi larghi, scorrevoli su mobile */
+.filters{display:flex; flex-wrap:wrap; gap:8px; padding:2px 0 10px;}
+@media (max-width:720px){
+  .filters{
+    flex-wrap:nowrap; overflow-x:auto;
+    scrollbar-width:none; -ms-overflow-style:none;
+  }
+  .filters::-webkit-scrollbar{display:none;}
 }
-.filters::-webkit-scrollbar{display:none;}
 .chip{
   flex:none; display:inline-flex; align-items:center; gap:8px;
   padding:8px 15px; border-radius:var(--r-pill); cursor:pointer;
@@ -455,7 +458,7 @@ footer a:hover{color:var(--fuchsia);}
 
   <header class="hero">
     <h1>Ogni nuovo <span class="g">trailer italiano</span>, appena esce.</h1>
-    <p class="lede">Controlliamo ogni giorno i canali ufficiali di Netflix, Prime&nbsp;Video, Disney+, Paramount+, Warner&nbsp;Bros. e HBO&nbsp;Max e raccogliamo qui trailer e teaser in italiano.</p>
+    <p class="lede">Controlliamo ogni giorno i canali ufficiali delle piattaforme streaming e delle case di distribuzione &mdash; da Netflix e Prime&nbsp;Video a Warner&nbsp;Bros., Sony&nbsp;Pictures e Marvel &mdash; e raccogliamo qui trailer e teaser in italiano.</p>
 
     <div class="stats" id="stats">
       <div class="stat"><div class="stat-k">Trailer raccolti</div><div class="stat-v" id="stat-total">—</div></div>
@@ -526,8 +529,12 @@ footer a:hover{color:var(--fuchsia);}
     "Prime Video":"#ffa62b",
     "Disney+":"#6c8bff",
     "Paramount+":"#ff2d78",
+    "HBO Max":"#a855f7",
     "Warner Bros.":"#ff7a18",
-    "HBO Max":"#a855f7"
+    "Sony Pictures":"#ffd166",
+    "Paramount Pictures":"#d946a6",
+    "Marvel":"#ef476f",
+    "FilmIsNow":"#4ecdc4"
   };
   var DEFAULT_COLOR = "#8b3dff";
   var NEW_WINDOW_H = 72;        // ore entro cui un trailer è marcato "nuovo"
