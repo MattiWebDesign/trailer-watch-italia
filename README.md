@@ -40,7 +40,13 @@ solo alle notifiche: è in `.gitignore` e non viene versionato.
 - Player YouTube in finestra modale, senza uscire dal sito
 - Contatore live dall'ultimo controllo e conto alla rovescia al prossimo
 - Etichetta "Nuovo" sui trailer usciti nelle ultime 72 ore
-- Scorciatoie da tastiera: `/` per cercare, `Esc` per chiudere il player
+- Filtro "Da vedere / Tutti / Già visti", segna i trailer come visti (icona sulla
+  card o selezione multipla) o eliminali dall'elenco — stato salvato nel browser
+  (`localStorage`), personale per dispositivo e non sincronizzato
+- Pulsante "Scansiona ora" in alto: apre la pagina Actions di GitHub per avviare
+  un controllo manuale senza aspettare le 06:00 UTC
+- Scorciatoie da tastiera: `/` per cercare, `Esc` per chiudere il player o uscire
+  dalla selezione multipla
 
 ## Canali monitorati
 
