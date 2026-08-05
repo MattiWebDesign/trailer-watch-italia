@@ -207,6 +207,29 @@ h1 .g{background:var(--grad); -webkit-background-clip:text; background-clip:text
 .viewtoggle button:hover{color:var(--text);}
 .viewtoggle button[aria-pressed="true"]{background:var(--grad); color:#fff; box-shadow:0 6px 18px -8px rgba(255,45,120,.8);}
 
+/* Filtro di visione: Da vedere / Tutti / Già visti */
+.statustoggle{display:flex; gap:4px; padding:4px; border:1px solid var(--border); border-radius:var(--r-pill); background:var(--surface);}
+.statustoggle button{
+  display:flex; align-items:center; gap:6px;
+  padding:7px 13px; background:transparent; border:0; border-radius:var(--r-pill); color:var(--faint);
+  cursor:pointer; font:inherit; font-size:.82rem; font-weight:500; white-space:nowrap;
+  transition:color .2s var(--ease), background .2s var(--ease);
+}
+.statustoggle button:hover{color:var(--text);}
+.statustoggle button[aria-pressed="true"]{background:var(--grad); color:#fff; box-shadow:0 6px 18px -8px rgba(255,45,120,.8);}
+.statustoggle .n{font-size:.72rem; font-variant-numeric:tabular-nums; opacity:.85;}
+
+.selectbtn{
+  display:inline-flex; align-items:center; gap:7px;
+  padding:9px 15px; border-radius:var(--r-pill); cursor:pointer;
+  background:var(--surface); border:1px solid var(--border); color:var(--muted);
+  font:inherit; font-size:.84rem; font-weight:500; white-space:nowrap;
+  transition:color .2s var(--ease), border-color .2s var(--ease), background .2s var(--ease);
+}
+.selectbtn svg{width:15px; height:15px;}
+.selectbtn:hover{color:var(--text); border-color:var(--border-hi);}
+.selectbtn[aria-pressed="true"]{color:#fff; border-color:transparent; background:var(--grad); box-shadow:0 8px 22px -10px rgba(255,45,120,.9);}
+
 /* Filtri piattaforma: a capo su schermi larghi, scorrevoli su mobile */
 .filters{display:flex; flex-wrap:wrap; gap:8px; padding:2px 0 10px;}
 @media (max-width:720px){
@@ -237,11 +260,36 @@ h1 .g{background:var(--grad); -webkit-background-clip:text; background-clip:text
   display:flex; align-items:center; justify-content:space-between; gap:12px;
   margin:6px 0 18px; font-size:.82rem; color:var(--faint); flex-wrap:wrap;
 }
+.resultbar-actions{display:flex; gap:16px; align-items:center; flex-wrap:wrap;}
 .linkbtn{
   background:none; border:0; color:var(--fuchsia); font:inherit; font-size:.82rem;
   cursor:pointer; padding:0; text-decoration:underline; text-underline-offset:3px;
 }
 .linkbtn:hover{color:var(--orange);}
+
+/* Barra azioni bulk (selezione multipla) */
+.bulkbar{
+  display:flex; align-items:center; gap:12px; flex-wrap:wrap;
+  padding:12px 16px; margin:0 0 18px; border-radius:var(--r-md);
+  background:var(--surface-hi); border:1px solid var(--border-hi);
+  animation:slidein .22s var(--ease);
+}
+.bulkbar[hidden]{display:none;}
+@keyframes slidein{from{opacity:0; transform:translateY(-6px);} to{opacity:1; transform:none;}}
+.bulkbar-count{font-size:.85rem; font-weight:600; white-space:nowrap;}
+.bulkbar-actions{display:flex; gap:8px; flex-wrap:wrap; margin-left:auto;}
+.bulkbtn{
+  display:inline-flex; align-items:center; gap:7px; padding:8px 15px;
+  border-radius:var(--r-pill); border:1px solid var(--border); background:var(--bg-elev); color:var(--text);
+  font:inherit; font-size:.82rem; font-weight:600; cursor:pointer; white-space:nowrap;
+  transition:border-color .2s var(--ease), transform .15s var(--ease), background .2s var(--ease);
+}
+.bulkbtn svg{width:14px; height:14px;}
+.bulkbtn:hover{border-color:var(--border-hi); transform:translateY(-1px);}
+.bulkbtn:disabled{opacity:.45; cursor:not-allowed; transform:none;}
+.bulkbtn.is-primary{background:var(--grad); border-color:transparent; color:#fff; box-shadow:0 8px 22px -10px rgba(255,45,120,.9);}
+.bulkbtn.is-danger{color:#ff8f8f; border-color:rgba(255,90,90,.35);}
+.bulkbtn.is-danger:hover{background:rgba(255,60,60,.1); border-color:rgba(255,90,90,.55);}
 
 /* ============================================================
    Griglia / card
@@ -303,6 +351,33 @@ h1 .g{background:var(--grad); -webkit-background-clip:text; background-clip:text
   font-size:.66rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase;
   box-shadow:0 8px 20px -8px rgba(255,45,120,.9);
 }
+.thumb-watched{
+  position:absolute; right:12px; top:12px; z-index:2;
+  display:inline-flex; align-items:center; gap:5px;
+  padding:5px 10px; border-radius:var(--r-pill);
+  background:rgba(10,7,16,.78); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.14); color:var(--muted);
+  font-size:.66rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase;
+}
+.thumb-watched svg{width:11px; height:11px;}
+.card.is-watched .thumb img{opacity:.4;}
+.card.is-watched .thumb::after{background:rgba(10,7,16,.55);}
+
+/* Checkbox di selezione multipla, visibile in modalità "Seleziona" */
+.card-select{
+  position:absolute; left:10px; top:10px; z-index:4;
+  width:24px; height:24px; border-radius:7px;
+  background:rgba(10,7,16,.72); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+  border:1.5px solid rgba(255,255,255,.4);
+  display:none; align-items:center; justify-content:center; color:#fff;
+  transition:background .2s var(--ease), border-color .2s var(--ease);
+}
+.card-select svg{width:14px; height:14px; opacity:0; transition:opacity .15s var(--ease);}
+.grid.is-selecting .card-select{display:flex;}
+.grid.is-selecting .thumb-badge{top:42px;}
+.card.is-selected .card-select{background:var(--grad); border-color:transparent;}
+.card.is-selected .card-select svg{opacity:1;}
+.card.is-selected{border-color:var(--fuchsia); box-shadow:0 0 0 1px var(--fuchsia);}
 
 .card-body{padding:14px 16px 16px; display:flex; flex-direction:column; gap:8px; flex:1;}
 .card-title{
@@ -310,10 +385,18 @@ h1 .g{background:var(--grad); -webkit-background-clip:text; background-clip:text
   display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
 }
 .card-meta{
-  margin-top:auto; display:flex; align-items:center; gap:8px;
+  margin-top:auto; display:flex; align-items:center; gap:8px; flex-wrap:wrap;
   font-size:.76rem; color:var(--faint);
 }
 .card-meta .sep{width:3px; height:3px; border-radius:50%; background:currentColor; opacity:.6;}
+.watch-toggle{
+  display:inline-flex; align-items:center; gap:5px; margin-left:auto;
+  background:none; border:0; padding:0; color:var(--faint); cursor:pointer;
+  font:inherit; font-size:.74rem; font-weight:500; transition:color .2s var(--ease);
+}
+.watch-toggle svg{width:14px; height:14px;}
+.watch-toggle:hover{color:var(--text);}
+.watch-toggle[aria-pressed="true"]{color:#39d98a;}
 
 /* Vista lista */
 .grid.is-list{grid-template-columns:1fr; gap:12px;}
@@ -484,13 +567,43 @@ footer a:hover{color:var(--fuchsia);}
         <svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="4" width="18" height="4" rx="2"/><rect x="3" y="10" width="18" height="4" rx="2"/><rect x="3" y="16" width="18" height="4" rx="2"/></svg>
       </button>
     </div>
+    <button type="button" class="selectbtn" id="select-btn" aria-pressed="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="m8 12 3 3 5-6"/></svg>
+      Seleziona
+    </button>
   </div>
+
+  <div class="statustoggle" id="statustoggle" role="group" aria-label="Filtra per stato di visione"></div>
 
   <div class="filters" id="filters" role="group" aria-label="Filtra per piattaforma"></div>
 
   <div class="resultbar">
     <span id="resultcount" aria-live="polite"></span>
-    <button class="linkbtn" id="reset" type="button" hidden>Azzera filtri</button>
+    <div class="resultbar-actions">
+      <button class="linkbtn" id="restore-removed" type="button" hidden></button>
+      <button class="linkbtn" id="reset" type="button" hidden>Azzera filtri</button>
+    </div>
+  </div>
+
+  <div class="bulkbar" id="bulkbar" hidden>
+    <span class="bulkbar-count" id="bulkbar-count" aria-live="polite">Nessuno selezionato</span>
+    <button type="button" class="linkbtn" id="select-all">Seleziona tutti i visibili</button>
+    <button type="button" class="linkbtn" id="select-clear">Deseleziona</button>
+    <div class="bulkbar-actions">
+      <button type="button" class="bulkbtn is-primary" id="bulk-watch" disabled>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg>
+        Segna come visti
+      </button>
+      <button type="button" class="bulkbtn" id="bulk-unwatch" disabled>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg>
+        Segna da vedere
+      </button>
+      <button type="button" class="bulkbtn is-danger" id="bulk-remove" disabled>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2m2 0-1 13a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 7"/></svg>
+        Elimina
+      </button>
+      <button type="button" class="linkbtn" id="select-cancel">Annulla</button>
+    </div>
   </div>
 
   <main id="content"></main>
@@ -541,12 +654,36 @@ footer a:hover{color:var(--fuchsia);}
   var NEW_WINDOW_H = 72;        // ore entro cui un trailer è marcato "nuovo"
   var CRON_UTC_HOUR = 6;        // orario del workflow GitHub Actions
 
+  // "Visto"/"Eliminato" sono stato personale del browser: non esistono in data.json,
+  // che è condiviso da chiunque visiti il sito, quindi vivono solo in localStorage.
+  var LS_WATCHED = "twi_watched_v1";
+  var LS_REMOVED = "twi_removed_v1";
+  var LS_STATUS  = "twi_status_v1";
+
   /* ---------- Stato ---------- */
-  var state = { all:[], q:"", channel:"", view:"grid" };
+  var state = {
+    all:[], q:"", channel:"", view:"grid",
+    status:"unwatched",              // 'unwatched' | 'all' | 'watched'
+    watched:loadSet(LS_WATCHED),
+    removed:loadSet(LS_REMOVED),
+    selectMode:false,
+    selected:new Set()
+  };
   var lastFocused = null;
 
   /* ---------- Utility ---------- */
   var $ = function(id){ return document.getElementById(id); };
+
+  function loadSet(key){
+    try{
+      var raw = localStorage.getItem(key);
+      return raw ? new Set(JSON.parse(raw)) : new Set();
+    }catch(e){ return new Set(); }
+  }
+  function saveSet(key, set){
+    try{ localStorage.setItem(key, JSON.stringify(Array.from(set))); }
+    catch(e){ /* storage non disponibile (privata/quota piena): l'app resta usabile, solo non persiste */ }
+  }
 
   function escapeHtml(s){
     return String(s == null ? "" : s).replace(/[&<>"']/g, function(c){
@@ -606,14 +743,31 @@ footer a:hover{color:var(--fuchsia);}
     state.q = p.get("q") || "";
     state.channel = p.get("canale") || "";
     state.view = p.get("vista") === "lista" ? "list" : "grid";
+
+    var stato = p.get("stato");
+    if(stato === "tutti") state.status = "all";
+    else if(stato === "visti") state.status = "watched";
+    else if(stato === "davedere") state.status = "unwatched";
+    else{
+      var saved = null;
+      try{ saved = localStorage.getItem(LS_STATUS); }catch(e){}
+      state.status = (saved === "all" || saved === "watched") ? saved : "unwatched";
+    }
   }
   function writeUrl(){
     var p = new URLSearchParams();
     if(state.q) p.set("q", state.q);
     if(state.channel) p.set("canale", state.channel);
     if(state.view === "list") p.set("vista","lista");
+    if(state.status === "all") p.set("stato","tutti");
+    else if(state.status === "watched") p.set("stato","visti");
     var qs = p.toString();
     history.replaceState(null, "", qs ? "?"+qs : location.pathname);
+  }
+  function setStatus(status){
+    state.status = status;
+    try{ localStorage.setItem(LS_STATUS, status); }catch(e){}
+    writeUrl(); render();
   }
 
   /* ---------- Rendering ---------- */
@@ -653,21 +807,56 @@ footer a:hover{color:var(--fuchsia);}
     var q = normalize(state.q).trim();
     var ch = slug(state.channel);
     return state.all.filter(function(t){
+      if(state.removed.has(t.id)) return false;
+      if(state.status === "unwatched" && state.watched.has(t.id)) return false;
+      if(state.status === "watched" && !state.watched.has(t.id)) return false;
       if(ch && slug(t.channel) !== ch) return false;
       if(q && normalize(t.title).indexOf(q) === -1 && normalize(t.channel).indexOf(q) === -1) return false;
       return true;
     });
   }
 
+  // conteggi per i tre stati, rispettando ricerca e canale già attivi
+  function countsByStatus(){
+    var q = normalize(state.q).trim();
+    var ch = slug(state.channel);
+    var base = state.all.filter(function(t){
+      if(state.removed.has(t.id)) return false;
+      if(ch && slug(t.channel) !== ch) return false;
+      if(q && normalize(t.title).indexOf(q) === -1 && normalize(t.channel).indexOf(q) === -1) return false;
+      return true;
+    });
+    var watchedN = base.filter(function(t){ return state.watched.has(t.id); }).length;
+    return { all: base.length, unwatched: base.length - watchedN, watched: watchedN };
+  }
+
+  function renderStatusToggle(){
+    var c = countsByStatus();
+    var defs = [
+      ["unwatched","Da vedere",c.unwatched],
+      ["all","Tutti",c.all],
+      ["watched","Già visti",c.watched]
+    ];
+    $("statustoggle").innerHTML = defs.map(function(d){
+      return '<button type="button" data-status="'+d[0]+'" aria-pressed="'+(state.status===d[0]?"true":"false")+'">'+
+             d[1]+'<span class="n">'+d[2]+'</span></button>';
+    }).join("");
+  }
+
   function cardHtml(t, i){
     var color = colorFor(t.channel);
     var rel = relTime(t.published);
     var abs = fmtDate(t.published);
-    return '<a class="card" href="'+escapeHtml(t.url)+'" target="_blank" rel="noopener" data-id="'+escapeHtml(t.id)+'" style="--i:'+Math.min(i,14)+'">'+
+    var watched = state.watched.has(t.id);
+    var selected = state.selected.has(t.id);
+    var cls = "card" + (watched ? " is-watched" : "") + (selected ? " is-selected" : "");
+    var check = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg>';
+    return '<a class="'+cls+'" href="'+escapeHtml(t.url)+'" target="_blank" rel="noopener" data-id="'+escapeHtml(t.id)+'" style="--i:'+Math.min(i,14)+'">'+
       '<div class="thumb">'+
+        '<span class="card-select" aria-hidden="true">'+check+'</span>'+
         '<img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/'+escapeHtml(t.id)+'/hqdefault.jpg" alt="">'+
         '<span class="thumb-badge" style="--c:'+color+'"><span class="chip-dot"></span>'+escapeHtml(t.channel)+'</span>'+
-        (isNew(t.published) ? '<span class="thumb-new">Nuovo</span>' : '')+
+        (watched ? '<span class="thumb-watched">'+check+'Visto</span>' : (isNew(t.published) ? '<span class="thumb-new">Nuovo</span>' : ''))+
         '<span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v13.72a1 1 0 0 0 1.54.84l10.5-6.86a1 1 0 0 0 0-1.68L9.54 4.3A1 1 0 0 0 8 5.14Z"/></svg></span>'+
       '</div>'+
       '<div class="card-body">'+
@@ -676,19 +865,34 @@ footer a:hover{color:var(--fuchsia);}
           '<span class="list-only" style="color:'+color+'"><span class="chip-dot" style="--c:'+color+'"></span>'+escapeHtml(t.channel)+'</span>'+
           '<span class="sep list-only"></span>'+
           '<span>'+escapeHtml(abs)+'</span><span class="sep"></span><span>'+escapeHtml(rel)+'</span>'+
+          '<button type="button" class="watch-toggle" data-watch-id="'+escapeHtml(t.id)+'" aria-pressed="'+(watched?"true":"false")+'">'+
+            (watched ? check : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/></svg>')+
+            (watched ? 'Visto' : 'Segna visto')+
+          '</button>'+
         '</div>'+
       '</div>'+
     '</a>';
   }
 
   function render(){
+    renderStatusToggle();
+
     var list = filtered();
     var content = $("content");
+    var hasFilters = !!(state.channel || state.q);
 
+    var statusWord = state.status === "unwatched" ? " da vedere" : state.status === "watched" ? " già visti" : "";
     $("resultcount").textContent = list.length === 0 ? "" :
-      (list.length + (list.length === 1 ? " trailer" : " trailer") +
-       (state.channel || state.q ? " trovati su " + state.all.length : ""));
-    $("reset").hidden = !(state.channel || state.q);
+      (list.length + " trailer" + statusWord + (hasFilters ? " trovati su " + state.all.length : ""));
+    $("reset").hidden = !hasFilters;
+
+    var restoreBtn = $("restore-removed");
+    if(state.removed.size > 0){
+      restoreBtn.hidden = false;
+      restoreBtn.textContent = "Ripristina " + state.removed.size + (state.removed.size === 1 ? " eliminato" : " eliminati");
+    }else{
+      restoreBtn.hidden = true;
+    }
 
     if(state.all.length === 0){
       content.innerHTML = '<div class="state"><div class="state-icon">🎬</div>'+
@@ -696,12 +900,21 @@ footer a:hover{color:var(--fuchsia);}
       return;
     }
     if(list.length === 0){
-      content.innerHTML = '<div class="state"><div class="state-icon">🔍</div>'+
-        '<h3>Nessun risultato</h3><p>Nessun trailer corrisponde ai filtri attivi. Prova con un altro termine o rimuovi i filtri.</p>'+
-        '<button class="linkbtn" type="button" data-reset>Azzera filtri</button></div>';
+      var icon = "🔍", title = "Nessun risultato", text = "Nessun trailer corrisponde ai filtri attivi. Prova con un altro termine o rimuovi i filtri.";
+      if(!hasFilters && state.status === "unwatched"){
+        icon = "🎉"; title = "Tutto visto!";
+        text = "Hai già segnato come visti tutti i trailer disponibili. Passa a “Tutti” per rivederli.";
+      }else if(!hasFilters && state.status === "watched"){
+        icon = "👀"; title = "Nessun trailer visto";
+        text = "Non hai ancora segnato nessun trailer come visto. Usa l'icona sulla card o il pulsante “Seleziona” per farlo in blocco.";
+      }
+      content.innerHTML = '<div class="state"><div class="state-icon">'+icon+'</div>'+
+        '<h3>'+title+'</h3><p>'+text+'</p>'+
+        (hasFilters ? '<button class="linkbtn" type="button" data-reset>Azzera filtri</button>' : '')+
+        '</div>';
       return;
     }
-    content.innerHTML = '<div class="grid'+(state.view === "list" ? " is-list" : "")+'">'+
+    content.innerHTML = '<div class="grid'+(state.view === "list" ? " is-list" : "")+(state.selectMode ? " is-selecting" : "")+'">'+
       list.map(cardHtml).join("") + '</div>';
   }
 
@@ -754,6 +967,91 @@ footer a:hover{color:var(--fuchsia);}
     if(lastFocused && lastFocused.focus) lastFocused.focus();
   }
 
+  /* ---------- Visti / eliminati / selezione multipla ---------- */
+  function toggleWatched(id){
+    if(state.watched.has(id)) state.watched.delete(id); else state.watched.add(id);
+    saveSet(LS_WATCHED, state.watched);
+    render();
+  }
+
+  function updateBulkBar(){
+    var n = state.selected.size;
+    $("bulkbar-count").textContent = n === 0 ? "Nessuno selezionato" : (n + (n === 1 ? " selezionato" : " selezionati"));
+    $("bulk-watch").disabled = n === 0;
+    $("bulk-unwatch").disabled = n === 0;
+    $("bulk-remove").disabled = n === 0;
+  }
+
+  function updateSelectModeUI(){
+    $("select-btn").setAttribute("aria-pressed", state.selectMode ? "true" : "false");
+    $("bulkbar").hidden = !state.selectMode;
+    updateBulkBar();
+  }
+
+  function toggleSelectMode(){
+    state.selectMode = !state.selectMode;
+    state.selected.clear();
+    updateSelectModeUI();
+    render(); // ricrea la griglia con/senza i checkbox (classe .is-selecting)
+  }
+
+  function toggleSelected(id, cardEl){
+    var on;
+    if(state.selected.has(id)){ state.selected.delete(id); on = false; }
+    else{ state.selected.add(id); on = true; }
+    if(cardEl) cardEl.classList.toggle("is-selected", on);
+    updateBulkBar();
+  }
+
+  function selectAllVisible(){
+    filtered().forEach(function(t){ state.selected.add(t.id); });
+    $("content").querySelectorAll(".card").forEach(function(card){ card.classList.add("is-selected"); });
+    updateBulkBar();
+  }
+
+  function clearSelection(){
+    state.selected.forEach(function(id){
+      var card = $("content").querySelector('.card[data-id="'+id+'"]');
+      if(card) card.classList.remove("is-selected");
+    });
+    state.selected.clear();
+    updateBulkBar();
+  }
+
+  function bulkSetWatched(watched){
+    if(state.selected.size === 0) return;
+    state.selected.forEach(function(id){
+      if(watched) state.watched.add(id); else state.watched.delete(id);
+    });
+    saveSet(LS_WATCHED, state.watched);
+    state.selectMode = false;
+    state.selected.clear();
+    updateSelectModeUI();
+    render();
+  }
+
+  function bulkRemove(){
+    var n = state.selected.size;
+    if(n === 0) return;
+    if(!confirm("Eliminare " + n + (n === 1 ? " trailer" : " trailer") + " da questo elenco?\nPotrai ripristinarli in seguito dal link “Ripristina eliminati”.")) return;
+    state.selected.forEach(function(id){
+      state.removed.add(id);
+      state.watched.delete(id); // non serve più tenerlo tra i visti se è stato eliminato
+    });
+    saveSet(LS_REMOVED, state.removed);
+    saveSet(LS_WATCHED, state.watched);
+    state.selectMode = false;
+    state.selected.clear();
+    updateSelectModeUI();
+    render();
+  }
+
+  function restoreRemoved(){
+    state.removed.clear();
+    saveSet(LS_REMOVED, state.removed);
+    render();
+  }
+
   /* ---------- Eventi ---------- */
   var debounceTimer;
   function onSearch(v){
@@ -795,8 +1093,23 @@ footer a:hover{color:var(--fuchsia);}
     $("reset").addEventListener("click", resetFilters);
     $("content").addEventListener("click", function(e){
       if(e.target.closest("[data-reset]")){ resetFilters(); return; }
+
+      var watchBtn = e.target.closest(".watch-toggle");
+      if(watchBtn){
+        e.preventDefault(); e.stopPropagation();
+        toggleWatched(watchBtn.getAttribute("data-watch-id"));
+        return;
+      }
+
       var card = e.target.closest(".card");
       if(!card) return;
+
+      if(state.selectMode){
+        e.preventDefault();
+        toggleSelected(card.getAttribute("data-id"), card);
+        return;
+      }
+
       if(e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return; // apri in nuova scheda
       e.preventDefault();
       var id = card.getAttribute("data-id");
@@ -804,11 +1117,30 @@ footer a:hover{color:var(--fuchsia);}
       if(t) openModal(t);
     });
 
+    $("statustoggle").addEventListener("click", function(e){
+      var btn = e.target.closest("button[data-status]");
+      if(!btn) return;
+      setStatus(btn.getAttribute("data-status"));
+    });
+
+    $("select-btn").addEventListener("click", toggleSelectMode);
+    $("select-all").addEventListener("click", selectAllVisible);
+    $("select-clear").addEventListener("click", clearSelection);
+    $("select-cancel").addEventListener("click", toggleSelectMode);
+    $("bulk-watch").addEventListener("click", function(){ bulkSetWatched(true); });
+    $("bulk-unwatch").addEventListener("click", function(){ bulkSetWatched(false); });
+    $("bulk-remove").addEventListener("click", bulkRemove);
+    $("restore-removed").addEventListener("click", restoreRemoved);
+
     $("modal").addEventListener("click", function(e){ if(e.target.hasAttribute("data-close")) closeModal(); });
     $("modal-close").addEventListener("click", closeModal);
 
     document.addEventListener("keydown", function(e){
-      if(e.key === "Escape"){ closeModal(); return; }
+      if(e.key === "Escape"){
+        if($("modal").classList.contains("is-open")){ closeModal(); return; }
+        if(state.selectMode){ toggleSelectMode(); return; }
+        return;
+      }
       if(e.key === "/" && document.activeElement !== $("search")){
         e.preventDefault(); $("search").focus(); $("search").select();
       }
