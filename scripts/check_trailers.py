@@ -35,6 +35,7 @@ CHANNELS = [
     {"name": "Warner Bros.", "handle": "WarnerBrosItalia"},
     {"name": "Sony Pictures", "handle": "SonyPicturesIT"},
     {"name": "Paramount Pictures", "handle": "ParamountPicturesItalia"},
+    {"name": "Universal Pictures", "handle": "UniversalpicturesIt"},
     {"name": "Marvel", "handle": "MarvelItaly"},
     # aggregatore: pubblica molti trailer al giorno
     {"name": "FilmIsNow", "handle": "FilmIsNowItalia"},
