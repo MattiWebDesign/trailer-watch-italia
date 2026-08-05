@@ -216,18 +216,6 @@ h1 .g{background:var(--grad); -webkit-background-clip:text; background-clip:text
 .viewtoggle button:hover{color:var(--text);}
 .viewtoggle button[aria-pressed="true"]{background:var(--grad); color:#fff; box-shadow:0 6px 18px -8px rgba(255,45,120,.8);}
 
-/* Filtro di visione: Da vedere / Tutti / Già visti */
-.statustoggle{display:flex; gap:4px; padding:4px; border:1px solid var(--border); border-radius:var(--r-pill); background:var(--surface);}
-.statustoggle button{
-  display:flex; align-items:center; gap:6px;
-  padding:7px 13px; background:transparent; border:0; border-radius:var(--r-pill); color:var(--faint);
-  cursor:pointer; font:inherit; font-size:.82rem; font-weight:500; white-space:nowrap;
-  transition:color .2s var(--ease), background .2s var(--ease);
-}
-.statustoggle button:hover{color:var(--text);}
-.statustoggle button[aria-pressed="true"]{background:var(--grad); color:#fff; box-shadow:0 6px 18px -8px rgba(255,45,120,.8);}
-.statustoggle .n{font-size:.72rem; font-variant-numeric:tabular-nums; opacity:.85;}
-
 .selectbtn{
   display:inline-flex; align-items:center; gap:7px;
   padding:9px 15px; border-radius:var(--r-pill); cursor:pointer;
@@ -590,8 +578,6 @@ footer a:hover{color:var(--fuchsia);}
     </button>
   </div>
 
-  <div class="statustoggle" id="statustoggle" role="group" aria-label="Filtra per stato di visione"></div>
-
   <div class="filters" id="filters" role="group" aria-label="Filtra per piattaforma"></div>
 
   <div class="resultbar">
@@ -675,12 +661,10 @@ footer a:hover{color:var(--fuchsia);}
   // che è condiviso da chiunque visiti il sito, quindi vivono solo in localStorage.
   var LS_WATCHED = "twi_watched_v1";
   var LS_REMOVED = "twi_removed_v1";
-  var LS_STATUS  = "twi_status_v1";
 
   /* ---------- Stato ---------- */
   var state = {
     all:[], q:"", channel:"", view:"grid",
-    status:"unwatched",              // 'unwatched' | 'all' | 'watched'
     watched:loadSet(LS_WATCHED),
     removed:loadSet(LS_REMOVED),
     selectMode:false,
@@ -760,31 +744,14 @@ footer a:hover{color:var(--fuchsia);}
     state.q = p.get("q") || "";
     state.channel = p.get("canale") || "";
     state.view = p.get("vista") === "lista" ? "list" : "grid";
-
-    var stato = p.get("stato");
-    if(stato === "tutti") state.status = "all";
-    else if(stato === "visti") state.status = "watched";
-    else if(stato === "davedere") state.status = "unwatched";
-    else{
-      var saved = null;
-      try{ saved = localStorage.getItem(LS_STATUS); }catch(e){}
-      state.status = (saved === "all" || saved === "watched") ? saved : "unwatched";
-    }
   }
   function writeUrl(){
     var p = new URLSearchParams();
     if(state.q) p.set("q", state.q);
     if(state.channel) p.set("canale", state.channel);
     if(state.view === "list") p.set("vista","lista");
-    if(state.status === "all") p.set("stato","tutti");
-    else if(state.status === "watched") p.set("stato","visti");
     var qs = p.toString();
     history.replaceState(null, "", qs ? "?"+qs : location.pathname);
-  }
-  function setStatus(status){
-    state.status = status;
-    try{ localStorage.setItem(LS_STATUS, status); }catch(e){}
-    writeUrl(); render();
   }
 
   /* ---------- Rendering ---------- */
@@ -825,39 +792,10 @@ footer a:hover{color:var(--fuchsia);}
     var ch = slug(state.channel);
     return state.all.filter(function(t){
       if(state.removed.has(t.id)) return false;
-      if(state.status === "unwatched" && state.watched.has(t.id)) return false;
-      if(state.status === "watched" && !state.watched.has(t.id)) return false;
       if(ch && slug(t.channel) !== ch) return false;
       if(q && normalize(t.title).indexOf(q) === -1 && normalize(t.channel).indexOf(q) === -1) return false;
       return true;
     });
-  }
-
-  // conteggi per i tre stati, rispettando ricerca e canale già attivi
-  function countsByStatus(){
-    var q = normalize(state.q).trim();
-    var ch = slug(state.channel);
-    var base = state.all.filter(function(t){
-      if(state.removed.has(t.id)) return false;
-      if(ch && slug(t.channel) !== ch) return false;
-      if(q && normalize(t.title).indexOf(q) === -1 && normalize(t.channel).indexOf(q) === -1) return false;
-      return true;
-    });
-    var watchedN = base.filter(function(t){ return state.watched.has(t.id); }).length;
-    return { all: base.length, unwatched: base.length - watchedN, watched: watchedN };
-  }
-
-  function renderStatusToggle(){
-    var c = countsByStatus();
-    var defs = [
-      ["unwatched","Da vedere",c.unwatched],
-      ["all","Tutti",c.all],
-      ["watched","Già visti",c.watched]
-    ];
-    $("statustoggle").innerHTML = defs.map(function(d){
-      return '<button type="button" data-status="'+d[0]+'" aria-pressed="'+(state.status===d[0]?"true":"false")+'">'+
-             d[1]+'<span class="n">'+d[2]+'</span></button>';
-    }).join("");
   }
 
   function cardHtml(t, i){
@@ -892,15 +830,12 @@ footer a:hover{color:var(--fuchsia);}
   }
 
   function render(){
-    renderStatusToggle();
-
     var list = filtered();
     var content = $("content");
     var hasFilters = !!(state.channel || state.q);
 
-    var statusWord = state.status === "unwatched" ? " da vedere" : state.status === "watched" ? " già visti" : "";
     $("resultcount").textContent = list.length === 0 ? "" :
-      (list.length + " trailer" + statusWord + (hasFilters ? " trovati su " + state.all.length : ""));
+      (list.length + " trailer" + (hasFilters ? " trovati su " + state.all.length : ""));
     $("reset").hidden = !hasFilters;
 
     var restoreBtn = $("restore-removed");
@@ -918,12 +853,9 @@ footer a:hover{color:var(--fuchsia);}
     }
     if(list.length === 0){
       var icon = "🔍", title = "Nessun risultato", text = "Nessun trailer corrisponde ai filtri attivi. Prova con un altro termine o rimuovi i filtri.";
-      if(!hasFilters && state.status === "unwatched"){
-        icon = "🎉"; title = "Tutto visto!";
-        text = "Hai già segnato come visti tutti i trailer disponibili. Passa a “Tutti” per rivederli.";
-      }else if(!hasFilters && state.status === "watched"){
-        icon = "👀"; title = "Nessun trailer visto";
-        text = "Non hai ancora segnato nessun trailer come visto. Usa l'icona sulla card o il pulsante “Seleziona” per farlo in blocco.";
+      if(!hasFilters && state.removed.size > 0){
+        icon = "🗑️"; title = "Hai eliminato tutti i trailer";
+        text = "Usa il link “Ripristina eliminati” qui sopra per farli ricomparire.";
       }
       content.innerHTML = '<div class="state"><div class="state-icon">'+icon+'</div>'+
         '<h3>'+title+'</h3><p>'+text+'</p>'+
@@ -1132,12 +1064,6 @@ footer a:hover{color:var(--fuchsia);}
       var id = card.getAttribute("data-id");
       var t = state.all.filter(function(x){ return x.id === id; })[0];
       if(t) openModal(t);
-    });
-
-    $("statustoggle").addEventListener("click", function(e){
-      var btn = e.target.closest("button[data-status]");
-      if(!btn) return;
-      setStatus(btn.getAttribute("data-status"));
     });
 
     $("select-btn").addEventListener("click", toggleSelectMode);
