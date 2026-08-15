@@ -50,18 +50,17 @@ solo alle notifiche: è in `.gitignore` e non viene versionato.
 
 ## Canali monitorati
 
-| Piattaforme streaming | Case di distribuzione |
-|---|---|
-| Netflix `@NetflixItalia` | Warner Bros. `@WarnerBrosItalia` |
-| Prime Video `@PrimeVideoIT` | Sony Pictures `@SonyPicturesIT` |
-| Disney+ `@DisneyPlusIT` | Paramount Pictures `@ParamountPicturesItalia` |
-| Paramount+ `@ParamountPlusIT` | Universal Pictures `@UniversalpicturesIt` |
-| HBO Max `@hbomaxit` | Marvel `@MarvelItaly` |
-| | FilmIsNow `@FilmIsNowItalia` |
+| Piattaforme streaming | Case di distribuzione | Aggregatori |
+|---|---|---|
+| Netflix `@NetflixItalia` | Warner Bros. `@WarnerBrosItalia` | FilmIsNow `@FilmIsNowItalia` |
+| Prime Video `@PrimeVideoIT` | Sony Pictures `@SonyPicturesIT` | Box Office Trailers `@boxofficetrailersitaly` |
+| Disney+ `@DisneyPlusIT` | Paramount Pictures `@ParamountPicturesItalia` | |
+| Paramount+ `@ParamountPlusIT` | Universal Pictures `@UniversalpicturesIt` | |
+| HBO Max `@hbomaxit` | Marvel `@MarvelItaly` | |
 
-`FilmIsNow` è un aggregatore, non un canale ufficiale: pubblica parecchi video al
-giorno, quindi peserà sui risultati più degli altri. Per toglierlo basta rimuovere la
-sua riga da `CHANNELS`.
+`FilmIsNow` e `Box Office Trailers` sono aggregatori, non canali ufficiali: pubblicano
+parecchi video al giorno, quindi peseranno sui risultati più degli altri. Per toglierli
+basta rimuovere le rispettive righe da `CHANNELS`.
 
 ## Aggiungere una piattaforma
 

@@ -37,8 +37,9 @@ CHANNELS = [
     {"name": "Paramount Pictures", "handle": "ParamountPicturesItalia"},
     {"name": "Universal Pictures", "handle": "UniversalpicturesIt"},
     {"name": "Marvel", "handle": "MarvelItaly"},
-    # aggregatore: pubblica molti trailer al giorno
+    # aggregatori: pubblicano molti trailer al giorno
     {"name": "FilmIsNow", "handle": "FilmIsNowItalia"},
+    {"name": "Box Office Trailers", "handle": "boxofficetrailersitaly"},
 ]
 
 HEADERS = {
