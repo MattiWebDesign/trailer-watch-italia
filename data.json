@@ -1,6 +1,35 @@
 {
-  "updated_at": "2026-08-15T06:43:53.384643+00:00",
+  "updated_at": "2026-08-15T16:11:15.968445+00:00",
   "trailers": [
+    {
+      "id": "i5HRsjeUg1U",
+      "title": "VisionQuest | Trailer Ufficiale | A Ottobre su Disney+",
+      "channel": "Marvel",
+      "published": "2026-08-15T10:10:29+00:00",
+      "url": "https://www.youtube.com/watch?v=i5HRsjeUg1U",
+      "also_on": []
+    },
+    {
+      "id": "pOv6KipbKIY",
+      "title": "Percy Jackson e gli Dei dell'Olimpo Stagione 3 | Teaser Trailer | Disney+ Italia",
+      "channel": "Disney+",
+      "published": "2026-08-15T08:57:44+00:00",
+      "url": "https://www.youtube.com/watch?v=pOv6KipbKIY"
+    },
+    {
+      "id": "taPykGJsGkI",
+      "title": "Chad Powers Stagione 2 | Trailer Ufficiale | Disney+ Italia",
+      "channel": "Disney+",
+      "published": "2026-08-13T15:19:16+00:00",
+      "url": "https://www.youtube.com/watch?v=taPykGJsGkI"
+    },
+    {
+      "id": "969d3KcD3wc",
+      "title": "MOBLAND Stagione 2 Trailer 2 Ita Ufficiale (2026) Tom Hardy",
+      "channel": "Box Office Trailers",
+      "published": "2026-08-13T13:18:43+00:00",
+      "url": "https://www.youtube.com/watch?v=969d3KcD3wc"
+    },
     {
       "id": "VnBXiuj5rtA",
       "title": "MobLand S02 | Trailer ufficiale | Paramount+",
@@ -37,18 +66,28 @@
       "url": "https://www.youtube.com/watch?v=GL6RHNA9f_c"
     },
     {
-      "id": "b8vU8bopYWI",
-      "title": "VERITY (2026) | Trailer ITA | Dal 1 Ottobre al Cinema",
-      "channel": "FilmIsNow",
-      "published": "2026-08-11T14:17:48+00:00",
-      "url": "https://www.youtube.com/watch?v=b8vU8bopYWI"
-    },
-    {
       "id": "KMqSu_jarrA",
       "title": "Verity | Dal 1° ottobre al cinema | Trailer Ufficiale",
       "channel": "Sony Pictures",
       "published": "2026-08-11T13:03:27+00:00",
-      "url": "https://www.youtube.com/watch?v=KMqSu_jarrA"
+      "url": "https://www.youtube.com/watch?v=KMqSu_jarrA",
+      "also_on": [
+        "FilmIsNow"
+      ]
+    },
+    {
+      "id": "1t1pGIyBGDc",
+      "title": "VERITY Trailer 2 Ita Ufficiale (2026) Anne Hathaway",
+      "channel": "Box Office Trailers",
+      "published": "2026-08-11T13:17:39+00:00",
+      "url": "https://www.youtube.com/watch?v=1t1pGIyBGDc"
+    },
+    {
+      "id": "z9Du_hJzZGo",
+      "title": "ONSLAUGHT: ASSALTO FINALE Trailer Ita Ufficiale (2026)",
+      "channel": "Box Office Trailers",
+      "published": "2026-08-11T09:20:31+00:00",
+      "url": "https://www.youtube.com/watch?v=z9Du_hJzZGo"
     },
     {
       "id": "rec07tuuQPo",
@@ -70,6 +109,13 @@
       "channel": "Paramount+",
       "published": "2026-08-09T10:00:31+00:00",
       "url": "https://www.youtube.com/watch?v=XmEQkAsHS_I"
+    },
+    {
+      "id": "lR0T_za6t_w",
+      "title": "ONE MILE Trailer Ita Ufficiale (2026)",
+      "channel": "Box Office Trailers",
+      "published": "2026-08-07T12:38:32+00:00",
+      "url": "https://www.youtube.com/watch?v=lR0T_za6t_w"
     },
     {
       "id": "8Kzp0jDo1Ac",
@@ -97,7 +143,10 @@
       "title": "CoComelon: Il Film | Trailer Ufficiale",
       "channel": "Universal Pictures",
       "published": "2026-08-06T15:15:42+00:00",
-      "url": "https://www.youtube.com/watch?v=Y4hKRUFHpPs"
+      "url": "https://www.youtube.com/watch?v=Y4hKRUFHpPs",
+      "also_on": [
+        "Box Office Trailers"
+      ]
     },
     {
       "id": "CUFFFGGurj8",
@@ -107,25 +156,39 @@
       "url": "https://www.youtube.com/watch?v=CUFFFGGurj8"
     },
     {
-      "id": "RGM3M7BvgjE",
-      "title": "Insidious: Fuori dall’Altrove (2026) | Trailer Finale | Dal 19 Agosto al Cinema",
-      "channel": "FilmIsNow",
-      "published": "2026-08-05T13:58:55+00:00",
-      "url": "https://www.youtube.com/watch?v=RGM3M7BvgjE"
+      "id": "8vz5edPqW4U",
+      "title": "COYOTE VS ACME Trailer 2 Ita Ufficiale (2026) John Cena",
+      "channel": "Box Office Trailers",
+      "published": "2026-08-06T10:10:14+00:00",
+      "url": "https://www.youtube.com/watch?v=8vz5edPqW4U"
     },
     {
       "id": "QOkXo_ojg08",
       "title": "Insidious: Fuori dall’Altrove | Dal 19 agosto al cinema | Trailer Finale",
       "channel": "Sony Pictures",
       "published": "2026-08-05T13:09:07+00:00",
-      "url": "https://www.youtube.com/watch?v=QOkXo_ojg08"
+      "url": "https://www.youtube.com/watch?v=QOkXo_ojg08",
+      "also_on": [
+        "FilmIsNow",
+        "Box Office Trailers"
+      ]
     },
     {
       "id": "Wu8NsD0eMRg",
       "title": "UN'ALTRA NOTTE VIOLENTA E SILENZIOSA | Trailer Ufficiale",
       "channel": "Universal Pictures",
       "published": "2026-08-04T15:00:18+00:00",
-      "url": "https://www.youtube.com/watch?v=Wu8NsD0eMRg"
+      "url": "https://www.youtube.com/watch?v=Wu8NsD0eMRg",
+      "also_on": [
+        "Box Office Trailers"
+      ]
+    },
+    {
+      "id": "EeFpZ2InMKY",
+      "title": "LIONESS Stagione 3 Final Trailer Ita Ufficiale (2026) Zoe Saldaña",
+      "channel": "Box Office Trailers",
+      "published": "2026-08-03T09:55:40+00:00",
+      "url": "https://www.youtube.com/watch?v=EeFpZ2InMKY"
     },
     {
       "id": "euNCslASnRU",
@@ -156,11 +219,32 @@
       "url": "https://www.youtube.com/watch?v=nVrdUivLjzo"
     },
     {
+      "id": "fhB89W2aO5w",
+      "title": "SACRIFICE Trailer Ita Ufficiale (2026) Chris Evans, Anya Taylor-Joy",
+      "channel": "Box Office Trailers",
+      "published": "2026-07-30T09:10:42+00:00",
+      "url": "https://www.youtube.com/watch?v=fhB89W2aO5w"
+    },
+    {
       "id": "4o0DeqyfD54",
       "title": "Il Caso Thomas Crown (2027) | Trailer ITA | Il nuovo film di Michael B. Jordan",
       "channel": "FilmIsNow",
       "published": "2026-07-30T08:30:12+00:00",
       "url": "https://www.youtube.com/watch?v=4o0DeqyfD54"
+    },
+    {
+      "id": "bI37BENaKps",
+      "title": "SPIDER-MAN: BRAND NEW DAY Tutti i Trailer Ita Ufficiale (2026)",
+      "channel": "Box Office Trailers",
+      "published": "2026-07-29T18:01:39+00:00",
+      "url": "https://www.youtube.com/watch?v=bI37BENaKps"
+    },
+    {
+      "id": "3DAlmZZ9Sbw",
+      "title": "IL CASO THOMAS CROWN Trailer Ita Ufficiale (2027) Michael B. Jordan",
+      "channel": "Box Office Trailers",
+      "published": "2026-07-29T13:14:24+00:00",
+      "url": "https://www.youtube.com/watch?v=3DAlmZZ9Sbw"
     },
     {
       "id": "PnVvYNAcCfs",
@@ -170,25 +254,38 @@
       "url": "https://www.youtube.com/watch?v=PnVvYNAcCfs"
     },
     {
-      "id": "0flxIKOhEiA",
-      "title": "TED LASSO Stagione 4 | Trailer ITA | Dal 5 agosto su Apple TV",
-      "channel": "FilmIsNow",
-      "published": "2026-07-29T12:30:07+00:00",
-      "url": "https://www.youtube.com/watch?v=0flxIKOhEiA"
+      "id": "-4EAC7gybns",
+      "title": "TED LASSO Stagione 4 Trailer Ita Ufficiale (2026)",
+      "channel": "Box Office Trailers",
+      "published": "2026-07-28T15:37:58+00:00",
+      "url": "https://www.youtube.com/watch?v=-4EAC7gybns",
+      "also_on": [
+        "FilmIsNow"
+      ]
     },
     {
-      "id": "dEarFa247mg",
-      "title": "Jumanji: Open World (2026) | Trailer ITA | Dal 25 Dicembre al Cinema",
-      "channel": "FilmIsNow",
-      "published": "2026-07-29T07:24:17+00:00",
-      "url": "https://www.youtube.com/watch?v=dEarFa247mg"
+      "id": "RepQT1S1EDQ",
+      "title": "JUMANJI: OPEN WORLD Trailer Ita Ufficiale (2026) Dwayne Johnson",
+      "channel": "Box Office Trailers",
+      "published": "2026-07-29T09:26:57+00:00",
+      "url": "https://www.youtube.com/watch?v=RepQT1S1EDQ"
     },
     {
       "id": "1gEGDHufdsg",
       "title": "Jumanji: Open World | Trailer Ufficiale",
       "channel": "Sony Pictures",
       "published": "2026-07-29T07:02:43+00:00",
-      "url": "https://www.youtube.com/watch?v=1gEGDHufdsg"
+      "url": "https://www.youtube.com/watch?v=1gEGDHufdsg",
+      "also_on": [
+        "FilmIsNow"
+      ]
+    },
+    {
+      "id": "NJg61BJeUgY",
+      "title": "IL REGNO DI ORÏSHA Trailer Ita Ufficiale (2027) Idris Elba",
+      "channel": "Box Office Trailers",
+      "published": "2026-07-28T14:22:12+00:00",
+      "url": "https://www.youtube.com/watch?v=NJg61BJeUgY"
     },
     {
       "id": "SWPs2KpPkUU",
@@ -254,32 +351,20 @@
       "url": "https://www.youtube.com/watch?v=9iWIMycVMTE"
     },
     {
-      "id": "aq1THC4Uw2w",
-      "title": "HEART OF THE BEAST - Nel Profondo Selvaggio | Trailer Ufficiale",
-      "channel": "Paramount Pictures",
-      "published": "2026-06-11T13:11:16+00:00",
-      "url": "https://www.youtube.com/watch?v=aq1THC4Uw2w"
-    },
-    {
       "id": "KGKtZEhoXgg",
       "title": "HEART OF THE BEAST - Nel Profondo Selvaggio | Trailer Ufficiale",
       "channel": "Paramount Pictures",
       "published": "2026-06-11T13:11:10+00:00",
-      "url": "https://www.youtube.com/watch?v=KGKtZEhoXgg"
-    },
-    {
-      "id": "C36MUY1LegE",
-      "title": "PAW Patrol: Missione Dinosauri | Trailer Ufficiale",
-      "channel": "Paramount Pictures",
-      "published": "2026-06-10T13:05:57+00:00",
-      "url": "https://www.youtube.com/watch?v=C36MUY1LegE"
+      "url": "https://www.youtube.com/watch?v=KGKtZEhoXgg",
+      "also_on": []
     },
     {
       "id": "Zl4_eI0DW00",
       "title": "PAW Patrol: Missione Dinosauri | Trailer Ufficiale",
       "channel": "Paramount Pictures",
       "published": "2026-06-10T13:05:52+00:00",
-      "url": "https://www.youtube.com/watch?v=Zl4_eI0DW00"
+      "url": "https://www.youtube.com/watch?v=Zl4_eI0DW00",
+      "also_on": []
     },
     {
       "id": "guIc4C6oza4",
