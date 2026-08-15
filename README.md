@@ -62,6 +62,31 @@ solo alle notifiche: è in `.gitignore` e non viene versionato.
 parecchi video al giorno, quindi peseranno sui risultati più degli altri. Per toglierli
 basta rimuovere le rispettive righe da `CHANNELS`.
 
+## Deduplicazione fra canali
+
+Lo stesso trailer esce spesso su più canali (Marvel e Disney+, o un aggregatore che
+rilancia un canale ufficiale): sono video YouTube distinti, con id diversi, quindi il
+filtro su `seen_ids.json` non li intercetta. Lo scraper li riconosce confrontando i
+titoli normalizzati e ne tiene uno solo, dando la precedenza al canale ufficiale; gli
+altri finiscono nel campo `also_on` del trailer e non generano una seconda notifica.
+
+Cosa viene ignorato nel confronto: accenti e punteggiatura, marcatori di lingua e
+qualità (`ITA`, `HD`, `4K`), formule promozionali e date di uscita (`Dal 25 dicembre al
+cinema`), l'anno fra parentesi che aggiungono gli aggregatori (`(2026)`) e i nomi dei
+canali.
+
+Cosa invece **non** viene accorpato:
+
+- teaser e trailer finale dello stesso film, perché le parole che indicano il tipo di
+  video restano nel confronto;
+- stagioni e sequel diversi, anche scritti a parole: `Chapter One` e `Chapter Two`, o
+  `Avatar 3` e `Avatar 4`, differiscono per pochi caratteri ma non vanno uniti;
+- ripubblicazioni a distanza di oltre 30 giorni, che sono lanci diversi e non copie.
+
+Le soglie sono in cima a `scripts/check_trailers.py` (`DUPLICATE_RATIO`,
+`DUPLICATE_WINDOW_DAYS`) e ogni accorpamento viene scritto nel log della run con la
+riga `[DEDUP]`, per accorgersi subito di eventuali unioni sbagliate.
+
 ## Aggiungere una piattaforma
 
 In `scripts/check_trailers.py`, aggiungi una voce alla lista `CHANNELS` con il nome da
