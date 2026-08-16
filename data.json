@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-15T16:11:15.968445+00:00",
+  "updated_at": "2026-08-16T06:45:38.057210+00:00",
   "trailers": [
     {
       "id": "i5HRsjeUg1U",
@@ -66,6 +66,13 @@
       "url": "https://www.youtube.com/watch?v=GL6RHNA9f_c"
     },
     {
+      "id": "1t1pGIyBGDc",
+      "title": "VERITY Trailer 2 Ita Ufficiale (2026) Anne Hathaway",
+      "channel": "Box Office Trailers",
+      "published": "2026-08-11T13:17:39+00:00",
+      "url": "https://www.youtube.com/watch?v=1t1pGIyBGDc"
+    },
+    {
       "id": "KMqSu_jarrA",
       "title": "Verity | Dal 1° ottobre al cinema | Trailer Ufficiale",
       "channel": "Sony Pictures",
@@ -74,13 +81,6 @@
       "also_on": [
         "FilmIsNow"
       ]
-    },
-    {
-      "id": "1t1pGIyBGDc",
-      "title": "VERITY Trailer 2 Ita Ufficiale (2026) Anne Hathaway",
-      "channel": "Box Office Trailers",
-      "published": "2026-08-11T13:17:39+00:00",
-      "url": "https://www.youtube.com/watch?v=1t1pGIyBGDc"
     },
     {
       "id": "z9Du_hJzZGo",
@@ -254,16 +254,6 @@
       "url": "https://www.youtube.com/watch?v=PnVvYNAcCfs"
     },
     {
-      "id": "-4EAC7gybns",
-      "title": "TED LASSO Stagione 4 Trailer Ita Ufficiale (2026)",
-      "channel": "Box Office Trailers",
-      "published": "2026-07-28T15:37:58+00:00",
-      "url": "https://www.youtube.com/watch?v=-4EAC7gybns",
-      "also_on": [
-        "FilmIsNow"
-      ]
-    },
-    {
       "id": "RepQT1S1EDQ",
       "title": "JUMANJI: OPEN WORLD Trailer Ita Ufficiale (2026) Dwayne Johnson",
       "channel": "Box Office Trailers",
@@ -276,6 +266,16 @@
       "channel": "Sony Pictures",
       "published": "2026-07-29T07:02:43+00:00",
       "url": "https://www.youtube.com/watch?v=1gEGDHufdsg",
+      "also_on": [
+        "FilmIsNow"
+      ]
+    },
+    {
+      "id": "-4EAC7gybns",
+      "title": "TED LASSO Stagione 4 Trailer Ita Ufficiale (2026)",
+      "channel": "Box Office Trailers",
+      "published": "2026-07-28T15:37:58+00:00",
+      "url": "https://www.youtube.com/watch?v=-4EAC7gybns",
       "also_on": [
         "FilmIsNow"
       ]
