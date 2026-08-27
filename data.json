@@ -1,12 +1,43 @@
 {
-  "updated_at": "2026-08-26T06:55:25.035681+00:00",
+  "updated_at": "2026-08-27T17:28:50.621620+00:00",
   "trailers": [
+    {
+      "id": "KMlc7W_385Q",
+      "title": "Maschi Veri 2 | Trailer ufficiale | Netflix Italia",
+      "channel": "Netflix",
+      "published": "2026-08-27T10:00:00+00:00",
+      "url": "https://www.youtube.com/watch?v=KMlc7W_385Q"
+    },
+    {
+      "id": "Dt-iJ9T8r3E",
+      "title": "Titolo: Golden Axe | Trailer Ufficiale | Paramount+",
+      "channel": "Paramount+",
+      "published": "2026-08-27T07:32:56+00:00",
+      "url": "https://www.youtube.com/watch?v=Dt-iJ9T8r3E"
+    },
+    {
+      "id": "YhoS0IxbVgo",
+      "title": "Avengers: Doomsday | LEGO Trailer | Dal 16 Dicembre al cinema",
+      "channel": "Marvel",
+      "published": "2026-08-26T16:25:59+00:00",
+      "url": "https://www.youtube.com/watch?v=YhoS0IxbVgo"
+    },
+    {
+      "id": "AoblE1HjzLo",
+      "title": "The Love Hypothesis | Trailer Ufficiale",
+      "channel": "Prime Video",
+      "published": "2026-08-26T14:00:30+00:00",
+      "url": "https://www.youtube.com/watch?v=AoblE1HjzLo"
+    },
     {
       "id": "15ytrpjhs9c",
       "title": "Avengers Endgame: Extra | Trailer Ufficiale | Dal 24 Settembre al Cinema",
       "channel": "Marvel",
       "published": "2026-08-25T16:51:41+00:00",
-      "url": "https://www.youtube.com/watch?v=15ytrpjhs9c"
+      "url": "https://www.youtube.com/watch?v=15ytrpjhs9c",
+      "also_on": [
+        "FilmIsNow"
+      ]
     },
     {
       "id": "qnw8bKj35pM",
@@ -407,40 +438,6 @@
       "channel": "Box Office Trailers",
       "published": "2026-07-29T13:14:24+00:00",
       "url": "https://www.youtube.com/watch?v=3DAlmZZ9Sbw"
-    },
-    {
-      "id": "PnVvYNAcCfs",
-      "title": "Il Caso Thomas Crown | Teaser Trailer Ufficiale",
-      "channel": "Sony Pictures",
-      "published": "2026-07-29T13:07:31+00:00",
-      "url": "https://www.youtube.com/watch?v=PnVvYNAcCfs"
-    },
-    {
-      "id": "RepQT1S1EDQ",
-      "title": "JUMANJI: OPEN WORLD Trailer Ita Ufficiale (2026) Dwayne Johnson",
-      "channel": "Box Office Trailers",
-      "published": "2026-07-29T09:26:57+00:00",
-      "url": "https://www.youtube.com/watch?v=RepQT1S1EDQ"
-    },
-    {
-      "id": "1gEGDHufdsg",
-      "title": "Jumanji: Open World | Trailer Ufficiale",
-      "channel": "Sony Pictures",
-      "published": "2026-07-29T07:02:43+00:00",
-      "url": "https://www.youtube.com/watch?v=1gEGDHufdsg",
-      "also_on": [
-        "FilmIsNow"
-      ]
-    },
-    {
-      "id": "-4EAC7gybns",
-      "title": "TED LASSO Stagione 4 Trailer Ita Ufficiale (2026)",
-      "channel": "Box Office Trailers",
-      "published": "2026-07-28T15:37:58+00:00",
-      "url": "https://www.youtube.com/watch?v=-4EAC7gybns",
-      "also_on": [
-        "FilmIsNow"
-      ]
     }
   ]
 }
