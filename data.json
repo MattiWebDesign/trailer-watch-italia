@@ -1,6 +1,21 @@
 {
-  "updated_at": "2026-08-27T17:28:50.621620+00:00",
+  "updated_at": "2026-08-28T18:22:49.160887+00:00",
   "trailers": [
+    {
+      "id": "z7wMhkw8Bhg",
+      "title": "In the Grey | Trailer Ufficiale",
+      "channel": "Prime Video",
+      "published": "2026-08-28T17:00:54+00:00",
+      "url": "https://www.youtube.com/watch?v=z7wMhkw8Bhg"
+    },
+    {
+      "id": "nLe9TswGnks",
+      "title": "FAST & FURIOUS - 25° ANNIVERSARIO | Trailer Ufficiale",
+      "channel": "Universal Pictures",
+      "published": "2026-08-28T15:06:05+00:00",
+      "url": "https://www.youtube.com/watch?v=nLe9TswGnks",
+      "also_on": []
+    },
     {
       "id": "KMlc7W_385Q",
       "title": "Maschi Veri 2 | Trailer ufficiale | Netflix Italia",
@@ -424,20 +439,6 @@
       "channel": "FilmIsNow",
       "published": "2026-07-30T08:30:12+00:00",
       "url": "https://www.youtube.com/watch?v=4o0DeqyfD54"
-    },
-    {
-      "id": "bI37BENaKps",
-      "title": "SPIDER-MAN: BRAND NEW DAY Tutti i Trailer Ita Ufficiale (2026)",
-      "channel": "Box Office Trailers",
-      "published": "2026-07-29T18:01:39+00:00",
-      "url": "https://www.youtube.com/watch?v=bI37BENaKps"
-    },
-    {
-      "id": "3DAlmZZ9Sbw",
-      "title": "IL CASO THOMAS CROWN Trailer Ita Ufficiale (2027) Michael B. Jordan",
-      "channel": "Box Office Trailers",
-      "published": "2026-07-29T13:14:24+00:00",
-      "url": "https://www.youtube.com/watch?v=3DAlmZZ9Sbw"
     }
   ]
 }
