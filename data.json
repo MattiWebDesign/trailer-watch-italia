@@ -1,6 +1,20 @@
 {
-  "updated_at": "2026-08-30T14:05:25.323414+00:00",
+  "updated_at": "2026-08-31T13:09:47.176857+00:00",
   "trailers": [
+    {
+      "id": "EZMMQl7cqtE",
+      "title": "King Marracash | Trailer Ufficiale | Disney+ Italia",
+      "channel": "Disney+",
+      "published": "2026-08-31T10:51:55+00:00",
+      "url": "https://www.youtube.com/watch?v=EZMMQl7cqtE"
+    },
+    {
+      "id": "yknRCyh3K1Q",
+      "title": "Roast in Peace 2 | Trailer Ufficiale | Prime Video",
+      "channel": "Prime Video",
+      "published": "2026-08-31T10:00:31+00:00",
+      "url": "https://www.youtube.com/watch?v=yknRCyh3K1Q"
+    },
     {
       "id": "z7wMhkw8Bhg",
       "title": "In the Grey | Trailer Ufficiale",
@@ -425,20 +439,6 @@
       "channel": "FilmIsNow",
       "published": "2026-07-30T12:30:31+00:00",
       "url": "https://www.youtube.com/watch?v=nVrdUivLjzo"
-    },
-    {
-      "id": "fhB89W2aO5w",
-      "title": "SACRIFICE Trailer Ita Ufficiale (2026) Chris Evans, Anya Taylor-Joy",
-      "channel": "Box Office Trailers",
-      "published": "2026-07-30T09:10:42+00:00",
-      "url": "https://www.youtube.com/watch?v=fhB89W2aO5w"
-    },
-    {
-      "id": "4o0DeqyfD54",
-      "title": "Il Caso Thomas Crown (2027) | Trailer ITA | Il nuovo film di Michael B. Jordan",
-      "channel": "FilmIsNow",
-      "published": "2026-07-30T08:30:12+00:00",
-      "url": "https://www.youtube.com/watch?v=4o0DeqyfD54"
     }
   ]
 }
