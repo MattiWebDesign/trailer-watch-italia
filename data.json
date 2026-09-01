@@ -1,6 +1,21 @@
 {
-  "updated_at": "2026-08-31T13:09:47.176857+00:00",
+  "updated_at": "2026-09-01T11:22:31.703176+00:00",
   "trailers": [
+    {
+      "id": "XNDrvUaSUgs",
+      "title": "Scontro tra Thunderman | Trailer Ufficiale | Paramount+",
+      "channel": "Paramount+",
+      "published": "2026-08-06T19:17:15+00:00",
+      "url": "https://www.youtube.com/watch?v=XNDrvUaSUgs",
+      "also_on": []
+    },
+    {
+      "id": "HKFk4J7BLyA",
+      "title": "Minerva - La scuola | Trailer ufficiale | Netflix",
+      "channel": "Netflix",
+      "published": "2026-09-01T10:00:00+00:00",
+      "url": "https://www.youtube.com/watch?v=HKFk4J7BLyA"
+    },
     {
       "id": "EZMMQl7cqtE",
       "title": "King Marracash | Trailer Ufficiale | Disney+ Italia",
@@ -354,13 +369,6 @@
       "url": "https://www.youtube.com/watch?v=j3xbuI872aw"
     },
     {
-      "id": "XNDrvUaSUgs",
-      "title": "Scontro tra Thunderman | Trailer Ufficiale | Paramount+",
-      "channel": "Paramount+",
-      "published": "2026-08-06T19:17:15+00:00",
-      "url": "https://www.youtube.com/watch?v=XNDrvUaSUgs"
-    },
-    {
       "id": "Y4hKRUFHpPs",
       "title": "CoComelon: Il Film | Trailer Ufficiale",
       "channel": "Universal Pictures",
@@ -432,13 +440,6 @@
       "channel": "Paramount+",
       "published": "2026-07-31T17:17:40+00:00",
       "url": "https://www.youtube.com/watch?v=ziykUq2ZYSU"
-    },
-    {
-      "id": "nVrdUivLjzo",
-      "title": "L’Estranea (2026) | Trailer ITA | Dall’8 Ottobre al Cinema",
-      "channel": "FilmIsNow",
-      "published": "2026-07-30T12:30:31+00:00",
-      "url": "https://www.youtube.com/watch?v=nVrdUivLjzo"
     }
   ]
 }
