@@ -1,13 +1,57 @@
 {
-  "updated_at": "2026-09-01T11:22:31.703176+00:00",
+  "updated_at": "2026-09-02T10:56:27.341128+00:00",
   "trailers": [
     {
-      "id": "XNDrvUaSUgs",
-      "title": "Scontro tra Thunderman | Trailer Ufficiale | Paramount+",
+      "id": "s977xZC-f2Y",
+      "title": "STREET FIGHTER Trailer 2 Ita Ufficiale (2026)",
+      "channel": "Box Office Trailers",
+      "published": "2026-09-02T09:40:33+00:00",
+      "url": "https://www.youtube.com/watch?v=s977xZC-f2Y"
+    },
+    {
+      "id": "2y8iMXGqWX8",
+      "title": "STREET FIGHTER (2026) | Trailer 2 ITA | Ryu e Ken Tornano a Combattere",
+      "channel": "FilmIsNow",
+      "published": "2026-09-02T08:42:26+00:00",
+      "url": "https://www.youtube.com/watch?v=2y8iMXGqWX8"
+    },
+    {
+      "id": "yO7xhQ6VKak",
+      "title": "STREET FIGHTER | Nuovo Trailer",
+      "channel": "Paramount Pictures",
+      "published": "2026-09-02T07:20:36+00:00",
+      "url": "https://www.youtube.com/watch?v=yO7xhQ6VKak"
+    },
+    {
+      "id": "14-_G2QVdxU",
+      "title": "Tulsa King Stagione 4 | Teaser Ufficiale | Paramount+",
       "channel": "Paramount+",
-      "published": "2026-08-06T19:17:15+00:00",
-      "url": "https://www.youtube.com/watch?v=XNDrvUaSUgs",
-      "also_on": []
+      "published": "2026-09-01T17:00:19+00:00",
+      "url": "https://www.youtube.com/watch?v=14-_G2QVdxU",
+      "also_on": [
+        "Box Office Trailers"
+      ]
+    },
+    {
+      "id": "_aGm7jHR3_4",
+      "title": "George Michael: The Faith Tour - Trailer Ufficiale",
+      "channel": "Universal Pictures",
+      "published": "2026-09-01T14:28:45+00:00",
+      "url": "https://www.youtube.com/watch?v=_aGm7jHR3_4"
+    },
+    {
+      "id": "VwfN6ci8tKk",
+      "title": "DIO RIDE (2026) | Trailer ITA | Il nuovo film con Pierfrancesco Favino",
+      "channel": "FilmIsNow",
+      "published": "2026-09-01T14:05:49+00:00",
+      "url": "https://www.youtube.com/watch?v=VwfN6ci8tKk"
+    },
+    {
+      "id": "MFYbz37_PjE",
+      "title": "City of Blood | Trailer Ufficiale | Disney+ Italia",
+      "channel": "Disney+",
+      "published": "2026-09-01T13:44:16+00:00",
+      "url": "https://www.youtube.com/watch?v=MFYbz37_PjE"
     },
     {
       "id": "HKFk4J7BLyA",
@@ -369,6 +413,14 @@
       "url": "https://www.youtube.com/watch?v=j3xbuI872aw"
     },
     {
+      "id": "XNDrvUaSUgs",
+      "title": "Scontro tra Thunderman | Trailer Ufficiale | Paramount+",
+      "channel": "Paramount+",
+      "published": "2026-08-06T19:17:15+00:00",
+      "url": "https://www.youtube.com/watch?v=XNDrvUaSUgs",
+      "also_on": []
+    },
+    {
       "id": "Y4hKRUFHpPs",
       "title": "CoComelon: Il Film | Trailer Ufficiale",
       "channel": "Universal Pictures",
@@ -384,62 +436,6 @@
       "channel": "FilmIsNow",
       "published": "2026-08-06T13:04:02+00:00",
       "url": "https://www.youtube.com/watch?v=CUFFFGGurj8"
-    },
-    {
-      "id": "8vz5edPqW4U",
-      "title": "COYOTE VS ACME Trailer 2 Ita Ufficiale (2026) John Cena",
-      "channel": "Box Office Trailers",
-      "published": "2026-08-06T10:10:14+00:00",
-      "url": "https://www.youtube.com/watch?v=8vz5edPqW4U"
-    },
-    {
-      "id": "QOkXo_ojg08",
-      "title": "Insidious: Fuori dall’Altrove | Dal 19 agosto al cinema | Trailer Finale",
-      "channel": "Sony Pictures",
-      "published": "2026-08-05T13:09:07+00:00",
-      "url": "https://www.youtube.com/watch?v=QOkXo_ojg08",
-      "also_on": [
-        "FilmIsNow",
-        "Box Office Trailers"
-      ]
-    },
-    {
-      "id": "Wu8NsD0eMRg",
-      "title": "UN'ALTRA NOTTE VIOLENTA E SILENZIOSA | Trailer Ufficiale",
-      "channel": "Universal Pictures",
-      "published": "2026-08-04T15:00:18+00:00",
-      "url": "https://www.youtube.com/watch?v=Wu8NsD0eMRg",
-      "also_on": [
-        "Box Office Trailers"
-      ]
-    },
-    {
-      "id": "EeFpZ2InMKY",
-      "title": "LIONESS Stagione 3 Final Trailer Ita Ufficiale (2026) Zoe Saldaña",
-      "channel": "Box Office Trailers",
-      "published": "2026-08-03T09:55:40+00:00",
-      "url": "https://www.youtube.com/watch?v=EeFpZ2InMKY"
-    },
-    {
-      "id": "euNCslASnRU",
-      "title": "BEHEMOTH! UNA VITA. DA RICOMPORRE. | Teaser ITA | Prossimamente Al Cinema",
-      "channel": "FilmIsNow",
-      "published": "2026-08-03T08:30:38+00:00",
-      "url": "https://www.youtube.com/watch?v=euNCslASnRU"
-    },
-    {
-      "id": "onRtszr5VOo",
-      "title": "Lioness S3  | Final Trailer ITA - Paramount+",
-      "channel": "Paramount+",
-      "published": "2026-08-01T14:04:23+00:00",
-      "url": "https://www.youtube.com/watch?v=onRtszr5VOo"
-    },
-    {
-      "id": "ziykUq2ZYSU",
-      "title": "MobLand 2 - Teaser",
-      "channel": "Paramount+",
-      "published": "2026-07-31T17:17:40+00:00",
-      "url": "https://www.youtube.com/watch?v=ziykUq2ZYSU"
     }
   ]
 }
