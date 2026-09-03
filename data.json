@@ -1,6 +1,41 @@
 {
-  "updated_at": "2026-09-02T10:56:27.341128+00:00",
+  "updated_at": "2026-09-03T10:55:21.601449+00:00",
   "trailers": [
+    {
+      "id": "M_4KzbkMxGI",
+      "title": "Harry Potter e la Pietra Filosofale (2026) |  Trailer ITA | Un nuovo anno a Hogwarts",
+      "channel": "FilmIsNow",
+      "published": "2026-09-03T07:30:03+00:00",
+      "url": "https://www.youtube.com/watch?v=M_4KzbkMxGI"
+    },
+    {
+      "id": "Ea6MGhHScEk",
+      "title": "HARRY POTTER E LA PIETRA FILOSOFALE | TEASER TRAILER | HBO Max",
+      "channel": "HBO Max",
+      "published": "2026-09-02T15:00:44+00:00",
+      "url": "https://www.youtube.com/watch?v=Ea6MGhHScEk"
+    },
+    {
+      "id": "zuyV_XkDc4o",
+      "title": "Io + Te - Soli contro tutti | Trailer Ufficiale",
+      "channel": "Prime Video",
+      "published": "2026-09-02T14:00:48+00:00",
+      "url": "https://www.youtube.com/watch?v=zuyV_XkDc4o"
+    },
+    {
+      "id": "7TjjK5RrjBo",
+      "title": "La valle dell'Eden | Trailer ufficiale | Netflix Italia",
+      "channel": "Netflix",
+      "published": "2026-09-02T12:30:00+00:00",
+      "url": "https://www.youtube.com/watch?v=7TjjK5RrjBo"
+    },
+    {
+      "id": "XZqZW3hQNLE",
+      "title": "TULSA KING Stagione 4 | Teaser Ufficiale | Sylvester Stallone",
+      "channel": "FilmIsNow",
+      "published": "2026-09-02T11:36:25+00:00",
+      "url": "https://www.youtube.com/watch?v=XZqZW3hQNLE"
+    },
     {
       "id": "s977xZC-f2Y",
       "title": "STREET FIGHTER Trailer 2 Ita Ufficiale (2026)",
@@ -397,45 +432,6 @@
       "channel": "Box Office Trailers",
       "published": "2026-08-07T12:38:32+00:00",
       "url": "https://www.youtube.com/watch?v=lR0T_za6t_w"
-    },
-    {
-      "id": "8Kzp0jDo1Ac",
-      "title": "Lion | Trailer Ufficiale | Disney+ Italia",
-      "channel": "Disney+",
-      "published": "2026-08-07T10:12:17+00:00",
-      "url": "https://www.youtube.com/watch?v=8Kzp0jDo1Ac"
-    },
-    {
-      "id": "j3xbuI872aw",
-      "title": "One Mile: Chapter One | Trailer Ufficale ITA - Paramount+",
-      "channel": "Paramount+",
-      "published": "2026-08-07T10:00:28+00:00",
-      "url": "https://www.youtube.com/watch?v=j3xbuI872aw"
-    },
-    {
-      "id": "XNDrvUaSUgs",
-      "title": "Scontro tra Thunderman | Trailer Ufficiale | Paramount+",
-      "channel": "Paramount+",
-      "published": "2026-08-06T19:17:15+00:00",
-      "url": "https://www.youtube.com/watch?v=XNDrvUaSUgs",
-      "also_on": []
-    },
-    {
-      "id": "Y4hKRUFHpPs",
-      "title": "CoComelon: Il Film | Trailer Ufficiale",
-      "channel": "Universal Pictures",
-      "published": "2026-08-06T15:15:42+00:00",
-      "url": "https://www.youtube.com/watch?v=Y4hKRUFHpPs",
-      "also_on": [
-        "Box Office Trailers"
-      ]
-    },
-    {
-      "id": "CUFFFGGurj8",
-      "title": "COYOTE VS. ACME (2026) | Trailer #2 ITA | Dal 2 Settembre al Cinema",
-      "channel": "FilmIsNow",
-      "published": "2026-08-06T13:04:02+00:00",
-      "url": "https://www.youtube.com/watch?v=CUFFFGGurj8"
     }
   ]
 }
