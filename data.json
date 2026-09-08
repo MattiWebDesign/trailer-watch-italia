@@ -1,6 +1,16 @@
 {
-  "updated_at": "2026-09-07T12:00:50.363613+00:00",
+  "updated_at": "2026-09-08T10:55:33.616318+00:00",
   "trailers": [
+    {
+      "id": "Ea6MGhHScEk",
+      "title": "HARRY POTTER E LA PIETRA FILOSOFALE | TEASER TRAILER | HBO Max",
+      "channel": "HBO Max",
+      "published": "2026-09-02T15:00:44+00:00",
+      "url": "https://www.youtube.com/watch?v=Ea6MGhHScEk",
+      "also_on": [
+        "Prime Video"
+      ]
+    },
     {
       "id": "nEVXK29ed94",
       "title": "Possible Love | Trailer ufficiale | Netflix Italia",
@@ -63,13 +73,6 @@
       "channel": "FilmIsNow",
       "published": "2026-09-03T07:30:03+00:00",
       "url": "https://www.youtube.com/watch?v=M_4KzbkMxGI"
-    },
-    {
-      "id": "Ea6MGhHScEk",
-      "title": "HARRY POTTER E LA PIETRA FILOSOFALE | TEASER TRAILER | HBO Max",
-      "channel": "HBO Max",
-      "published": "2026-09-02T15:00:44+00:00",
-      "url": "https://www.youtube.com/watch?v=Ea6MGhHScEk"
     },
     {
       "id": "zuyV_XkDc4o",
