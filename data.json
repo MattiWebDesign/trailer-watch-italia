@@ -1,15 +1,47 @@
 {
-  "updated_at": "2026-09-08T10:55:33.616318+00:00",
+  "updated_at": "2026-09-09T11:00:05.425123+00:00",
   "trailers": [
     {
-      "id": "Ea6MGhHScEk",
-      "title": "HARRY POTTER E LA PIETRA FILOSOFALE | TEASER TRAILER | HBO Max",
+      "id": "o3WG_qCYK7I",
+      "title": "Rimani ancora (2027) | Teaser ITA | Jake Gyllenhaal nel mistero di M. Night Shyamalan",
+      "channel": "FilmIsNow",
+      "published": "2026-09-09T10:16:53+00:00",
+      "url": "https://www.youtube.com/watch?v=o3WG_qCYK7I"
+    },
+    {
+      "id": "t71dDnVjPZs",
+      "title": "PECCATO | Trailer Ufficiale | HBO Max",
       "channel": "HBO Max",
-      "published": "2026-09-02T15:00:44+00:00",
-      "url": "https://www.youtube.com/watch?v=Ea6MGhHScEk",
-      "also_on": [
-        "Prime Video"
-      ]
+      "published": "2026-09-09T08:00:58+00:00",
+      "url": "https://www.youtube.com/watch?v=t71dDnVjPZs"
+    },
+    {
+      "id": "YAe6Io7PqsA",
+      "title": "The Girls: a Khloé Kardashian Project | Trailer Ufficiale | Disney+ Italia",
+      "channel": "Disney+",
+      "published": "2026-09-08T18:05:53+00:00",
+      "url": "https://www.youtube.com/watch?v=YAe6Io7PqsA"
+    },
+    {
+      "id": "VDfng7gG_mc",
+      "title": "Rimani ancora | Teaser Ufficiale",
+      "channel": "Warner Bros.",
+      "published": "2026-09-08T16:00:09+00:00",
+      "url": "https://www.youtube.com/watch?v=VDfng7gG_mc"
+    },
+    {
+      "id": "-9C0RkLRdJE",
+      "title": "Resurrection Stagione 2 | Teaser Ufficiale ITA - Paramount+",
+      "channel": "Paramount+",
+      "published": "2026-09-08T14:45:14+00:00",
+      "url": "https://www.youtube.com/watch?v=-9C0RkLRdJE"
+    },
+    {
+      "id": "kxqn1jVuFVI",
+      "title": "I figli della scimmia (2026) con Riccardo Scamarcio | Trailer ITA",
+      "channel": "FilmIsNow",
+      "published": "2026-09-08T12:24:47+00:00",
+      "url": "https://www.youtube.com/watch?v=kxqn1jVuFVI"
     },
     {
       "id": "nEVXK29ed94",
@@ -73,6 +105,16 @@
       "channel": "FilmIsNow",
       "published": "2026-09-03T07:30:03+00:00",
       "url": "https://www.youtube.com/watch?v=M_4KzbkMxGI"
+    },
+    {
+      "id": "Ea6MGhHScEk",
+      "title": "HARRY POTTER E LA PIETRA FILOSOFALE | TEASER TRAILER | HBO Max",
+      "channel": "HBO Max",
+      "published": "2026-09-02T15:00:44+00:00",
+      "url": "https://www.youtube.com/watch?v=Ea6MGhHScEk",
+      "also_on": [
+        "Prime Video"
+      ]
     },
     {
       "id": "zuyV_XkDc4o",
@@ -389,48 +431,6 @@
       "channel": "Disney+",
       "published": "2026-08-15T08:57:44+00:00",
       "url": "https://www.youtube.com/watch?v=pOv6KipbKIY"
-    },
-    {
-      "id": "taPykGJsGkI",
-      "title": "Chad Powers Stagione 2 | Trailer Ufficiale | Disney+ Italia",
-      "channel": "Disney+",
-      "published": "2026-08-13T15:19:16+00:00",
-      "url": "https://www.youtube.com/watch?v=taPykGJsGkI"
-    },
-    {
-      "id": "969d3KcD3wc",
-      "title": "MOBLAND Stagione 2 Trailer 2 Ita Ufficiale (2026) Tom Hardy",
-      "channel": "Box Office Trailers",
-      "published": "2026-08-13T13:18:43+00:00",
-      "url": "https://www.youtube.com/watch?v=969d3KcD3wc"
-    },
-    {
-      "id": "VnBXiuj5rtA",
-      "title": "MobLand S02 | Trailer ufficiale | Paramount+",
-      "channel": "Paramount+",
-      "published": "2026-08-13T13:01:25+00:00",
-      "url": "https://www.youtube.com/watch?v=VnBXiuj5rtA"
-    },
-    {
-      "id": "vz5rG0xk3R4",
-      "title": "Neagley Trailer Ufficiale",
-      "channel": "Prime Video",
-      "published": "2026-08-12T18:37:35+00:00",
-      "url": "https://www.youtube.com/watch?v=vz5rG0xk3R4"
-    },
-    {
-      "id": "9-uaYRlG310",
-      "title": "FX's Adults Stagione 2 | Trailer Ufficiale | Disney+ Italia",
-      "channel": "Disney+",
-      "published": "2026-08-12T16:02:20+00:00",
-      "url": "https://www.youtube.com/watch?v=9-uaYRlG310"
-    },
-    {
-      "id": "KFS719x1B7s",
-      "title": "Animals | Teaser ufficiale | Netflix Italia",
-      "channel": "Netflix",
-      "published": "2026-08-12T13:00:03+00:00",
-      "url": "https://www.youtube.com/watch?v=KFS719x1B7s"
     }
   ]
 }
