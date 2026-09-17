@@ -1,6 +1,48 @@
 {
-  "updated_at": "2026-09-16T11:09:52.239828+00:00",
+  "updated_at": "2026-09-17T11:18:07.728258+00:00",
   "trailers": [
+    {
+      "id": "TJZHHH8HiGI",
+      "title": "Sultana | Trailer Ufficiale | Prime Video",
+      "channel": "Prime Video",
+      "published": "2026-09-17T09:00:32+00:00",
+      "url": "https://www.youtube.com/watch?v=TJZHHH8HiGI"
+    },
+    {
+      "id": "xEZ-LsMiTC4",
+      "title": "Hunger Games: L’alba sulla mietitura | Trailer V.O. | Prima di Katniss, Haymitch sfidò Capitol City",
+      "channel": "FilmIsNow",
+      "published": "2026-09-17T07:45:02+00:00",
+      "url": "https://www.youtube.com/watch?v=xEZ-LsMiTC4"
+    },
+    {
+      "id": "inEFWSJy2jg",
+      "title": "Helluva Boss Stagione 3 (Parte 1) – Trailer Ufficiale | Prime Video",
+      "channel": "Prime Video",
+      "published": "2026-09-16T18:00:22+00:00",
+      "url": "https://www.youtube.com/watch?v=inEFWSJy2jg"
+    },
+    {
+      "id": "BHC0dPAXBb0",
+      "title": "The Gilded Age Season 4  | Teaser ufficiale | HBO Max",
+      "channel": "HBO Max",
+      "published": "2026-09-16T16:28:44+00:00",
+      "url": "https://www.youtube.com/watch?v=BHC0dPAXBb0"
+    },
+    {
+      "id": "HpRROTHPmI8",
+      "title": "South America | Trailer ufficiale | Paramount+ | South Park s29",
+      "channel": "Paramount+",
+      "published": "2026-09-16T16:21:23+00:00",
+      "url": "https://www.youtube.com/watch?v=HpRROTHPmI8"
+    },
+    {
+      "id": "OquDo5NWQLI",
+      "title": "TENZING Trailer Ita Ufficiale (2026) Tom Hiddleston, Willem Dafoe",
+      "channel": "Box Office Trailers",
+      "published": "2026-09-16T15:50:39+00:00",
+      "url": "https://www.youtube.com/watch?v=OquDo5NWQLI"
+    },
     {
       "id": "spVHcFU19fM",
       "title": "L'Imperatrice Risposata | Trailer Ufficiale | Disney+ Italia",
@@ -388,51 +430,6 @@
       "channel": "Paramount+",
       "published": "2026-08-27T07:32:56+00:00",
       "url": "https://www.youtube.com/watch?v=Dt-iJ9T8r3E"
-    },
-    {
-      "id": "YhoS0IxbVgo",
-      "title": "Avengers: Doomsday | LEGO Trailer | Dal 16 Dicembre al cinema",
-      "channel": "Marvel",
-      "published": "2026-08-26T16:25:59+00:00",
-      "url": "https://www.youtube.com/watch?v=YhoS0IxbVgo"
-    },
-    {
-      "id": "AoblE1HjzLo",
-      "title": "The Love Hypothesis | Trailer Ufficiale",
-      "channel": "Prime Video",
-      "published": "2026-08-26T14:00:30+00:00",
-      "url": "https://www.youtube.com/watch?v=AoblE1HjzLo"
-    },
-    {
-      "id": "15ytrpjhs9c",
-      "title": "Avengers Endgame: Extra | Trailer Ufficiale | Dal 24 Settembre al Cinema",
-      "channel": "Marvel",
-      "published": "2026-08-25T16:51:41+00:00",
-      "url": "https://www.youtube.com/watch?v=15ytrpjhs9c",
-      "also_on": [
-        "FilmIsNow"
-      ]
-    },
-    {
-      "id": "qnw8bKj35pM",
-      "title": "BROTHERS Trailer Ita Ufficiale (2026) Matthew McConaughey, Woody Harrelson",
-      "channel": "Box Office Trailers",
-      "published": "2026-08-25T15:07:45+00:00",
-      "url": "https://www.youtube.com/watch?v=qnw8bKj35pM"
-    },
-    {
-      "id": "hubZeJ251tw",
-      "title": "Stranger Things: Storie dal 1985 | Trailer ufficiale - Stagione 2 | Netflix Italia",
-      "channel": "Netflix",
-      "published": "2026-08-25T15:00:00+00:00",
-      "url": "https://www.youtube.com/watch?v=hubZeJ251tw"
-    },
-    {
-      "id": "jUMG2p8uNVI",
-      "title": "Diarra From Detroit | Trailer S2 ITA - Paramount+",
-      "channel": "Paramount+",
-      "published": "2026-08-25T14:01:29+00:00",
-      "url": "https://www.youtube.com/watch?v=jUMG2p8uNVI"
     }
   ]
 }
