@@ -1,6 +1,27 @@
 {
-  "updated_at": "2026-09-18T10:52:02.385569+00:00",
+  "updated_at": "2026-09-19T10:35:01.549396+00:00",
   "trailers": [
+    {
+      "id": "LPVil2xIi8U",
+      "title": "Coven Academy - L'accademia delle Streghe | Trailer Ufficiale | Disney+ Italia",
+      "channel": "Disney+",
+      "published": "2026-09-18T15:47:27+00:00",
+      "url": "https://www.youtube.com/watch?v=LPVil2xIi8U"
+    },
+    {
+      "id": "ZoiLXbaHD4w",
+      "title": "Primetime (2026) | Trailer ITA | Il nuovo film con Robert Pattinson",
+      "channel": "FilmIsNow",
+      "published": "2026-09-18T14:33:50+00:00",
+      "url": "https://www.youtube.com/watch?v=ZoiLXbaHD4w"
+    },
+    {
+      "id": "Zjyz7G2EiRQ",
+      "title": "PRIMETIME Trailer Ita Ufficiale (2026) Robert Pattinson",
+      "channel": "Box Office Trailers",
+      "published": "2026-09-18T12:13:19+00:00",
+      "url": "https://www.youtube.com/watch?v=Zjyz7G2EiRQ"
+    },
     {
       "id": "odIgy3fvcEY",
       "title": "The Kardashians Stagione 8 | Trailer Ufficiale | Disney+ Italia",
@@ -408,27 +429,6 @@
       "channel": "Prime Video",
       "published": "2026-09-02T14:00:48+00:00",
       "url": "https://www.youtube.com/watch?v=zuyV_XkDc4o"
-    },
-    {
-      "id": "7TjjK5RrjBo",
-      "title": "La valle dell'Eden | Trailer ufficiale | Netflix Italia",
-      "channel": "Netflix",
-      "published": "2026-09-02T12:30:00+00:00",
-      "url": "https://www.youtube.com/watch?v=7TjjK5RrjBo"
-    },
-    {
-      "id": "XZqZW3hQNLE",
-      "title": "TULSA KING Stagione 4 | Teaser Ufficiale | Sylvester Stallone",
-      "channel": "FilmIsNow",
-      "published": "2026-09-02T11:36:25+00:00",
-      "url": "https://www.youtube.com/watch?v=XZqZW3hQNLE"
-    },
-    {
-      "id": "s977xZC-f2Y",
-      "title": "STREET FIGHTER Trailer 2 Ita Ufficiale (2026)",
-      "channel": "Box Office Trailers",
-      "published": "2026-09-02T09:40:33+00:00",
-      "url": "https://www.youtube.com/watch?v=s977xZC-f2Y"
     }
   ]
 }
