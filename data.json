@@ -1,6 +1,13 @@
 {
-  "updated_at": "2026-09-21T12:24:20.006238+00:00",
+  "updated_at": "2026-09-22T11:14:50.032734+00:00",
   "trailers": [
+    {
+      "id": "6ZijSTe919Y",
+      "title": "Rage – Parte 2 | Trailer ufficiale | HBO Max",
+      "channel": "HBO Max",
+      "published": "2026-09-21T16:30:04+00:00",
+      "url": "https://www.youtube.com/watch?v=6ZijSTe919Y"
+    },
     {
       "id": "LPVil2xIi8U",
       "title": "Coven Academy - L'accademia delle Streghe | Trailer Ufficiale | Disney+ Italia",
@@ -422,13 +429,6 @@
       "also_on": [
         "Prime Video"
       ]
-    },
-    {
-      "id": "zuyV_XkDc4o",
-      "title": "Io + Te - Soli contro tutti | Trailer Ufficiale",
-      "channel": "Prime Video",
-      "published": "2026-09-02T14:00:48+00:00",
-      "url": "https://www.youtube.com/watch?v=zuyV_XkDc4o"
     }
   ]
 }
