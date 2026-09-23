@@ -1,6 +1,13 @@
 {
-  "updated_at": "2026-09-22T11:14:50.032734+00:00",
+  "updated_at": "2026-09-23T11:07:06.895131+00:00",
   "trailers": [
+    {
+      "id": "7ygYEAHyq7o",
+      "title": "FX's American Horror Story: 13 | Trailer Ufficiale | Disney+ Italia",
+      "channel": "Disney+",
+      "published": "2026-09-22T15:34:00+00:00",
+      "url": "https://www.youtube.com/watch?v=7ygYEAHyq7o"
+    },
     {
       "id": "6ZijSTe919Y",
       "title": "Rage – Parte 2 | Trailer ufficiale | HBO Max",
@@ -419,16 +426,6 @@
       "channel": "FilmIsNow",
       "published": "2026-09-03T07:30:03+00:00",
       "url": "https://www.youtube.com/watch?v=M_4KzbkMxGI"
-    },
-    {
-      "id": "Ea6MGhHScEk",
-      "title": "HARRY POTTER E LA PIETRA FILOSOFALE | TEASER TRAILER | HBO Max",
-      "channel": "HBO Max",
-      "published": "2026-09-02T15:00:44+00:00",
-      "url": "https://www.youtube.com/watch?v=Ea6MGhHScEk",
-      "also_on": [
-        "Prime Video"
-      ]
     }
   ]
 }
