@@ -400,6 +400,37 @@ h1 .g{background:var(--grad); -webkit-background-clip:text; background-clip:text
 }
 
 /* ============================================================
+   Paginazione
+   ============================================================ */
+.pagination{
+  display:flex; align-items:center; justify-content:center; gap:8px;
+  flex-wrap:wrap; margin-top:36px;
+}
+.page-btn{
+  min-width:38px; height:38px; padding:0 13px;
+  display:inline-flex; align-items:center; justify-content:center; gap:7px;
+  border-radius:var(--r-pill); cursor:pointer;
+  background:var(--surface); border:1px solid var(--border); color:var(--muted);
+  font:inherit; font-size:.85rem; font-weight:600; font-variant-numeric:tabular-nums;
+  transition:color .2s var(--ease), border-color .2s var(--ease),
+             background .2s var(--ease), transform .15s var(--ease);
+}
+.page-btn svg{width:15px; height:15px; flex:none;}
+.page-btn:hover:not(:disabled){color:var(--text); border-color:var(--border-hi); transform:translateY(-1px);}
+.page-btn:disabled{opacity:.35; cursor:not-allowed;}
+.page-btn[aria-current="page"]{
+  color:#fff; border-color:transparent; background:var(--grad);
+  box-shadow:0 8px 22px -10px rgba(255,45,120,.9);
+}
+.page-gap{color:var(--faint); padding:0 2px; user-select:none;}
+.page-info{width:100%; text-align:center; color:var(--faint); font-size:.78rem; margin-top:6px;}
+@media (max-width:560px){
+  .pagination{gap:6px;}
+  .page-btn{min-width:34px; height:34px; padding:0 10px; font-size:.8rem;}
+  .page-label{display:none;}   /* su mobile restano le sole frecce */
+}
+
+/* ============================================================
    Skeleton / stati
    ============================================================ */
 .sk{background:var(--bg-elev); border:1px solid var(--border); border-radius:var(--r-lg); overflow:hidden;}
@@ -641,6 +672,7 @@ footer a:hover{color:var(--fuchsia);}
   var DEFAULT_COLOR = "#8b3dff";
   var NEW_WINDOW_H = 72;        // ore entro cui un trailer è marcato "nuovo"
   var CRON_UTC_HOUR = 6;        // orario del workflow GitHub Actions
+  var PAGE_SIZE = 20;           // card per pagina (5 righe da 4 sul layout desktop)
 
   // "Visto"/"Eliminato" sono stato personale del browser: non esistono in data.json,
   // che è condiviso da chiunque visiti il sito, quindi vivono solo in localStorage.
@@ -649,7 +681,7 @@ footer a:hover{color:var(--fuchsia);}
 
   /* ---------- Stato ---------- */
   var state = {
-    all:[], q:"", channel:"", view:"grid",
+    all:[], q:"", channel:"", view:"grid", page:1,
     watched:loadSet(LS_WATCHED),
     removed:loadSet(LS_REMOVED),
     selectMode:false,
@@ -729,12 +761,15 @@ footer a:hover{color:var(--fuchsia);}
     state.q = p.get("q") || "";
     state.channel = p.get("canale") || "";
     state.view = p.get("vista") === "lista" ? "list" : "grid";
+    var pagina = parseInt(p.get("pagina"), 10);
+    state.page = pagina > 0 ? pagina : 1;
   }
   function writeUrl(){
     var p = new URLSearchParams();
     if(state.q) p.set("q", state.q);
     if(state.channel) p.set("canale", state.channel);
     if(state.view === "list") p.set("vista","lista");
+    if(state.page > 1) p.set("pagina", state.page);
     var qs = p.toString();
     history.replaceState(null, "", qs ? "?"+qs : location.pathname);
   }
@@ -814,13 +849,65 @@ footer a:hover{color:var(--fuchsia);}
     '</a>';
   }
 
+  // numeri di pagina da mostrare: con molte pagine si accorciano con i puntini
+  // (1 … 4 5 6 … 12), tenendo sempre visibili la prima, l'ultima e le vicine
+  function pageNumbers(current, total){
+    if(total <= 7){
+      return Array.apply(null, {length: total}).map(function(_, i){ return i + 1; });
+    }
+    var pagine = [1];
+    var da = Math.max(2, current - 1), a = Math.min(total - 1, current + 1);
+    if(da > 2) pagine.push("…");
+    for(var i = da; i <= a; i++) pagine.push(i);
+    if(a < total - 1) pagine.push("…");
+    pagine.push(total);
+    return pagine;
+  }
+
+  function paginationHtml(totalPages){
+    if(totalPages <= 1) return "";
+    var freccia = function(d){
+      return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" '+
+             'stroke-linecap="round" stroke-linejoin="round"><path d="'+
+             (d === "prev" ? "M15 6l-6 6 6 6" : "M9 6l6 6-6 6")+'"/></svg>';
+    };
+    var html = '<nav class="pagination" aria-label="Paginazione dei trailer">'+
+      '<button class="page-btn" type="button" data-page="'+(state.page - 1)+'"'+
+      (state.page === 1 ? ' disabled' : '')+' aria-label="Pagina precedente">'+
+      freccia("prev")+'<span class="page-label">Precedente</span></button>';
+
+    pageNumbers(state.page, totalPages).forEach(function(p){
+      if(p === "…"){ html += '<span class="page-gap" aria-hidden="true">…</span>'; return; }
+      html += '<button class="page-btn" type="button" data-page="'+p+'"'+
+              (p === state.page ? ' aria-current="page"' : '')+
+              ' aria-label="Pagina '+p+'">'+p+'</button>';
+    });
+
+    html += '<button class="page-btn" type="button" data-page="'+(state.page + 1)+'"'+
+      (state.page === totalPages ? ' disabled' : '')+' aria-label="Pagina successiva">'+
+      '<span class="page-label">Successiva</span>'+freccia("next")+'</button>'+
+      '<div class="page-info">Pagina '+state.page+' di '+totalPages+'</div></nav>';
+    return html;
+  }
+
   function render(){
     var list = filtered();
     var content = $("content");
     var hasFilters = !!(state.channel || state.q);
 
+    // la pagina corrente può eccedere il totale dopo un'eliminazione o un filtro
+    var totalPages = Math.max(1, Math.ceil(list.length / PAGE_SIZE));
+    var richiesta = state.page;
+    state.page = Math.min(Math.max(1, state.page), totalPages);
+    if(state.page !== richiesta) writeUrl();   // altrimenti l'URL resterebbe su una pagina inesistente
+    var inizio = (state.page - 1) * PAGE_SIZE;
+    var pagina = list.slice(inizio, inizio + PAGE_SIZE);
+
+    var conteggio = totalPages > 1
+      ? (inizio + 1) + "-" + (inizio + pagina.length) + " di " + list.length + " trailer"
+      : list.length + " trailer";
     $("resultcount").textContent = list.length === 0 ? "" :
-      (list.length + " trailer" + (hasFilters ? " trovati su " + state.all.length : ""));
+      conteggio + (hasFilters ? " trovati su " + state.all.length : "");
     $("reset").hidden = !hasFilters;
 
     var restoreBtn = $("restore-removed");
@@ -849,7 +936,7 @@ footer a:hover{color:var(--fuchsia);}
       return;
     }
     content.innerHTML = '<div class="grid'+(state.view === "list" ? " is-list" : "")+(state.selectMode ? " is-selecting" : "")+'">'+
-      list.map(cardHtml).join("") + '</div>';
+      pagina.map(cardHtml).join("") + '</div>' + paginationHtml(totalPages);
   }
 
   function renderStats(data){
@@ -936,8 +1023,11 @@ footer a:hover{color:var(--fuchsia);}
   }
 
   function selectAllVisible(){
-    filtered().forEach(function(t){ state.selected.add(t.id); });
-    $("content").querySelectorAll(".card").forEach(function(card){ card.classList.add("is-selected"); });
+    // "visibili" = le card della pagina corrente, non tutto l'elenco filtrato
+    $("content").querySelectorAll(".card").forEach(function(card){
+      state.selected.add(card.getAttribute("data-id"));
+      card.classList.add("is-selected");
+    });
     updateBulkBar();
   }
 
@@ -988,9 +1078,23 @@ footer a:hover{color:var(--fuchsia);}
   var debounceTimer;
   function onSearch(v){
     state.q = v;
+    state.page = 1;   // una nuova ricerca riparte dalla prima pagina
     $("search-wrap").classList.toggle("has-value", !!v);
     clearTimeout(debounceTimer);
     debounceTimer = setTimeout(function(){ writeUrl(); render(); }, 140);
+  }
+
+  function goToPage(n){
+    if(!n || n === state.page) return;
+    state.page = n;
+    writeUrl();
+    render();
+    // riporta in alto: senza questo si resta a metà elenco dopo il cambio pagina
+    var ancora = document.querySelector(".controls");
+    if(!ancora) return;
+    var lento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var y = ancora.getBoundingClientRect().top + window.scrollY - 76;
+    window.scrollTo({ top: Math.max(0, y), behavior: lento ? "auto" : "smooth" });
   }
 
   function setView(view){
@@ -1001,7 +1105,7 @@ footer a:hover{color:var(--fuchsia);}
   }
 
   function resetFilters(){
-    state.q = ""; state.channel = "";
+    state.q = ""; state.channel = ""; state.page = 1;
     $("search").value = "";
     $("search-wrap").classList.remove("has-value");
     writeUrl(); renderFilters(); render();
@@ -1019,12 +1123,16 @@ footer a:hover{color:var(--fuchsia);}
       if(!chip) return;
       var c = chip.getAttribute("data-channel") || "";
       state.channel = (slug(state.channel) === c && c !== "") ? "" : c;
+      state.page = 1;   // cambiando canale si riparte dalla prima pagina
       writeUrl(); renderFilters(); render();
     });
 
     $("reset").addEventListener("click", resetFilters);
     $("content").addEventListener("click", function(e){
       if(e.target.closest("[data-reset]")){ resetFilters(); return; }
+
+      var pageBtn = e.target.closest("[data-page]");
+      if(pageBtn){ goToPage(parseInt(pageBtn.getAttribute("data-page"), 10)); return; }
 
       var watchBtn = e.target.closest(".watch-toggle");
       if(watchBtn){

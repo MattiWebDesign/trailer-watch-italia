@@ -37,6 +37,8 @@ solo alle notifiche: è in `.gitignore` e non viene versionato.
 - Filtri per piattaforma con conteggi
 - Stato condivisibile nell'URL: `?q=dune&canale=netflix&vista=lista`
 - Vista griglia o elenco compatto
+- Paginazione a 20 card per pagina (`PAGE_SIZE` in `index.html`), con pagina
+  corrente nell'URL: `?pagina=2`
 - Player YouTube in finestra modale, senza uscire dal sito
 - Contatore live dall'ultimo controllo e conto alla rovescia al prossimo
 - Etichetta "Nuovo" sui trailer usciti nelle ultime 72 ore
