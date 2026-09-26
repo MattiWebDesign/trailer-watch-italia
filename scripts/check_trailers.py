@@ -61,8 +61,11 @@ AGGREGATORS = {c["name"] for c in CHANNELS if c.get("aggregator")}
 # perché il teaser e il trailer finale dello stesso film sono video distinti e
 # non vanno accorpati.
 # ---------------------------------------------------------------------------
-DUPLICATE_RATIO = 0.86      # soglia di somiglianza fra titoli normalizzati
+DUPLICATE_RATIO = 0.88      # soglia di somiglianza fra i nomi delle opere
 DUPLICATE_WINDOW_DAYS = 30  # oltre questa distanza è una ripubblicazione, non un duplicato
+
+# parole che indicano il tipo di video: segnano la fine del nome dell'opera
+TYPE_WORDS = {"trailer", "teaser", "clip", "spot"}
 
 MESI = ("gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno",
         "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre")
@@ -137,7 +140,7 @@ def identity_numbers(key):
 
 
 def similarity(key_a, key_b):
-    """Somiglianza fra due titoli normalizzati, indipendente dall'ordine.
+    """Somiglianza fra due stringhe normalizzate, indipendente dall'ordine.
 
     Gli aggregatori riordinano spesso i pezzi del titolo ("Verity | Trailer |
     Dal 1 ottobre" contro "Verity | Dal 1 ottobre | Trailer"), quindi al
@@ -150,6 +153,56 @@ def similarity(key_a, key_b):
     return max(diretta, ordinata)
 
 
+def split_title(key):
+    """Separa il nome del film da ciò che lo segue ("trailer ita", "teaser 2"...).
+
+    Nei titoli YouTube il nome dell'opera viene quasi sempre per primo, e tutto
+    il resto è contorno che cambia da canale a canale: un aggregatore aggiunge
+    il cast ("Madden | Trailer ITA | Nicolas Cage"), lo studio scrive solo
+    "Madden | Trailer Ufficiale". Confrontare i titoli interi fa crollare la
+    somiglianza proprio nei casi che vanno uniti, quindi si confronta il nome.
+
+    Le lettere isolate vengono scartate dal nome: derivano quasi sempre dai
+    separatori (c'è chi scrive "Madden l Trailer" con la elle al posto della
+    barra) o dalle iniziali dei nomi propri. Le cifre isolate restano, perché
+    sono proprio loro a distinguere "Avatar 3" da "Avatar 4".
+    """
+    parole = key.split()
+    taglio = len(parole)
+    for i, w in enumerate(parole):
+        if w in TYPE_WORDS:
+            taglio = i
+            break
+    nome = " ".join(w for w in parole[:taglio] if len(w) > 1 or w.isdigit())
+    return nome, " ".join(parole[taglio:])
+
+
+def trailer_ordinal(coda):
+    """Il numero subito dopo "trailer"/"teaser": il 2 di "Trailer 2"."""
+    match = re.match(r"(?:" + "|".join(TYPE_WORDS) + r")\s+(\d+)", coda)
+    return int(match.group(1)) if match else None
+
+
+def same_title(nome_a, nome_b):
+    """True se i due nomi indicano la stessa opera."""
+    if not nome_a or not nome_b:
+        return False
+    if identity_numbers(nome_a) != identity_numbers(nome_b):
+        return False   # stagioni e sequel diversi
+    if nome_a == nome_b:
+        return True
+    if similarity(nome_a, nome_b) >= DUPLICATE_RATIO:
+        return True
+
+    # un nome interamente contenuto nell'altro ("Il Gatto col Cappello" dentro
+    # "Il Gatto col Cappello Nuovo"). Si concede una sola parola di scarto e si
+    # pretendono almeno due parole: senza questi limiti "Wicked" finirebbe
+    # dentro "Wicked For Good", che è un altro film.
+    pa, pb = set(nome_a.split()), set(nome_b.split())
+    corto, lungo = (pa, pb) if len(pa) <= len(pb) else (pb, pa)
+    return len(corto) >= 2 and corto <= lungo and len(lungo) - len(corto) <= 1
+
+
 def same_trailer(a, b):
     """True se i due elementi sono ragionevolmente lo stesso trailer."""
     key_a, key_b = a.get("_key", ""), b.get("_key", "")
@@ -160,12 +213,25 @@ def same_trailer(a, b):
     if date_a and date_b and abs(date_a - date_b) > timedelta(days=DUPLICATE_WINDOW_DAYS):
         return False
 
-    if identity_numbers(key_a) != identity_numbers(key_b):
+    nome_a, coda_a = split_title(key_a)
+    nome_b, coda_b = split_title(key_b)
+    if not same_title(nome_a, nome_b):
         return False
 
-    if key_a == key_b:
-        return True
-    return similarity(key_a, key_b) >= DUPLICATE_RATIO
+    # un teaser non è il trailer dello stesso film
+    tipo_a = set(coda_a.split()) & TYPE_WORDS
+    tipo_b = set(coda_b.split()) & TYPE_WORDS
+    if tipo_a and tipo_b and not (tipo_a & tipo_b):
+        return False
+
+    # "Trailer 2" e "Trailer 3" sono due video diversi. Se invece solo uno dei
+    # due porta il numero si uniscono lo stesso: gli aggregatori numerano i
+    # trailer anche quando lo studio pubblica senza numerarli.
+    ord_a, ord_b = trailer_ordinal(coda_a), trailer_ordinal(coda_b)
+    if ord_a and ord_b and ord_a != ord_b:
+        return False
+
+    return True
 
 
 def _priority(trailer):

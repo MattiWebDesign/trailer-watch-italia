@@ -68,9 +68,16 @@ basta rimuovere le rispettive righe da `CHANNELS`.
 
 Lo stesso trailer esce spesso su più canali (Marvel e Disney+, o un aggregatore che
 rilancia un canale ufficiale): sono video YouTube distinti, con id diversi, quindi il
-filtro su `seen_ids.json` non li intercetta. Lo scraper li riconosce confrontando i
-titoli normalizzati e ne tiene uno solo, dando la precedenza al canale ufficiale; gli
-altri finiscono nel campo `also_on` del trailer e non generano una seconda notifica.
+filtro su `seen_ids.json` non li intercetta. Lo scraper li riconosce e ne tiene uno
+solo, dando la precedenza al canale ufficiale; gli altri finiscono nel campo `also_on`
+del trailer e non generano una seconda notifica.
+
+Il confronto non avviene sul titolo intero ma sul **nome dell'opera**, cioè tutto ciò
+che precede la parola "trailer" o "teaser". Nei titoli YouTube l'opera viene quasi
+sempre per prima, mentre il resto cambia da canale a canale: un aggregatore aggiunge il
+cast (`Madden (2026) | Trailer ITA | Nicolas Cage`), lo studio scrive solo
+`Madden | Trailer Ufficiale`. Confrontare i titoli interi faceva crollare la
+somiglianza proprio nei casi da unire.
 
 Cosa viene ignorato nel confronto: accenti e punteggiatura, marcatori di lingua e
 qualità (`ITA`, `HD`, `4K`), formule promozionali e date di uscita (`Dal 25 dicembre al
@@ -83,6 +90,11 @@ Cosa invece **non** viene accorpato:
   video restano nel confronto;
 - stagioni e sequel diversi, anche scritti a parole: `Chapter One` e `Chapter Two`, o
   `Avatar 3` e `Avatar 4`, differiscono per pochi caratteri ma non vanno uniti;
+- opere il cui nome è contenuto in un altro: `Wicked` non viene unito a
+  `Wicked: For Good`, che è un altro film;
+- `Trailer 2` e `Trailer 3` dello stesso film, quando entrambi portano il numero. Se
+  invece solo uno dei due lo porta vengono uniti, perché gli aggregatori numerano i
+  trailer anche quando lo studio pubblica senza numerarli;
 - ripubblicazioni a distanza di oltre 30 giorni, che sono lanci diversi e non copie.
 
 Le soglie sono in cima a `scripts/check_trailers.py` (`DUPLICATE_RATIO`,
