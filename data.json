@@ -1,6 +1,16 @@
 {
-  "updated_at": "2026-09-26T11:04:20.529103+00:00",
+  "updated_at": "2026-09-26T22:38:27.938992+00:00",
   "trailers": [
+    {
+      "id": "y4TJhVJdME8",
+      "title": "L'Isola Dei Ricordi | Trailer Finale",
+      "channel": "Universal Pictures",
+      "published": "2026-09-17T15:00:22+00:00",
+      "url": "https://www.youtube.com/watch?v=y4TJhVJdME8",
+      "also_on": [
+        "Box Office Trailers"
+      ]
+    },
     {
       "id": "Fg_ZQz5uBpo",
       "title": "Her Private Hell (2026) | Trailer ITA | Il nuovo incubo di Nicolas Winding Refn",
@@ -47,11 +57,14 @@
       "url": "https://www.youtube.com/watch?v=hRB8Z1PJOIE"
     },
     {
-      "id": "5l-9IkvA32g",
-      "title": "Madden (2026) | Trailer ITA | Nicolas Cage, Christian Bale",
-      "channel": "FilmIsNow",
-      "published": "2026-09-25T10:30:00+00:00",
-      "url": "https://www.youtube.com/watch?v=5l-9IkvA32g"
+      "id": "Wl4TPRMlNfg",
+      "title": "Madden l Trailer Ufficiale | Prime Video",
+      "channel": "Prime Video",
+      "published": "2026-09-24T13:10:29+00:00",
+      "url": "https://www.youtube.com/watch?v=Wl4TPRMlNfg",
+      "also_on": [
+        "FilmIsNow"
+      ]
     },
     {
       "id": "Azr3UDX0F6o",
@@ -82,11 +95,14 @@
       "url": "https://www.youtube.com/watch?v=wosK0uLvA6g"
     },
     {
-      "id": "jTm7hHcPuRM",
-      "title": "MASTERPLAN (2026) | Trailer ITA | Rubare la Gioconda è un affare di famiglia",
-      "channel": "FilmIsNow",
-      "published": "2026-09-24T14:00:39+00:00",
-      "url": "https://www.youtube.com/watch?v=jTm7hHcPuRM"
+      "id": "O8Yu1E8Blxs",
+      "title": "Masterplan | Trailer Ufficiale | Prime Video",
+      "channel": "Prime Video",
+      "published": "2026-09-23T13:01:03+00:00",
+      "url": "https://www.youtube.com/watch?v=O8Yu1E8Blxs",
+      "also_on": [
+        "FilmIsNow"
+      ]
     },
     {
       "id": "fUuWhaQWhjs",
@@ -96,13 +112,6 @@
       "url": "https://www.youtube.com/watch?v=fUuWhaQWhjs"
     },
     {
-      "id": "Wl4TPRMlNfg",
-      "title": "Madden l Trailer Ufficiale | Prime Video",
-      "channel": "Prime Video",
-      "published": "2026-09-24T13:10:29+00:00",
-      "url": "https://www.youtube.com/watch?v=Wl4TPRMlNfg"
-    },
-    {
       "id": "uKwHpdoP4Mo",
       "title": "LOL Halloween | Trailer Ufficiale | Prime Video",
       "channel": "Prime Video",
@@ -110,11 +119,14 @@
       "url": "https://www.youtube.com/watch?v=uKwHpdoP4Mo"
     },
     {
-      "id": "HMnfYGBix4I",
-      "title": "Il Gatto col Cappello (2026) | Trailer ITA | Una nuova avventura animata",
-      "channel": "FilmIsNow",
-      "published": "2026-09-24T09:30:31+00:00",
-      "url": "https://www.youtube.com/watch?v=HMnfYGBix4I"
+      "id": "bCZo-8YVjgs",
+      "title": "Il Gatto Col Cappello | Nuovo Trailer Ufficiale",
+      "channel": "Warner Bros.",
+      "published": "2026-09-23T13:00:19+00:00",
+      "url": "https://www.youtube.com/watch?v=bCZo-8YVjgs",
+      "also_on": [
+        "FilmIsNow"
+      ]
     },
     {
       "id": "SA6VEawZEeM",
@@ -122,20 +134,6 @@
       "channel": "FilmIsNow",
       "published": "2026-09-24T07:17:52+00:00",
       "url": "https://www.youtube.com/watch?v=SA6VEawZEeM"
-    },
-    {
-      "id": "O8Yu1E8Blxs",
-      "title": "Masterplan | Trailer Ufficiale | Prime Video",
-      "channel": "Prime Video",
-      "published": "2026-09-23T13:01:03+00:00",
-      "url": "https://www.youtube.com/watch?v=O8Yu1E8Blxs"
-    },
-    {
-      "id": "bCZo-8YVjgs",
-      "title": "Il Gatto Col Cappello | Nuovo Trailer Ufficiale",
-      "channel": "Warner Bros.",
-      "published": "2026-09-23T13:00:19+00:00",
-      "url": "https://www.youtube.com/watch?v=bCZo-8YVjgs"
     },
     {
       "id": "BYDbFhQVKUA",
@@ -166,18 +164,14 @@
       "url": "https://www.youtube.com/watch?v=LPVil2xIi8U"
     },
     {
-      "id": "ZoiLXbaHD4w",
-      "title": "Primetime (2026) | Trailer ITA | Il nuovo film con Robert Pattinson",
-      "channel": "FilmIsNow",
-      "published": "2026-09-18T14:33:50+00:00",
-      "url": "https://www.youtube.com/watch?v=ZoiLXbaHD4w"
-    },
-    {
       "id": "Zjyz7G2EiRQ",
       "title": "PRIMETIME Trailer Ita Ufficiale (2026) Robert Pattinson",
       "channel": "Box Office Trailers",
       "published": "2026-09-18T12:13:19+00:00",
-      "url": "https://www.youtube.com/watch?v=Zjyz7G2EiRQ"
+      "url": "https://www.youtube.com/watch?v=Zjyz7G2EiRQ",
+      "also_on": [
+        "FilmIsNow"
+      ]
     },
     {
       "id": "odIgy3fvcEY",
@@ -187,11 +181,15 @@
       "url": "https://www.youtube.com/watch?v=odIgy3fvcEY"
     },
     {
-      "id": "LkHTILnMah0",
-      "title": "Come Rapinare una Banca (2026) | Trailer #2 ITA | Nicholas Hoult, Zoë Kravitz, John C. Reilly",
-      "channel": "FilmIsNow",
-      "published": "2026-09-18T07:21:19+00:00",
-      "url": "https://www.youtube.com/watch?v=LkHTILnMah0"
+      "id": "wLDWeYRP9JY",
+      "title": "Come rapinare una banca - Trailer Ufficiale",
+      "channel": "Sony Pictures",
+      "published": "2026-09-17T13:05:01+00:00",
+      "url": "https://www.youtube.com/watch?v=wLDWeYRP9JY",
+      "also_on": [
+        "FilmIsNow",
+        "Box Office Trailers"
+      ]
     },
     {
       "id": "6p9fuk1IHK8",
@@ -215,16 +213,6 @@
       "url": "https://www.youtube.com/watch?v=0cuiqKrKd6M"
     },
     {
-      "id": "y4TJhVJdME8",
-      "title": "L'Isola Dei Ricordi | Trailer Finale",
-      "channel": "Universal Pictures",
-      "published": "2026-09-17T15:00:22+00:00",
-      "url": "https://www.youtube.com/watch?v=y4TJhVJdME8",
-      "also_on": [
-        "Box Office Trailers"
-      ]
-    },
-    {
       "id": "wno_VEFfdnM",
       "title": "WIFE & DOG Trailer Ita Ufficiale (2026) Benedict Cumberbatch, Guy Ritchie",
       "channel": "Box Office Trailers",
@@ -244,20 +232,6 @@
       "channel": "Netflix",
       "published": "2026-09-17T14:00:02+00:00",
       "url": "https://www.youtube.com/watch?v=WIxHPUIL7VA"
-    },
-    {
-      "id": "LNiIuUaHS2U",
-      "title": "COME RAPINARE UNA BANCA Trailer 2 Ita Ufficiale (2026) Nicholas Hoult",
-      "channel": "Box Office Trailers",
-      "published": "2026-09-17T13:31:25+00:00",
-      "url": "https://www.youtube.com/watch?v=LNiIuUaHS2U"
-    },
-    {
-      "id": "wLDWeYRP9JY",
-      "title": "Come rapinare una banca - Trailer Ufficiale",
-      "channel": "Sony Pictures",
-      "published": "2026-09-17T13:05:01+00:00",
-      "url": "https://www.youtube.com/watch?v=wLDWeYRP9JY"
     },
     {
       "id": "cCo8LE3sQOw",
@@ -337,18 +311,14 @@
       "url": "https://www.youtube.com/watch?v=mVZ8VRE1Xag"
     },
     {
-      "id": "P3OFyTwKkoM",
-      "title": "MAMMINA Trailer 2 Ita Ufficiale (2026) Jessica Chastain",
-      "channel": "Box Office Trailers",
-      "published": "2026-09-15T15:24:52+00:00",
-      "url": "https://www.youtube.com/watch?v=P3OFyTwKkoM"
-    },
-    {
       "id": "NPrZJsxGz94",
       "title": "Mammina | Trailer 2",
       "channel": "Universal Pictures",
       "published": "2026-09-15T15:00:30+00:00",
-      "url": "https://www.youtube.com/watch?v=NPrZJsxGz94"
+      "url": "https://www.youtube.com/watch?v=NPrZJsxGz94",
+      "also_on": [
+        "Box Office Trailers"
+      ]
     },
     {
       "id": "KhMM7AIJbf8",
@@ -365,13 +335,14 @@
       "url": "https://www.youtube.com/watch?v=8p1gvFkl5t0"
     },
     {
-      "id": "D-vfbBw3oc4",
-      "title": "THE SOCIAL: IL PREZZO DELLA VERITÀ Trailer Ita Ufficiale (2026) Mikey Madison, Jeremy Allen White",
-      "channel": "Box Office Trailers",
-      "published": "2026-09-14T15:29:40+00:00",
-      "url": "https://www.youtube.com/watch?v=D-vfbBw3oc4",
+      "id": "3haauYQZo9k",
+      "title": "The Social: Il prezzo della verità | Dall'8 ottobre al cinema | Trailer Ufficiale",
+      "channel": "Sony Pictures",
+      "published": "2026-09-14T14:00:01+00:00",
+      "url": "https://www.youtube.com/watch?v=3haauYQZo9k",
       "also_on": [
-        "FilmIsNow"
+        "FilmIsNow",
+        "Box Office Trailers"
       ]
     },
     {
@@ -382,13 +353,6 @@
       "url": "https://www.youtube.com/watch?v=PmhtoTwGtdw"
     },
     {
-      "id": "3haauYQZo9k",
-      "title": "The Social: Il prezzo della verità | Dall'8 ottobre al cinema | Trailer Ufficiale",
-      "channel": "Sony Pictures",
-      "published": "2026-09-14T14:00:01+00:00",
-      "url": "https://www.youtube.com/watch?v=3haauYQZo9k"
-    },
-    {
       "id": "lmDMwO_z234",
       "title": "Whalefall: Nella Balena (2026) | Trailer ITA | Intrappolato nel Ventre di una Balena",
       "channel": "FilmIsNow",
@@ -396,18 +360,14 @@
       "url": "https://www.youtube.com/watch?v=lmDMwO_z234"
     },
     {
-      "id": "DBKeQsqz5Vw",
-      "title": "AVATAR: I SETTE RIFUGI Trailer 2 Ita Ufficiale (2026)",
-      "channel": "Box Office Trailers",
-      "published": "2026-09-10T15:37:47+00:00",
-      "url": "https://www.youtube.com/watch?v=DBKeQsqz5Vw"
-    },
-    {
       "id": "hSQLJVYpHTg",
       "title": "Avatar: I Sette Rifugi | Trailer Ufficiale ITA - Paramount+",
       "channel": "Paramount+",
       "published": "2026-09-10T15:09:30+00:00",
-      "url": "https://www.youtube.com/watch?v=hSQLJVYpHTg"
+      "url": "https://www.youtube.com/watch?v=hSQLJVYpHTg",
+      "also_on": [
+        "Box Office Trailers"
+      ]
     },
     {
       "id": "a43mHXV5TBg",
