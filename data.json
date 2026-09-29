@@ -1,22 +1,49 @@
 {
-  "updated_at": "2026-09-28T13:21:30.406225+00:00",
+  "updated_at": "2026-09-29T12:26:48.965635+00:00",
   "trailers": [
-    {
-      "id": "Evw3_f4X-J4",
-      "title": "Klara e il Sole - dal 22 ottobre al cinema - Nuovo Trailer",
-      "channel": "Sony Pictures",
-      "published": "2026-09-25T12:30:02+00:00",
-      "url": "https://www.youtube.com/watch?v=Evw3_f4X-J4",
-      "also_on": [
-        "FilmIsNow"
-      ]
-    },
     {
       "id": "PiqMoq2gmBs",
       "title": "Clayface | Trailer Finale",
       "channel": "Warner Bros.",
       "published": "2026-09-28T11:00:18+00:00",
-      "url": "https://www.youtube.com/watch?v=PiqMoq2gmBs"
+      "url": "https://www.youtube.com/watch?v=PiqMoq2gmBs",
+      "also_on": [
+        "FilmIsNow"
+      ]
+    },
+    {
+      "id": "hgtA5DtcFrg",
+      "title": "TULSA KING Stagione 4 Trailer Ita Ufficiale (2026) Sylvester Stallone",
+      "channel": "Box Office Trailers",
+      "published": "2026-09-28T20:59:02+00:00",
+      "url": "https://www.youtube.com/watch?v=hgtA5DtcFrg"
+    },
+    {
+      "id": "KKhq6ZWLC0c",
+      "title": "TULSA KING S4 | Trailer Ufficiale ITA - Paramount+",
+      "channel": "Paramount+",
+      "published": "2026-09-28T20:08:07+00:00",
+      "url": "https://www.youtube.com/watch?v=KKhq6ZWLC0c"
+    },
+    {
+      "id": "fjmWhgB4ZFk",
+      "title": "Werwulf - Trailer Ufficiale 2",
+      "channel": "Universal Pictures",
+      "published": "2026-09-28T15:00:03+00:00",
+      "url": "https://www.youtube.com/watch?v=fjmWhgB4ZFk",
+      "also_on": [
+        "Box Office Trailers"
+      ]
+    },
+    {
+      "id": "hRB8Z1PJOIE",
+      "title": "ROCKY SONO IO Trailer Ita Ufficiale (2026)",
+      "channel": "Box Office Trailers",
+      "published": "2026-09-25T10:36:07+00:00",
+      "url": "https://www.youtube.com/watch?v=hRB8Z1PJOIE",
+      "also_on": [
+        "FilmIsNow"
+      ]
     },
     {
       "id": "73OqRoi_3Xk",
@@ -57,18 +84,21 @@
       "url": "https://www.youtube.com/watch?v=HiGE8uK2zzM"
     },
     {
+      "id": "Evw3_f4X-J4",
+      "title": "Klara e il Sole - dal 22 ottobre al cinema - Nuovo Trailer",
+      "channel": "Sony Pictures",
+      "published": "2026-09-25T12:30:02+00:00",
+      "url": "https://www.youtube.com/watch?v=Evw3_f4X-J4",
+      "also_on": [
+        "FilmIsNow"
+      ]
+    },
+    {
       "id": "c18VL_lOpE8",
       "title": "Melania Rea | Teaser ufficiale | HBO Max",
       "channel": "HBO Max",
       "published": "2026-09-25T11:00:58+00:00",
       "url": "https://www.youtube.com/watch?v=c18VL_lOpE8"
-    },
-    {
-      "id": "hRB8Z1PJOIE",
-      "title": "ROCKY SONO IO Trailer Ita Ufficiale (2026)",
-      "channel": "Box Office Trailers",
-      "published": "2026-09-25T10:36:07+00:00",
-      "url": "https://www.youtube.com/watch?v=hRB8Z1PJOIE"
     },
     {
       "id": "Azr3UDX0F6o",
