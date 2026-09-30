@@ -1,15 +1,50 @@
 {
-  "updated_at": "2026-09-29T12:26:48.965635+00:00",
+  "updated_at": "2026-09-30T12:12:14.134195+00:00",
   "trailers": [
     {
-      "id": "PiqMoq2gmBs",
-      "title": "Clayface | Trailer Finale",
-      "channel": "Warner Bros.",
-      "published": "2026-09-28T11:00:18+00:00",
-      "url": "https://www.youtube.com/watch?v=PiqMoq2gmBs",
+      "id": "tGhQ-MGAGpU",
+      "title": "NOCTURNE | Trailer ITA | Stephen Graham è un serial killer spietato",
+      "channel": "FilmIsNow",
+      "published": "2026-09-30T10:00:18+00:00",
+      "url": "https://www.youtube.com/watch?v=tGhQ-MGAGpU"
+    },
+    {
+      "id": "jMYVsNR4eko",
+      "title": "Crystal Lake | Trailer ufficiale | HBO Max",
+      "channel": "HBO Max",
+      "published": "2026-09-30T09:00:49+00:00",
+      "url": "https://www.youtube.com/watch?v=jMYVsNR4eko"
+    },
+    {
+      "id": "fw9ri3qdIAs",
+      "title": "NAZA (2026) | Trailer ITA + V.O. | Di Yuval Abraham e Rachel Szor",
+      "channel": "FilmIsNow",
+      "published": "2026-09-30T08:32:18+00:00",
+      "url": "https://www.youtube.com/watch?v=fw9ri3qdIAs"
+    },
+    {
+      "id": "wVm3P8bS14s",
+      "title": "Campus Drivers | Teaser Ufficiale | Prime Video",
+      "channel": "Prime Video",
+      "published": "2026-09-29T15:46:07+00:00",
+      "url": "https://www.youtube.com/watch?v=wVm3P8bS14s"
+    },
+    {
+      "id": "KKhq6ZWLC0c",
+      "title": "TULSA KING S4 | Trailer Ufficiale ITA - Paramount+",
+      "channel": "Paramount+",
+      "published": "2026-09-28T20:08:07+00:00",
+      "url": "https://www.youtube.com/watch?v=KKhq6ZWLC0c",
       "also_on": [
         "FilmIsNow"
       ]
+    },
+    {
+      "id": "lLTMDsXPgAI",
+      "title": "IT ENDS Trailer Ita Ufficiale (2026)",
+      "channel": "Box Office Trailers",
+      "published": "2026-09-29T12:38:15+00:00",
+      "url": "https://www.youtube.com/watch?v=lLTMDsXPgAI"
     },
     {
       "id": "hgtA5DtcFrg",
@@ -17,13 +52,6 @@
       "channel": "Box Office Trailers",
       "published": "2026-09-28T20:59:02+00:00",
       "url": "https://www.youtube.com/watch?v=hgtA5DtcFrg"
-    },
-    {
-      "id": "KKhq6ZWLC0c",
-      "title": "TULSA KING S4 | Trailer Ufficiale ITA - Paramount+",
-      "channel": "Paramount+",
-      "published": "2026-09-28T20:08:07+00:00",
-      "url": "https://www.youtube.com/watch?v=KKhq6ZWLC0c"
     },
     {
       "id": "fjmWhgB4ZFk",
@@ -36,11 +64,11 @@
       ]
     },
     {
-      "id": "hRB8Z1PJOIE",
-      "title": "ROCKY SONO IO Trailer Ita Ufficiale (2026)",
-      "channel": "Box Office Trailers",
-      "published": "2026-09-25T10:36:07+00:00",
-      "url": "https://www.youtube.com/watch?v=hRB8Z1PJOIE",
+      "id": "PiqMoq2gmBs",
+      "title": "Clayface | Trailer Finale",
+      "channel": "Warner Bros.",
+      "published": "2026-09-28T11:00:18+00:00",
+      "url": "https://www.youtube.com/watch?v=PiqMoq2gmBs",
       "also_on": [
         "FilmIsNow"
       ]
@@ -99,6 +127,16 @@
       "channel": "HBO Max",
       "published": "2026-09-25T11:00:58+00:00",
       "url": "https://www.youtube.com/watch?v=c18VL_lOpE8"
+    },
+    {
+      "id": "hRB8Z1PJOIE",
+      "title": "ROCKY SONO IO Trailer Ita Ufficiale (2026)",
+      "channel": "Box Office Trailers",
+      "published": "2026-09-25T10:36:07+00:00",
+      "url": "https://www.youtube.com/watch?v=hRB8Z1PJOIE",
+      "also_on": [
+        "FilmIsNow"
+      ]
     },
     {
       "id": "Azr3UDX0F6o",
@@ -429,20 +467,6 @@
       "channel": "Sony Pictures",
       "published": "2026-09-10T13:02:47+00:00",
       "url": "https://www.youtube.com/watch?v=a43mHXV5TBg"
-    },
-    {
-      "id": "sPZliXJXH68",
-      "title": "SCONTRO TRA THUNDERMAN Trailer Ita Ufficiale (2026)",
-      "channel": "Box Office Trailers",
-      "published": "2026-09-10T12:30:27+00:00",
-      "url": "https://www.youtube.com/watch?v=sPZliXJXH68"
-    },
-    {
-      "id": "LtTl8atAEtU",
-      "title": "DIGGER (2026) | Trailer Finale ITA con Tom Cruise",
-      "channel": "FilmIsNow",
-      "published": "2026-09-10T07:15:18+00:00",
-      "url": "https://www.youtube.com/watch?v=LtTl8atAEtU"
     }
   ]
 }
