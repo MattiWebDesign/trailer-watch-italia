@@ -1,12 +1,46 @@
 {
-  "updated_at": "2026-09-30T12:12:14.134195+00:00",
+  "updated_at": "2026-10-01T12:46:12.171401+00:00",
   "trailers": [
+    {
+      "id": "1GctxPbIQpQ",
+      "title": "LA BAMBOLA (2026) | Trailer ITA | La sua fidanzata gonfiabile prende vita",
+      "channel": "FilmIsNow",
+      "published": "2026-10-01T08:30:27+00:00",
+      "url": "https://www.youtube.com/watch?v=1GctxPbIQpQ"
+    },
+    {
+      "id": "OiCSiZK5-DY",
+      "title": "Teaser Ufficiale | Drive - Cuori in pista",
+      "channel": "Prime Video",
+      "published": "2026-09-30T15:01:16+00:00",
+      "url": "https://www.youtube.com/watch?v=OiCSiZK5-DY"
+    },
+    {
+      "id": "oEnNXWz_zK8",
+      "title": "Day Drinker (2026) | Trailer ITA | Johnny Depp, Penélope Cruz",
+      "channel": "FilmIsNow",
+      "published": "2026-09-25T07:30:35+00:00",
+      "url": "https://www.youtube.com/watch?v=oEnNXWz_zK8",
+      "also_on": [
+        "Box Office Trailers"
+      ]
+    },
     {
       "id": "tGhQ-MGAGpU",
       "title": "NOCTURNE | Trailer ITA | Stephen Graham è un serial killer spietato",
       "channel": "FilmIsNow",
       "published": "2026-09-30T10:00:18+00:00",
-      "url": "https://www.youtube.com/watch?v=tGhQ-MGAGpU"
+      "url": "https://www.youtube.com/watch?v=tGhQ-MGAGpU",
+      "also_on": [
+        "Box Office Trailers"
+      ]
+    },
+    {
+      "id": "jZX7Xs4v2eI",
+      "title": "Missione: Salvare il Natale | Teaser Ufficiale | Prime Video",
+      "channel": "Prime Video",
+      "published": "2026-09-30T13:30:42+00:00",
+      "url": "https://www.youtube.com/watch?v=jZX7Xs4v2eI"
     },
     {
       "id": "jMYVsNR4eko",
@@ -30,16 +64,6 @@
       "url": "https://www.youtube.com/watch?v=wVm3P8bS14s"
     },
     {
-      "id": "KKhq6ZWLC0c",
-      "title": "TULSA KING S4 | Trailer Ufficiale ITA - Paramount+",
-      "channel": "Paramount+",
-      "published": "2026-09-28T20:08:07+00:00",
-      "url": "https://www.youtube.com/watch?v=KKhq6ZWLC0c",
-      "also_on": [
-        "FilmIsNow"
-      ]
-    },
-    {
       "id": "lLTMDsXPgAI",
       "title": "IT ENDS Trailer Ita Ufficiale (2026)",
       "channel": "Box Office Trailers",
@@ -52,6 +76,16 @@
       "channel": "Box Office Trailers",
       "published": "2026-09-28T20:59:02+00:00",
       "url": "https://www.youtube.com/watch?v=hgtA5DtcFrg"
+    },
+    {
+      "id": "KKhq6ZWLC0c",
+      "title": "TULSA KING S4 | Trailer Ufficiale ITA - Paramount+",
+      "channel": "Paramount+",
+      "published": "2026-09-28T20:08:07+00:00",
+      "url": "https://www.youtube.com/watch?v=KKhq6ZWLC0c",
+      "also_on": [
+        "FilmIsNow"
+      ]
     },
     {
       "id": "fjmWhgB4ZFk",
@@ -144,13 +178,6 @@
       "channel": "Prime Video",
       "published": "2026-09-25T10:04:06+00:00",
       "url": "https://www.youtube.com/watch?v=Azr3UDX0F6o"
-    },
-    {
-      "id": "oEnNXWz_zK8",
-      "title": "Day Drinker (2026) | Trailer ITA | Johnny Depp, Penélope Cruz",
-      "channel": "FilmIsNow",
-      "published": "2026-09-25T07:30:35+00:00",
-      "url": "https://www.youtube.com/watch?v=oEnNXWz_zK8"
     },
     {
       "id": "SVb-2AGZESg",
@@ -443,30 +470,6 @@
         "FilmIsNow",
         "Box Office Trailers"
       ]
-    },
-    {
-      "id": "lmDMwO_z234",
-      "title": "Whalefall: Nella Balena (2026) | Trailer ITA | Intrappolato nel Ventre di una Balena",
-      "channel": "FilmIsNow",
-      "published": "2026-09-11T07:30:18+00:00",
-      "url": "https://www.youtube.com/watch?v=lmDMwO_z234"
-    },
-    {
-      "id": "hSQLJVYpHTg",
-      "title": "Avatar: I Sette Rifugi | Trailer Ufficiale ITA - Paramount+",
-      "channel": "Paramount+",
-      "published": "2026-09-10T15:09:30+00:00",
-      "url": "https://www.youtube.com/watch?v=hSQLJVYpHTg",
-      "also_on": [
-        "Box Office Trailers"
-      ]
-    },
-    {
-      "id": "a43mHXV5TBg",
-      "title": "Witch on the Holy Night | Trailer Ufficiale",
-      "channel": "Sony Pictures",
-      "published": "2026-09-10T13:02:47+00:00",
-      "url": "https://www.youtube.com/watch?v=a43mHXV5TBg"
     }
   ]
 }
