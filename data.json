@@ -1,6 +1,41 @@
 {
-  "updated_at": "2026-10-01T12:46:12.171401+00:00",
+  "updated_at": "2026-10-02T12:10:17.997513+00:00",
   "trailers": [
+    {
+      "id": "FATCofGu-6k",
+      "title": "Scrooge e gli Spiriti del Natale - Nuovo Trailer",
+      "channel": "Paramount Pictures",
+      "published": "2026-10-01T13:09:01+00:00",
+      "url": "https://www.youtube.com/watch?v=FATCofGu-6k",
+      "also_on": [
+        "FilmIsNow",
+        "Box Office Trailers"
+      ]
+    },
+    {
+      "id": "vjB7kVNAWNo",
+      "title": "VisionQuest | Trailer Ufficiale | Dal 14 Ottobre su Disney+",
+      "channel": "Marvel",
+      "published": "2026-10-01T16:43:47+00:00",
+      "url": "https://www.youtube.com/watch?v=vjB7kVNAWNo"
+    },
+    {
+      "id": "vM0gv9t6FHw",
+      "title": "Dexter: Resurrection | Stagione 2 Trailer Ufficiale | Paramount+",
+      "channel": "Paramount+",
+      "published": "2026-10-01T15:00:42+00:00",
+      "url": "https://www.youtube.com/watch?v=vM0gv9t6FHw",
+      "also_on": [
+        "Box Office Trailers"
+      ]
+    },
+    {
+      "id": "94Fytxwl0bI",
+      "title": "KATSEYE: WILD HEARTS | Trailer Ufficiale | Disney+ Italia",
+      "channel": "Disney+",
+      "published": "2026-10-01T14:39:46+00:00",
+      "url": "https://www.youtube.com/watch?v=94Fytxwl0bI"
+    },
     {
       "id": "1GctxPbIQpQ",
       "title": "LA BAMBOLA (2026) | Trailer ITA | La sua fidanzata gonfiabile prende vita",
@@ -16,14 +51,11 @@
       "url": "https://www.youtube.com/watch?v=OiCSiZK5-DY"
     },
     {
-      "id": "oEnNXWz_zK8",
-      "title": "Day Drinker (2026) | Trailer ITA | Johnny Depp, Penélope Cruz",
-      "channel": "FilmIsNow",
-      "published": "2026-09-25T07:30:35+00:00",
-      "url": "https://www.youtube.com/watch?v=oEnNXWz_zK8",
-      "also_on": [
-        "Box Office Trailers"
-      ]
+      "id": "jZX7Xs4v2eI",
+      "title": "Missione: Salvare il Natale | Teaser Ufficiale | Prime Video",
+      "channel": "Prime Video",
+      "published": "2026-09-30T13:30:42+00:00",
+      "url": "https://www.youtube.com/watch?v=jZX7Xs4v2eI"
     },
     {
       "id": "tGhQ-MGAGpU",
@@ -34,13 +66,6 @@
       "also_on": [
         "Box Office Trailers"
       ]
-    },
-    {
-      "id": "jZX7Xs4v2eI",
-      "title": "Missione: Salvare il Natale | Teaser Ufficiale | Prime Video",
-      "channel": "Prime Video",
-      "published": "2026-09-30T13:30:42+00:00",
-      "url": "https://www.youtube.com/watch?v=jZX7Xs4v2eI"
     },
     {
       "id": "jMYVsNR4eko",
@@ -178,6 +203,16 @@
       "channel": "Prime Video",
       "published": "2026-09-25T10:04:06+00:00",
       "url": "https://www.youtube.com/watch?v=Azr3UDX0F6o"
+    },
+    {
+      "id": "oEnNXWz_zK8",
+      "title": "Day Drinker (2026) | Trailer ITA | Johnny Depp, Penélope Cruz",
+      "channel": "FilmIsNow",
+      "published": "2026-09-25T07:30:35+00:00",
+      "url": "https://www.youtube.com/watch?v=oEnNXWz_zK8",
+      "also_on": [
+        "Box Office Trailers"
+      ]
     },
     {
       "id": "SVb-2AGZESg",
@@ -436,38 +471,6 @@
       "published": "2026-09-15T15:00:30+00:00",
       "url": "https://www.youtube.com/watch?v=NPrZJsxGz94",
       "also_on": [
-        "Box Office Trailers"
-      ]
-    },
-    {
-      "id": "KhMM7AIJbf8",
-      "title": "The Diplomat - Stagione 4 | Trailer ufficiale | Netflix Italia",
-      "channel": "Netflix",
-      "published": "2026-09-15T14:00:01+00:00",
-      "url": "https://www.youtube.com/watch?v=KhMM7AIJbf8"
-    },
-    {
-      "id": "8p1gvFkl5t0",
-      "title": "Animals | Trailer ufficiale | Netflix Italia",
-      "channel": "Netflix",
-      "published": "2026-09-15T12:00:01+00:00",
-      "url": "https://www.youtube.com/watch?v=8p1gvFkl5t0"
-    },
-    {
-      "id": "PmhtoTwGtdw",
-      "title": "Lupin: Parte 4 | Trailer ufficiale | Netflix Italia",
-      "channel": "Netflix",
-      "published": "2026-09-14T15:00:04+00:00",
-      "url": "https://www.youtube.com/watch?v=PmhtoTwGtdw"
-    },
-    {
-      "id": "3haauYQZo9k",
-      "title": "The Social: Il prezzo della verità | Dall'8 ottobre al cinema | Trailer Ufficiale",
-      "channel": "Sony Pictures",
-      "published": "2026-09-14T14:00:01+00:00",
-      "url": "https://www.youtube.com/watch?v=3haauYQZo9k",
-      "also_on": [
-        "FilmIsNow",
         "Box Office Trailers"
       ]
     }
