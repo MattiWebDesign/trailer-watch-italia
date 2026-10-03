@@ -1,16 +1,12 @@
 {
-  "updated_at": "2026-10-02T12:10:17.997513+00:00",
+  "updated_at": "2026-10-03T11:20:32.904641+00:00",
   "trailers": [
     {
-      "id": "FATCofGu-6k",
-      "title": "Scrooge e gli Spiriti del Natale - Nuovo Trailer",
-      "channel": "Paramount Pictures",
-      "published": "2026-10-01T13:09:01+00:00",
-      "url": "https://www.youtube.com/watch?v=FATCofGu-6k",
-      "also_on": [
-        "FilmIsNow",
-        "Box Office Trailers"
-      ]
+      "id": "m7kzgMeXBqM",
+      "title": "Shrek - 25° anniversario | Trailer Ufficiale",
+      "channel": "Universal Pictures",
+      "published": "2026-10-02T15:05:33+00:00",
+      "url": "https://www.youtube.com/watch?v=m7kzgMeXBqM"
     },
     {
       "id": "vjB7kVNAWNo",
@@ -35,6 +31,17 @@
       "channel": "Disney+",
       "published": "2026-10-01T14:39:46+00:00",
       "url": "https://www.youtube.com/watch?v=94Fytxwl0bI"
+    },
+    {
+      "id": "FATCofGu-6k",
+      "title": "Scrooge e gli Spiriti del Natale - Nuovo Trailer",
+      "channel": "Paramount Pictures",
+      "published": "2026-10-01T13:09:01+00:00",
+      "url": "https://www.youtube.com/watch?v=FATCofGu-6k",
+      "also_on": [
+        "FilmIsNow",
+        "Box Office Trailers"
+      ]
     },
     {
       "id": "1GctxPbIQpQ",
@@ -463,16 +470,6 @@
       "channel": "Netflix",
       "published": "2026-09-16T09:00:00+00:00",
       "url": "https://www.youtube.com/watch?v=mVZ8VRE1Xag"
-    },
-    {
-      "id": "NPrZJsxGz94",
-      "title": "Mammina | Trailer 2",
-      "channel": "Universal Pictures",
-      "published": "2026-09-15T15:00:30+00:00",
-      "url": "https://www.youtube.com/watch?v=NPrZJsxGz94",
-      "also_on": [
-        "Box Office Trailers"
-      ]
     }
   ]
 }
