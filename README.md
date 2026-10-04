@@ -59,6 +59,11 @@ solo alle notifiche: è in `.gitignore` e non viene versionato.
 | Disney+ `@DisneyPlusIT` | Paramount Pictures `@ParamountPicturesItalia` | |
 | Paramount+ `@ParamountPlusIT` | Universal Pictures `@UniversalpicturesIt` | |
 | HBO Max `@hbomaxit` | Marvel `@MarvelItaly` | |
+| Apple TV+ `@AppleTV` | | |
+
+`Apple TV+` è l'unico canale internazionale della lista: non esiste un equivalente
+italiano, quindi pubblica anche trailer non doppiati. Se i titoli in inglese danno
+fastidio, basta rimuovere la sua riga da `CHANNELS`.
 
 `FilmIsNow` e `Box Office Trailers` sono aggregatori, non canali ufficiali: pubblicano
 parecchi video al giorno, quindi peseranno sui risultati più degli altri. Per toglierli
@@ -107,7 +112,7 @@ In `scripts/check_trailers.py`, aggiungi una voce alla lista `CHANNELS` con il n
 mostrare e l'handle YouTube del canale:
 
 ```python
-{"name": "Apple TV+", "handle": "AppleTVIT"},
+{"name": "Rai Play", "handle": "RaiPlay"},
 ```
 
 Facoltativo: in `index.html`, aggiungi il colore della piattaforma in `CHANNEL_COLORS`.

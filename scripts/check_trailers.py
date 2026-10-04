@@ -35,6 +35,8 @@ CHANNELS = [
     {"name": "Disney+", "handle": "DisneyPlusIT"},
     {"name": "Paramount+", "handle": "ParamountPlusIT"},
     {"name": "HBO Max", "handle": "hbomaxit"},
+    # canale internazionale: pubblica anche titoli non doppiati in italiano
+    {"name": "Apple TV+", "handle": "AppleTV"},
     # distribuzione cinematografica
     {"name": "Warner Bros.", "handle": "WarnerBrosItalia"},
     {"name": "Sony Pictures", "handle": "SonyPicturesIT"},
