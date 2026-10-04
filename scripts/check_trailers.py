@@ -349,10 +349,12 @@ def main():
             continue
 
         found = 0
+        con_keyword = 0
         for entry in entries:
-            if entry["id"] in seen_ids:
-                continue
             if not KEYWORD_RE.search(entry["title"]):
+                continue
+            con_keyword += 1
+            if entry["id"] in seen_ids:
                 continue
             seen_ids.add(entry["id"])
             new_trailers.append({
@@ -363,7 +365,15 @@ def main():
                 "url": f"https://www.youtube.com/watch?v={entry['id']}",
             })
             found += 1
-        print(f"[OK] {name} (@{handle}): {found} nuovi trailer")
+
+        # Il dettaglio serve a distinguere i tre motivi per cui un canale può
+        # non produrre nulla: feed vuoto, nessun titolo con le parole chiave,
+        # oppure video già raccolti in una run precedente.
+        print(f"[OK] {name} (@{handle}): {found} nuovi trailer "
+              f"({len(entries)} video nel feed, {con_keyword} con trailer/teaser nel titolo)")
+        if entries and not con_keyword:
+            esempi = " | ".join(e["title"][:60] for e in entries[:3])
+            print(f"       nessun titolo contiene \"trailer\" o \"teaser\". Ultimi video: {esempi}")
 
     # dedup per id video, mantenendo la prima occorrenza (i nuovi hanno priorità)
     dedup = {}
