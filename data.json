@@ -1,6 +1,20 @@
 {
-  "updated_at": "2026-10-03T11:20:32.904641+00:00",
+  "updated_at": "2026-10-04T12:01:45.849954+00:00",
   "trailers": [
+    {
+      "id": "s0o76aAqeEM",
+      "title": "L’assurda storia della Gialappa’s Band | Trailer ITA | 40 anni di risate",
+      "channel": "FilmIsNow",
+      "published": "2026-10-04T08:30:41+00:00",
+      "url": "https://www.youtube.com/watch?v=s0o76aAqeEM"
+    },
+    {
+      "id": "ZzoMqSugebw",
+      "title": "Tyler Perry’s Ruthless S6 | Trailer Ufficiale ITA - Paramount+",
+      "channel": "Paramount+",
+      "published": "2026-10-03T13:02:49+00:00",
+      "url": "https://www.youtube.com/watch?v=ZzoMqSugebw"
+    },
     {
       "id": "m7kzgMeXBqM",
       "title": "Shrek - 25° anniversario | Trailer Ufficiale",
@@ -456,20 +470,6 @@
       "channel": "Disney+",
       "published": "2026-09-16T10:16:39+00:00",
       "url": "https://www.youtube.com/watch?v=spVHcFU19fM"
-    },
-    {
-      "id": "tcbHESRBgtY",
-      "title": "Ingorgo | Trailer ufficiale",
-      "channel": "Prime Video",
-      "published": "2026-09-16T10:00:35+00:00",
-      "url": "https://www.youtube.com/watch?v=tcbHESRBgtY"
-    },
-    {
-      "id": "mVZ8VRE1Xag",
-      "title": "Hunting Gary Glitter | Trailer ufficiale | Netflix",
-      "channel": "Netflix",
-      "published": "2026-09-16T09:00:00+00:00",
-      "url": "https://www.youtube.com/watch?v=mVZ8VRE1Xag"
     }
   ]
 }
