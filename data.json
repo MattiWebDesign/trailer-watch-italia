@@ -1,6 +1,23 @@
 {
-  "updated_at": "2026-10-04T21:34:54.834960+00:00",
+  "updated_at": "2026-10-05T14:04:44.627733+00:00",
   "trailers": [
+    {
+      "id": "Zjyz7G2EiRQ",
+      "title": "PRIMETIME Trailer Ita Ufficiale (2026) Robert Pattinson",
+      "channel": "Box Office Trailers",
+      "published": "2026-09-18T12:13:19+00:00",
+      "url": "https://www.youtube.com/watch?v=Zjyz7G2EiRQ",
+      "also_on": [
+        "FilmIsNow"
+      ]
+    },
+    {
+      "id": "g2vsb6Id7fE",
+      "title": "ChiaroScuro | Trailer Ufficiale | Netflix Italia",
+      "channel": "Netflix",
+      "published": "2026-10-05T10:00:00+00:00",
+      "url": "https://www.youtube.com/watch?v=g2vsb6Id7fE"
+    },
     {
       "id": "s0o76aAqeEM",
       "title": "L’assurda storia della Gialappa’s Band | Trailer ITA | 40 anni di risate",
@@ -329,16 +346,6 @@
       "url": "https://www.youtube.com/watch?v=LPVil2xIi8U"
     },
     {
-      "id": "Zjyz7G2EiRQ",
-      "title": "PRIMETIME Trailer Ita Ufficiale (2026) Robert Pattinson",
-      "channel": "Box Office Trailers",
-      "published": "2026-09-18T12:13:19+00:00",
-      "url": "https://www.youtube.com/watch?v=Zjyz7G2EiRQ",
-      "also_on": [
-        "FilmIsNow"
-      ]
-    },
-    {
       "id": "odIgy3fvcEY",
       "title": "The Kardashians Stagione 8 | Trailer Ufficiale | Disney+ Italia",
       "channel": "Disney+",
@@ -463,13 +470,6 @@
       "channel": "Box Office Trailers",
       "published": "2026-09-16T15:50:39+00:00",
       "url": "https://www.youtube.com/watch?v=OquDo5NWQLI"
-    },
-    {
-      "id": "spVHcFU19fM",
-      "title": "L'Imperatrice Risposata | Trailer Ufficiale | Disney+ Italia",
-      "channel": "Disney+",
-      "published": "2026-09-16T10:16:39+00:00",
-      "url": "https://www.youtube.com/watch?v=spVHcFU19fM"
     }
   ]
 }
