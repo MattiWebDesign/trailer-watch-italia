@@ -1,6 +1,35 @@
 {
-  "updated_at": "2026-10-06T13:03:06.722128+00:00",
+  "updated_at": "2026-10-07T12:57:40.522384+00:00",
   "trailers": [
+    {
+      "id": "ZfE1vJBdk4o",
+      "title": "L'imperatrice - Stagione 3 | Trailer ufficiale | Netflix Italia",
+      "channel": "Netflix",
+      "published": "2026-10-07T10:00:01+00:00",
+      "url": "https://www.youtube.com/watch?v=ZfE1vJBdk4o"
+    },
+    {
+      "id": "jUWHwliMaac",
+      "title": "Rivals Stagione 2 - Nuovi episodi | Trailer Ufficiale | Disney+ Italia",
+      "channel": "Disney+",
+      "published": "2026-10-07T09:39:45+00:00",
+      "url": "https://www.youtube.com/watch?v=jUWHwliMaac"
+    },
+    {
+      "id": "FrC1Z_i1nGs",
+      "title": "FATHERLAND (2026) | Trailer ITA | Sandra Hüller e il viaggio di Thomas Mann",
+      "channel": "FilmIsNow",
+      "published": "2026-09-27T13:44:13+00:00",
+      "url": "https://www.youtube.com/watch?v=FrC1Z_i1nGs",
+      "also_on": []
+    },
+    {
+      "id": "IQ4Uam_Wl4U",
+      "title": "Scary Movie 6 | Trailer Ufficiale ITA - Paramount+",
+      "channel": "Paramount+",
+      "published": "2026-10-06T15:03:39+00:00",
+      "url": "https://www.youtube.com/watch?v=IQ4Uam_Wl4U"
+    },
     {
       "id": "dPKvGdaphJk",
       "title": "PAPER TIGER Trailer Ita Ufficiale (2026) Scarlett Johansson",
@@ -180,13 +209,6 @@
       "channel": "FilmIsNow",
       "published": "2026-09-28T09:50:40+00:00",
       "url": "https://www.youtube.com/watch?v=73OqRoi_3Xk"
-    },
-    {
-      "id": "FrC1Z_i1nGs",
-      "title": "FATHERLAND (2026) | Trailer ITA | Sandra Hüller e il viaggio di Thomas Mann",
-      "channel": "FilmIsNow",
-      "published": "2026-09-27T13:44:13+00:00",
-      "url": "https://www.youtube.com/watch?v=FrC1Z_i1nGs"
     },
     {
       "id": "Fg_ZQz5uBpo",
@@ -449,27 +471,6 @@
       "channel": "Prime Video",
       "published": "2026-09-17T09:00:32+00:00",
       "url": "https://www.youtube.com/watch?v=TJZHHH8HiGI"
-    },
-    {
-      "id": "xEZ-LsMiTC4",
-      "title": "Hunger Games: L’alba sulla mietitura | Trailer V.O. | Prima di Katniss, Haymitch sfidò Capitol City",
-      "channel": "FilmIsNow",
-      "published": "2026-09-17T07:45:02+00:00",
-      "url": "https://www.youtube.com/watch?v=xEZ-LsMiTC4"
-    },
-    {
-      "id": "inEFWSJy2jg",
-      "title": "Helluva Boss Stagione 3 (Parte 1) – Trailer Ufficiale | Prime Video",
-      "channel": "Prime Video",
-      "published": "2026-09-16T18:00:22+00:00",
-      "url": "https://www.youtube.com/watch?v=inEFWSJy2jg"
-    },
-    {
-      "id": "BHC0dPAXBb0",
-      "title": "The Gilded Age Season 4  | Teaser ufficiale | HBO Max",
-      "channel": "HBO Max",
-      "published": "2026-09-16T16:28:44+00:00",
-      "url": "https://www.youtube.com/watch?v=BHC0dPAXBb0"
     }
   ]
 }
