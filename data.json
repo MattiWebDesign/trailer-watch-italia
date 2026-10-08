@@ -1,6 +1,20 @@
 {
-  "updated_at": "2026-10-07T12:57:40.522384+00:00",
+  "updated_at": "2026-10-08T13:05:44.434586+00:00",
   "trailers": [
+    {
+      "id": "NK1l1Wi0OB8",
+      "title": "LA BALLATA DEL RE DELLE API Trailer Ita Ufficiale (2026) Matthew McConaughey",
+      "channel": "Box Office Trailers",
+      "published": "2026-10-08T09:25:23+00:00",
+      "url": "https://www.youtube.com/watch?v=NK1l1Wi0OB8"
+    },
+    {
+      "id": "x-Nw6d1bgsE",
+      "title": "All's Fair Stagione 2 | Trailer Ufficiale | Disney+ Italia",
+      "channel": "Disney+",
+      "published": "2026-10-07T16:32:10+00:00",
+      "url": "https://www.youtube.com/watch?v=x-Nw6d1bgsE"
+    },
     {
       "id": "ZfE1vJBdk4o",
       "title": "L'imperatrice - Stagione 3 | Trailer ufficiale | Netflix Italia",
@@ -14,14 +28,6 @@
       "channel": "Disney+",
       "published": "2026-10-07T09:39:45+00:00",
       "url": "https://www.youtube.com/watch?v=jUWHwliMaac"
-    },
-    {
-      "id": "FrC1Z_i1nGs",
-      "title": "FATHERLAND (2026) | Trailer ITA | Sandra Hüller e il viaggio di Thomas Mann",
-      "channel": "FilmIsNow",
-      "published": "2026-09-27T13:44:13+00:00",
-      "url": "https://www.youtube.com/watch?v=FrC1Z_i1nGs",
-      "also_on": []
     },
     {
       "id": "IQ4Uam_Wl4U",
@@ -209,6 +215,14 @@
       "channel": "FilmIsNow",
       "published": "2026-09-28T09:50:40+00:00",
       "url": "https://www.youtube.com/watch?v=73OqRoi_3Xk"
+    },
+    {
+      "id": "FrC1Z_i1nGs",
+      "title": "FATHERLAND (2026) | Trailer ITA | Sandra Hüller e il viaggio di Thomas Mann",
+      "channel": "FilmIsNow",
+      "published": "2026-09-27T13:44:13+00:00",
+      "url": "https://www.youtube.com/watch?v=FrC1Z_i1nGs",
+      "also_on": []
     },
     {
       "id": "Fg_ZQz5uBpo",
@@ -457,20 +471,6 @@
       "channel": "Prime Video",
       "published": "2026-09-17T13:00:32+00:00",
       "url": "https://www.youtube.com/watch?v=cCo8LE3sQOw"
-    },
-    {
-      "id": "hj9gfde9f_o",
-      "title": "ONSLAUGHT: ASSALTO FINALE Trailer 2 Ita Ufficiale (2026)",
-      "channel": "Box Office Trailers",
-      "published": "2026-09-17T12:26:05+00:00",
-      "url": "https://www.youtube.com/watch?v=hj9gfde9f_o"
-    },
-    {
-      "id": "TJZHHH8HiGI",
-      "title": "Sultana | Trailer Ufficiale | Prime Video",
-      "channel": "Prime Video",
-      "published": "2026-09-17T09:00:32+00:00",
-      "url": "https://www.youtube.com/watch?v=TJZHHH8HiGI"
     }
   ]
 }
