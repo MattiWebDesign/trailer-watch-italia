@@ -1,12 +1,50 @@
 {
-  "updated_at": "2026-10-08T13:05:44.434586+00:00",
+  "updated_at": "2026-10-09T12:52:06.783012+00:00",
   "trailers": [
     {
       "id": "NK1l1Wi0OB8",
       "title": "LA BALLATA DEL RE DELLE API Trailer Ita Ufficiale (2026) Matthew McConaughey",
       "channel": "Box Office Trailers",
       "published": "2026-10-08T09:25:23+00:00",
-      "url": "https://www.youtube.com/watch?v=NK1l1Wi0OB8"
+      "url": "https://www.youtube.com/watch?v=NK1l1Wi0OB8",
+      "also_on": [
+        "FilmIsNow"
+      ]
+    },
+    {
+      "id": "RfzTNwiLMWc",
+      "title": "Teaser Ufficiale | Tempesta",
+      "channel": "Prime Video",
+      "published": "2026-10-08T15:31:01+00:00",
+      "url": "https://www.youtube.com/watch?v=RfzTNwiLMWc"
+    },
+    {
+      "id": "WCuG_oCV9Po",
+      "title": "Fanum: Ombre Dal Passato | Trailer Ufficiale ITA - Paramount+",
+      "channel": "Paramount+",
+      "published": "2026-10-08T15:12:07+00:00",
+      "url": "https://www.youtube.com/watch?v=WCuG_oCV9Po"
+    },
+    {
+      "id": "kIsKU6OzQu0",
+      "title": "STICK Stagione 2 Trailer Ita Ufficiale (2026) Owen Wilson",
+      "channel": "Box Office Trailers",
+      "published": "2026-10-08T14:39:09+00:00",
+      "url": "https://www.youtube.com/watch?v=kIsKU6OzQu0"
+    },
+    {
+      "id": "zAP6qhSZYF8",
+      "title": "The Altruists | Trailer ufficiale | Netflix Italia",
+      "channel": "Netflix",
+      "published": "2026-10-08T14:00:03+00:00",
+      "url": "https://www.youtube.com/watch?v=zAP6qhSZYF8"
+    },
+    {
+      "id": "m6ArXts5JPk",
+      "title": "Stick — Season 2 Official Trailer | Apple TV",
+      "channel": "Apple TV+",
+      "published": "2026-10-08T14:00:00+00:00",
+      "url": "https://www.youtube.com/watch?v=m6ArXts5JPk"
     },
     {
       "id": "x-Nw6d1bgsE",
@@ -432,45 +470,6 @@
       "also_on": [
         "Box Office Trailers"
       ]
-    },
-    {
-      "id": "wno_VEFfdnM",
-      "title": "WIFE & DOG Trailer Ita Ufficiale (2026) Benedict Cumberbatch, Guy Ritchie",
-      "channel": "Box Office Trailers",
-      "published": "2026-09-17T14:26:39+00:00",
-      "url": "https://www.youtube.com/watch?v=wno_VEFfdnM"
-    },
-    {
-      "id": "I0iSrB8uRwM",
-      "title": "WAR : IL DIVORZIO DEL SECOLO Trailer Ita Ufficiale (2026) Sienna Miller",
-      "channel": "Box Office Trailers",
-      "published": "2026-09-17T14:15:05+00:00",
-      "url": "https://www.youtube.com/watch?v=I0iSrB8uRwM"
-    },
-    {
-      "id": "WIxHPUIL7VA",
-      "title": "TYSON | Trailer ufficiale | Netflix Italia",
-      "channel": "Netflix",
-      "published": "2026-09-17T14:00:02+00:00",
-      "url": "https://www.youtube.com/watch?v=WIxHPUIL7VA"
-    },
-    {
-      "id": "wLDWeYRP9JY",
-      "title": "Come rapinare una banca - Trailer Ufficiale",
-      "channel": "Sony Pictures",
-      "published": "2026-09-17T13:05:01+00:00",
-      "url": "https://www.youtube.com/watch?v=wLDWeYRP9JY",
-      "also_on": [
-        "FilmIsNow",
-        "Box Office Trailers"
-      ]
-    },
-    {
-      "id": "cCo8LE3sQOw",
-      "title": "Terminal List Stagione 2 – Trailer Ufficiale | Prime Video",
-      "channel": "Prime Video",
-      "published": "2026-09-17T13:00:32+00:00",
-      "url": "https://www.youtube.com/watch?v=cCo8LE3sQOw"
     }
   ]
 }
