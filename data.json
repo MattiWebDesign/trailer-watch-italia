@@ -1,15 +1,19 @@
 {
-  "updated_at": "2026-10-09T12:52:06.783012+00:00",
+  "updated_at": "2026-10-10T12:10:13.114347+00:00",
   "trailers": [
     {
-      "id": "NK1l1Wi0OB8",
-      "title": "LA BALLATA DEL RE DELLE API Trailer Ita Ufficiale (2026) Matthew McConaughey",
-      "channel": "Box Office Trailers",
-      "published": "2026-10-08T09:25:23+00:00",
-      "url": "https://www.youtube.com/watch?v=NK1l1Wi0OB8",
-      "also_on": [
-        "FilmIsNow"
-      ]
+      "id": "HghhpP85j2Y",
+      "title": "Sacrifice S2 | Trailer Ufficiale ITA - Paramount+",
+      "channel": "Paramount+",
+      "published": "2026-10-10T10:01:30+00:00",
+      "url": "https://www.youtube.com/watch?v=HghhpP85j2Y"
+    },
+    {
+      "id": "C7sseCs8t-o",
+      "title": "The Exorcist: I Martiri | Trailer Ufficiale",
+      "channel": "Universal Pictures",
+      "published": "2026-10-10T07:01:37+00:00",
+      "url": "https://www.youtube.com/watch?v=C7sseCs8t-o"
     },
     {
       "id": "RfzTNwiLMWc",
@@ -45,6 +49,16 @@
       "channel": "Apple TV+",
       "published": "2026-10-08T14:00:00+00:00",
       "url": "https://www.youtube.com/watch?v=m6ArXts5JPk"
+    },
+    {
+      "id": "NK1l1Wi0OB8",
+      "title": "LA BALLATA DEL RE DELLE API Trailer Ita Ufficiale (2026) Matthew McConaughey",
+      "channel": "Box Office Trailers",
+      "published": "2026-10-08T09:25:23+00:00",
+      "url": "https://www.youtube.com/watch?v=NK1l1Wi0OB8",
+      "also_on": [
+        "FilmIsNow"
+      ]
     },
     {
       "id": "x-Nw6d1bgsE",
@@ -453,23 +467,6 @@
       "channel": "Prime Video",
       "published": "2026-09-17T16:00:41+00:00",
       "url": "https://www.youtube.com/watch?v=RyjEoAhQXRY"
-    },
-    {
-      "id": "0cuiqKrKd6M",
-      "title": "STEPS | Teaser ufficiale | Netflix Italia",
-      "channel": "Netflix",
-      "published": "2026-09-17T16:00:00+00:00",
-      "url": "https://www.youtube.com/watch?v=0cuiqKrKd6M"
-    },
-    {
-      "id": "y4TJhVJdME8",
-      "title": "L'Isola Dei Ricordi | Trailer Finale",
-      "channel": "Universal Pictures",
-      "published": "2026-09-17T15:00:22+00:00",
-      "url": "https://www.youtube.com/watch?v=y4TJhVJdME8",
-      "also_on": [
-        "Box Office Trailers"
-      ]
     }
   ]
 }
