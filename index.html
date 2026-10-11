@@ -319,6 +319,7 @@ h1 .g{background:var(--grad); -webkit-background-clip:text; background-clip:text
 .play svg{width:20px; height:20px; margin-left:3px;}
 .card:hover .play,.card:focus-visible .play{opacity:1; transform:scale(1);}
 .thumb-badge{
+  transition:opacity .25s var(--ease);
   position:absolute; left:12px; top:12px; z-index:2;
   display:inline-flex; align-items:center; gap:7px;
   padding:5px 11px; border-radius:var(--r-pill);
@@ -342,8 +343,22 @@ h1 .g{background:var(--grad); -webkit-background-clip:text; background-clip:text
   font-size:.66rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase;
 }
 .thumb-watched svg{width:11px; height:11px;}
-.card.is-watched .thumb img{opacity:.4;}
-.card.is-watched .thumb::after{background:rgba(10,7,16,.55);}
+
+/* Già visti: arretrano nettamente, così i trailer da vedere saltano all'occhio.
+   La sfumatura non si applica alla card intera perché l'animazione d'ingresso
+   ne governa l'opacità e la sovrascriverebbe; si agisce quindi sui contenuti.
+   Al passaggio del mouse il colore torna, per poterli comunque consultare. */
+.card.is-watched{border-color:rgba(255,255,255,.05);}
+.card.is-watched .thumb img{filter:grayscale(1) brightness(.4);}
+.card.is-watched .thumb-badge{opacity:.45;}
+.card.is-watched .card-title{color:var(--faint); font-weight:500;}
+.card.is-watched .card-meta{opacity:.6;}
+.card.is-watched:hover .thumb img,
+.card.is-watched:focus-within .thumb img{filter:grayscale(.1) brightness(.8);}
+.card.is-watched:hover .card-title,
+.card.is-watched:focus-within .card-title{color:var(--muted);}
+.card.is-watched:hover .thumb-badge,
+.card.is-watched:hover .card-meta{opacity:1;}
 
 /* Checkbox di selezione multipla, visibile in modalità "Seleziona" */
 .card-select{
@@ -365,10 +380,11 @@ h1 .g{background:var(--grad); -webkit-background-clip:text; background-clip:text
 .card-title{
   margin:0; font-size:.96rem; font-weight:600; line-height:1.38; letter-spacing:-.01em;
   display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
+  transition:color .25s var(--ease);
 }
 .card-meta{
   margin-top:auto; display:flex; align-items:center; gap:8px; flex-wrap:wrap;
-  font-size:.76rem; color:var(--faint);
+  font-size:.76rem; color:var(--faint); transition:opacity .25s var(--ease);
 }
 .card-meta .sep{width:3px; height:3px; border-radius:50%; background:currentColor; opacity:.6;}
 .watch-toggle{
@@ -505,6 +521,14 @@ h1 .g{background:var(--grad); -webkit-background-clip:text; background-clip:text
 }
 .btn:hover{transform:translateY(-2px); box-shadow:0 16px 36px -12px rgba(255,45,120,1);}
 .btn svg{width:15px; height:15px;}
+.modal-actions{display:flex; align-items:center; gap:12px; flex-wrap:wrap;}
+/* "segna visto" sta in fondo a destra: è l'ultimo gesto dopo aver guardato */
+.btn-ghost{
+  margin-left:auto;
+  background:var(--surface); border-color:var(--border); color:var(--text); box-shadow:none;
+}
+.btn-ghost:hover{background:var(--surface-hi); border-color:var(--border-hi); box-shadow:none;}
+.btn-ghost.is-done{color:#39d98a;}
 body.no-scroll{overflow:hidden;}
 
 /* ============================================================
@@ -642,10 +666,13 @@ footer a:hover{color:var(--fuchsia);}
     <div class="modal-body">
       <h2 id="modal-title"></h2>
       <div class="modal-meta" id="modal-meta"></div>
-      <a class="btn" id="modal-link" href="#" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v13.72a1 1 0 0 0 1.54.84l10.5-6.86a1 1 0 0 0 0-1.68L9.54 4.3A1 1 0 0 0 8 5.14Z"/></svg>
-        Guarda su YouTube
-      </a>
+      <div class="modal-actions">
+        <a class="btn" id="modal-link" href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v13.72a1 1 0 0 0 1.54.84l10.5-6.86a1 1 0 0 0 0-1.68L9.54 4.3A1 1 0 0 0 8 5.14Z"/></svg>
+          Guarda su YouTube
+        </a>
+        <button type="button" class="btn btn-ghost" id="modal-watched"></button>
+      </div>
     </div>
   </div>
 </div>
@@ -819,6 +846,20 @@ footer a:hover{color:var(--fuchsia);}
     });
   }
 
+  var CHECK_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg>';
+  var CIRCLE_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/></svg>';
+
+  // L'etichetta in alto a destra della miniatura: "Visto" ha la precedenza su
+  // "Nuovo", perché una volta guardato non interessa più sapere che è recente.
+  function badgeHtml(t, watched){
+    if(watched) return '<span class="thumb-watched">'+CHECK_SVG+'Visto</span>';
+    return isNew(t.published) ? '<span class="thumb-new">Nuovo</span>' : '';
+  }
+
+  function watchToggleHtml(watched){
+    return (watched ? CHECK_SVG : CIRCLE_SVG) + (watched ? "Visto" : "Segna visto");
+  }
+
   function cardHtml(t, i){
     var color = colorFor(t.channel);
     var rel = relTime(t.published);
@@ -826,13 +867,12 @@ footer a:hover{color:var(--fuchsia);}
     var watched = state.watched.has(t.id);
     var selected = state.selected.has(t.id);
     var cls = "card" + (watched ? " is-watched" : "") + (selected ? " is-selected" : "");
-    var check = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg>';
     return '<a class="'+cls+'" href="'+escapeHtml(t.url)+'" target="_blank" rel="noopener" data-id="'+escapeHtml(t.id)+'" style="--i:'+Math.min(i,14)+'">'+
       '<div class="thumb">'+
-        '<span class="card-select" aria-hidden="true">'+check+'</span>'+
+        '<span class="card-select" aria-hidden="true">'+CHECK_SVG+'</span>'+
         '<img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/'+escapeHtml(t.id)+'/hqdefault.jpg" alt="">'+
         '<span class="thumb-badge" style="--c:'+color+'"><span class="chip-dot"></span>'+escapeHtml(t.channel)+'</span>'+
-        (watched ? '<span class="thumb-watched">'+check+'Visto</span>' : (isNew(t.published) ? '<span class="thumb-new">Nuovo</span>' : ''))+
+        badgeHtml(t, watched)+
         '<span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v13.72a1 1 0 0 0 1.54.84l10.5-6.86a1 1 0 0 0 0-1.68L9.54 4.3A1 1 0 0 0 8 5.14Z"/></svg></span>'+
       '</div>'+
       '<div class="card-body">'+
@@ -842,8 +882,7 @@ footer a:hover{color:var(--fuchsia);}
           '<span class="sep list-only"></span>'+
           '<span>'+escapeHtml(abs)+'</span><span class="sep"></span><span>'+escapeHtml(rel)+'</span>'+
           '<button type="button" class="watch-toggle" data-watch-id="'+escapeHtml(t.id)+'" aria-pressed="'+(watched?"true":"false")+'">'+
-            (watched ? check : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/></svg>')+
-            (watched ? 'Visto' : 'Segna visto')+
+            watchToggleHtml(watched)+
           '</button>'+
         '</div>'+
       '</div>'+
@@ -971,11 +1010,30 @@ footer a:hover{color:var(--fuchsia);}
     $("modal-meta").innerHTML = '<span class="modal-badge" style="--c:'+color+'"><span class="chip-dot"></span>'+escapeHtml(t.channel)+'</span>'+
       '<span>'+escapeHtml(fmtDate(t.published))+'</span><span class="sep"></span><span>'+escapeHtml(relTime(t.published))+'</span>';
     $("modal-link").href = t.url;
+
+    // il tasto in fondo a destra: segna il trailer come visto e chiude.
+    // Se è già segnato si limita a chiudere, dicendolo nell'etichetta.
+    var visto = state.watched.has(t.id);
+    var btn = $("modal-watched");
+    btn.setAttribute("data-id", t.id);
+    btn.classList.toggle("is-done", visto);
+    btn.innerHTML = (visto ? CHECK_SVG + "Già visto · chiudi" : CHECK_SVG + "Segna visto e chiudi");
+
     var m = $("modal");
     m.hidden = false;
     m.classList.add("is-open");
     document.body.classList.add("no-scroll");
     $("modal-close").focus();
+  }
+
+  function markWatchedAndClose(){
+    var id = $("modal-watched").getAttribute("data-id");
+    if(id && !state.watched.has(id)){
+      state.watched.add(id);
+      saveSet(LS_WATCHED, state.watched);
+      refreshCard(id);
+    }
+    closeModal();
   }
   function closeModal(){
     var m = $("modal");
@@ -988,10 +1046,37 @@ footer a:hover{color:var(--fuchsia);}
   }
 
   /* ---------- Visti / eliminati / selezione multipla ---------- */
+  // Aggiorna una card già a schermo senza ridisegnare la griglia. Ridisegnare
+  // tutto faceva ripartire l'animazione d'ingresso di ogni card, con l'effetto
+  // di un lampo nero e di una pagina che sembra ricaricarsi a ogni click.
+  // Qui si può fare perché "visto" non nasconde più nulla: la card resta dov'è.
+  function refreshCard(id){
+    var card = $("content").querySelector('.card[data-id="'+id+'"]');
+    if(!card) return;
+    var t = state.all.filter(function(x){ return x.id === id; })[0];
+    if(!t) return;
+    var watched = state.watched.has(id);
+
+    card.classList.toggle("is-watched", watched);
+
+    var thumb = card.querySelector(".thumb");
+    var vecchia = thumb.querySelector(".thumb-watched, .thumb-new");
+    if(vecchia) vecchia.remove();
+    var badge = badgeHtml(t, watched);
+    // va inserita prima del tasto play, che deve restare l'ultimo elemento
+    if(badge) thumb.querySelector(".play").insertAdjacentHTML("beforebegin", badge);
+
+    var btn = card.querySelector(".watch-toggle");
+    if(btn){
+      btn.setAttribute("aria-pressed", watched ? "true" : "false");
+      btn.innerHTML = watchToggleHtml(watched);
+    }
+  }
+
   function toggleWatched(id){
     if(state.watched.has(id)) state.watched.delete(id); else state.watched.add(id);
     saveSet(LS_WATCHED, state.watched);
-    render();
+    refreshCard(id);
   }
 
   function updateBulkBar(){
@@ -1043,14 +1128,20 @@ footer a:hover{color:var(--fuchsia);}
 
   function bulkSetWatched(watched){
     if(state.selected.size === 0) return;
-    state.selected.forEach(function(id){
+    var toccati = Array.from(state.selected);
+    toccati.forEach(function(id){
       if(watched) state.watched.add(id); else state.watched.delete(id);
     });
     saveSet(LS_WATCHED, state.watched);
+
+    // come per il tasto singolo: si aggiornano solo le card interessate, senza
+    // ridisegnare la griglia (l'elenco e la paginazione non cambiano)
+    clearSelection();
     state.selectMode = false;
-    state.selected.clear();
     updateSelectModeUI();
-    render();
+    var grid = $("content").querySelector(".grid");
+    if(grid) grid.classList.remove("is-selecting");
+    toccati.forEach(refreshCard);
   }
 
   function bulkRemove(){
@@ -1169,6 +1260,7 @@ footer a:hover{color:var(--fuchsia);}
 
     $("modal").addEventListener("click", function(e){ if(e.target.hasAttribute("data-close")) closeModal(); });
     $("modal-close").addEventListener("click", closeModal);
+    $("modal-watched").addEventListener("click", markWatchedAndClose);
 
     document.addEventListener("keydown", function(e){
       if(e.key === "Escape"){
