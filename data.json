@@ -1,6 +1,13 @@
 {
-  "updated_at": "2026-10-10T12:10:13.114347+00:00",
+  "updated_at": "2026-10-11T12:24:13.129991+00:00",
   "trailers": [
+    {
+      "id": "exfgULI_wls",
+      "title": "Blade Runner 2099 - NYCC Trailer | Prime Video",
+      "channel": "Prime Video",
+      "published": "2026-10-10T23:47:48+00:00",
+      "url": "https://www.youtube.com/watch?v=exfgULI_wls"
+    },
     {
       "id": "HghhpP85j2Y",
       "title": "Sacrifice S2 | Trailer Ufficiale ITA - Paramount+",
@@ -460,13 +467,6 @@
       "channel": "HBO Max",
       "published": "2026-09-17T16:31:14+00:00",
       "url": "https://www.youtube.com/watch?v=6p9fuk1IHK8"
-    },
-    {
-      "id": "RyjEoAhQXRY",
-      "title": "Perfetti Bugiardi | Trailer teaser Ufficiale",
-      "channel": "Prime Video",
-      "published": "2026-09-17T16:00:41+00:00",
-      "url": "https://www.youtube.com/watch?v=RyjEoAhQXRY"
     }
   ]
 }
