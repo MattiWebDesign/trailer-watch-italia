@@ -1,8 +1,8 @@
 # Trailer Watch Italia
 
-Aggregatore automatico di trailer e teaser **in italiano** dai canali YouTube ufficiali
-delle principali piattaforme streaming. Nessun backend e nessun database: solo file
-statici nel repository, aggiornati ogni giorno da GitHub Actions.
+Aggregatore automatico di trailer e teaser **in italiano** dai canali YouTube di
+piattaforme streaming, case di distribuzione e aggregatori. Nessun backend e nessun
+database: solo file statici nel repository, aggiornati ogni giorno da GitHub Actions.
 
 ## Come funziona
 
@@ -42,9 +42,15 @@ solo alle notifiche: è in `.gitignore` e non viene versionato.
 - Player YouTube in finestra modale, senza uscire dal sito
 - Contatore live dall'ultimo controllo e conto alla rovescia al prossimo
 - Etichetta "Nuovo" sui trailer usciti nelle ultime 72 ore
-- Segna i trailer come visti (icona sulla card o selezione multipla) — restano
-  visibili con il badge "Visto", oppure eliminali dall'elenco; stato salvato nel
-  browser (`localStorage`), personale per dispositivo e non sincronizzato
+- Segna i trailer come visti dall'icona sulla card, dalla selezione multipla o dal
+  pulsante "Segna visto e chiudi" in fondo al player. I già visti restano in elenco
+  ma arretrano: miniatura in bianco e nero, titolo e metadati attenuati, etichetta
+  "Visto". Passando il mouse tornano leggibili
+- In alternativa puoi eliminare i trailer dall'elenco; l'operazione è reversibile dal
+  link "Ripristina eliminati"
+- Lo stato "visto"/"eliminato" è salvato nel browser (`localStorage`): è personale per
+  dispositivo e non si sincronizza fra telefono e computer
+- Segnare un trailer aggiorna solo la sua card, senza ridisegnare la pagina
 - Pulsante "Scansiona ora" in alto: apre la pagina Actions di GitHub per avviare
   un controllo manuale senza aspettare le 06:00 UTC
 - Scorciatoie da tastiera: `/` per cercare, `Esc` per chiudere il player o uscire
@@ -105,6 +111,30 @@ Cosa invece **non** viene accorpato:
 Le soglie sono in cima a `scripts/check_trailers.py` (`DUPLICATE_RATIO`,
 `DUPLICATE_WINDOW_DAYS`) e ogni accorpamento viene scritto nel log della run con la
 riga `[DEDUP]`, per accorgersi subito di eventuali unioni sbagliate.
+
+## Leggere il log di una run
+
+Ogni canale stampa una riga che dice non solo quanti trailer nuovi ha prodotto, ma
+anche quanti video c'erano nel feed e quanti avevano le parole chiave nel titolo:
+
+```
+[OK] Netflix (@NetflixItalia): 2 nuovi trailer (15 video nel feed, 3 con trailer/teaser nel titolo)
+```
+
+Serve a distinguere i tre motivi per cui un canale può non produrre nulla, che
+altrimenti sarebbero indistinguibili:
+
+| Riga | Significato |
+|---|---|
+| `0 video nel feed` | Il canale non ha pubblicazioni recenti, o l'handle punta altrove |
+| `N video nel feed, 0 con trailer/teaser` | Pubblica solo clip, Shorts o contenuti social. Vengono stampati i titoli degli ultimi tre video per vedere come li nomina |
+| `N video nel feed, M con trailer/teaser` ma `0 nuovi` | Erano già stati raccolti in una run precedente |
+| `[WARN] <nome> (@handle): ...` | Handle non risolvibile o errore di rete: gli altri canali proseguono e la run non fallisce |
+| `[DEDUP] «A» → già presente come «B»` | Due canali hanno pubblicato lo stesso trailer, è stato tenuto uno solo |
+
+Il feed RSS di YouTube restituisce **solo gli ultimi 15 video** di ogni canale: su un
+canale che pubblica molto, un trailer può uscire dalla finestra prima della scansione
+giornaliera e non venire mai raccolto.
 
 ## Aggiungere una piattaforma
 
