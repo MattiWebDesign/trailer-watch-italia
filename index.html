@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
 <title>Trailer Watch Italia</title>
-<meta name="description" content="I nuovi trailer e teaser italiani dalle piattaforme streaming e dalle case di distribuzione: Netflix, Prime Video, Disney+, Paramount+, HBO Max, Warner Bros., Sony Pictures, Marvel e altri. Aggiornati automaticamente ogni giorno.">
+<meta name="description" content="I nuovi trailer e teaser italiani dalle piattaforme streaming e dalle case di distribuzione: Netflix, Prime Video, Disney+, Paramount+, HBO Max, Warner Bros., Sony Pictures, Marvel e altri. Aggiornati automaticamente ogni sei ore.">
 <meta name="theme-color" content="#0a0710">
 <meta name="color-scheme" content="dark">
 
@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Trailer Watch Italia">
 <meta property="og:locale" content="it_IT">
 <meta property="og:title" content="Trailer Watch Italia">
-<meta property="og:description" content="I nuovi trailer e teaser italiani dalle piattaforme streaming e dalle case di distribuzione: Netflix, Prime Video, Disney+, Paramount+, HBO Max, Warner Bros., Sony Pictures, Marvel e altri. Aggiornati automaticamente ogni giorno.">
+<meta property="og:description" content="I nuovi trailer e teaser italiani dalle piattaforme streaming e dalle case di distribuzione: Netflix, Prime Video, Disney+, Paramount+, HBO Max, Warner Bros., Sony Pictures, Marvel e altri. Aggiornati automaticamente ogni sei ore.">
 <meta property="og:url" content="https://mattiwebdesign.github.io/trailer-watch-italia/">
 <meta property="og:image" content="https://mattiwebdesign.github.io/trailer-watch-italia/assets/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -24,7 +24,7 @@
 <meta property="og:image:alt" content="Trailer Watch Italia">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Trailer Watch Italia">
-<meta name="twitter:description" content="I nuovi trailer e teaser italiani dalle principali piattaforme streaming e case di distribuzione, aggiornati ogni giorno.">
+<meta name="twitter:description" content="I nuovi trailer e teaser italiani dalle principali piattaforme streaming e case di distribuzione, aggiornati ogni sei ore.">
 <meta name="twitter:image" content="https://mattiwebdesign.github.io/trailer-watch-italia/assets/og-image.png">
 
 <style>
@@ -585,7 +585,7 @@ footer a:hover{color:var(--fuchsia);}
 
   <header class="hero">
     <h1>Ogni nuovo <span class="g">trailer italiano</span>, appena esce.</h1>
-    <p class="lede">Controlliamo ogni giorno i canali ufficiali delle piattaforme streaming e delle case di distribuzione &mdash; da Netflix e Prime&nbsp;Video a Warner&nbsp;Bros., Sony&nbsp;Pictures e Marvel &mdash; e raccogliamo qui trailer e teaser in italiano.</p>
+    <p class="lede">Controlliamo ogni sei ore i canali ufficiali delle piattaforme streaming e delle case di distribuzione &mdash; da Netflix e Prime&nbsp;Video a Warner&nbsp;Bros., Sony&nbsp;Pictures e Marvel &mdash; e raccogliamo qui trailer e teaser in italiano.</p>
 
     <div class="stats" id="stats">
       <div class="stat"><div class="stat-k">Trailer raccolti</div><div class="stat-v" id="stat-total">—</div></div>
@@ -651,7 +651,7 @@ footer a:hover{color:var(--fuchsia);}
   <main id="content"></main>
 
   <footer>
-    <span>Aggiornato ogni giorno alle 06:00&nbsp;UTC &middot; dati dai feed pubblici YouTube</span>
+    <span>Controllato ogni 6&nbsp;ore &middot; dati dai feed pubblici YouTube</span>
     <a href="https://github.com/MattiWebDesign/trailer-watch-italia" target="_blank" rel="noopener">Codice sorgente</a>
   </footer>
 </div>
@@ -699,7 +699,9 @@ footer a:hover{color:var(--fuchsia);}
   };
   var DEFAULT_COLOR = "#8b3dff";
   var NEW_WINDOW_H = 72;        // ore entro cui un trailer è marcato "nuovo"
-  var CRON_UTC_HOUR = 6;        // orario del workflow GitHub Actions
+  // devono combaciare con il cron in .github/workflows/check-trailers.yml
+  var SCAN_EVERY_HOURS = 6;     // intervallo fra le scansioni
+  var SCAN_MINUTE_UTC = 17;     // minuto sfalsato: al minuto 0 i runner ritardano
   var PAGE_SIZE = 20;           // card per pagina (5 righe da 4 sul layout desktop)
 
   // "Visto"/"Eliminato" sono stato personale del browser: non esistono in data.json,
@@ -771,9 +773,11 @@ footer a:hover{color:var(--fuchsia);}
     return d ? (Date.now() - d.getTime()) < NEW_WINDOW_H*3600*1000 : false;
   }
   function nextRunDate(){
+    // le scansioni sono a intervalli regolari dalla mezzanotte UTC: si parte da
+    // 00:MM e si somma l'intervallo finché non si supera l'ora corrente
     var now = new Date();
-    var next = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), CRON_UTC_HOUR, 0, 0));
-    if(next.getTime() <= now.getTime()) next.setUTCDate(next.getUTCDate()+1);
+    var next = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 0, SCAN_MINUTE_UTC, 0));
+    while(next.getTime() <= now.getTime()) next.setUTCHours(next.getUTCHours() + SCAN_EVERY_HOURS);
     return next;
   }
   function countdown(target){
@@ -996,7 +1000,11 @@ footer a:hover{color:var(--fuchsia);}
   function tickCountdown(){
     if(Date.now() >= countdownTarget.getTime()) countdownTarget = nextRunDate();
     var el = $("stat-next");
-    if(el) el.innerHTML = '<span style="font-variant-numeric:tabular-nums">'+countdown(countdownTarget)+'</span> <small>06:00 UTC</small>';
+    if(!el) return;
+    var p = function(n){ return n < 10 ? "0"+n : ""+n; };
+    var ora = p(countdownTarget.getUTCHours())+":"+p(countdownTarget.getUTCMinutes());
+    el.innerHTML = '<span style="font-variant-numeric:tabular-nums">'+countdown(countdownTarget)+
+                   '</span> <small>'+ora+' UTC</small>';
   }
 
   /* ---------- Modal ---------- */

@@ -2,7 +2,12 @@ name: Check trailers
 
 on:
   schedule:
-    - cron: "0 6 * * *"
+    # ogni 6 ore (00:17, 06:17, 12:17, 18:17 UTC). Il feed RSS di YouTube
+    # restituisce solo gli ultimi 15 video per canale: con una sola scansione al
+    # giorno, su un canale che pubblica molti Shorts un trailer può uscire dalla
+    # finestra prima di essere visto. Il minuto è sfalsato perché le run
+    # pianificate al minuto 0 sono le più soggette a ritardi sui runner.
+    - cron: "17 */6 * * *"
   workflow_dispatch:
     inputs:
       test_telegram:
