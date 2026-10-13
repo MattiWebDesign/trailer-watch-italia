@@ -2,12 +2,13 @@
 
 Aggregatore automatico di trailer e teaser **in italiano** dai canali YouTube di
 piattaforme streaming, case di distribuzione e aggregatori. Nessun backend e nessun
-database: solo file statici nel repository, aggiornati ogni giorno da GitHub Actions.
+database: solo file statici nel repository, aggiornati ogni sei ore da GitHub Actions.
 
 ## Come funziona
 
-1. Ogni giorno alle **06:00 UTC** (o su avvio manuale) parte il workflow
-   `.github/workflows/check-trailers.yml`.
+1. **Ogni sei ore** (00:17, 06:17, 12:17 e 18:17 UTC, o su avvio manuale) parte il
+   workflow `.github/workflows/check-trailers.yml`. Il minuto è sfalsato perché le run
+   pianificate al minuto 0 sono le più soggette a ritardi sui runner di GitHub.
 2. `scripts/check_trailers.py` legge i feed RSS pubblici di YouTube di ogni canale,
    tiene i video con "trailer" o "teaser" nel titolo e scarta quelli già visti.
 3. Vengono aggiornati `data.json` (fino a 60 trailer, dal più recente) e
@@ -25,7 +26,7 @@ database: solo file statici nel repository, aggiornati ogni giorno da GitHub Act
 | `assets/` | Favicon, icona iOS e immagine di anteprima per le condivisioni |
 | `scripts/check_trailers.py` | Lo scraper dei feed YouTube |
 | `scripts/notify_telegram.py` | Invio delle notifiche Telegram |
-| `.github/workflows/check-trailers.yml` | Pianificazione giornaliera, commit automatico e notifiche |
+| `.github/workflows/check-trailers.yml` | Pianificazione ogni sei ore, commit automatico e notifiche |
 | `robots.txt` | Blocca l'indicizzazione da parte dei motori di ricerca |
 
 `new_trailers.json` viene creato a ogni esecuzione con i soli trailer nuovi e serve
@@ -52,7 +53,7 @@ solo alle notifiche: è in `.gitignore` e non viene versionato.
   dispositivo e non si sincronizza fra telefono e computer
 - Segnare un trailer aggiorna solo la sua card, senza ridisegnare la pagina
 - Pulsante "Scansiona ora" in alto: apre la pagina Actions di GitHub per avviare
-  un controllo manuale senza aspettare le 06:00 UTC
+  un controllo manuale senza aspettare la scansione successiva
 - Scorciatoie da tastiera: `/` per cercare, `Esc` per chiudere il player o uscire
   dalla selezione multipla
 
@@ -133,8 +134,13 @@ altrimenti sarebbero indistinguibili:
 | `[DEDUP] «A» → già presente come «B»` | Due canali hanno pubblicato lo stesso trailer, è stato tenuto uno solo |
 
 Il feed RSS di YouTube restituisce **solo gli ultimi 15 video** di ogni canale: su un
-canale che pubblica molto, un trailer può uscire dalla finestra prima della scansione
-giornaliera e non venire mai raccolto.
+canale che pubblica molti Shorts un trailer può uscire dalla finestra prima di essere
+visto. È il motivo per cui la scansione gira ogni sei ore invece di una volta al
+giorno: riduce di quattro volte la finestra in cui un trailer può sfuggire.
+
+L'intervallo è definito dal `cron` nel workflow. Se lo cambi, aggiorna anche
+`SCAN_EVERY_HOURS` e `SCAN_MINUTE_UTC` in `index.html`, che alimentano il conto alla
+rovescia "Prossimo controllo" mostrato dal sito.
 
 ## Aggiungere una piattaforma
 
