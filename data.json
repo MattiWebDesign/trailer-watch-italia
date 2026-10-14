@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-14T04:52:19.169181+00:00",
+  "updated_at": "2026-10-14T11:50:50.705843+00:00",
   "trailers": [
     {
       "id": "X1ndhxWwl5Q",
@@ -8,7 +8,19 @@
       "published": "2026-10-13T18:00:04+00:00",
       "url": "https://www.youtube.com/watch?v=X1ndhxWwl5Q",
       "also_on": [
-        "Sony Pictures"
+        "Sony Pictures",
+        "FilmIsNow"
+      ]
+    },
+    {
+      "id": "pWdt8WMCqnc",
+      "title": "12 12 12 — Official Trailer | Apple TV",
+      "channel": "Apple TV+",
+      "published": "2026-10-13T13:59:52+00:00",
+      "url": "https://www.youtube.com/watch?v=pWdt8WMCqnc",
+      "also_on": [
+        "Box Office Trailers",
+        "FilmIsNow"
       ]
     },
     {
@@ -31,16 +43,6 @@
       "channel": "Prime Video",
       "published": "2026-10-13T15:00:45+00:00",
       "url": "https://www.youtube.com/watch?v=ciBduNaLEDg"
-    },
-    {
-      "id": "pWdt8WMCqnc",
-      "title": "12 12 12 — Official Trailer | Apple TV",
-      "channel": "Apple TV+",
-      "published": "2026-10-13T13:59:52+00:00",
-      "url": "https://www.youtube.com/watch?v=pWdt8WMCqnc",
-      "also_on": [
-        "Box Office Trailers"
-      ]
     },
     {
       "id": "7psPuDkyW9s",
