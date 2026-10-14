@@ -1,6 +1,48 @@
 {
-  "updated_at": "2026-10-14T11:50:50.705843+00:00",
+  "updated_at": "2026-10-14T17:10:05.132789+00:00",
   "trailers": [
+    {
+      "id": "NTFU9DE7LZs",
+      "title": "STREET FIGHTER Tutti i Trailer Ita Ufficale (2026)",
+      "channel": "Box Office Trailers",
+      "published": "2026-10-14T17:01:18+00:00",
+      "url": "https://www.youtube.com/watch?v=NTFU9DE7LZs"
+    },
+    {
+      "id": "_Q8GVRuhm10",
+      "title": "YELLOWJACKETS Stagione 4 Trailer Ita Ufficiale (2026)",
+      "channel": "Box Office Trailers",
+      "published": "2026-10-14T16:02:21+00:00",
+      "url": "https://www.youtube.com/watch?v=_Q8GVRuhm10"
+    },
+    {
+      "id": "nZIflN62zOA",
+      "title": "Trailer Ufficiale | The Greatest",
+      "channel": "Prime Video",
+      "published": "2026-10-14T15:35:36+00:00",
+      "url": "https://www.youtube.com/watch?v=nZIflN62zOA"
+    },
+    {
+      "id": "nyfMfo1z_XY",
+      "title": "Yellowjackets S4 | Teaser Ufficiale ITA - Paramount+",
+      "channel": "Paramount+",
+      "published": "2026-10-14T15:06:27+00:00",
+      "url": "https://www.youtube.com/watch?v=nyfMfo1z_XY"
+    },
+    {
+      "id": "uyWyVEDX9N0",
+      "title": "Trailer | L'amore della tua vita",
+      "channel": "Prime Video",
+      "published": "2026-10-14T13:15:19+00:00",
+      "url": "https://www.youtube.com/watch?v=uyWyVEDX9N0"
+    },
+    {
+      "id": "2psaOB8O3Qs",
+      "title": "Il rumore delle cose nuove (2026) | Trailer ITA | Il nuovo film di Paolo Genovese",
+      "channel": "FilmIsNow",
+      "published": "2026-10-14T12:00:24+00:00",
+      "url": "https://www.youtube.com/watch?v=2psaOB8O3Qs"
+    },
     {
       "id": "X1ndhxWwl5Q",
       "title": "Narnia: Il nipote del mago | Trailer ufficiale | Netflix Italia",
@@ -9,17 +51,6 @@
       "url": "https://www.youtube.com/watch?v=X1ndhxWwl5Q",
       "also_on": [
         "Sony Pictures",
-        "FilmIsNow"
-      ]
-    },
-    {
-      "id": "pWdt8WMCqnc",
-      "title": "12 12 12 — Official Trailer | Apple TV",
-      "channel": "Apple TV+",
-      "published": "2026-10-13T13:59:52+00:00",
-      "url": "https://www.youtube.com/watch?v=pWdt8WMCqnc",
-      "also_on": [
-        "Box Office Trailers",
         "FilmIsNow"
       ]
     },
@@ -43,6 +74,17 @@
       "channel": "Prime Video",
       "published": "2026-10-13T15:00:45+00:00",
       "url": "https://www.youtube.com/watch?v=ciBduNaLEDg"
+    },
+    {
+      "id": "pWdt8WMCqnc",
+      "title": "12 12 12 — Official Trailer | Apple TV",
+      "channel": "Apple TV+",
+      "published": "2026-10-13T13:59:52+00:00",
+      "url": "https://www.youtube.com/watch?v=pWdt8WMCqnc",
+      "also_on": [
+        "Box Office Trailers",
+        "FilmIsNow"
+      ]
     },
     {
       "id": "7psPuDkyW9s",
@@ -421,54 +463,6 @@
       "also_on": [
         "FilmIsNow"
       ]
-    },
-    {
-      "id": "c18VL_lOpE8",
-      "title": "Melania Rea | Teaser ufficiale | HBO Max",
-      "channel": "HBO Max",
-      "published": "2026-09-25T11:00:58+00:00",
-      "url": "https://www.youtube.com/watch?v=c18VL_lOpE8"
-    },
-    {
-      "id": "hRB8Z1PJOIE",
-      "title": "ROCKY SONO IO Trailer Ita Ufficiale (2026)",
-      "channel": "Box Office Trailers",
-      "published": "2026-09-25T10:36:07+00:00",
-      "url": "https://www.youtube.com/watch?v=hRB8Z1PJOIE",
-      "also_on": [
-        "FilmIsNow"
-      ]
-    },
-    {
-      "id": "Azr3UDX0F6o",
-      "title": "Il Ministero dell'Amore | Teaser Ufficiale | Prime Video",
-      "channel": "Prime Video",
-      "published": "2026-09-25T10:04:06+00:00",
-      "url": "https://www.youtube.com/watch?v=Azr3UDX0F6o"
-    },
-    {
-      "id": "oEnNXWz_zK8",
-      "title": "Day Drinker (2026) | Trailer ITA | Johnny Depp, Penélope Cruz",
-      "channel": "FilmIsNow",
-      "published": "2026-09-25T07:30:35+00:00",
-      "url": "https://www.youtube.com/watch?v=oEnNXWz_zK8",
-      "also_on": [
-        "Box Office Trailers"
-      ]
-    },
-    {
-      "id": "SVb-2AGZESg",
-      "title": "HEART OF THE BEAST: Nel Profondo SelvaggioTutti i Trailer Ita Ufficiale (2026) Brad Pitt",
-      "channel": "Box Office Trailers",
-      "published": "2026-09-24T18:01:18+00:00",
-      "url": "https://www.youtube.com/watch?v=SVb-2AGZESg"
-    },
-    {
-      "id": "wosK0uLvA6g",
-      "title": "Black Doves - Stagione 2 | Trailer ufficiale | Netflix Italia",
-      "channel": "Netflix",
-      "published": "2026-09-24T15:45:02+00:00",
-      "url": "https://www.youtube.com/watch?v=wosK0uLvA6g"
     }
   ]
 }
