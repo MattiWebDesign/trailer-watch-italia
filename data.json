@@ -1,6 +1,23 @@
 {
-  "updated_at": "2026-10-15T11:27:46.380582+00:00",
+  "updated_at": "2026-10-15T17:00:00.368858+00:00",
   "trailers": [
+    {
+      "id": "-NY7Ts0TCpM",
+      "title": "Ramayana: La Nascita Di Una Leggenda | Dal 19 novembre al cinema | Trailer Ufficiale",
+      "channel": "Sony Pictures",
+      "published": "2026-10-15T16:32:02+00:00",
+      "url": "https://www.youtube.com/watch?v=-NY7Ts0TCpM",
+      "also_on": [
+        "Box Office Trailers"
+      ]
+    },
+    {
+      "id": "zaxr75gu9Ng",
+      "title": "THE BEEKEEPER 2 Trailer Ita Ufficiale (2027) Jason Statham",
+      "channel": "Box Office Trailers",
+      "published": "2026-10-15T15:44:48+00:00",
+      "url": "https://www.youtube.com/watch?v=zaxr75gu9Ng"
+    },
     {
       "id": "sq3Wxa29AAY",
       "title": "BAYWATCH | Trailer Ufficiale | Tornano i guardaspiaggia più famosi della TV",
@@ -442,21 +459,6 @@
       "channel": "FilmIsNow",
       "published": "2026-09-28T09:50:40+00:00",
       "url": "https://www.youtube.com/watch?v=73OqRoi_3Xk"
-    },
-    {
-      "id": "FrC1Z_i1nGs",
-      "title": "FATHERLAND (2026) | Trailer ITA | Sandra Hüller e il viaggio di Thomas Mann",
-      "channel": "FilmIsNow",
-      "published": "2026-09-27T13:44:13+00:00",
-      "url": "https://www.youtube.com/watch?v=FrC1Z_i1nGs",
-      "also_on": []
-    },
-    {
-      "id": "Fg_ZQz5uBpo",
-      "title": "Her Private Hell (2026) | Trailer ITA | Il nuovo incubo di Nicolas Winding Refn",
-      "channel": "FilmIsNow",
-      "published": "2026-09-25T15:30:29+00:00",
-      "url": "https://www.youtube.com/watch?v=Fg_ZQz5uBpo"
     }
   ]
 }
