@@ -1,6 +1,20 @@
 {
-  "updated_at": "2026-10-15T04:37:27.632142+00:00",
+  "updated_at": "2026-10-15T11:27:46.380582+00:00",
   "trailers": [
+    {
+      "id": "sq3Wxa29AAY",
+      "title": "BAYWATCH | Trailer Ufficiale | Tornano i guardaspiaggia più famosi della TV",
+      "channel": "FilmIsNow",
+      "published": "2026-10-15T10:15:04+00:00",
+      "url": "https://www.youtube.com/watch?v=sq3Wxa29AAY"
+    },
+    {
+      "id": "-_qDzEFZ0ho",
+      "title": "THE GREATEST | Trailer ITA | Muhammad Ali diventa leggenda",
+      "channel": "FilmIsNow",
+      "published": "2026-10-15T08:03:30+00:00",
+      "url": "https://www.youtube.com/watch?v=-_qDzEFZ0ho"
+    },
     {
       "id": "euVaJOPQpVQ",
       "title": "Cyberpunk: Edgerunners 2 | Trailer ufficiale | Netflix Italia",
@@ -443,23 +457,6 @@
       "channel": "FilmIsNow",
       "published": "2026-09-25T15:30:29+00:00",
       "url": "https://www.youtube.com/watch?v=Fg_ZQz5uBpo"
-    },
-    {
-      "id": "_pd1la0Ubm0",
-      "title": "CUORE DI UN CAMPIONE | Trailer Ufficiale",
-      "channel": "Paramount Pictures",
-      "published": "2026-09-25T13:07:44+00:00",
-      "url": "https://www.youtube.com/watch?v=_pd1la0Ubm0",
-      "also_on": [
-        "Box Office Trailers"
-      ]
-    },
-    {
-      "id": "HiGE8uK2zzM",
-      "title": "L'AMORE IMMORTALE Trailer 2 Ita Ufficiale (2026) Deva Cassel",
-      "channel": "Box Office Trailers",
-      "published": "2026-09-25T12:51:57+00:00",
-      "url": "https://www.youtube.com/watch?v=HiGE8uK2zzM"
     }
   ]
 }
