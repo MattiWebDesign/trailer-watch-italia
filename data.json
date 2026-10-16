@@ -1,6 +1,13 @@
 {
-  "updated_at": "2026-10-16T04:30:59.325427+00:00",
+  "updated_at": "2026-10-16T11:23:02.108853+00:00",
   "trailers": [
+    {
+      "id": "GQsZDklC7LE",
+      "title": "HUNGER GAMES: L’ALBA SULLA MIETITURA (2026) | Trailer ITA | La storia di Haymitch",
+      "channel": "FilmIsNow",
+      "published": "2026-10-16T09:48:36+00:00",
+      "url": "https://www.youtube.com/watch?v=GQsZDklC7LE"
+    },
     {
       "id": "-NY7Ts0TCpM",
       "title": "Ramayana: La Nascita Di Una Leggenda | Dal 19 novembre al cinema | Trailer Ufficiale",
@@ -452,13 +459,6 @@
       "also_on": [
         "FilmIsNow"
       ]
-    },
-    {
-      "id": "73OqRoi_3Xk",
-      "title": "JE SO’ PAZZO (2026) | Trailer ITA | Massimiliano Caiazzo è Pino Daniele",
-      "channel": "FilmIsNow",
-      "published": "2026-09-28T09:50:40+00:00",
-      "url": "https://www.youtube.com/watch?v=73OqRoi_3Xk"
     }
   ]
 }
