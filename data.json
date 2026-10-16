@@ -1,12 +1,26 @@
 {
-  "updated_at": "2026-10-16T16:38:51.086433+00:00",
+  "updated_at": "2026-10-16T21:07:12.695220+00:00",
   "trailers": [
+    {
+      "id": "AgiGac5pEj4",
+      "title": "I MIGLIORI FILM IN ARRIVO 2026 / 2027 (Trailers)",
+      "channel": "Box Office Trailers",
+      "published": "2026-10-16T17:01:01+00:00",
+      "url": "https://www.youtube.com/watch?v=AgiGac5pEj4"
+    },
     {
       "id": "d6vV-mEgJxQ",
       "title": "THE GILDED AGE S4 | TRAILER UFFICIALE | HBO MAX",
       "channel": "HBO Max",
       "published": "2026-10-16T16:01:22+00:00",
       "url": "https://www.youtube.com/watch?v=d6vV-mEgJxQ"
+    },
+    {
+      "id": "GQsZDklC7LE",
+      "title": "HUNGER GAMES: L’ALBA SULLA MIETITURA (2026) | Trailer ITA | La storia di Haymitch",
+      "channel": "FilmIsNow",
+      "published": "2026-10-16T09:48:36+00:00",
+      "url": "https://www.youtube.com/watch?v=GQsZDklC7LE"
     },
     {
       "id": "-NY7Ts0TCpM",
@@ -18,13 +32,6 @@
         "Box Office Trailers",
         "FilmIsNow"
       ]
-    },
-    {
-      "id": "GQsZDklC7LE",
-      "title": "HUNGER GAMES: L’ALBA SULLA MIETITURA (2026) | Trailer ITA | La storia di Haymitch",
-      "channel": "FilmIsNow",
-      "published": "2026-10-16T09:48:36+00:00",
-      "url": "https://www.youtube.com/watch?v=GQsZDklC7LE"
     },
     {
       "id": "zaxr75gu9Ng",
@@ -446,16 +453,6 @@
       "url": "https://www.youtube.com/watch?v=KKhq6ZWLC0c",
       "also_on": [
         "FilmIsNow"
-      ]
-    },
-    {
-      "id": "fjmWhgB4ZFk",
-      "title": "Werwulf - Trailer Ufficiale 2",
-      "channel": "Universal Pictures",
-      "published": "2026-09-28T15:00:03+00:00",
-      "url": "https://www.youtube.com/watch?v=fjmWhgB4ZFk",
-      "also_on": [
-        "Box Office Trailers"
       ]
     }
   ]
