@@ -1,6 +1,20 @@
 {
-  "updated_at": "2026-10-18T04:31:53.803449+00:00",
+  "updated_at": "2026-10-18T11:03:02.195452+00:00",
   "trailers": [
+    {
+      "id": "vS-H9n5XzPg",
+      "title": "Spongebob & Patrick: Pasticcio Temporale – Official Trailer | Paramount+",
+      "channel": "Paramount+",
+      "published": "2026-10-18T10:00:36+00:00",
+      "url": "https://www.youtube.com/watch?v=vS-H9n5XzPg"
+    },
+    {
+      "id": "-4pm5QQK8f0",
+      "title": "Noi un po’ meglio | Trailer Ufficiale | Netflix Italia",
+      "channel": "Netflix",
+      "published": "2026-10-18T10:00:00+00:00",
+      "url": "https://www.youtube.com/watch?v=-4pm5QQK8f0"
+    },
     {
       "id": "AgiGac5pEj4",
       "title": "I MIGLIORI FILM IN ARRIVO 2026 / 2027 (Trailers)",
@@ -437,23 +451,6 @@
       "channel": "Box Office Trailers",
       "published": "2026-09-29T12:38:15+00:00",
       "url": "https://www.youtube.com/watch?v=lLTMDsXPgAI"
-    },
-    {
-      "id": "hgtA5DtcFrg",
-      "title": "TULSA KING Stagione 4 Trailer Ita Ufficiale (2026) Sylvester Stallone",
-      "channel": "Box Office Trailers",
-      "published": "2026-09-28T20:59:02+00:00",
-      "url": "https://www.youtube.com/watch?v=hgtA5DtcFrg"
-    },
-    {
-      "id": "KKhq6ZWLC0c",
-      "title": "TULSA KING S4 | Trailer Ufficiale ITA - Paramount+",
-      "channel": "Paramount+",
-      "published": "2026-09-28T20:08:07+00:00",
-      "url": "https://www.youtube.com/watch?v=KKhq6ZWLC0c",
-      "also_on": [
-        "FilmIsNow"
-      ]
     }
   ]
 }
