@@ -1,6 +1,13 @@
 {
-  "updated_at": "2026-10-20T17:02:24.047752+00:00",
+  "updated_at": "2026-10-20T21:36:48.159939+00:00",
   "trailers": [
+    {
+      "id": "LOkZnR-iZ10",
+      "title": "Possible Love | Trailer finale | Netflix Italia",
+      "channel": "Netflix",
+      "published": "2026-10-20T21:00:00+00:00",
+      "url": "https://www.youtube.com/watch?v=LOkZnR-iZ10"
+    },
     {
       "id": "lu6L8n24eOM",
       "title": "L’uomo che poteva cambiare il mondo (2026) | Trailer ITA | Elio Germano tra Hitler e Mussolini",
@@ -37,16 +44,6 @@
       "url": "https://www.youtube.com/watch?v=T3LipMm8jRc"
     },
     {
-      "id": "JmbyAhgqUKY",
-      "title": "Melania Rea | Trailer Ufficiale | HBO Max",
-      "channel": "HBO Max",
-      "published": "2026-10-19T08:30:34+00:00",
-      "url": "https://www.youtube.com/watch?v=JmbyAhgqUKY",
-      "also_on": [
-        "FilmIsNow"
-      ]
-    },
-    {
       "id": "VgyxGHalsuc",
       "title": "Drive - Cuori in pista - Trailer Ufficiale | Prime Video",
       "channel": "Prime Video",
@@ -59,6 +56,16 @@
       "channel": "HBO Max",
       "published": "2026-10-19T12:00:51+00:00",
       "url": "https://www.youtube.com/watch?v=_6O_H5ghgrA"
+    },
+    {
+      "id": "JmbyAhgqUKY",
+      "title": "Melania Rea | Trailer Ufficiale | HBO Max",
+      "channel": "HBO Max",
+      "published": "2026-10-19T08:30:34+00:00",
+      "url": "https://www.youtube.com/watch?v=JmbyAhgqUKY",
+      "also_on": [
+        "FilmIsNow"
+      ]
     },
     {
       "id": "vS-H9n5XzPg",
@@ -443,17 +450,6 @@
       "channel": "Disney+",
       "published": "2026-10-01T14:39:46+00:00",
       "url": "https://www.youtube.com/watch?v=94Fytxwl0bI"
-    },
-    {
-      "id": "FATCofGu-6k",
-      "title": "Scrooge e gli Spiriti del Natale - Nuovo Trailer",
-      "channel": "Paramount Pictures",
-      "published": "2026-10-01T13:09:01+00:00",
-      "url": "https://www.youtube.com/watch?v=FATCofGu-6k",
-      "also_on": [
-        "FilmIsNow",
-        "Box Office Trailers"
-      ]
     }
   ]
 }
