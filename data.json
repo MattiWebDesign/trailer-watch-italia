@@ -1,12 +1,47 @@
 {
-  "updated_at": "2026-10-20T11:34:58.829365+00:00",
+  "updated_at": "2026-10-20T17:02:24.047752+00:00",
   "trailers": [
     {
-      "id": "zaxr75gu9Ng",
-      "title": "THE BEEKEEPER 2 Trailer Ita Ufficiale (2027) Jason Statham",
+      "id": "lu6L8n24eOM",
+      "title": "L’uomo che poteva cambiare il mondo (2026) | Trailer ITA | Elio Germano tra Hitler e Mussolini",
+      "channel": "FilmIsNow",
+      "published": "2026-10-20T16:00:08+00:00",
+      "url": "https://www.youtube.com/watch?v=lu6L8n24eOM"
+    },
+    {
+      "id": "vVoTs77vhh8",
+      "title": "Perfetti Bugiardi | Trailer Ufficiale | Prime Video",
+      "channel": "Prime Video",
+      "published": "2026-10-20T14:01:10+00:00",
+      "url": "https://www.youtube.com/watch?v=vVoTs77vhh8"
+    },
+    {
+      "id": "ooqM79OPTgg",
+      "title": "Nido di vipere - Stagione 2 | Trailer ufficiale | Netflix Italia",
+      "channel": "Netflix",
+      "published": "2026-10-20T14:00:00+00:00",
+      "url": "https://www.youtube.com/watch?v=ooqM79OPTgg"
+    },
+    {
+      "id": "4DBldS_H0Nk",
+      "title": "HOPE (2026) | Trailer ITA | I cacciatori diventano prede",
+      "channel": "FilmIsNow",
+      "published": "2026-10-20T13:05:38+00:00",
+      "url": "https://www.youtube.com/watch?v=4DBldS_H0Nk"
+    },
+    {
+      "id": "T3LipMm8jRc",
+      "title": "THE DEBUT: LA GRANDE OCCASIONE Trailer Ita Ufficiale (2026) Julianne Moore",
       "channel": "Box Office Trailers",
-      "published": "2026-10-15T15:44:48+00:00",
-      "url": "https://www.youtube.com/watch?v=zaxr75gu9Ng",
+      "published": "2026-10-20T12:44:55+00:00",
+      "url": "https://www.youtube.com/watch?v=T3LipMm8jRc"
+    },
+    {
+      "id": "JmbyAhgqUKY",
+      "title": "Melania Rea | Trailer Ufficiale | HBO Max",
+      "channel": "HBO Max",
+      "published": "2026-10-19T08:30:34+00:00",
+      "url": "https://www.youtube.com/watch?v=JmbyAhgqUKY",
       "also_on": [
         "FilmIsNow"
       ]
@@ -24,13 +59,6 @@
       "channel": "HBO Max",
       "published": "2026-10-19T12:00:51+00:00",
       "url": "https://www.youtube.com/watch?v=_6O_H5ghgrA"
-    },
-    {
-      "id": "JmbyAhgqUKY",
-      "title": "Melania Rea | Trailer Ufficiale | HBO Max",
-      "channel": "HBO Max",
-      "published": "2026-10-19T08:30:34+00:00",
-      "url": "https://www.youtube.com/watch?v=JmbyAhgqUKY"
     },
     {
       "id": "vS-H9n5XzPg",
@@ -75,6 +103,16 @@
       "url": "https://www.youtube.com/watch?v=-NY7Ts0TCpM",
       "also_on": [
         "Box Office Trailers",
+        "FilmIsNow"
+      ]
+    },
+    {
+      "id": "zaxr75gu9Ng",
+      "title": "THE BEEKEEPER 2 Trailer Ita Ufficiale (2027) Jason Statham",
+      "channel": "Box Office Trailers",
+      "published": "2026-10-15T15:44:48+00:00",
+      "url": "https://www.youtube.com/watch?v=zaxr75gu9Ng",
+      "also_on": [
         "FilmIsNow"
       ]
     },
@@ -416,44 +454,6 @@
         "FilmIsNow",
         "Box Office Trailers"
       ]
-    },
-    {
-      "id": "1GctxPbIQpQ",
-      "title": "LA BAMBOLA (2026) | Trailer ITA | La sua fidanzata gonfiabile prende vita",
-      "channel": "FilmIsNow",
-      "published": "2026-10-01T08:30:27+00:00",
-      "url": "https://www.youtube.com/watch?v=1GctxPbIQpQ"
-    },
-    {
-      "id": "OiCSiZK5-DY",
-      "title": "Teaser Ufficiale | Drive - Cuori in pista",
-      "channel": "Prime Video",
-      "published": "2026-09-30T15:01:16+00:00",
-      "url": "https://www.youtube.com/watch?v=OiCSiZK5-DY"
-    },
-    {
-      "id": "jZX7Xs4v2eI",
-      "title": "Missione: Salvare il Natale | Teaser Ufficiale | Prime Video",
-      "channel": "Prime Video",
-      "published": "2026-09-30T13:30:42+00:00",
-      "url": "https://www.youtube.com/watch?v=jZX7Xs4v2eI"
-    },
-    {
-      "id": "tGhQ-MGAGpU",
-      "title": "NOCTURNE | Trailer ITA | Stephen Graham è un serial killer spietato",
-      "channel": "FilmIsNow",
-      "published": "2026-09-30T10:00:18+00:00",
-      "url": "https://www.youtube.com/watch?v=tGhQ-MGAGpU",
-      "also_on": [
-        "Box Office Trailers"
-      ]
-    },
-    {
-      "id": "jMYVsNR4eko",
-      "title": "Crystal Lake | Trailer ufficiale | HBO Max",
-      "channel": "HBO Max",
-      "published": "2026-09-30T09:00:49+00:00",
-      "url": "https://www.youtube.com/watch?v=jMYVsNR4eko"
     }
   ]
 }
