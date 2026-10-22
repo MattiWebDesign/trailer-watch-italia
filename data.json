@@ -1,6 +1,28 @@
 {
-  "updated_at": "2026-10-22T04:43:13.137335+00:00",
+  "updated_at": "2026-10-22T11:51:02.425812+00:00",
   "trailers": [
+    {
+      "id": "VTGShYxeBcw",
+      "title": "COWARD (2026) | Trailer Ufficiale | Un amore tra le trincee di Lukas Dhont",
+      "channel": "FilmIsNow",
+      "published": "2026-10-22T11:00:08+00:00",
+      "url": "https://www.youtube.com/watch?v=VTGShYxeBcw"
+    },
+    {
+      "id": "VgyxGHalsuc",
+      "title": "Drive - Cuori in pista - Trailer Ufficiale | Prime Video",
+      "channel": "Prime Video",
+      "published": "2026-10-19T13:02:27+00:00",
+      "url": "https://www.youtube.com/watch?v=VgyxGHalsuc",
+      "also_on": []
+    },
+    {
+      "id": "2ujjcueUmoU",
+      "title": "GLI ANELLI DEL POTERE 3 | Trailer ITA | La Terra di Mezzo contro Sauron",
+      "channel": "FilmIsNow",
+      "published": "2026-10-22T07:36:43+00:00",
+      "url": "https://www.youtube.com/watch?v=2ujjcueUmoU"
+    },
     {
       "id": "zC6nJvkXB88",
       "title": "Passenger | Trailer Ufficiale ITA - Paramount+",
@@ -63,13 +85,6 @@
       "channel": "Box Office Trailers",
       "published": "2026-10-20T12:44:55+00:00",
       "url": "https://www.youtube.com/watch?v=T3LipMm8jRc"
-    },
-    {
-      "id": "VgyxGHalsuc",
-      "title": "Drive - Cuori in pista - Trailer Ufficiale | Prime Video",
-      "channel": "Prime Video",
-      "published": "2026-10-19T13:02:27+00:00",
-      "url": "https://www.youtube.com/watch?v=VgyxGHalsuc"
     },
     {
       "id": "_6O_H5ghgrA",
@@ -433,20 +448,6 @@
       "channel": "FilmIsNow",
       "published": "2026-10-04T08:30:41+00:00",
       "url": "https://www.youtube.com/watch?v=s0o76aAqeEM"
-    },
-    {
-      "id": "ZzoMqSugebw",
-      "title": "Tyler Perry’s Ruthless S6 | Trailer Ufficiale ITA - Paramount+",
-      "channel": "Paramount+",
-      "published": "2026-10-03T13:02:49+00:00",
-      "url": "https://www.youtube.com/watch?v=ZzoMqSugebw"
-    },
-    {
-      "id": "m7kzgMeXBqM",
-      "title": "Shrek - 25° anniversario | Trailer Ufficiale",
-      "channel": "Universal Pictures",
-      "published": "2026-10-02T15:05:33+00:00",
-      "url": "https://www.youtube.com/watch?v=m7kzgMeXBqM"
     }
   ]
 }
