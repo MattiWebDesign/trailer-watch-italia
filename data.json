@@ -1,20 +1,29 @@
 {
-  "updated_at": "2026-10-22T11:51:02.425812+00:00",
+  "updated_at": "2026-10-22T17:09:48.487197+00:00",
   "trailers": [
+    {
+      "id": "Yg61ZxDJXLo",
+      "title": "Apocalipsis Z: Il Nuovo Mondo - Trailer Ufficiale | Prime Video",
+      "channel": "Prime Video",
+      "published": "2026-10-22T15:05:19+00:00",
+      "url": "https://www.youtube.com/watch?v=Yg61ZxDJXLo"
+    },
+    {
+      "id": "S-BE1rsXDEk",
+      "title": "The Mongoose - Trailer Ufficiale | Prime Video",
+      "channel": "Prime Video",
+      "published": "2026-10-22T14:06:54+00:00",
+      "url": "https://www.youtube.com/watch?v=S-BE1rsXDEk",
+      "also_on": [
+        "Box Office Trailers"
+      ]
+    },
     {
       "id": "VTGShYxeBcw",
       "title": "COWARD (2026) | Trailer Ufficiale | Un amore tra le trincee di Lukas Dhont",
       "channel": "FilmIsNow",
       "published": "2026-10-22T11:00:08+00:00",
       "url": "https://www.youtube.com/watch?v=VTGShYxeBcw"
-    },
-    {
-      "id": "VgyxGHalsuc",
-      "title": "Drive - Cuori in pista - Trailer Ufficiale | Prime Video",
-      "channel": "Prime Video",
-      "published": "2026-10-19T13:02:27+00:00",
-      "url": "https://www.youtube.com/watch?v=VgyxGHalsuc",
-      "also_on": []
     },
     {
       "id": "2ujjcueUmoU",
@@ -85,6 +94,14 @@
       "channel": "Box Office Trailers",
       "published": "2026-10-20T12:44:55+00:00",
       "url": "https://www.youtube.com/watch?v=T3LipMm8jRc"
+    },
+    {
+      "id": "VgyxGHalsuc",
+      "title": "Drive - Cuori in pista - Trailer Ufficiale | Prime Video",
+      "channel": "Prime Video",
+      "published": "2026-10-19T13:02:27+00:00",
+      "url": "https://www.youtube.com/watch?v=VgyxGHalsuc",
+      "also_on": []
     },
     {
       "id": "_6O_H5ghgrA",
@@ -434,20 +451,6 @@
       "channel": "Paramount+",
       "published": "2026-10-06T09:02:49+00:00",
       "url": "https://www.youtube.com/watch?v=Rif7Ysb_C0Y"
-    },
-    {
-      "id": "g2vsb6Id7fE",
-      "title": "ChiaroScuro | Trailer Ufficiale | Netflix Italia",
-      "channel": "Netflix",
-      "published": "2026-10-05T10:00:00+00:00",
-      "url": "https://www.youtube.com/watch?v=g2vsb6Id7fE"
-    },
-    {
-      "id": "s0o76aAqeEM",
-      "title": "L’assurda storia della Gialappa’s Band | Trailer ITA | 40 anni di risate",
-      "channel": "FilmIsNow",
-      "published": "2026-10-04T08:30:41+00:00",
-      "url": "https://www.youtube.com/watch?v=s0o76aAqeEM"
     }
   ]
 }
