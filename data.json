@@ -1,6 +1,13 @@
 {
-  "updated_at": "2026-10-23T04:47:54.629854+00:00",
+  "updated_at": "2026-10-23T11:37:37.012751+00:00",
   "trailers": [
+    {
+      "id": "ojXECCKqceo",
+      "title": "Dexter: Resurrection | Stagione 2 | Trailer Ufficiale | Dal 30 Ottobre in Esclusiva su Paramount+",
+      "channel": "Paramount+",
+      "published": "2026-10-23T06:56:20+00:00",
+      "url": "https://www.youtube.com/watch?v=ojXECCKqceo"
+    },
     {
       "id": "Yg61ZxDJXLo",
       "title": "Apocalipsis Z: Il Nuovo Mondo - Trailer Ufficiale | Prime Video",
@@ -444,13 +451,6 @@
       "channel": "Box Office Trailers",
       "published": "2026-10-06T12:30:07+00:00",
       "url": "https://www.youtube.com/watch?v=dPKvGdaphJk"
-    },
-    {
-      "id": "Rif7Ysb_C0Y",
-      "title": "Il bel diavolo: Il killer dal fascino letale | Trailer Ufficiale ITA - Paramount+",
-      "channel": "Paramount+",
-      "published": "2026-10-06T09:02:49+00:00",
-      "url": "https://www.youtube.com/watch?v=Rif7Ysb_C0Y"
     }
   ]
 }
