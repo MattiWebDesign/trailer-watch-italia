@@ -1,6 +1,13 @@
 {
-  "updated_at": "2026-10-23T17:05:48.485457+00:00",
+  "updated_at": "2026-10-23T21:23:44.460679+00:00",
   "trailers": [
+    {
+      "id": "6Ht8SVOFPeQ",
+      "title": "Fallout Shelter | Teaser",
+      "channel": "Prime Video",
+      "published": "2026-10-23T17:10:24+00:00",
+      "url": "https://www.youtube.com/watch?v=6Ht8SVOFPeQ"
+    },
     {
       "id": "ojXECCKqceo",
       "title": "Dexter: Resurrection | Stagione 2 | Trailer Ufficiale | Dal 30 Ottobre in Esclusiva su Paramount+",
@@ -444,13 +451,6 @@
       "channel": "Paramount+",
       "published": "2026-10-06T15:03:39+00:00",
       "url": "https://www.youtube.com/watch?v=IQ4Uam_Wl4U"
-    },
-    {
-      "id": "dPKvGdaphJk",
-      "title": "PAPER TIGER Trailer Ita Ufficiale (2026) Scarlett Johansson",
-      "channel": "Box Office Trailers",
-      "published": "2026-10-06T12:30:07+00:00",
-      "url": "https://www.youtube.com/watch?v=dPKvGdaphJk"
     }
   ]
 }
