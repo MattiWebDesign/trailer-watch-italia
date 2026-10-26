@@ -347,14 +347,16 @@ h1 .g{background:var(--grad); -webkit-background-clip:text; background-clip:text
 /* Già visti: arretrano nettamente, così i trailer da vedere saltano all'occhio.
    La sfumatura non si applica alla card intera perché l'animazione d'ingresso
    ne governa l'opacità e la sovrascriverebbe; si agisce quindi sui contenuti.
-   Al passaggio del mouse il colore torna, per poterli comunque consultare. */
+   La miniatura è sfocata oltre che in bianco e nero; il leggero ingrandimento
+   evita che i bordi sfocati lascino una cornice scura dentro il riquadro.
+   Al passaggio del mouse nitidezza e colore tornano, per poterli consultare. */
 .card.is-watched{border-color:rgba(255,255,255,.05);}
-.card.is-watched .thumb img{filter:grayscale(1) brightness(.4);}
+.card.is-watched .thumb img{filter:grayscale(1) brightness(.45) blur(5px); transform:scale(1.1);}
 .card.is-watched .thumb-badge{opacity:.45;}
 .card.is-watched .card-title{color:var(--faint); font-weight:500;}
 .card.is-watched .card-meta{opacity:.6;}
 .card.is-watched:hover .thumb img,
-.card.is-watched:focus-within .thumb img{filter:grayscale(.1) brightness(.8);}
+.card.is-watched:focus-within .thumb img{filter:grayscale(.1) brightness(.8) blur(0); transform:scale(1.06);}
 .card.is-watched:hover .card-title,
 .card.is-watched:focus-within .card-title{color:var(--muted);}
 .card.is-watched:hover .thumb-badge,
