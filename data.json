@@ -1,6 +1,13 @@
 {
-  "updated_at": "2026-10-26T04:45:34.849859+00:00",
+  "updated_at": "2026-10-26T13:00:28.770857+00:00",
   "trailers": [
+    {
+      "id": "gJD-U0uVrbI",
+      "title": "THE MONGOOSE (2026) | Trailer ITA | Liam Neeson, Marisa Tomei",
+      "channel": "FilmIsNow",
+      "published": "2026-10-26T09:37:30+00:00",
+      "url": "https://www.youtube.com/watch?v=gJD-U0uVrbI"
+    },
     {
       "id": "aUTNgKI-daI",
       "title": "Jackass Best and Last | Trailer Ufficiale ITA - Paramount+",
@@ -413,13 +420,6 @@
       "channel": "Netflix",
       "published": "2026-10-07T10:00:01+00:00",
       "url": "https://www.youtube.com/watch?v=ZfE1vJBdk4o"
-    },
-    {
-      "id": "jUWHwliMaac",
-      "title": "Rivals Stagione 2 - Nuovi episodi | Trailer Ufficiale | Disney+ Italia",
-      "channel": "Disney+",
-      "published": "2026-10-07T09:39:45+00:00",
-      "url": "https://www.youtube.com/watch?v=jUWHwliMaac"
     }
   ]
 }
