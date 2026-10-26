@@ -12,7 +12,7 @@ database: solo file statici nel repository, aggiornati ogni sei ore da GitHub Ac
 2. `scripts/check_trailers.py` legge i feed RSS pubblici di YouTube di ogni canale,
    tiene i video con "trailer" o "teaser" nel titolo e scarta quelli già visti.
 3. Vengono aggiornati `data.json` (fino a 60 trailer, dal più recente) e
-   `seen_ids.json` (memoria anti-duplicati), poi committati automaticamente.
+   `seen_ids.json` (id già elaborati), poi committati automaticamente.
 4. `scripts/notify_telegram.py` manda i nuovi trailer su Telegram, se configurato.
 5. `index.html` legge `data.json` lato browser e mostra la galleria.
 
@@ -45,8 +45,8 @@ solo alle notifiche: è in `.gitignore` e non viene versionato.
 - Etichetta "Nuovo" sui trailer usciti nelle ultime 72 ore
 - Segna i trailer come visti dall'icona sulla card, dalla selezione multipla o dal
   pulsante "Segna visto e chiudi" in fondo al player. I già visti restano in elenco
-  ma arretrano: miniatura in bianco e nero, titolo e metadati attenuati, etichetta
-  "Visto". Passando il mouse tornano leggibili
+  ma arretrano: miniatura in bianco e nero e sfocata, titolo e metadati attenuati,
+  etichetta "Visto". Passando il mouse tornano nitidi e leggibili
 - In alternativa puoi eliminare i trailer dall'elenco; l'operazione è reversibile dal
   link "Ripristina eliminati"
 - Lo stato "visto"/"eliminato" è salvato nel browser (`localStorage`): è personale per
@@ -76,42 +76,9 @@ fastidio, basta rimuovere la sua riga da `CHANNELS`.
 parecchi video al giorno, quindi peseranno sui risultati più degli altri. Per toglierli
 basta rimuovere le rispettive righe da `CHANNELS`.
 
-## Deduplicazione fra canali
-
-Lo stesso trailer esce spesso su più canali (Marvel e Disney+, o un aggregatore che
-rilancia un canale ufficiale): sono video YouTube distinti, con id diversi, quindi il
-filtro su `seen_ids.json` non li intercetta. Lo scraper li riconosce e ne tiene uno
-solo, dando la precedenza al canale ufficiale; gli altri finiscono nel campo `also_on`
-del trailer e non generano una seconda notifica.
-
-Il confronto non avviene sul titolo intero ma sul **nome dell'opera**, cioè tutto ciò
-che precede la parola "trailer" o "teaser". Nei titoli YouTube l'opera viene quasi
-sempre per prima, mentre il resto cambia da canale a canale: un aggregatore aggiunge il
-cast (`Madden (2026) | Trailer ITA | Nicolas Cage`), lo studio scrive solo
-`Madden | Trailer Ufficiale`. Confrontare i titoli interi faceva crollare la
-somiglianza proprio nei casi da unire.
-
-Cosa viene ignorato nel confronto: accenti e punteggiatura, marcatori di lingua e
-qualità (`ITA`, `HD`, `4K`), formule promozionali e date di uscita (`Dal 25 dicembre al
-cinema`), l'anno fra parentesi che aggiungono gli aggregatori (`(2026)`) e i nomi dei
-canali.
-
-Cosa invece **non** viene accorpato:
-
-- teaser e trailer finale dello stesso film, perché le parole che indicano il tipo di
-  video restano nel confronto;
-- stagioni e sequel diversi, anche scritti a parole: `Chapter One` e `Chapter Two`, o
-  `Avatar 3` e `Avatar 4`, differiscono per pochi caratteri ma non vanno uniti;
-- opere il cui nome è contenuto in un altro: `Wicked` non viene unito a
-  `Wicked: For Good`, che è un altro film;
-- `Trailer 2` e `Trailer 3` dello stesso film, quando entrambi portano il numero. Se
-  invece solo uno dei due lo porta vengono uniti, perché gli aggregatori numerano i
-  trailer anche quando lo studio pubblica senza numerarli;
-- ripubblicazioni a distanza di oltre 30 giorni, che sono lanci diversi e non copie.
-
-Le soglie sono in cima a `scripts/check_trailers.py` (`DUPLICATE_RATIO`,
-`DUPLICATE_WINDOW_DAYS`) e ogni accorpamento viene scritto nel log della run con la
-riga `[DEDUP]`, per accorgersi subito di eventuali unioni sbagliate.
+Lo stesso trailer può comparire più volte se esce su più canali (per esempio Marvel e
+Disney+, o un aggregatore che lo rilancia): sono video YouTube distinti e il sito li
+mostra tutti, senza tentare di accorparli.
 
 ## Leggere il log di una run
 
@@ -131,7 +98,6 @@ altrimenti sarebbero indistinguibili:
 | `N video nel feed, 0 con trailer/teaser` | Pubblica solo clip, Shorts o contenuti social. Vengono stampati i titoli degli ultimi tre video per vedere come li nomina |
 | `N video nel feed, M con trailer/teaser` ma `0 nuovi` | Erano già stati raccolti in una run precedente |
 | `[WARN] <nome> (@handle): ...` | Handle non risolvibile o errore di rete: gli altri canali proseguono e la run non fallisce |
-| `[DEDUP] «A» → già presente come «B»` | Due canali hanno pubblicato lo stesso trailer, è stato tenuto uno solo |
 
 Il feed RSS di YouTube restituisce **solo gli ultimi 15 video** di ogni canale: su un
 canale che pubblica molti Shorts un trailer può uscire dalla finestra prima di essere
