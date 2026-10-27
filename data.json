@@ -1,6 +1,41 @@
 {
-  "updated_at": "2026-10-27T12:10:11.322574+00:00",
+  "updated_at": "2026-10-27T18:00:40.532247+00:00",
   "trailers": [
+    {
+      "id": "hqO8w77vMpE",
+      "title": "Dune - Parte Tre | Trailer Finale",
+      "channel": "Warner Bros.",
+      "published": "2026-10-27T16:00:14+00:00",
+      "url": "https://www.youtube.com/watch?v=hqO8w77vMpE"
+    },
+    {
+      "id": "8oiLM0XaerI",
+      "title": "LA NOTTE DELLE FRAGOLE (2026) | Trailer ITA | Ficarra e Picone tornano al cinema",
+      "channel": "FilmIsNow",
+      "published": "2026-10-27T16:00:08+00:00",
+      "url": "https://www.youtube.com/watch?v=8oiLM0XaerI"
+    },
+    {
+      "id": "9-drOZUg388",
+      "title": "YOU CAN SEE EVERYTHING (2026) | Trailer ITA | Nathan Fielder, Elizabeth Holmes",
+      "channel": "FilmIsNow",
+      "published": "2026-10-27T14:20:10+00:00",
+      "url": "https://www.youtube.com/watch?v=9-drOZUg388"
+    },
+    {
+      "id": "azsh6QKtwUc",
+      "title": "Witch on the Holy Night | Trailer Ufficiale 2",
+      "channel": "Sony Pictures",
+      "published": "2026-10-27T14:01:30+00:00",
+      "url": "https://www.youtube.com/watch?v=azsh6QKtwUc"
+    },
+    {
+      "id": "R1ECMLrwDYQ",
+      "title": "Way of the Warrior Kid — Official Trailer | Apple TV",
+      "channel": "Apple TV+",
+      "published": "2026-10-27T12:59:55+00:00",
+      "url": "https://www.youtube.com/watch?v=R1ECMLrwDYQ"
+    },
     {
       "id": "gJD-U0uVrbI",
       "title": "THE MONGOOSE (2026) | Trailer ITA | Liam Neeson, Marisa Tomei",
@@ -385,41 +420,6 @@
       "channel": "Box Office Trailers",
       "published": "2026-10-08T14:39:09+00:00",
       "url": "https://www.youtube.com/watch?v=kIsKU6OzQu0"
-    },
-    {
-      "id": "zAP6qhSZYF8",
-      "title": "The Altruists | Trailer ufficiale | Netflix Italia",
-      "channel": "Netflix",
-      "published": "2026-10-08T14:00:03+00:00",
-      "url": "https://www.youtube.com/watch?v=zAP6qhSZYF8"
-    },
-    {
-      "id": "m6ArXts5JPk",
-      "title": "Stick — Season 2 Official Trailer | Apple TV",
-      "channel": "Apple TV+",
-      "published": "2026-10-08T14:00:00+00:00",
-      "url": "https://www.youtube.com/watch?v=m6ArXts5JPk"
-    },
-    {
-      "id": "NK1l1Wi0OB8",
-      "title": "LA BALLATA DEL RE DELLE API Trailer Ita Ufficiale (2026) Matthew McConaughey",
-      "channel": "Box Office Trailers",
-      "published": "2026-10-08T09:25:23+00:00",
-      "url": "https://www.youtube.com/watch?v=NK1l1Wi0OB8"
-    },
-    {
-      "id": "x-Nw6d1bgsE",
-      "title": "All's Fair Stagione 2 | Trailer Ufficiale | Disney+ Italia",
-      "channel": "Disney+",
-      "published": "2026-10-07T16:32:10+00:00",
-      "url": "https://www.youtube.com/watch?v=x-Nw6d1bgsE"
-    },
-    {
-      "id": "ZfE1vJBdk4o",
-      "title": "L'imperatrice - Stagione 3 | Trailer ufficiale | Netflix Italia",
-      "channel": "Netflix",
-      "published": "2026-10-07T10:00:01+00:00",
-      "url": "https://www.youtube.com/watch?v=ZfE1vJBdk4o"
     }
   ]
 }
