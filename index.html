@@ -141,6 +141,9 @@ h1 .g{background:var(--grad); -webkit-background-clip:text; background-clip:text
 
 /* Statistiche */
 .stats{display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-top:30px; text-align:left;}
+/* con cinque tessere la colonna centrale dell'hero è stretta: sui desktop larghi
+   la riga delle statistiche esce di qualche decina di pixel per lato */
+@media (min-width:1100px){ .stats{margin-left:-90px; margin-right:-90px;} }
 .stat{
   flex:1 1 150px; min-width:0;
   padding:14px 16px; border-radius:var(--r-md);

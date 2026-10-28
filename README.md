@@ -26,22 +26,29 @@ database: solo file statici nel repository, aggiornati ogni sei ore da GitHub Ac
 | `assets/` | Favicon, icona iOS e immagine di anteprima per le condivisioni |
 | `scripts/check_trailers.py` | Lo scraper dei feed YouTube |
 | `scripts/notify_telegram.py` | Invio delle notifiche Telegram |
+| `scripts/report_broken_channels.py` | Apre e chiude le issue sui canali che non rispondono |
+| `channel_health.json` | Scansioni consecutive con problemi, per canale. È `{}` quando va tutto bene |
 | `.github/workflows/check-trailers.yml` | Pianificazione ogni sei ore, commit automatico e notifiche |
 | `robots.txt` | Blocca l'indicizzazione da parte dei motori di ricerca |
 
-`new_trailers.json` viene creato a ogni esecuzione con i soli trailer nuovi e serve
-solo alle notifiche: è in `.gitignore` e non viene versionato.
+`new_trailers.json` (trailer nuovi, per le notifiche) e `channel_alerts.json` (canali da
+segnalare, per le issue) vengono creati a ogni esecuzione: sono in `.gitignore` e non
+vengono versionati.
 
 ## Funzioni del sito
 
 - Ricerca testuale immediata su titolo e piattaforma
 - Filtri per piattaforma con conteggi
-- Stato condivisibile nell'URL: `?q=dune&canale=netflix&vista=lista`
+- Stato condivisibile nell'URL: `?q=dune&canale=netflix&vista=lista&da_vedere=1`
 - Vista griglia o elenco compatto
 - Paginazione a 20 card per pagina (`PAGE_SIZE` in `index.html`), con pagina
   corrente nell'URL: `?pagina=2`
 - Player YouTube in finestra modale, senza uscire dal sito
 - Contatore live dall'ultimo controllo e conto alla rovescia al prossimo
+- Tessera **"Da vedere"** fra le statistiche: mostra quanti trailer non hai ancora
+  visto (esclusi gli eliminati) e si aggiorna a ogni segno di visto. Cliccandola l'elenco
+  si limita ai soli da vedere (`?da_vedere=1`); il filtro si toglie con un altro clic o
+  con "Azzera filtri". Con il filtro attivo un trailer appena visto esce dall'elenco
 - Etichetta "Nuovo" sui trailer usciti nelle ultime 72 ore
 - Segna i trailer come visti dall'icona sulla card, dalla selezione multipla o dal
   pulsante "Segna visto e chiudi" in fondo al player. I già visti restano in elenco
@@ -52,6 +59,18 @@ solo alle notifiche: è in `.gitignore` e non viene versionato.
 - Lo stato "visto"/"eliminato" è salvato nel browser (`localStorage`): è personale per
   dispositivo e non si sincronizza fra telefono e computer
 - Segnare un trailer aggiorna solo la sua card, senza ridisegnare la pagina
+- **Swipe da touch** sulle card (telefono e tablet): trascina a destra per segnare
+  "visto" (o rimettere "da vedere" se lo era già), a sinistra per eliminare. Un fondo
+  verde o rosso si scopre sotto la card e l'icona si ingrandisce quando il gesto è
+  abbastanza lungo da scattare (un terzo della larghezza, o uno scatto veloce). Sotto
+  soglia la card torna al suo posto. Lo scroll verticale non viene toccato. Dopo ogni
+  swipe compare un avviso con **Annulla**. Con il mouse restano i pulsanti di sempre
+- **Transizioni**: aprendo un trailer la miniatura della card si espande nel riquadro
+  del video e alla chiusura torna al suo posto (View Transitions API: Chrome, Edge,
+  Safari 18+, Firefox recente; altrove la modale si apre senza animazione). Quando
+  cambiano ricerca, filtri, pagina o stato "visto" le card già a schermo si riordinano
+  scorrendo (tecnica FLIP) invece di ricomparire, quelle che escono svaniscono sul posto
+  e quelle nuove entrano. Con "riduci animazioni" attivo nel sistema è tutto istantaneo
 - Pulsante "Scansiona ora" in alto: apre la pagina Actions di GitHub per avviare
   un controllo manuale senza aspettare la scansione successiva
 - Scorciatoie da tastiera: `/` per cercare, `Esc` per chiudere il player o uscire
@@ -98,11 +117,38 @@ altrimenti sarebbero indistinguibili:
 | `N video nel feed, 0 con trailer/teaser` | Pubblica solo clip, Shorts o contenuti social. Vengono stampati i titoli degli ultimi tre video per vedere come li nomina |
 | `N video nel feed, M con trailer/teaser` ma `0 nuovi` | Erano già stati raccolti in una run precedente |
 | `[WARN] <nome> (@handle): ...` | Handle non risolvibile o errore di rete: gli altri canali proseguono e la run non fallisce |
+| `[ALERT] <nome>: 3 scansioni di fila con problemi (...)` | Il canale è sotto osservazione da tre run: viene aperta una issue |
 
 Il feed RSS di YouTube restituisce **solo gli ultimi 15 video** di ogni canale: su un
 canale che pubblica molti Shorts un trailer può uscire dalla finestra prima di essere
 visto. È il motivo per cui la scansione gira ogni sei ore invece di una volta al
 giorno: riduce di quattro volte la finestra in cui un trailer può sfuggire.
+
+### Canali che non rispondono
+
+Un handle sbagliato o un canale rinominato non fa fallire la run: il canale viene
+semplicemente saltato, e prima lo si scopriva solo leggendo i log. Ora a ogni
+scansione lo script registra in `channel_health.json` quali canali hanno dato
+problemi, cioè un errore di rete/risoluzione oppure un feed senza nessun video. Un
+canale che pubblica solo clip, senza "trailer" nel titolo, **non** conta: è il caso
+normale di Apple TV+.
+
+Dopo **3 scansioni consecutive** (18 ore) con problemi, lo step *Report broken
+channels* del workflow apre una issue "Canale non funzionante: *nome*" con
+l'etichetta `canale-rotto`, che spiega cosa controllare. Se il canale torna a
+rispondere la issue si chiude da sola, con un commento. Alcune regole evitano falsi
+allarmi:
+
+- un errore isolato non segnala nulla, e il contatore riparte da zero appena il canale
+  funziona;
+- se **tutti** i canali falliscono insieme è quasi certamente la rete del runner o
+  un blocco temporaneo di YouTube, non un handle sbagliato: lo stato resta com'è e non
+  si segnala niente;
+- se chiudi la issue a mano senza sistemare il canale, non ne viene aperta un'altra
+  finché dura lo stesso periodo di problemi.
+
+Serve il permesso `issues: write`, già dichiarato nel workflow (nessun secret da
+aggiungere). La soglia è `HEALTH_THRESHOLD` in `scripts/check_trailers.py`.
 
 L'intervallo è definito dal `cron` nel workflow. Se lo cambi, aggiorna anche
 `SCAN_EVERY_HOURS` e `SCAN_MINUTE_UTC` in `index.html`, che alimentano il conto alla
