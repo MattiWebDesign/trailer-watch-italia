@@ -1,5 +1,7 @@
 # file temporaneo prodotto da scripts/check_trailers.py per le notifiche
 new_trailers.json
+# segnalazioni sui canali rotti, lette da scripts/report_broken_channels.py
+channel_alerts.json
 
 __pycache__/
 *.pyc

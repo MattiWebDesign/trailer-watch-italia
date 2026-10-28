@@ -17,6 +17,7 @@ on:
 
 permissions:
   contents: write
+  issues: write     # per aprire/chiudere le segnalazioni sui canali che non rispondono
 
 concurrency:
   group: check-trailers
@@ -58,10 +59,10 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
           commit_se_cambiato() {
-            if git diff --quiet -- data.json seen_ids.json; then
+            if git diff --quiet -- data.json seen_ids.json channel_health.json; then
               return 1
             fi
-            git add data.json seen_ids.json
+            git add data.json seen_ids.json channel_health.json
             git commit -m "Aggiorna trailer $(date -u +'%Y-%m-%d %H:%M UTC')"
             return 0
           }
@@ -88,6 +89,17 @@ jobs:
 
           echo "::error::Push fallito dopo 3 tentativi."
           exit 1
+
+      # Apre una issue per i canali con problemi da più scansioni di fila e chiude
+      # quelle dei canali tornati a funzionare. Un errore qui non deve far
+      # fallire la run: i dati del sito sono già stati aggiornati.
+      - name: Report broken channels
+        if: ${{ !cancelled() }}
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: python scripts/report_broken_channels.py
 
       # Il commit avviene prima della notifica: se Telegram è mal configurato
       # i dati del sito vengono comunque aggiornati.

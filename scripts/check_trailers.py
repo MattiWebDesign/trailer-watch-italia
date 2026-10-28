@@ -18,8 +18,13 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA_FILE = ROOT / "data.json"
 SEEN_FILE = ROOT / "seen_ids.json"
 NEW_FILE = ROOT / "new_trailers.json"
+HEALTH_FILE = ROOT / "channel_health.json"
+ALERTS_FILE = ROOT / "channel_alerts.json"
 
 MAX_TRAILERS = 60
+# scansioni consecutive in cui un canale deve dare problemi prima di segnalarlo:
+# un singolo errore di rete di YouTube è normale, tre di fila (18 ore) no
+HEALTH_THRESHOLD = 3
 KEYWORD_RE = re.compile(r"trailer|teaser", re.IGNORECASE)
 
 # Handle YouTube di ciascun canale. Se un canale smette di funzionare
@@ -93,6 +98,42 @@ def load_json(path, default):
         return default
 
 
+def update_channel_health(health, problems, channel_names, now_iso):
+    """Aggiorna il contatore di scansioni consecutive con problemi, canale per canale.
+
+    `problems` mappa il nome del canale al motivo del problema nella scansione
+    appena fatta; i canali assenti hanno funzionato. In `health` restano solo i
+    canali in difficoltà, così per la maggior parte del tempo il file è `{}` e
+    non produce commit.
+
+    Se tutti i canali falliscono insieme il problema è quasi certamente la rete
+    del runner o un blocco temporaneo di YouTube, non un handle sbagliato: in
+    quel caso lo stato precedente resta com'è e non si segnala nulla.
+
+    Restituisce (health, alerts). `alerts` contiene i canali sopra soglia
+    ("broken") e quelli che stanno funzionando ("healthy"): serve a
+    scripts/report_broken_channels.py per aprire e chiudere le issue.
+    """
+    if channel_names and len(problems) >= len(channel_names):
+        print("[WARN] tutti i canali hanno dato problemi: probabile errore di rete, "
+              "stato di salute dei canali lasciato invariato")
+        broken = [dict(name=n, **h) for n, h in health.items() if h.get("failures", 0) >= HEALTH_THRESHOLD]
+        return health, {"broken": broken, "healthy": []}
+
+    updated = {}
+    for name in channel_names:
+        if name in problems:
+            before = health.get(name, {})
+            updated[name] = {
+                "failures": int(before.get("failures", 0)) + 1,
+                "since": before.get("since") or now_iso,
+                "problem": problems[name],
+            }
+    broken = [dict(name=n, **h) for n, h in updated.items() if h["failures"] >= HEALTH_THRESHOLD]
+    healthy = [n for n in channel_names if n not in problems]
+    return updated, {"broken": broken, "healthy": healthy}
+
+
 def main():
     seen_ids = set(load_json(SEEN_FILE, []))
     data = load_json(DATA_FILE, {"updated_at": None, "trailers": []})
@@ -100,6 +141,7 @@ def main():
 
     new_trailers = []
     had_error = False
+    problems = {}   # canale -> motivo, per chi non ha funzionato in questa scansione
 
     for channel in CHANNELS:
         name, handle = channel["name"], channel["handle"]
@@ -109,7 +151,11 @@ def main():
         except Exception as exc:  # rete/parsing: non bloccare gli altri canali
             print(f"[WARN] {name} (@{handle}): {exc}", file=sys.stderr)
             had_error = True
+            problems[name] = f"errore: {exc}"
             continue
+
+        if not entries:
+            problems[name] = "il feed non contiene nessun video"
 
         found = 0
         con_keyword = 0
@@ -161,6 +207,18 @@ def main():
     NEW_FILE.write_text(json.dumps(notify_list, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     print(f"Totale nuovi trailer trovati: {len(new_trailers)}")
+
+    health, alerts = update_channel_health(
+        load_json(HEALTH_FILE, {}), problems,
+        [c["name"] for c in CHANNELS], data["updated_at"],
+    )
+    HEALTH_FILE.write_text(json.dumps(health, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    handles = {c["name"]: c["handle"] for c in CHANNELS}
+    for item in alerts["broken"]:
+        item["handle"] = handles.get(item["name"], "")
+    ALERTS_FILE.write_text(json.dumps(alerts, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    for item in alerts["broken"]:
+        print(f"[ALERT] {item['name']}: {item['failures']} scansioni di fila con problemi ({item['problem']})")
 
     # espone il conteggio agli step successivi del workflow GitHub Actions:
     # se è zero lo step delle notifiche viene saltato invece di girare a vuoto
