@@ -141,6 +141,9 @@ h1 .g{background:var(--grad); -webkit-background-clip:text; background-clip:text
 
 /* Statistiche */
 .stats{display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-top:30px; text-align:left;}
+/* con cinque tessere la colonna centrale dell'hero è stretta: sui desktop larghi
+   la riga delle statistiche esce di qualche decina di pixel per lato */
+@media (min-width:1100px){ .stats{margin-left:-90px; margin-right:-90px;} }
 .stat{
   flex:1 1 150px; min-width:0;
   padding:14px 16px; border-radius:var(--r-md);
@@ -153,6 +156,20 @@ h1 .g{background:var(--grad); -webkit-background-clip:text; background-clip:text
 .stat-k{font-size:.7rem; text-transform:uppercase; letter-spacing:.08em; color:var(--faint); margin-bottom:5px;}
 .stat-v{font-size:1.18rem; font-weight:700; letter-spacing:-.02em; font-variant-numeric:tabular-nums;}
 .stat-v small{font-size:.8rem; font-weight:500; color:var(--muted);}
+
+/* "Da vedere" è l'unica statistica cliccabile: filtra l'elenco sui non visti */
+.stat-todo{
+  display:flex; flex-direction:column; align-items:flex-start; justify-content:flex-start;
+  font:inherit; color:inherit; text-align:left; cursor:pointer;
+  transition:border-color .2s var(--ease), background .2s var(--ease), transform .2s var(--ease);
+}
+.stat-todo:hover{border-color:var(--border-hi); transform:translateY(-1px);}
+.stat-todo:focus-visible{outline:2px solid rgba(255,122,24,.8); outline-offset:2px;}
+.stat-todo[aria-pressed="true"]{
+  border-color:rgba(255,122,24,.65);
+  background:linear-gradient(135deg,rgba(255,122,24,.14),rgba(139,61,255,.14)),var(--surface);
+}
+.stat-todo .stat-v small{margin-left:4px;}
 
 /* ============================================================
    Controlli
@@ -276,15 +293,19 @@ h1 .g{background:var(--grad); -webkit-background-clip:text; background-clip:text
 /* ============================================================
    Griglia / card
    ============================================================ */
-.grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(268px,1fr)); gap:20px;}
+.grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(268px,1fr)); gap:20px; position:relative;}
 
 .card{
   position:relative; display:flex; flex-direction:column;
   background:var(--bg-elev); border:1px solid var(--border); border-radius:var(--r-lg);
   overflow:hidden; text-decoration:none; color:inherit; cursor:pointer;
   transition:transform .32s var(--ease), border-color .32s var(--ease), box-shadow .32s var(--ease);
-  animation:rise .5s var(--ease) both; animation-delay:calc(var(--i,0) * 45ms);
 }
+/* L'ingresso scatta solo per le card appena create (classe tolta a fine
+   animazione): le card che restano si riordinano senza ripartire da zero. */
+.card.is-entering{animation:rise .5s var(--ease) both; animation-delay:calc(var(--i,0) * 45ms);}
+/* copia di una card appena uscita dall'elenco, che svanisce al suo posto */
+.card-ghost{position:absolute; margin:0; z-index:4; pointer-events:none;}
 @keyframes rise{from{opacity:0; transform:translateY(16px) scale(.985);} to{opacity:1; transform:none;}}
 .card:hover,.card:focus-visible{
   transform:translateY(-5px); border-color:var(--border-hi); box-shadow:var(--glow); outline:none;
@@ -397,6 +418,41 @@ h1 .g{background:var(--grad); -webkit-background-clip:text; background-clip:text
 .watch-toggle svg{width:14px; height:14px;}
 .watch-toggle:hover{color:var(--text);}
 .watch-toggle[aria-pressed="true"]{color:#39d98a;}
+
+/* Swipe da touch: la card si sposta e scopre un fondo colorato che anticipa
+   l'azione (destra = visto, sinistra = elimina). Si sposta il contenuto, non
+   la card, così la cornice arrotondata resta ferma e fa da finestra.
+   `pan-y` lascia al browser lo scroll verticale e consegna a noi i gesti
+   orizzontali. */
+.card{touch-action:pan-y pinch-zoom;}
+.swipe-bg{
+  position:absolute; top:0; bottom:0; width:0; overflow:hidden;
+  display:flex; align-items:center; gap:9px; padding:0 18px; white-space:nowrap;
+  color:#fff; font-size:.8rem; font-weight:700; letter-spacing:.01em; pointer-events:none;
+}
+.swipe-bg.is-right{left:0; justify-content:flex-start; background:linear-gradient(90deg,#17a363,#39d98a);}
+.swipe-bg.is-left{right:0; justify-content:flex-end; background:linear-gradient(270deg,#e5334a,#ff4757);}
+.swipe-bg.is-left svg{order:2;}
+.swipe-bg svg{width:22px; height:22px; flex:none; opacity:.75; transition:transform .18s var(--ease), opacity .18s var(--ease);}
+.swipe-bg.is-armed svg{transform:scale(1.28); opacity:1;}
+.card.is-swiping .thumb,.card.is-swiping .card-body{transform:translateX(var(--dx,0px));}
+.card.is-swiping.is-settling .thumb,.card.is-swiping.is-settling .card-body{transition:transform .24s var(--ease);}
+.card.is-swiping{user-select:none; -webkit-user-select:none;}
+
+/* Avviso con "Annulla" dopo uno swipe */
+.toast{
+  position:fixed; left:50%; bottom:calc(18px + env(safe-area-inset-bottom,0px)); z-index:60;
+  transform:translate(-50%,16px); opacity:0; pointer-events:none;
+  display:flex; align-items:center; gap:14px; max-width:calc(100vw - 32px);
+  padding:11px 12px 11px 18px; border-radius:var(--r-pill);
+  background:#241a33; border:1px solid var(--border-hi); box-shadow:var(--shadow);
+  font-size:.86rem; transition:opacity .22s var(--ease), transform .22s var(--ease);
+}
+.toast.is-visible{opacity:1; transform:translate(-50%,0); pointer-events:auto;}
+.toast-undo{
+  background:var(--grad); color:#fff; border:0; border-radius:var(--r-pill);
+  padding:6px 14px; font:inherit; font-size:.8rem; font-weight:700; cursor:pointer;
+}
 
 /* Vista lista */
 .grid.is-list{grid-template-columns:1fr; gap:12px;}
@@ -533,6 +589,15 @@ h1 .g{background:var(--grad); -webkit-background-clip:text; background-clip:text
 .btn-ghost.is-done{color:#39d98a;}
 body.no-scroll{overflow:hidden;}
 
+/* Transizione card <-> modale (View Transitions API): la miniatura della card
+   si espande fino a diventare il riquadro del video. Con la transizione attiva
+   le animazioni d'ingresso della modale si spengono, ci pensa il browser. */
+.modal.is-vt .modal-backdrop,.modal.is-vt .modal-panel{animation:none;}
+.modal-video{background-size:cover; background-position:center;}
+::view-transition-group(hero){animation-duration:.42s; animation-timing-function:var(--ease); overflow:clip; border-radius:var(--r-md);}
+::view-transition-old(hero),::view-transition-new(hero){height:100%; object-fit:cover;}
+::view-transition-group(root){animation-duration:.3s;}
+
 /* ============================================================
    Footer
    ============================================================ */
@@ -591,6 +656,9 @@ footer a:hover{color:var(--fuchsia);}
 
     <div class="stats" id="stats">
       <div class="stat"><div class="stat-k">Trailer raccolti</div><div class="stat-v" id="stat-total">—</div></div>
+      <button type="button" class="stat stat-todo" id="stat-todo" aria-pressed="false" title="Mostra solo i trailer che non hai ancora visto">
+        <div class="stat-k">Da vedere</div><div class="stat-v"><span id="stat-todo-n">—</span><small id="stat-todo-hint"></small></div>
+      </button>
       <div class="stat"><div class="stat-k">Piattaforme</div><div class="stat-v" id="stat-channels">—</div></div>
       <div class="stat"><div class="stat-k">Ultimo controllo</div><div class="stat-v" id="stat-updated">—</div></div>
       <div class="stat"><div class="stat-k">Prossimo controllo</div><div class="stat-v" id="stat-next">—</div></div>
@@ -679,6 +747,11 @@ footer a:hover{color:var(--fuchsia);}
   </div>
 </div>
 
+<div class="toast" id="toast" role="status" aria-live="polite">
+  <span id="toast-msg"></span>
+  <button type="button" class="toast-undo" id="toast-undo">Annulla</button>
+</div>
+
 <script>
 (function(){
   "use strict";
@@ -713,7 +786,7 @@ footer a:hover{color:var(--fuchsia);}
 
   /* ---------- Stato ---------- */
   var state = {
-    all:[], q:"", channel:"", view:"grid", page:1,
+    all:[], q:"", channel:"", todo:false, view:"grid", page:1,
     watched:loadSet(LS_WATCHED),
     removed:loadSet(LS_REMOVED),
     selectMode:false,
@@ -794,6 +867,7 @@ footer a:hover{color:var(--fuchsia);}
     var p = new URLSearchParams(location.search);
     state.q = p.get("q") || "";
     state.channel = p.get("canale") || "";
+    state.todo = p.get("da_vedere") === "1";
     state.view = p.get("vista") === "lista" ? "list" : "grid";
     var pagina = parseInt(p.get("pagina"), 10);
     state.page = pagina > 0 ? pagina : 1;
@@ -802,6 +876,7 @@ footer a:hover{color:var(--fuchsia);}
     var p = new URLSearchParams();
     if(state.q) p.set("q", state.q);
     if(state.channel) p.set("canale", state.channel);
+    if(state.todo) p.set("da_vedere", "1");
     if(state.view === "list") p.set("vista","lista");
     if(state.page > 1) p.set("pagina", state.page);
     var qs = p.toString();
@@ -846,6 +921,7 @@ footer a:hover{color:var(--fuchsia);}
     var ch = slug(state.channel);
     return state.all.filter(function(t){
       if(state.removed.has(t.id)) return false;
+      if(state.todo && state.watched.has(t.id)) return false;
       if(ch && slug(t.channel) !== ch) return false;
       if(q && normalize(t.title).indexOf(q) === -1 && normalize(t.channel).indexOf(q) === -1) return false;
       return true;
@@ -872,7 +948,7 @@ footer a:hover{color:var(--fuchsia);}
     var abs = fmtDate(t.published);
     var watched = state.watched.has(t.id);
     var selected = state.selected.has(t.id);
-    var cls = "card" + (watched ? " is-watched" : "") + (selected ? " is-selected" : "");
+    var cls = "card is-entering" + (watched ? " is-watched" : "") + (selected ? " is-selected" : "");
     return '<a class="'+cls+'" href="'+escapeHtml(t.url)+'" target="_blank" rel="noopener" data-id="'+escapeHtml(t.id)+'" style="--i:'+Math.min(i,14)+'">'+
       '<div class="thumb">'+
         '<span class="card-select" aria-hidden="true">'+CHECK_SVG+'</span>'+
@@ -939,7 +1015,7 @@ footer a:hover{color:var(--fuchsia);}
   function render(){
     var list = filtered();
     var content = $("content");
-    var hasFilters = !!(state.channel || state.q);
+    var hasFilters = !!(state.channel || state.q || state.todo);
 
     // la pagina corrente può eccedere il totale dopo un'eliminazione o un filtro
     var totalPages = Math.max(1, Math.ceil(list.length / PAGE_SIZE));
@@ -955,6 +1031,7 @@ footer a:hover{color:var(--fuchsia);}
     $("resultcount").textContent = list.length === 0 ? "" :
       conteggio + (hasFilters ? " trovati su " + state.all.length : "");
     $("reset").hidden = !hasFilters;
+    renderTodoStat();
 
     var restoreBtn = $("restore-removed");
     if(state.removed.size > 0){
@@ -971,7 +1048,10 @@ footer a:hover{color:var(--fuchsia);}
     }
     if(list.length === 0){
       var icon = "🔍", title = "Nessun risultato", text = "Nessun trailer corrisponde ai filtri attivi. Prova con un altro termine o rimuovi i filtri.";
-      if(!hasFilters && state.removed.size > 0){
+      if(state.todo && !state.channel && !state.q){
+        icon = "🎉"; title = "Hai visto tutto";
+        text = "Non ci sono trailer da vedere: appena ne arriverà uno nuovo lo troverai qui.";
+      }else if(!hasFilters && state.removed.size > 0){
         icon = "🗑️"; title = "Hai eliminato tutti i trailer";
         text = "Usa il link “Ripristina eliminati” qui sopra per farli ricomparire.";
       }
@@ -981,8 +1061,148 @@ footer a:hover{color:var(--fuchsia);}
         '</div>';
       return;
     }
-    content.innerHTML = '<div class="grid'+(state.view === "list" ? " is-list" : "")+(state.selectMode ? " is-selecting" : "")+'">'+
-      pagina.map(cardHtml).join("") + '</div>' + paginationHtml(totalPages);
+    renderGrid(pagina, totalPages);
+    lastPage = state.page;
+  }
+
+  /* ---------- Griglia con riordino animato ---------- */
+  // Invece di ricreare tutte le card a ogni cambio di filtro, pagina o stato "visto",
+  // si riusano quelle già a schermo (stessa miniatura, niente ricaricamento) e le si
+  // riordina. Il movimento è animato con la tecnica FLIP: si misura la posizione
+  // di partenza (First), si applica il nuovo ordine (Last), si ripartisce dalla
+  // vecchia posizione con un transform (Invert) e si lascia scorrere a zero (Play).
+  var lastPage = null;
+  var FLIP_MS = 340;
+  var FLIP_EASE = "cubic-bezier(.22,.8,.28,1)";
+
+  function reducedMotion(){
+    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  }
+  function canAnimate(){
+    return !reducedMotion() && typeof Element.prototype.animate === "function";
+  }
+
+  function makeCard(t, i){
+    var tmp = document.createElement("div");
+    tmp.innerHTML = cardHtml(t, i);
+    return tmp.firstElementChild;
+  }
+
+  function spawnGhost(card, rect, gridRect, grid){
+    var g = card.cloneNode(true);
+    g.removeAttribute("data-id");
+    g.removeAttribute("href");
+    g.setAttribute("aria-hidden", "true");
+    g.tabIndex = -1;
+    g.classList.remove("is-entering", "is-selected");
+    g.classList.add("card-ghost");
+    g.style.left = (rect.left - gridRect.left) + "px";
+    g.style.top = (rect.top - gridRect.top) + "px";
+    g.style.width = rect.width + "px";
+    g.style.height = rect.height + "px";
+    grid.appendChild(g);
+    var anim = g.animate(
+      [{opacity:1, transform:"scale(1)"}, {opacity:0, transform:"scale(.92)"}],
+      {duration:220, easing:"ease-out", fill:"forwards"}
+    );
+    anim.onfinish = anim.oncancel = function(){ if(g.parentNode) g.parentNode.removeChild(g); };
+  }
+
+  function renderGrid(pagina, totalPages){
+    var content = $("content");
+    var grid = content.querySelector(".grid");
+    var haCard = !!(grid && grid.querySelector(".card:not(.card-ghost)"));
+    var wantList = state.view === "list";
+
+    if(!haCard){
+      // prima visualizzazione, o si arriva da uno stato vuoto/caricamento
+      content.innerHTML = '<div class="grid'+(wantList ? " is-list" : "")+(state.selectMode ? " is-selecting" : "")+'">'+
+        pagina.map(cardHtml).join("") + '</div>' + paginationHtml(totalPages);
+      return;
+    }
+
+    var animate = canAnimate();
+    var layoutChanged = grid.classList.contains("is-list") !== wantList ||
+                        grid.classList.contains("is-selecting") !== state.selectMode;
+    var pageChanged = state.page !== lastPage;
+    var flip = animate && !layoutChanged;
+    // cambiando pagina il contenuto è tutto nuovo e la finestra scorre in alto:
+    // niente copie che svaniscono, entrano soltanto le nuove card
+    var ghosts = flip && !pageChanged;
+
+    // First: posizione attuale (compresa un'eventuale animazione ancora in corso)
+    var existing = {};
+    var first = {};
+    var gridRect = grid.getBoundingClientRect();
+    Array.prototype.forEach.call(grid.querySelectorAll(".card:not(.card-ghost)"), function(el){
+      var id = el.getAttribute("data-id");
+      existing[id] = el;
+      if(flip) first[id] = el.getBoundingClientRect();
+      if(el._flip){ el._flip.cancel(); el._flip = null; }
+    });
+
+    grid.classList.toggle("is-list", wantList);
+    grid.classList.toggle("is-selecting", state.selectMode);
+
+    var wanted = {};
+    pagina.forEach(function(t){ wanted[t.id] = true; });
+
+    // le card che escono dalla pagina: via dal DOM, lasciando una copia che svanisce
+    Object.keys(existing).forEach(function(id){
+      if(wanted[id]) return;
+      if(ghosts) spawnGhost(existing[id], first[id], gridRect, grid);
+      grid.removeChild(existing[id]);
+    });
+
+    // Last: nuovo ordine, riusando i nodi esistenti e creando solo quelli mancanti
+    var nuove = 0;
+    var ref = grid.firstChild;
+    var nodi = pagina.map(function(t, i){
+      var el = existing[t.id];
+      if(el){
+        syncCard(el, t);
+        el.classList.toggle("is-selected", state.selected.has(t.id));
+      }else{
+        el = makeCard(t, pageChanged ? i : nuove);
+        nuove++;
+      }
+      if(ref === el) ref = ref.nextSibling;
+      else grid.insertBefore(el, ref);
+      return el;
+    });
+
+    var oldNav = content.querySelector(".pagination");
+    if(oldNav) oldNav.parentNode.removeChild(oldNav);
+    grid.insertAdjacentHTML("afterend", paginationHtml(totalPages));
+
+    // Invert + Play
+    if(!flip) return;
+    nodi.forEach(function(el, i){
+      var from = first[pagina[i].id];
+      if(!from) return;
+      var to = el.getBoundingClientRect();
+      var dx = from.left - to.left, dy = from.top - to.top;
+      if(Math.abs(dx) < 1 && Math.abs(dy) < 1) return;
+      el._flip = el.animate(
+        [{transform:"translate("+dx+"px,"+dy+"px)"}, {transform:"none"}],
+        {duration:FLIP_MS, easing:FLIP_EASE}
+      );
+      el._flip.onfinish = function(){ el._flip = null; };
+    });
+  }
+
+  // quanti trailer restano da guardare: i non visti fra quelli non eliminati
+  function todoCount(){
+    return state.all.filter(function(t){
+      return !state.removed.has(t.id) && !state.watched.has(t.id);
+    }).length;
+  }
+  function renderTodoStat(){
+    var btn = $("stat-todo");
+    if(!btn) return;
+    $("stat-todo-n").textContent = todoCount();
+    $("stat-todo-hint").textContent = state.todo ? "filtro attivo" : "";
+    btn.setAttribute("aria-pressed", state.todo ? "true" : "false");
   }
 
   function renderStats(data){
@@ -1010,12 +1230,48 @@ footer a:hover{color:var(--fuchsia);}
   }
 
   /* ---------- Modal ---------- */
-  function openModal(t){
-    lastFocused = document.activeElement;
-    var color = colorFor(t.channel);
+  // La miniatura della card si espande nel riquadro del video (e viceversa alla
+  // chiusura) con la View Transitions API: la card cliccata e il riquadro video
+  // ricevono a turno lo stesso `view-transition-name`, e il browser anima
+  // la differenza di posizione e dimensione. Dove l'API non esiste, o con
+  // "riduci animazioni" attivo, la modale si apre e si chiude come prima.
+  var HERO = "hero";
+  var modalId = null;   // id del trailer mostrato nella modale
+
+  function canViewTransition(){
+    return typeof document.startViewTransition === "function" && !reducedMotion();
+  }
+  function inViewport(el){
+    var r = el.getBoundingClientRect();
+    return r.width > 0 && r.bottom > 0 && r.top < window.innerHeight && r.right > 0 && r.left < window.innerWidth;
+  }
+  function cardThumb(id){
+    var card = $("content").querySelector('.card[data-id="'+id+'"]');
+    var thumb = card && card.querySelector(".thumb");
+    return thumb && inViewport(thumb) ? thumb : null;
+  }
+  // avvia la transizione senza far esplodere nulla se il browser la salta
+  function runTransition(update){
+    var tr = document.startViewTransition(update);
+    tr.ready.catch(function(){});
+    return tr.finished.catch(function(){});
+  }
+
+  function loadVideo(t){
+    // dopo la transizione: l'iframe parte quando il riquadro è già al suo posto
+    if(modalId !== t.id) return;
     $("modal-video").innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/'+encodeURIComponent(t.id)+
       '?autoplay=1&rel=0&modestbranding=1" title="'+escapeHtml(t.title)+
       '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+  }
+
+  function openModal(t){
+    lastFocused = document.activeElement;
+    var color = colorFor(t.channel);
+    modalId = t.id;
+    // la miniatura fa da sfondo del riquadro: è ciò in cui si trasforma la card
+    $("modal-video").innerHTML = "";
+    $("modal-video").style.backgroundImage = 'url("https://i.ytimg.com/vi/'+encodeURIComponent(t.id)+'/hqdefault.jpg")';
     $("modal-title").textContent = t.title;
     $("modal-meta").innerHTML = '<span class="modal-badge" style="--c:'+color+'"><span class="chip-dot"></span>'+escapeHtml(t.channel)+'</span>'+
       '<span>'+escapeHtml(fmtDate(t.published))+'</span><span class="sep"></span><span>'+escapeHtml(relTime(t.published))+'</span>';
@@ -1030,10 +1286,31 @@ footer a:hover{color:var(--fuchsia);}
     btn.innerHTML = (visto ? CHECK_SVG + "Già visto · chiudi" : CHECK_SVG + "Segna visto e chiudi");
 
     var m = $("modal");
-    m.hidden = false;
-    m.classList.add("is-open");
-    document.body.classList.add("no-scroll");
-    $("modal-close").focus();
+    var mostra = function(){
+      m.hidden = false;
+      m.classList.add("is-open");
+      document.body.classList.add("no-scroll");
+      $("modal-close").focus({preventScroll:true});
+    };
+
+    var thumb = canViewTransition() ? cardThumb(t.id) : null;
+    if(!thumb){
+      m.classList.remove("is-vt");
+      mostra();
+      loadVideo(t);
+      return;
+    }
+
+    m.classList.add("is-vt");
+    thumb.style.viewTransitionName = HERO;
+    runTransition(function(){
+      thumb.style.viewTransitionName = "";
+      $("modal-video").style.viewTransitionName = HERO;
+      mostra();
+    }).then(function(){
+      $("modal-video").style.viewTransitionName = "";
+      loadVideo(t);
+    });
   }
 
   function markWatchedAndClose(){
@@ -1041,18 +1318,45 @@ footer a:hover{color:var(--fuchsia);}
     if(id && !state.watched.has(id)){
       state.watched.add(id);
       saveSet(LS_WATCHED, state.watched);
-      refreshCard(id);
+      afterWatchedChange([id]);
     }
     closeModal();
   }
+
   function closeModal(){
     var m = $("modal");
     if(!m.classList.contains("is-open")) return;
-    m.classList.remove("is-open");
-    m.hidden = true;
-    $("modal-video").innerHTML = "";   // ferma la riproduzione
-    document.body.classList.remove("no-scroll");
-    if(lastFocused && lastFocused.focus) lastFocused.focus();
+    var id = modalId;
+    var video = $("modal-video");
+
+    var chiudi = function(){
+      m.classList.remove("is-open");
+      m.hidden = true;
+      video.innerHTML = "";   // ferma la riproduzione
+      video.style.backgroundImage = "";
+      document.body.classList.remove("no-scroll");
+      modalId = null;
+      if(lastFocused && lastFocused.focus && document.contains(lastFocused)) lastFocused.focus({preventScroll:true});
+    };
+
+    var thumb = canViewTransition() && id ? cardThumb(id) : null;
+    if(!thumb){
+      m.classList.remove("is-vt");
+      chiudi();
+      return;
+    }
+
+    // l'iframe non finisce nello snapshot: resta il fotogramma di copertina
+    video.innerHTML = "";
+    video.style.viewTransitionName = HERO;
+    m.classList.add("is-vt");
+    runTransition(function(){
+      video.style.viewTransitionName = "";
+      thumb.style.viewTransitionName = HERO;
+      chiudi();
+    }).then(function(){
+      thumb.style.viewTransitionName = "";
+    });
   }
 
   /* ---------- Visti / eliminati / selezione multipla ---------- */
@@ -1064,8 +1368,12 @@ footer a:hover{color:var(--fuchsia);}
     var card = $("content").querySelector('.card[data-id="'+id+'"]');
     if(!card) return;
     var t = state.all.filter(function(x){ return x.id === id; })[0];
-    if(!t) return;
-    var watched = state.watched.has(id);
+    if(t) syncCard(card, t);
+  }
+
+  // allinea una card già a schermo allo stato "visto" corrente
+  function syncCard(card, t){
+    var watched = state.watched.has(t.id);
 
     card.classList.toggle("is-watched", watched);
 
@@ -1083,10 +1391,37 @@ footer a:hover{color:var(--fuchsia);}
     }
   }
 
-  function toggleWatched(id){
-    if(state.watched.has(id)) state.watched.delete(id); else state.watched.add(id);
+  // Dopo un cambio di stato "visto": aggiorna le card interessate e il contatore.
+  // Con il filtro "Da vedere" attivo un trailer appena visto deve sparire, quindi
+  // in quel caso si ridisegna l'elenco.
+  function afterWatchedChange(ids){
+    ids.forEach(refreshCard);
+    renderTodoStat();
+    if(state.todo) render();
+  }
+
+  function setWatched(id, watched){
+    if(watched) state.watched.add(id); else state.watched.delete(id);
     saveSet(LS_WATCHED, state.watched);
-    refreshCard(id);
+    afterWatchedChange([id]);
+  }
+
+  function toggleWatched(id){
+    setWatched(id, !state.watched.has(id));
+  }
+
+  // elimina o ripristina un singolo trailer; `eraVisto` serve all'annullamento
+  function setRemoved(id, removed, eraVisto){
+    if(removed){
+      state.removed.add(id);
+      state.watched.delete(id);   // come per l'eliminazione multipla
+    }else{
+      state.removed.delete(id);
+      if(eraVisto) state.watched.add(id);
+    }
+    saveSet(LS_REMOVED, state.removed);
+    saveSet(LS_WATCHED, state.watched);
+    render();
   }
 
   function updateBulkBar(){
@@ -1120,7 +1455,7 @@ footer a:hover{color:var(--fuchsia);}
 
   function selectAllVisible(){
     // "visibili" = le card della pagina corrente, non tutto l'elenco filtrato
-    $("content").querySelectorAll(".card").forEach(function(card){
+    $("content").querySelectorAll(".card:not(.card-ghost)").forEach(function(card){
       state.selected.add(card.getAttribute("data-id"));
       card.classList.add("is-selected");
     });
@@ -1151,7 +1486,7 @@ footer a:hover{color:var(--fuchsia);}
     updateSelectModeUI();
     var grid = $("content").querySelector(".grid");
     if(grid) grid.classList.remove("is-selecting");
-    toccati.forEach(refreshCard);
+    afterWatchedChange(toccati);
   }
 
   function bulkRemove(){
@@ -1174,6 +1509,124 @@ footer a:hover{color:var(--fuchsia);}
     state.removed.clear();
     saveSet(LS_REMOVED, state.removed);
     render();
+  }
+
+  /* ---------- Avviso con "Annulla" ---------- */
+  var toastTimer, toastUndo = null;
+  function showToast(msg, undo){
+    toastUndo = undo;
+    $("toast-msg").textContent = msg;
+    $("toast").classList.add("is-visible");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(hideToast, 5500);
+  }
+  function hideToast(){
+    clearTimeout(toastTimer);
+    toastUndo = null;
+    $("toast").classList.remove("is-visible");
+  }
+
+  /* ---------- Swipe sulle card (solo touch) ---------- */
+  var SWIPE_START_PX = 10;        // spostamento minimo prima di decidere se è un gesto
+  var SWIPE_COMMIT_RATIO = .34;   // frazione della larghezza oltre cui l'azione scatta
+  var SWIPE_FLICK_PX = 56;        // con uno scatto veloce basta meno strada
+  var SWIPE_FLICK_SPEED = .55;    // px/ms
+  var SWIPE_ICON_WATCH = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg>';
+  var SWIPE_ICON_TRASH = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2m2 0-1 13a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 7"/></svg>';
+  var swipe = null;
+  var suppressClickUntil = 0;     // dopo un trascinamento il browser spara comunque un click
+
+  function swipeThreshold(s){ return s.w * SWIPE_COMMIT_RATIO; }
+
+  function swipeStart(e){
+    if(e.pointerType !== "touch" || state.selectMode || $("modal").classList.contains("is-open")) return;
+    if(e.target.closest(".watch-toggle")) return;
+    var card = e.target.closest(".card");
+    if(!card) return;
+    swipe = {
+      card:card, id:card.getAttribute("data-id"), pid:e.pointerId,
+      x0:e.clientX, y0:e.clientY, t0:performance.now(),
+      w:card.offsetWidth, dx:0, active:false, strip:null, armed:false
+    };
+  }
+
+  function swipeMove(e){
+    var s = swipe;
+    if(!s || e.pointerId !== s.pid) return;
+    var dx = e.clientX - s.x0, dy = e.clientY - s.y0;
+
+    if(!s.active){
+      // prima si decide cosa è: uno scroll verticale non deve mai diventare uno swipe
+      if(Math.abs(dy) > SWIPE_START_PX && Math.abs(dy) > Math.abs(dx)){ swipe = null; return; }
+      if(Math.abs(dx) < SWIPE_START_PX || Math.abs(dx) < Math.abs(dy) * 1.2) return;
+      s.active = true;
+      s.x0 = e.clientX; dx = 0;           // il gesto parte da qui, senza salto iniziale
+      s.card.classList.add("is-swiping");
+      s.card.classList.remove("is-settling");
+      s.strip = document.createElement("div");
+      s.strip.className = "swipe-bg";
+      s.card.insertBefore(s.strip, s.card.firstChild);
+      try{ s.card.setPointerCapture(e.pointerId); }catch(_){}
+    }
+
+    s.dx = Math.max(-s.w, Math.min(s.w, dx));
+    var dir = s.dx > 0 ? 1 : -1;
+    var armed = Math.abs(s.dx) >= swipeThreshold(s);
+    s.card.style.setProperty("--dx", s.dx + "px");
+    s.strip.style.width = Math.abs(s.dx) + "px";
+    s.strip.classList.toggle("is-right", dir > 0);
+    s.strip.classList.toggle("is-left", dir < 0);
+    s.strip.classList.toggle("is-armed", armed);
+    if(dir !== s.dir){
+      var visto = state.watched.has(s.id);
+      s.strip.innerHTML = dir > 0
+        ? SWIPE_ICON_WATCH + '<span>' + (visto ? "Da vedere" : "Visto") + '</span>'
+        : SWIPE_ICON_TRASH + '<span>Elimina</span>';
+      s.dir = dir;
+    }
+    if(armed && !s.armed && navigator.vibrate) navigator.vibrate(8);
+    s.armed = armed;
+  }
+
+  function swipeSettle(card, strip, toX){
+    card.classList.add("is-settling");
+    card.style.setProperty("--dx", toX + "px");
+    if(strip) strip.style.width = Math.abs(toX) + "px";
+    setTimeout(function(){
+      card.classList.remove("is-swiping", "is-settling");
+      card.style.removeProperty("--dx");
+      if(strip && strip.parentNode) strip.parentNode.removeChild(strip);
+    }, 260);
+  }
+
+  function swipeEnd(e, cancelled){
+    var s = swipe;
+    if(!s || e.pointerId !== s.pid) return;
+    swipe = null;
+    if(!s.active) return;
+    suppressClickUntil = performance.now() + 450;
+
+    var elapsed = Math.max(1, performance.now() - s.t0);
+    var veloce = Math.abs(s.dx) >= SWIPE_FLICK_PX && Math.abs(s.dx) / elapsed >= SWIPE_FLICK_SPEED;
+    var scatta = !cancelled && (Math.abs(s.dx) >= swipeThreshold(s) || veloce);
+    if(!scatta){ swipeSettle(s.card, s.strip, 0); return; }
+
+    var id = s.id;
+    if(s.dx > 0){
+      // destra: visto (o, se lo era già, di nuovo da vedere). La card torna al suo posto
+      var eraVisto = state.watched.has(id);
+      swipeSettle(s.card, s.strip, 0);
+      setWatched(id, !eraVisto);
+      showToast(eraVisto ? "Rimesso tra i da vedere" : "Segnato come visto", function(){ setWatched(id, eraVisto); });
+    }else{
+      // sinistra: elimina. Prima il contenuto esce dal lato, poi la card sparisce
+      var vistoPrima = state.watched.has(id);
+      swipeSettle(s.card, s.strip, -s.w);
+      setTimeout(function(){
+        setRemoved(id, true, vistoPrima);
+        showToast("Trailer eliminato", function(){ setRemoved(id, false, vistoPrima); });
+      }, 200);
+    }
   }
 
   /* ---------- Eventi ---------- */
@@ -1207,7 +1660,7 @@ footer a:hover{color:var(--fuchsia);}
   }
 
   function resetFilters(){
-    state.q = ""; state.channel = ""; state.page = 1;
+    state.q = ""; state.channel = ""; state.todo = false; state.page = 1;
     $("search").value = "";
     $("search-wrap").classList.remove("has-value");
     writeUrl(); renderFilters(); render();
@@ -1229,8 +1682,15 @@ footer a:hover{color:var(--fuchsia);}
       writeUrl(); renderFilters(); render();
     });
 
+    $("stat-todo").addEventListener("click", function(){
+      state.todo = !state.todo;
+      state.page = 1;
+      writeUrl(); render();
+    });
+
     $("reset").addEventListener("click", resetFilters);
     $("content").addEventListener("click", function(e){
+      if(performance.now() < suppressClickUntil){ e.preventDefault(); e.stopPropagation(); return; }
       if(e.target.closest("[data-reset]")){ resetFilters(); return; }
 
       var pageBtn = e.target.closest("[data-page]");
@@ -1257,6 +1717,22 @@ footer a:hover{color:var(--fuchsia);}
       var id = card.getAttribute("data-id");
       var t = state.all.filter(function(x){ return x.id === id; })[0];
       if(t) openModal(t);
+    });
+
+    // a ingresso finito la card non deve più avere l'animazione: se la si sposta nel
+    // DOM per riordinarla, altrimenti, il browser la farebbe ripartire
+    $("content").addEventListener("animationend", function(e){
+      if(e.animationName === "rise" && e.target.classList) e.target.classList.remove("is-entering");
+    });
+
+    $("content").addEventListener("pointerdown", swipeStart);
+    $("content").addEventListener("pointermove", swipeMove);
+    $("content").addEventListener("pointerup", function(e){ swipeEnd(e, false); });
+    $("content").addEventListener("pointercancel", function(e){ swipeEnd(e, true); });
+    $("toast-undo").addEventListener("click", function(){
+      var undo = toastUndo;
+      hideToast();
+      if(undo) undo();
     });
 
     $("select-btn").addEventListener("click", toggleSelectMode);
