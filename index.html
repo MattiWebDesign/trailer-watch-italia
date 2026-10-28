@@ -154,6 +154,19 @@ h1 .g{background:var(--grad); -webkit-background-clip:text; background-clip:text
 .stat-v{font-size:1.18rem; font-weight:700; letter-spacing:-.02em; font-variant-numeric:tabular-nums;}
 .stat-v small{font-size:.8rem; font-weight:500; color:var(--muted);}
 
+/* "Da vedere" è l'unica statistica cliccabile: filtra l'elenco sui non visti */
+.stat-todo{
+  font:inherit; color:inherit; text-align:left; cursor:pointer;
+  transition:border-color .2s var(--ease), background .2s var(--ease), transform .2s var(--ease);
+}
+.stat-todo:hover{border-color:var(--border-hi); transform:translateY(-1px);}
+.stat-todo:focus-visible{outline:2px solid rgba(255,122,24,.8); outline-offset:2px;}
+.stat-todo[aria-pressed="true"]{
+  border-color:rgba(255,122,24,.65);
+  background:linear-gradient(135deg,rgba(255,122,24,.14),rgba(139,61,255,.14)),var(--surface);
+}
+.stat-todo .stat-v small{margin-left:4px;}
+
 /* ============================================================
    Controlli
    ============================================================ */
@@ -591,6 +604,9 @@ footer a:hover{color:var(--fuchsia);}
 
     <div class="stats" id="stats">
       <div class="stat"><div class="stat-k">Trailer raccolti</div><div class="stat-v" id="stat-total">—</div></div>
+      <button type="button" class="stat stat-todo" id="stat-todo" aria-pressed="false" title="Mostra solo i trailer che non hai ancora visto">
+        <div class="stat-k">Da vedere</div><div class="stat-v"><span id="stat-todo-n">—</span><small id="stat-todo-hint"></small></div>
+      </button>
       <div class="stat"><div class="stat-k">Piattaforme</div><div class="stat-v" id="stat-channels">—</div></div>
       <div class="stat"><div class="stat-k">Ultimo controllo</div><div class="stat-v" id="stat-updated">—</div></div>
       <div class="stat"><div class="stat-k">Prossimo controllo</div><div class="stat-v" id="stat-next">—</div></div>
@@ -713,7 +729,7 @@ footer a:hover{color:var(--fuchsia);}
 
   /* ---------- Stato ---------- */
   var state = {
-    all:[], q:"", channel:"", view:"grid", page:1,
+    all:[], q:"", channel:"", todo:false, view:"grid", page:1,
     watched:loadSet(LS_WATCHED),
     removed:loadSet(LS_REMOVED),
     selectMode:false,
@@ -794,6 +810,7 @@ footer a:hover{color:var(--fuchsia);}
     var p = new URLSearchParams(location.search);
     state.q = p.get("q") || "";
     state.channel = p.get("canale") || "";
+    state.todo = p.get("da_vedere") === "1";
     state.view = p.get("vista") === "lista" ? "list" : "grid";
     var pagina = parseInt(p.get("pagina"), 10);
     state.page = pagina > 0 ? pagina : 1;
@@ -802,6 +819,7 @@ footer a:hover{color:var(--fuchsia);}
     var p = new URLSearchParams();
     if(state.q) p.set("q", state.q);
     if(state.channel) p.set("canale", state.channel);
+    if(state.todo) p.set("da_vedere", "1");
     if(state.view === "list") p.set("vista","lista");
     if(state.page > 1) p.set("pagina", state.page);
     var qs = p.toString();
@@ -846,6 +864,7 @@ footer a:hover{color:var(--fuchsia);}
     var ch = slug(state.channel);
     return state.all.filter(function(t){
       if(state.removed.has(t.id)) return false;
+      if(state.todo && state.watched.has(t.id)) return false;
       if(ch && slug(t.channel) !== ch) return false;
       if(q && normalize(t.title).indexOf(q) === -1 && normalize(t.channel).indexOf(q) === -1) return false;
       return true;
@@ -939,7 +958,7 @@ footer a:hover{color:var(--fuchsia);}
   function render(){
     var list = filtered();
     var content = $("content");
-    var hasFilters = !!(state.channel || state.q);
+    var hasFilters = !!(state.channel || state.q || state.todo);
 
     // la pagina corrente può eccedere il totale dopo un'eliminazione o un filtro
     var totalPages = Math.max(1, Math.ceil(list.length / PAGE_SIZE));
@@ -955,6 +974,7 @@ footer a:hover{color:var(--fuchsia);}
     $("resultcount").textContent = list.length === 0 ? "" :
       conteggio + (hasFilters ? " trovati su " + state.all.length : "");
     $("reset").hidden = !hasFilters;
+    renderTodoStat();
 
     var restoreBtn = $("restore-removed");
     if(state.removed.size > 0){
@@ -971,7 +991,10 @@ footer a:hover{color:var(--fuchsia);}
     }
     if(list.length === 0){
       var icon = "🔍", title = "Nessun risultato", text = "Nessun trailer corrisponde ai filtri attivi. Prova con un altro termine o rimuovi i filtri.";
-      if(!hasFilters && state.removed.size > 0){
+      if(state.todo && !state.channel && !state.q){
+        icon = "🎉"; title = "Hai visto tutto";
+        text = "Non ci sono trailer da vedere: appena ne arriverà uno nuovo lo troverai qui.";
+      }else if(!hasFilters && state.removed.size > 0){
         icon = "🗑️"; title = "Hai eliminato tutti i trailer";
         text = "Usa il link “Ripristina eliminati” qui sopra per farli ricomparire.";
       }
@@ -983,6 +1006,20 @@ footer a:hover{color:var(--fuchsia);}
     }
     content.innerHTML = '<div class="grid'+(state.view === "list" ? " is-list" : "")+(state.selectMode ? " is-selecting" : "")+'">'+
       pagina.map(cardHtml).join("") + '</div>' + paginationHtml(totalPages);
+  }
+
+  // quanti trailer restano da guardare: i non visti fra quelli non eliminati
+  function todoCount(){
+    return state.all.filter(function(t){
+      return !state.removed.has(t.id) && !state.watched.has(t.id);
+    }).length;
+  }
+  function renderTodoStat(){
+    var btn = $("stat-todo");
+    if(!btn) return;
+    $("stat-todo-n").textContent = todoCount();
+    $("stat-todo-hint").textContent = state.todo ? "filtro attivo" : "";
+    btn.setAttribute("aria-pressed", state.todo ? "true" : "false");
   }
 
   function renderStats(data){
@@ -1041,7 +1078,7 @@ footer a:hover{color:var(--fuchsia);}
     if(id && !state.watched.has(id)){
       state.watched.add(id);
       saveSet(LS_WATCHED, state.watched);
-      refreshCard(id);
+      afterWatchedChange([id]);
     }
     closeModal();
   }
@@ -1083,10 +1120,19 @@ footer a:hover{color:var(--fuchsia);}
     }
   }
 
+  // Dopo un cambio di stato "visto": aggiorna le card interessate e il contatore.
+  // Con il filtro "Da vedere" attivo un trailer appena visto deve sparire, quindi
+  // in quel caso si ridisegna l'elenco.
+  function afterWatchedChange(ids){
+    ids.forEach(refreshCard);
+    renderTodoStat();
+    if(state.todo) render();
+  }
+
   function toggleWatched(id){
     if(state.watched.has(id)) state.watched.delete(id); else state.watched.add(id);
     saveSet(LS_WATCHED, state.watched);
-    refreshCard(id);
+    afterWatchedChange([id]);
   }
 
   function updateBulkBar(){
@@ -1151,7 +1197,7 @@ footer a:hover{color:var(--fuchsia);}
     updateSelectModeUI();
     var grid = $("content").querySelector(".grid");
     if(grid) grid.classList.remove("is-selecting");
-    toccati.forEach(refreshCard);
+    afterWatchedChange(toccati);
   }
 
   function bulkRemove(){
@@ -1207,7 +1253,7 @@ footer a:hover{color:var(--fuchsia);}
   }
 
   function resetFilters(){
-    state.q = ""; state.channel = ""; state.page = 1;
+    state.q = ""; state.channel = ""; state.todo = false; state.page = 1;
     $("search").value = "";
     $("search-wrap").classList.remove("has-value");
     writeUrl(); renderFilters(); render();
@@ -1227,6 +1273,12 @@ footer a:hover{color:var(--fuchsia);}
       state.channel = (slug(state.channel) === c && c !== "") ? "" : c;
       state.page = 1;   // cambiando canale si riparte dalla prima pagina
       writeUrl(); renderFilters(); render();
+    });
+
+    $("stat-todo").addEventListener("click", function(){
+      state.todo = !state.todo;
+      state.page = 1;
+      writeUrl(); render();
     });
 
     $("reset").addEventListener("click", resetFilters);
