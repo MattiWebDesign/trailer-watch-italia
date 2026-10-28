@@ -1,6 +1,13 @@
 {
-  "updated_at": "2026-10-28T12:53:19.567879+00:00",
+  "updated_at": "2026-10-28T22:34:16.828130+00:00",
   "trailers": [
+    {
+      "id": "j1q8fiYrJ9c",
+      "title": "Jumanji: Open World | Nuovo Trailer Ufficiale",
+      "channel": "Sony Pictures",
+      "published": "2026-10-28T13:28:11+00:00",
+      "url": "https://www.youtube.com/watch?v=j1q8fiYrJ9c"
+    },
     {
       "id": "vH07KSjwP90",
       "title": "DUNE - PARTE 3 (2026) | Trailer Finale ITA | Il prezzo del potere",
@@ -413,13 +420,6 @@
       "channel": "Prime Video",
       "published": "2026-10-08T15:31:01+00:00",
       "url": "https://www.youtube.com/watch?v=RfzTNwiLMWc"
-    },
-    {
-      "id": "WCuG_oCV9Po",
-      "title": "Fanum: Ombre Dal Passato | Trailer Ufficiale ITA - Paramount+",
-      "channel": "Paramount+",
-      "published": "2026-10-08T15:12:07+00:00",
-      "url": "https://www.youtube.com/watch?v=WCuG_oCV9Po"
     }
   ]
 }
