@@ -411,6 +411,41 @@ h1 .g{background:var(--grad); -webkit-background-clip:text; background-clip:text
 .watch-toggle:hover{color:var(--text);}
 .watch-toggle[aria-pressed="true"]{color:#39d98a;}
 
+/* Swipe da touch: la card si sposta e scopre un fondo colorato che anticipa
+   l'azione (destra = visto, sinistra = elimina). Si sposta il contenuto, non
+   la card, così la cornice arrotondata resta ferma e fa da finestra.
+   `pan-y` lascia al browser lo scroll verticale e consegna a noi i gesti
+   orizzontali. */
+.card{touch-action:pan-y pinch-zoom;}
+.swipe-bg{
+  position:absolute; top:0; bottom:0; width:0; overflow:hidden;
+  display:flex; align-items:center; gap:9px; padding:0 18px; white-space:nowrap;
+  color:#fff; font-size:.8rem; font-weight:700; letter-spacing:.01em; pointer-events:none;
+}
+.swipe-bg.is-right{left:0; justify-content:flex-start; background:linear-gradient(90deg,#17a363,#39d98a);}
+.swipe-bg.is-left{right:0; justify-content:flex-end; background:linear-gradient(270deg,#e5334a,#ff4757);}
+.swipe-bg.is-left svg{order:2;}
+.swipe-bg svg{width:22px; height:22px; flex:none; opacity:.75; transition:transform .18s var(--ease), opacity .18s var(--ease);}
+.swipe-bg.is-armed svg{transform:scale(1.28); opacity:1;}
+.card.is-swiping .thumb,.card.is-swiping .card-body{transform:translateX(var(--dx,0px));}
+.card.is-swiping.is-settling .thumb,.card.is-swiping.is-settling .card-body{transition:transform .24s var(--ease);}
+.card.is-swiping{user-select:none; -webkit-user-select:none;}
+
+/* Avviso con "Annulla" dopo uno swipe */
+.toast{
+  position:fixed; left:50%; bottom:calc(18px + env(safe-area-inset-bottom,0px)); z-index:60;
+  transform:translate(-50%,16px); opacity:0; pointer-events:none;
+  display:flex; align-items:center; gap:14px; max-width:calc(100vw - 32px);
+  padding:11px 12px 11px 18px; border-radius:var(--r-pill);
+  background:#241a33; border:1px solid var(--border-hi); box-shadow:var(--shadow);
+  font-size:.86rem; transition:opacity .22s var(--ease), transform .22s var(--ease);
+}
+.toast.is-visible{opacity:1; transform:translate(-50%,0); pointer-events:auto;}
+.toast-undo{
+  background:var(--grad); color:#fff; border:0; border-radius:var(--r-pill);
+  padding:6px 14px; font:inherit; font-size:.8rem; font-weight:700; cursor:pointer;
+}
+
 /* Vista lista */
 .grid.is-list{grid-template-columns:1fr; gap:12px;}
 .grid.is-list .card{flex-direction:row; align-items:stretch; border-radius:var(--r-md);}
@@ -693,6 +728,11 @@ footer a:hover{color:var(--fuchsia);}
       </div>
     </div>
   </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite">
+  <span id="toast-msg"></span>
+  <button type="button" class="toast-undo" id="toast-undo">Annulla</button>
 </div>
 
 <script>
@@ -1129,10 +1169,28 @@ footer a:hover{color:var(--fuchsia);}
     if(state.todo) render();
   }
 
-  function toggleWatched(id){
-    if(state.watched.has(id)) state.watched.delete(id); else state.watched.add(id);
+  function setWatched(id, watched){
+    if(watched) state.watched.add(id); else state.watched.delete(id);
     saveSet(LS_WATCHED, state.watched);
     afterWatchedChange([id]);
+  }
+
+  function toggleWatched(id){
+    setWatched(id, !state.watched.has(id));
+  }
+
+  // elimina o ripristina un singolo trailer; `eraVisto` serve all'annullamento
+  function setRemoved(id, removed, eraVisto){
+    if(removed){
+      state.removed.add(id);
+      state.watched.delete(id);   // come per l'eliminazione multipla
+    }else{
+      state.removed.delete(id);
+      if(eraVisto) state.watched.add(id);
+    }
+    saveSet(LS_REMOVED, state.removed);
+    saveSet(LS_WATCHED, state.watched);
+    render();
   }
 
   function updateBulkBar(){
@@ -1222,6 +1280,124 @@ footer a:hover{color:var(--fuchsia);}
     render();
   }
 
+  /* ---------- Avviso con "Annulla" ---------- */
+  var toastTimer, toastUndo = null;
+  function showToast(msg, undo){
+    toastUndo = undo;
+    $("toast-msg").textContent = msg;
+    $("toast").classList.add("is-visible");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(hideToast, 5500);
+  }
+  function hideToast(){
+    clearTimeout(toastTimer);
+    toastUndo = null;
+    $("toast").classList.remove("is-visible");
+  }
+
+  /* ---------- Swipe sulle card (solo touch) ---------- */
+  var SWIPE_START_PX = 10;        // spostamento minimo prima di decidere se è un gesto
+  var SWIPE_COMMIT_RATIO = .34;   // frazione della larghezza oltre cui l'azione scatta
+  var SWIPE_FLICK_PX = 56;        // con uno scatto veloce basta meno strada
+  var SWIPE_FLICK_SPEED = .55;    // px/ms
+  var SWIPE_ICON_WATCH = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg>';
+  var SWIPE_ICON_TRASH = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2m2 0-1 13a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 7"/></svg>';
+  var swipe = null;
+  var suppressClickUntil = 0;     // dopo un trascinamento il browser spara comunque un click
+
+  function swipeThreshold(s){ return s.w * SWIPE_COMMIT_RATIO; }
+
+  function swipeStart(e){
+    if(e.pointerType !== "touch" || state.selectMode || $("modal").classList.contains("is-open")) return;
+    if(e.target.closest(".watch-toggle")) return;
+    var card = e.target.closest(".card");
+    if(!card) return;
+    swipe = {
+      card:card, id:card.getAttribute("data-id"), pid:e.pointerId,
+      x0:e.clientX, y0:e.clientY, t0:performance.now(),
+      w:card.offsetWidth, dx:0, active:false, strip:null, armed:false
+    };
+  }
+
+  function swipeMove(e){
+    var s = swipe;
+    if(!s || e.pointerId !== s.pid) return;
+    var dx = e.clientX - s.x0, dy = e.clientY - s.y0;
+
+    if(!s.active){
+      // prima si decide cosa è: uno scroll verticale non deve mai diventare uno swipe
+      if(Math.abs(dy) > SWIPE_START_PX && Math.abs(dy) > Math.abs(dx)){ swipe = null; return; }
+      if(Math.abs(dx) < SWIPE_START_PX || Math.abs(dx) < Math.abs(dy) * 1.2) return;
+      s.active = true;
+      s.x0 = e.clientX; dx = 0;           // il gesto parte da qui, senza salto iniziale
+      s.card.classList.add("is-swiping");
+      s.card.classList.remove("is-settling");
+      s.strip = document.createElement("div");
+      s.strip.className = "swipe-bg";
+      s.card.insertBefore(s.strip, s.card.firstChild);
+      try{ s.card.setPointerCapture(e.pointerId); }catch(_){}
+    }
+
+    s.dx = Math.max(-s.w, Math.min(s.w, dx));
+    var dir = s.dx > 0 ? 1 : -1;
+    var armed = Math.abs(s.dx) >= swipeThreshold(s);
+    s.card.style.setProperty("--dx", s.dx + "px");
+    s.strip.style.width = Math.abs(s.dx) + "px";
+    s.strip.classList.toggle("is-right", dir > 0);
+    s.strip.classList.toggle("is-left", dir < 0);
+    s.strip.classList.toggle("is-armed", armed);
+    if(dir !== s.dir){
+      var visto = state.watched.has(s.id);
+      s.strip.innerHTML = dir > 0
+        ? SWIPE_ICON_WATCH + '<span>' + (visto ? "Da vedere" : "Visto") + '</span>'
+        : SWIPE_ICON_TRASH + '<span>Elimina</span>';
+      s.dir = dir;
+    }
+    if(armed && !s.armed && navigator.vibrate) navigator.vibrate(8);
+    s.armed = armed;
+  }
+
+  function swipeSettle(card, strip, toX){
+    card.classList.add("is-settling");
+    card.style.setProperty("--dx", toX + "px");
+    if(strip) strip.style.width = Math.abs(toX) + "px";
+    setTimeout(function(){
+      card.classList.remove("is-swiping", "is-settling");
+      card.style.removeProperty("--dx");
+      if(strip && strip.parentNode) strip.parentNode.removeChild(strip);
+    }, 260);
+  }
+
+  function swipeEnd(e, cancelled){
+    var s = swipe;
+    if(!s || e.pointerId !== s.pid) return;
+    swipe = null;
+    if(!s.active) return;
+    suppressClickUntil = performance.now() + 450;
+
+    var elapsed = Math.max(1, performance.now() - s.t0);
+    var veloce = Math.abs(s.dx) >= SWIPE_FLICK_PX && Math.abs(s.dx) / elapsed >= SWIPE_FLICK_SPEED;
+    var scatta = !cancelled && (Math.abs(s.dx) >= swipeThreshold(s) || veloce);
+    if(!scatta){ swipeSettle(s.card, s.strip, 0); return; }
+
+    var id = s.id;
+    if(s.dx > 0){
+      // destra: visto (o, se lo era già, di nuovo da vedere). La card torna al suo posto
+      var eraVisto = state.watched.has(id);
+      swipeSettle(s.card, s.strip, 0);
+      setWatched(id, !eraVisto);
+      showToast(eraVisto ? "Rimesso tra i da vedere" : "Segnato come visto", function(){ setWatched(id, eraVisto); });
+    }else{
+      // sinistra: elimina. Prima il contenuto esce dal lato, poi la card sparisce
+      var vistoPrima = state.watched.has(id);
+      swipeSettle(s.card, s.strip, -s.w);
+      setTimeout(function(){
+        setRemoved(id, true, vistoPrima);
+        showToast("Trailer eliminato", function(){ setRemoved(id, false, vistoPrima); });
+      }, 200);
+    }
+  }
+
   /* ---------- Eventi ---------- */
   var debounceTimer;
   function onSearch(v){
@@ -1283,6 +1459,7 @@ footer a:hover{color:var(--fuchsia);}
 
     $("reset").addEventListener("click", resetFilters);
     $("content").addEventListener("click", function(e){
+      if(performance.now() < suppressClickUntil){ e.preventDefault(); e.stopPropagation(); return; }
       if(e.target.closest("[data-reset]")){ resetFilters(); return; }
 
       var pageBtn = e.target.closest("[data-page]");
@@ -1309,6 +1486,16 @@ footer a:hover{color:var(--fuchsia);}
       var id = card.getAttribute("data-id");
       var t = state.all.filter(function(x){ return x.id === id; })[0];
       if(t) openModal(t);
+    });
+
+    $("content").addEventListener("pointerdown", swipeStart);
+    $("content").addEventListener("pointermove", swipeMove);
+    $("content").addEventListener("pointerup", function(e){ swipeEnd(e, false); });
+    $("content").addEventListener("pointercancel", function(e){ swipeEnd(e, true); });
+    $("toast-undo").addEventListener("click", function(){
+      var undo = toastUndo;
+      hideToast();
+      if(undo) undo();
     });
 
     $("select-btn").addEventListener("click", toggleSelectMode);
