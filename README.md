@@ -50,10 +50,16 @@ vengono versionati.
   si limita ai soli da vedere (`?da_vedere=1`); il filtro si toglie con un altro clic o
   con "Azzera filtri". Con il filtro attivo un trailer appena visto esce dall'elenco
 - Etichetta "Nuovo" sui trailer usciti nelle ultime 72 ore
-- Segna i trailer come visti dall'icona sulla card, dalla selezione multipla o dal
-  pulsante "Segna visto e chiudi" in fondo al player. I già visti restano in elenco
-  ma arretrano: miniatura in bianco e nero e sfocata, titolo e metadati attenuati,
-  etichetta "Visto". Passando il mouse tornano nitidi e leggibili
+- Segna i trailer come visti dall'icona sulla card, dalla selezione multipla, dallo
+  swipe o dal pulsante "Segna visto e chiudi" in fondo al player. I due stati sono
+  pensati per essere opposti, non uno solo "più scuro" dell'altro:
+  - **da vedere**: titolo in grassetto con un pallino a gradiente davanti, miniatura a
+    colori (più la pillola "Nuovo" se è uscito da meno di 72 ore);
+  - **visto**: resta in elenco ma arretra. La miniatura è sfocata, in bianco e nero e
+    molto scura, con una grande spunta verde "Visto" al centro. Titolo e metadati
+    quasi spariscono. Né l'hover né il tocco ridanno colore alla miniatura (su touch
+    l'hover resta attaccato dopo un tap e il trailer sembrerebbe ancora da vedere):
+    solo il testo torna leggibile col mouse sopra, per poterlo consultare
 - In alternativa puoi eliminare i trailer dall'elenco; l'operazione è reversibile dal
   link "Ripristina eliminati"
 - Lo stato "visto"/"eliminato" è salvato nel browser (`localStorage`): è personale per

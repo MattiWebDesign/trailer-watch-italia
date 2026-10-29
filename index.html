@@ -355,33 +355,51 @@ h1 .g{background:var(--grad); -webkit-background-clip:text; background-clip:text
   font-size:.66rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase;
   box-shadow:0 8px 20px -8px rgba(255,45,120,.9);
 }
+/* "Visto" è un segno grande al centro della miniatura, non una pillola: deve
+   leggersi a colpo d'occhio e non confondersi con "Nuovo" né col nome del canale */
 .thumb-watched{
-  position:absolute; right:12px; top:12px; z-index:2;
-  display:inline-flex; align-items:center; gap:5px;
-  padding:5px 10px; border-radius:var(--r-pill);
-  background:rgba(10,7,16,.78); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
-  border:1px solid rgba(255,255,255,.14); color:var(--muted);
-  font-size:.66rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase;
+  position:absolute; inset:0; z-index:2; pointer-events:none;
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px;
+  color:#39d98a; font-size:.7rem; font-weight:800; letter-spacing:.14em; text-transform:uppercase;
+  background:radial-gradient(circle at 50% 50%,rgba(6,4,10,.55),transparent 70%);
 }
-.thumb-watched svg{width:11px; height:11px;}
+.thumb-watched svg{
+  width:50px; height:50px; padding:13px; border-radius:50%; box-sizing:border-box;
+  background:rgba(57,217,138,.16); border:2px solid #39d98a;
+  box-shadow:0 0 0 6px rgba(57,217,138,.08), 0 10px 30px -10px rgba(0,0,0,.8);
+}
+.thumb-watched.is-fresh svg{animation:checkpop .34s var(--ease) both;}
+@keyframes checkpop{from{opacity:0; transform:scale(.5);} to{opacity:1; transform:none;}}
+/* il tasto play condividerebbe il centro con la spunta: sui visti non serve */
+.card.is-watched .play{display:none;}
 
 /* Già visti: arretrano nettamente, così i trailer da vedere saltano all'occhio.
    La sfumatura non si applica alla card intera perché l'animazione d'ingresso
    ne governa l'opacità e la sovrascriverebbe; si agisce quindi sui contenuti.
-   La miniatura è sfocata oltre che in bianco e nero; il leggero ingrandimento
-   evita che i bordi sfocati lascino una cornice scura dentro il riquadro.
-   Al passaggio del mouse nitidezza e colore tornano, per poterli consultare. */
+   La miniatura resta sfocata e in bianco e nero ANCHE al passaggio del mouse:
+   su touch l'hover resta attaccato dopo un tap, e se bastasse quello a ridare
+   colore un trailer appena segnato come visto sembrerebbe ancora da vedere.
+   Il testo invece torna leggibile in hover, per poterlo consultare. Il leggero
+   ingrandimento evita che i bordi sfocati lascino una cornice scura. */
 .card.is-watched{border-color:rgba(255,255,255,.05);}
-.card.is-watched .thumb img{filter:grayscale(1) brightness(.45) blur(5px); transform:scale(1.1);}
-.card.is-watched .thumb-badge{opacity:.45;}
-.card.is-watched .card-title{color:var(--faint); font-weight:500;}
-.card.is-watched .card-meta{opacity:.6;}
-.card.is-watched:hover .thumb img,
-.card.is-watched:focus-within .thumb img{filter:grayscale(.1) brightness(.8) blur(0); transform:scale(1.06);}
+.card.is-watched .thumb img{filter:grayscale(1) brightness(.4) blur(5px); transform:scale(1.1);}
+.card.is-watched .thumb-badge{opacity:.4;}
+.card.is-watched .card-title{color:#5d5470; font-weight:400;}
+.card.is-watched .card-meta{opacity:.4;}
 .card.is-watched:hover .card-title,
 .card.is-watched:focus-within .card-title{color:var(--muted);}
-.card.is-watched:hover .thumb-badge,
-.card.is-watched:hover .card-meta{opacity:1;}
+.card.is-watched:hover .card-meta,
+.card.is-watched:focus-within .card-meta{opacity:.75;}
+
+/* Da vedere: il titolo è in grassetto e preceduto da un pallino col gradiente,
+   così i due stati sono opposti e non uno solo "più scuro" dell'altro. È CSS
+   puro: segnare un trailer come visto lo aggiorna senza altro codice. */
+.card:not(.is-watched) .card-title{font-weight:700;}
+.card:not(.is-watched) .card-title::before{
+  content:""; display:inline-block; width:8px; height:8px; margin-right:8px;
+  border-radius:50%; background:var(--grad); vertical-align:.08em;
+  box-shadow:0 0 10px rgba(255,45,120,.7);
+}
 
 /* Checkbox di selezione multipla, visibile in modalità "Seleziona" */
 .card-select{
@@ -462,6 +480,8 @@ h1 .g{background:var(--grad); -webkit-background-clip:text; background-clip:text
 .grid.is-list .play{width:40px; height:40px;}
 .grid.is-list .play svg{width:15px; height:15px;}
 .grid.is-list .thumb-badge,.grid.is-list .thumb-new{display:none;}
+.grid.is-list .thumb-watched{font-size:0; gap:0;}
+.grid.is-list .thumb-watched svg{width:34px; height:34px; padding:8px; border-width:2px; box-shadow:none;}
 .grid.is-list .card-body{justify-content:center; padding:12px 18px;}
 .grid.is-list .card-title{-webkit-line-clamp:2; font-size:1rem;}
 .grid.is-list .card-meta{margin-top:0;}
@@ -1377,12 +1397,20 @@ footer a:hover{color:var(--fuchsia);}
 
     card.classList.toggle("is-watched", watched);
 
+    // il segno (Visto / Nuovo) si tocca solo se cambia: sulle card riusate dal
+    // riordino rifarlo a ogni render farebbe ripartire l'animazione di comparsa
     var thumb = card.querySelector(".thumb");
     var vecchia = thumb.querySelector(".thumb-watched, .thumb-new");
-    if(vecchia) vecchia.remove();
-    var badge = badgeHtml(t, watched);
-    // va inserita prima del tasto play, che deve restare l'ultimo elemento
-    if(badge) thumb.querySelector(".play").insertAdjacentHTML("beforebegin", badge);
+    var tipo = function(el){ return el ? (el.classList.contains("thumb-watched") ? "watched" : "new") : ""; };
+    var voluto = watched ? "watched" : (isNew(t.published) ? "new" : "");
+    if(tipo(vecchia) !== voluto){
+      if(vecchia) vecchia.remove();
+      var badge = badgeHtml(t, watched);
+      // va inserita prima del tasto play, che deve restare l'ultimo elemento
+      if(badge) thumb.querySelector(".play").insertAdjacentHTML("beforebegin", badge);
+      var nuovo = thumb.querySelector(".thumb-watched");
+      if(nuovo) nuovo.classList.add("is-fresh");
+    }
 
     var btn = card.querySelector(".watch-toggle");
     if(btn){
