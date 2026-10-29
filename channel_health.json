@@ -1,1 +1,62 @@
-{}
+{
+  "Netflix": {
+    "failures": 1,
+    "since": "2026-10-29T22:44:29.526758+00:00",
+    "problem": "errore: HTTP Error 404: Not Found"
+  },
+  "Prime Video": {
+    "failures": 1,
+    "since": "2026-10-29T22:44:29.526758+00:00",
+    "problem": "errore: HTTP Error 404: Not Found"
+  },
+  "Disney+": {
+    "failures": 1,
+    "since": "2026-10-29T22:44:29.526758+00:00",
+    "problem": "errore: HTTP Error 404: Not Found"
+  },
+  "Paramount+": {
+    "failures": 1,
+    "since": "2026-10-29T22:44:29.526758+00:00",
+    "problem": "errore: HTTP Error 500: Internal Server Error"
+  },
+  "HBO Max": {
+    "failures": 1,
+    "since": "2026-10-29T22:44:29.526758+00:00",
+    "problem": "errore: HTTP Error 404: Not Found"
+  },
+  "Apple TV+": {
+    "failures": 1,
+    "since": "2026-10-29T22:44:29.526758+00:00",
+    "problem": "errore: HTTP Error 404: Not Found"
+  },
+  "Sony Pictures": {
+    "failures": 1,
+    "since": "2026-10-29T22:44:29.526758+00:00",
+    "problem": "errore: HTTP Error 404: Not Found"
+  },
+  "Paramount Pictures": {
+    "failures": 1,
+    "since": "2026-10-29T22:44:29.526758+00:00",
+    "problem": "errore: HTTP Error 404: Not Found"
+  },
+  "Universal Pictures": {
+    "failures": 1,
+    "since": "2026-10-29T22:44:29.526758+00:00",
+    "problem": "errore: HTTP Error 404: Not Found"
+  },
+  "Marvel": {
+    "failures": 1,
+    "since": "2026-10-29T22:44:29.526758+00:00",
+    "problem": "errore: HTTP Error 404: Not Found"
+  },
+  "FilmIsNow": {
+    "failures": 1,
+    "since": "2026-10-29T22:44:29.526758+00:00",
+    "problem": "errore: HTTP Error 404: Not Found"
+  },
+  "Box Office Trailers": {
+    "failures": 1,
+    "since": "2026-10-29T22:44:29.526758+00:00",
+    "problem": "errore: HTTP Error 404: Not Found"
+  }
+}
