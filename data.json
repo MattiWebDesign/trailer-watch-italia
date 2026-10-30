@@ -1,6 +1,20 @@
 {
-  "updated_at": "2026-10-30T05:47:10.892326+00:00",
+  "updated_at": "2026-10-30T12:53:57.997318+00:00",
   "trailers": [
+    {
+      "id": "ye8ArRfhgAo",
+      "title": "BEHEMOTH! Una vita. Da ricomporre. (2026) | Trailer ITA | Pedro Pascal, Olivia Wilde",
+      "channel": "FilmIsNow",
+      "published": "2026-10-30T09:15:46+00:00",
+      "url": "https://www.youtube.com/watch?v=ye8ArRfhgAo"
+    },
+    {
+      "id": "kx0uZz9cw90",
+      "title": "Ramayana: La nascita di una leggenda - Dal 19 novembre al cinema - Trailer Ufficiale",
+      "channel": "Sony Pictures",
+      "published": "2026-10-29T17:00:02+00:00",
+      "url": "https://www.youtube.com/watch?v=kx0uZz9cw90"
+    },
     {
       "id": "LvW2PCPMnsk",
       "title": "Ali G: Who Iz I? - Trailer ufficiale | Prime Video",
@@ -406,20 +420,6 @@
       "channel": "Netflix",
       "published": "2026-10-12T12:00:03+00:00",
       "url": "https://www.youtube.com/watch?v=A-tu5d5wMZE"
-    },
-    {
-      "id": "ZqJs9DV_NuI",
-      "title": "The Traitors Italia | Trailer Ufficiale | Prime Video",
-      "channel": "Prime Video",
-      "published": "2026-10-12T10:16:46+00:00",
-      "url": "https://www.youtube.com/watch?v=ZqJs9DV_NuI"
-    },
-    {
-      "id": "wmhaotrbS4Q",
-      "title": "Route 187 | Trailer Ufficiale ITA - Paramount+",
-      "channel": "Paramount+",
-      "published": "2026-10-11T16:03:30+00:00",
-      "url": "https://www.youtube.com/watch?v=wmhaotrbS4Q"
     }
   ]
 }
