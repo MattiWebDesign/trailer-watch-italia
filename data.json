@@ -1,6 +1,13 @@
 {
-  "updated_at": "2026-10-30T12:53:57.997318+00:00",
+  "updated_at": "2026-10-30T22:18:28.902683+00:00",
   "trailers": [
+    {
+      "id": "Fbo4fQYuQxQ",
+      "title": "Quasimodo, l'anima di Parigi | Trailer ufficiale | Netflix Italia",
+      "channel": "Netflix",
+      "published": "2026-10-30T16:00:11+00:00",
+      "url": "https://www.youtube.com/watch?v=Fbo4fQYuQxQ"
+    },
     {
       "id": "ye8ArRfhgAo",
       "title": "BEHEMOTH! Una vita. Da ricomporre. (2026) | Trailer ITA | Pedro Pascal, Olivia Wilde",
@@ -413,13 +420,6 @@
       "channel": "Netflix",
       "published": "2026-10-12T15:00:02+00:00",
       "url": "https://www.youtube.com/watch?v=1QjTdBeafLs"
-    },
-    {
-      "id": "A-tu5d5wMZE",
-      "title": "The Mosquito Bowl | Trailer ufficiale | Netflix Italia",
-      "channel": "Netflix",
-      "published": "2026-10-12T12:00:03+00:00",
-      "url": "https://www.youtube.com/watch?v=A-tu5d5wMZE"
     }
   ]
 }
