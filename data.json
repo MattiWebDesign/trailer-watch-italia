@@ -1,6 +1,27 @@
 {
-  "updated_at": "2026-11-03T00:57:12.514679+00:00",
+  "updated_at": "2026-11-03T14:11:43.921480+00:00",
   "trailers": [
+    {
+      "id": "sawoau-qkBA",
+      "title": "CLUB KID Trailer Ita Ufficiale (2026) Cara Delevingne",
+      "channel": "Box Office Trailers",
+      "published": "2026-11-03T11:47:10+00:00",
+      "url": "https://www.youtube.com/watch?v=sawoau-qkBA"
+    },
+    {
+      "id": "xYMpqS0kn4U",
+      "title": "Percy Jackson e gli Dei dell’Olimpo 3 | Trailer ITA | La vittoria ha un prezzo",
+      "channel": "FilmIsNow",
+      "published": "2026-11-03T10:41:46+00:00",
+      "url": "https://www.youtube.com/watch?v=xYMpqS0kn4U"
+    },
+    {
+      "id": "teqtOie0YRI",
+      "title": "Percy Jackson e gli Dei dell'Olimpo Stagione 3 | Trailer Ufficiale | Disney+ Italia",
+      "channel": "Disney+",
+      "published": "2026-11-02T18:17:45+00:00",
+      "url": "https://www.youtube.com/watch?v=teqtOie0YRI"
+    },
     {
       "id": "9Bujoym_6FQ",
       "title": "Missione: Salvare il Natale - Trailer Ufficiale | Prime Video",
@@ -399,27 +420,6 @@
       "channel": "Prime Video",
       "published": "2026-10-13T07:30:29+00:00",
       "url": "https://www.youtube.com/watch?v=7psPuDkyW9s"
-    },
-    {
-      "id": "SJ3CyiyZRWU",
-      "title": "Phony | Trailer Ufficiale | Disney+ Italia",
-      "channel": "Disney+",
-      "published": "2026-10-13T07:13:39+00:00",
-      "url": "https://www.youtube.com/watch?v=SJ3CyiyZRWU"
-    },
-    {
-      "id": "E_5HZBhf1eU",
-      "title": "Remnants — Official Reaction Trailer | Apple Vision Pro",
-      "channel": "Apple TV+",
-      "published": "2026-10-12T17:21:13+00:00",
-      "url": "https://www.youtube.com/watch?v=E_5HZBhf1eU"
-    },
-    {
-      "id": "CQp2pUXLvJk",
-      "title": "Being Heumann — Official Trailer | Apple TV",
-      "channel": "Apple TV+",
-      "published": "2026-10-12T16:00:00+00:00",
-      "url": "https://www.youtube.com/watch?v=CQp2pUXLvJk"
     }
   ]
 }
