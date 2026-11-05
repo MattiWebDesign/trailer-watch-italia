@@ -1,6 +1,34 @@
 {
-  "updated_at": "2026-11-05T06:44:33.666785+00:00",
+  "updated_at": "2026-11-05T19:56:08.699237+00:00",
   "trailers": [
+    {
+      "id": "9ZiePpwIlAE",
+      "title": "Bad Monkey — Season 2 Official Trailer | Apple TV",
+      "channel": "Apple TV+",
+      "published": "2026-11-05T16:59:54+00:00",
+      "url": "https://www.youtube.com/watch?v=9ZiePpwIlAE"
+    },
+    {
+      "id": "MXHdU0tSHgQ",
+      "title": "Yellowjackets S4 | Trailer Ufficiale ITA - Paramount+",
+      "channel": "Paramount+",
+      "published": "2026-11-05T16:20:40+00:00",
+      "url": "https://www.youtube.com/watch?v=MXHdU0tSHgQ"
+    },
+    {
+      "id": "uNYZ4V3ENwc",
+      "title": "Criminal Teaser Ufficiale | Prime Video",
+      "channel": "Prime Video",
+      "published": "2026-11-05T15:00:39+00:00",
+      "url": "https://www.youtube.com/watch?v=uNYZ4V3ENwc"
+    },
+    {
+      "id": "mGd5msu0djI",
+      "title": "NELLA GIOIA E NEL DOLORE (2026) | Trailer ITA | Il nuovo film di Ferzan Özpetek",
+      "channel": "FilmIsNow",
+      "published": "2026-11-05T08:59:08+00:00",
+      "url": "https://www.youtube.com/watch?v=mGd5msu0djI"
+    },
     {
       "id": "Q5qGwUB1UBA",
       "title": "Il capo perfetto | Trailer ufficiale | Netflix",
@@ -392,34 +420,6 @@
       "channel": "Prime Video",
       "published": "2026-10-14T15:35:36+00:00",
       "url": "https://www.youtube.com/watch?v=nZIflN62zOA"
-    },
-    {
-      "id": "nyfMfo1z_XY",
-      "title": "Yellowjackets S4 | Teaser Ufficiale ITA - Paramount+",
-      "channel": "Paramount+",
-      "published": "2026-10-14T15:06:27+00:00",
-      "url": "https://www.youtube.com/watch?v=nyfMfo1z_XY"
-    },
-    {
-      "id": "uyWyVEDX9N0",
-      "title": "Trailer | L'amore della tua vita",
-      "channel": "Prime Video",
-      "published": "2026-10-14T13:15:19+00:00",
-      "url": "https://www.youtube.com/watch?v=uyWyVEDX9N0"
-    },
-    {
-      "id": "2psaOB8O3Qs",
-      "title": "Il rumore delle cose nuove (2026) | Trailer ITA | Il nuovo film di Paolo Genovese",
-      "channel": "FilmIsNow",
-      "published": "2026-10-14T12:00:24+00:00",
-      "url": "https://www.youtube.com/watch?v=2psaOB8O3Qs"
-    },
-    {
-      "id": "X1ndhxWwl5Q",
-      "title": "Narnia: Il nipote del mago | Trailer ufficiale | Netflix Italia",
-      "channel": "Netflix",
-      "published": "2026-10-13T18:00:04+00:00",
-      "url": "https://www.youtube.com/watch?v=X1ndhxWwl5Q"
     }
   ]
 }
