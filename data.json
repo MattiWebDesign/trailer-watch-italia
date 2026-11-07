@@ -1,6 +1,13 @@
 {
-  "updated_at": "2026-11-07T05:56:51.351630+00:00",
+  "updated_at": "2026-11-07T12:59:00.868956+00:00",
   "trailers": [
+    {
+      "id": "JqsFA6q58mY",
+      "title": "Ramayana: La nascita di una leggenda - Dal 19 novembre al cinema - Trailer Ufficiale Hindi",
+      "channel": "Sony Pictures",
+      "published": "2026-11-07T11:00:01+00:00",
+      "url": "https://www.youtube.com/watch?v=JqsFA6q58mY"
+    },
     {
       "id": "eANAZ6MZBAk",
       "title": "KnockOut – Botte da comici | Teaser Ufficiale | Paramount+",
@@ -413,13 +420,6 @@
       "channel": "FilmIsNow",
       "published": "2026-10-15T10:15:04+00:00",
       "url": "https://www.youtube.com/watch?v=sq3Wxa29AAY"
-    },
-    {
-      "id": "-_qDzEFZ0ho",
-      "title": "THE GREATEST | Trailer ITA | Muhammad Ali diventa leggenda",
-      "channel": "FilmIsNow",
-      "published": "2026-10-15T08:03:30+00:00",
-      "url": "https://www.youtube.com/watch?v=-_qDzEFZ0ho"
     }
   ]
 }
