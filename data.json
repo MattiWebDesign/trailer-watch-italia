@@ -1,6 +1,27 @@
 {
-  "updated_at": "2026-11-10T07:15:54.489998+00:00",
+  "updated_at": "2026-11-10T19:43:11.111530+00:00",
   "trailers": [
+    {
+      "id": "JhIwpmslObY",
+      "title": "Fraggle Rock: A Holiday Gift — Official Trailer | Apple TV",
+      "channel": "Apple TV+",
+      "published": "2026-11-10T16:44:50+00:00",
+      "url": "https://www.youtube.com/watch?v=JhIwpmslObY"
+    },
+    {
+      "id": "pXYUJ7zFFIA",
+      "title": "Scontrarsi a Natale - Trailer Ufficiale | Prime Video",
+      "channel": "Prime Video",
+      "published": "2026-11-10T16:01:01+00:00",
+      "url": "https://www.youtube.com/watch?v=pXYUJ7zFFIA"
+    },
+    {
+      "id": "vrh_ejvnGsU",
+      "title": "BLADE RUNNER 2099 | Trailer #2 ITA | Tutto può essere distrutto",
+      "channel": "FilmIsNow",
+      "published": "2026-11-10T14:07:39+00:00",
+      "url": "https://www.youtube.com/watch?v=vrh_ejvnGsU"
+    },
     {
       "id": "HFIOpZb5ykk",
       "title": "Blade Runner 2099 - Trailer Finale | Prime Video",
@@ -399,27 +420,6 @@
       "channel": "HBO Max",
       "published": "2026-10-19T08:30:34+00:00",
       "url": "https://www.youtube.com/watch?v=JmbyAhgqUKY"
-    },
-    {
-      "id": "vS-H9n5XzPg",
-      "title": "Spongebob & Patrick: Pasticcio Temporale – Official Trailer | Paramount+",
-      "channel": "Paramount+",
-      "published": "2026-10-18T10:00:36+00:00",
-      "url": "https://www.youtube.com/watch?v=vS-H9n5XzPg"
-    },
-    {
-      "id": "-4pm5QQK8f0",
-      "title": "Noi un po’ meglio | Trailer Ufficiale | Netflix Italia",
-      "channel": "Netflix",
-      "published": "2026-10-18T10:00:00+00:00",
-      "url": "https://www.youtube.com/watch?v=-4pm5QQK8f0"
-    },
-    {
-      "id": "AgiGac5pEj4",
-      "title": "I MIGLIORI FILM IN ARRIVO 2026 / 2027 (Trailers)",
-      "channel": "Box Office Trailers",
-      "published": "2026-10-16T17:01:01+00:00",
-      "url": "https://www.youtube.com/watch?v=AgiGac5pEj4"
     }
   ]
 }
