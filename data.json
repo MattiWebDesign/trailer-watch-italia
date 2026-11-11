@@ -1,6 +1,13 @@
 {
-  "updated_at": "2026-11-11T06:16:22.990456+00:00",
+  "updated_at": "2026-11-11T14:29:25.154204+00:00",
   "trailers": [
+    {
+      "id": "dlDOdzzQo70",
+      "title": "Emily in Paris - Stagione finale | Teaser ufficiale | Netflix Italia",
+      "channel": "Netflix",
+      "published": "2026-11-11T14:00:04+00:00",
+      "url": "https://www.youtube.com/watch?v=dlDOdzzQo70"
+    },
     {
       "id": "JhIwpmslObY",
       "title": "Fraggle Rock: A Holiday Gift — Official Trailer | Apple TV",
@@ -413,13 +420,6 @@
       "channel": "HBO Max",
       "published": "2026-10-19T12:00:51+00:00",
       "url": "https://www.youtube.com/watch?v=_6O_H5ghgrA"
-    },
-    {
-      "id": "JmbyAhgqUKY",
-      "title": "Melania Rea | Trailer Ufficiale | HBO Max",
-      "channel": "HBO Max",
-      "published": "2026-10-19T08:30:34+00:00",
-      "url": "https://www.youtube.com/watch?v=JmbyAhgqUKY"
     }
   ]
 }
