@@ -1,6 +1,20 @@
 {
-  "updated_at": "2026-11-12T15:12:56.367122+00:00",
+  "updated_at": "2026-11-12T23:38:35.651451+00:00",
   "trailers": [
+    {
+      "id": "dzBVhoHLwOs",
+      "title": "IL CASO THOMAS CROWN (2027) | Trailer ITA | Michael B. Jordan ha un piano",
+      "channel": "FilmIsNow",
+      "published": "2026-11-12T16:00:18+00:00",
+      "url": "https://www.youtube.com/watch?v=dzBVhoHLwOs"
+    },
+    {
+      "id": "kgDl_nu2Tg8",
+      "title": "IL REGNO DI ORÏSHA | Trailer ITA | Viola Davis, Regina King, Idris Elba",
+      "channel": "FilmIsNow",
+      "published": "2026-11-12T15:07:30+00:00",
+      "url": "https://www.youtube.com/watch?v=kgDl_nu2Tg8"
+    },
     {
       "id": "sCPJaJMXvvU",
       "title": "IL CASO THOMAS CROWN Trailer 2 Ita Ufficiale (2027) Michael B. Jordan",
@@ -406,20 +420,6 @@
       "channel": "Disney+",
       "published": "2026-10-21T13:30:15+00:00",
       "url": "https://www.youtube.com/watch?v=YRCaJ0eIO0Q"
-    },
-    {
-      "id": "LOkZnR-iZ10",
-      "title": "Possible Love | Trailer finale | Netflix Italia",
-      "channel": "Netflix",
-      "published": "2026-10-20T21:00:00+00:00",
-      "url": "https://www.youtube.com/watch?v=LOkZnR-iZ10"
-    },
-    {
-      "id": "lu6L8n24eOM",
-      "title": "L’uomo che poteva cambiare il mondo (2026) | Trailer ITA | Elio Germano tra Hitler e Mussolini",
-      "channel": "FilmIsNow",
-      "published": "2026-10-20T16:00:08+00:00",
-      "url": "https://www.youtube.com/watch?v=lu6L8n24eOM"
     }
   ]
 }
