@@ -1,6 +1,20 @@
 {
-  "updated_at": "2026-11-17T07:53:57.464167+00:00",
+  "updated_at": "2026-11-17T20:54:05.949035+00:00",
   "trailers": [
+    {
+      "id": "lfKiy2sdcQ8",
+      "title": "Only Murders in London | Trailer Ufficiale | Disney+ Italia",
+      "channel": "Disney+",
+      "published": "2026-11-17T16:40:08+00:00",
+      "url": "https://www.youtube.com/watch?v=lfKiy2sdcQ8"
+    },
+    {
+      "id": "GQwwQ1vCrCA",
+      "title": "Il problema dei 3 corpi - Stagione 2 | Teaser ufficiale | Netflix Italia",
+      "channel": "Netflix",
+      "published": "2026-11-17T15:00:02+00:00",
+      "url": "https://www.youtube.com/watch?v=GQwwQ1vCrCA"
+    },
     {
       "id": "mYutXvmlzvE",
       "title": "Rimani ancora | Trailer Ufficiale",
@@ -406,20 +420,6 @@
       "channel": "Paramount+",
       "published": "2026-10-24T16:00:28+00:00",
       "url": "https://www.youtube.com/watch?v=aUTNgKI-daI"
-    },
-    {
-      "id": "6Ht8SVOFPeQ",
-      "title": "Fallout Shelter | Teaser",
-      "channel": "Prime Video",
-      "published": "2026-10-23T17:10:24+00:00",
-      "url": "https://www.youtube.com/watch?v=6Ht8SVOFPeQ"
-    },
-    {
-      "id": "ojXECCKqceo",
-      "title": "Dexter: Resurrection | Stagione 2 | Trailer Ufficiale | Dal 30 Ottobre in Esclusiva su Paramount+",
-      "channel": "Paramount+",
-      "published": "2026-10-23T06:56:20+00:00",
-      "url": "https://www.youtube.com/watch?v=ojXECCKqceo"
     }
   ]
 }
