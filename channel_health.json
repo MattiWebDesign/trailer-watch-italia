@@ -1,7 +1,1 @@
-{
-  "Disney+": {
-    "failures": 1,
-    "since": "2026-11-20T20:16:15.002889+00:00",
-    "problem": "errore: The read operation timed out"
-  }
-}
+{}
