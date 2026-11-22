@@ -1,6 +1,13 @@
 {
-  "updated_at": "2026-11-22T06:45:19.907531+00:00",
+  "updated_at": "2026-11-22T19:37:45.679858+00:00",
   "trailers": [
+    {
+      "id": "ihMJyVJMJ08",
+      "title": "Garfield | Trailer Ufficiale - Paramount+",
+      "channel": "Paramount+",
+      "published": "2026-11-22T10:00:22+00:00",
+      "url": "https://www.youtube.com/watch?v=ihMJyVJMJ08"
+    },
     {
       "id": "Ku5yVAAonEU",
       "title": "Chiara | Trailer Ufficiale | Netflix Italia",
@@ -413,13 +420,6 @@
       "channel": "FilmIsNow",
       "published": "2026-10-30T09:15:46+00:00",
       "url": "https://www.youtube.com/watch?v=ye8ArRfhgAo"
-    },
-    {
-      "id": "kx0uZz9cw90",
-      "title": "Ramayana: La nascita di una leggenda - Dal 19 novembre al cinema - Trailer Ufficiale",
-      "channel": "Sony Pictures",
-      "published": "2026-10-29T17:00:02+00:00",
-      "url": "https://www.youtube.com/watch?v=kx0uZz9cw90"
     }
   ]
 }
