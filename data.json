@@ -1,6 +1,20 @@
 {
-  "updated_at": "2026-11-24T09:52:32.815242+00:00",
+  "updated_at": "2026-11-24T22:25:22.470284+00:00",
   "trailers": [
+    {
+      "id": "Z3215nwgvRs",
+      "title": "Germany Shore | Trailer ufficiale - Paramount+",
+      "channel": "Paramount+",
+      "published": "2026-11-24T19:01:44+00:00",
+      "url": "https://www.youtube.com/watch?v=Z3215nwgvRs"
+    },
+    {
+      "id": "8RZbGO23qvU",
+      "title": "UN TALENTO PER IL CRIMINE Trailer Ita Ufficiale (2026) Helen Mirren, Olivia Cooke",
+      "channel": "Box Office Trailers",
+      "published": "2026-11-24T11:04:07+00:00",
+      "url": "https://www.youtube.com/watch?v=8RZbGO23qvU"
+    },
     {
       "id": "t43jOT2DHpE",
       "title": "K-POP: VIVI IL TUO SOGNO (2027) | Trailer ITA | Da BTS a TWICE, alza il volume",
@@ -406,20 +420,6 @@
       "channel": "FilmIsNow",
       "published": "2026-11-05T08:59:08+00:00",
       "url": "https://www.youtube.com/watch?v=mGd5msu0djI"
-    },
-    {
-      "id": "Q5qGwUB1UBA",
-      "title": "Il capo perfetto | Trailer ufficiale | Netflix",
-      "channel": "Netflix",
-      "published": "2026-11-04T17:00:00+00:00",
-      "url": "https://www.youtube.com/watch?v=Q5qGwUB1UBA"
-    },
-    {
-      "id": "eox8cIWFIQ0",
-      "title": "ANGRY BIRDS 3: TERREMOTO IN FAMIGLIA Trailer 2 Ita Ufficiale (2026)",
-      "channel": "Box Office Trailers",
-      "published": "2026-11-04T14:12:26+00:00",
-      "url": "https://www.youtube.com/watch?v=eox8cIWFIQ0"
     }
   ]
 }
