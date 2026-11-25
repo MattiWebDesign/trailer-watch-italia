@@ -1,6 +1,20 @@
 {
-  "updated_at": "2026-11-25T08:30:42.069574+00:00",
+  "updated_at": "2026-11-25T21:40:19.412410+00:00",
   "trailers": [
+    {
+      "id": "9NnUfmzRwZo",
+      "title": "ALICE NEL PAESE DEI COLONI (2026) | Trailer Ufficiale | Restare a ogni costo",
+      "channel": "FilmIsNow",
+      "published": "2026-11-25T14:26:28+00:00",
+      "url": "https://www.youtube.com/watch?v=9NnUfmzRwZo"
+    },
+    {
+      "id": "QfizC2qlYYY",
+      "title": "Il Ministero dell’Amore | Trailer Ufficiale | Dal 18 dicembre su Prime Video ​",
+      "channel": "Prime Video",
+      "published": "2026-11-25T11:13:10+00:00",
+      "url": "https://www.youtube.com/watch?v=QfizC2qlYYY"
+    },
     {
       "id": "Z3215nwgvRs",
       "title": "Germany Shore | Trailer ufficiale - Paramount+",
@@ -406,20 +420,6 @@
       "channel": "Paramount+",
       "published": "2026-11-05T16:20:40+00:00",
       "url": "https://www.youtube.com/watch?v=MXHdU0tSHgQ"
-    },
-    {
-      "id": "uNYZ4V3ENwc",
-      "title": "Criminal Teaser Ufficiale | Prime Video",
-      "channel": "Prime Video",
-      "published": "2026-11-05T15:00:39+00:00",
-      "url": "https://www.youtube.com/watch?v=uNYZ4V3ENwc"
-    },
-    {
-      "id": "mGd5msu0djI",
-      "title": "NELLA GIOIA E NEL DOLORE (2026) | Trailer ITA | Il nuovo film di Ferzan Özpetek",
-      "channel": "FilmIsNow",
-      "published": "2026-11-05T08:59:08+00:00",
-      "url": "https://www.youtube.com/watch?v=mGd5msu0djI"
     }
   ]
 }
