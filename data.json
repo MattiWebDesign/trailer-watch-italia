@@ -1,6 +1,27 @@
 {
-  "updated_at": "2026-11-26T08:14:36.949996+00:00",
+  "updated_at": "2026-11-26T21:29:45.911300+00:00",
   "trailers": [
+    {
+      "id": "D4U2YOgghYc",
+      "title": "SCHERZETTO Trailer Ita Ufficiale (2026) Toni Servillo",
+      "channel": "Box Office Trailers",
+      "published": "2026-11-26T12:38:47+00:00",
+      "url": "https://www.youtube.com/watch?v=D4U2YOgghYc"
+    },
+    {
+      "id": "XAn_hr67BgM",
+      "title": "BENTORNATI AL SUD (2026) | Trailer ITA | Bisio e Siani tornano a Castellabate",
+      "channel": "FilmIsNow",
+      "published": "2026-11-26T10:00:18+00:00",
+      "url": "https://www.youtube.com/watch?v=XAn_hr67BgM"
+    },
+    {
+      "id": "wITBAfe_lmI",
+      "title": "BUNKER (2026) | Trailer ITA | Javier Bardem, Penélope Cruz",
+      "channel": "FilmIsNow",
+      "published": "2026-11-26T08:15:02+00:00",
+      "url": "https://www.youtube.com/watch?v=wITBAfe_lmI"
+    },
     {
       "id": "9NnUfmzRwZo",
       "title": "ALICE NEL PAESE DEI COLONI (2026) | Trailer Ufficiale | Restare a ogni costo",
@@ -399,27 +420,6 @@
       "channel": "Netflix",
       "published": "2026-11-06T13:00:02+00:00",
       "url": "https://www.youtube.com/watch?v=WQQUOwOJ4z8"
-    },
-    {
-      "id": "p0pgqujP9ZM",
-      "title": "Soy Luna: Di nuovo in pista | Trailer Ufficiale | Disney+ Italia",
-      "channel": "Disney+",
-      "published": "2026-11-06T12:22:39+00:00",
-      "url": "https://www.youtube.com/watch?v=p0pgqujP9ZM"
-    },
-    {
-      "id": "9ZiePpwIlAE",
-      "title": "Bad Monkey — Season 2 Official Trailer | Apple TV",
-      "channel": "Apple TV+",
-      "published": "2026-11-05T16:59:54+00:00",
-      "url": "https://www.youtube.com/watch?v=9ZiePpwIlAE"
-    },
-    {
-      "id": "MXHdU0tSHgQ",
-      "title": "Yellowjackets S4 | Trailer Ufficiale ITA - Paramount+",
-      "channel": "Paramount+",
-      "published": "2026-11-05T16:20:40+00:00",
-      "url": "https://www.youtube.com/watch?v=MXHdU0tSHgQ"
     }
   ]
 }
