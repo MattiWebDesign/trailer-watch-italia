@@ -1,6 +1,13 @@
 {
-  "updated_at": "2026-11-26T21:29:45.911300+00:00",
+  "updated_at": "2026-11-27T08:28:59.901477+00:00",
   "trailers": [
+    {
+      "id": "M1YCYp6ThC4",
+      "title": "SCHERZETTO (2026) | Trailer ITA | Toni Servillo alle prese con un nipote impossibile",
+      "channel": "FilmIsNow",
+      "published": "2026-11-27T08:12:06+00:00",
+      "url": "https://www.youtube.com/watch?v=M1YCYp6ThC4"
+    },
     {
       "id": "D4U2YOgghYc",
       "title": "SCHERZETTO Trailer Ita Ufficiale (2026) Toni Servillo",
@@ -413,13 +420,6 @@
       "channel": "FilmIsNow",
       "published": "2026-11-06T13:29:39+00:00",
       "url": "https://www.youtube.com/watch?v=ucY0wlkA_Fc"
-    },
-    {
-      "id": "WQQUOwOJ4z8",
-      "title": "LE NUOVE DISAVVENTURE DI CLIFF BOOTH | Trailer ufficiale 2 | Netflix Italia",
-      "channel": "Netflix",
-      "published": "2026-11-06T13:00:02+00:00",
-      "url": "https://www.youtube.com/watch?v=WQQUOwOJ4z8"
     }
   ]
 }
