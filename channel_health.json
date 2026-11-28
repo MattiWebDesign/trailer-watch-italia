@@ -1,1 +1,62 @@
-{}
+{
+  "Netflix": {
+    "failures": 1,
+    "since": "2026-11-28T07:46:32.156677+00:00",
+    "problem": "errore: HTTP Error 503: Service Unavailable"
+  },
+  "Prime Video": {
+    "failures": 1,
+    "since": "2026-11-28T07:46:32.156677+00:00",
+    "problem": "errore: HTTP Error 503: Service Unavailable"
+  },
+  "Disney+": {
+    "failures": 1,
+    "since": "2026-11-28T07:46:32.156677+00:00",
+    "problem": "errore: HTTP Error 503: Service Unavailable"
+  },
+  "Paramount+": {
+    "failures": 1,
+    "since": "2026-11-28T07:46:32.156677+00:00",
+    "problem": "errore: HTTP Error 503: Service Unavailable"
+  },
+  "HBO Max": {
+    "failures": 1,
+    "since": "2026-11-28T07:46:32.156677+00:00",
+    "problem": "errore: HTTP Error 503: Service Unavailable"
+  },
+  "Warner Bros.": {
+    "failures": 1,
+    "since": "2026-11-28T07:46:32.156677+00:00",
+    "problem": "errore: HTTP Error 503: Service Unavailable"
+  },
+  "Sony Pictures": {
+    "failures": 1,
+    "since": "2026-11-28T07:46:32.156677+00:00",
+    "problem": "errore: HTTP Error 503: Service Unavailable"
+  },
+  "Paramount Pictures": {
+    "failures": 1,
+    "since": "2026-11-28T07:46:32.156677+00:00",
+    "problem": "errore: HTTP Error 503: Service Unavailable"
+  },
+  "Universal Pictures": {
+    "failures": 1,
+    "since": "2026-11-28T07:46:32.156677+00:00",
+    "problem": "errore: HTTP Error 503: Service Unavailable"
+  },
+  "Marvel": {
+    "failures": 1,
+    "since": "2026-11-28T07:46:32.156677+00:00",
+    "problem": "errore: HTTP Error 503: Service Unavailable"
+  },
+  "FilmIsNow": {
+    "failures": 1,
+    "since": "2026-11-28T07:46:32.156677+00:00",
+    "problem": "errore: HTTP Error 503: Service Unavailable"
+  },
+  "Box Office Trailers": {
+    "failures": 1,
+    "since": "2026-11-28T07:46:32.156677+00:00",
+    "problem": "errore: HTTP Error 503: Service Unavailable"
+  }
+}
